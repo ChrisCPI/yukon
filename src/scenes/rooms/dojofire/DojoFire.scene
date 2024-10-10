@@ -1,0 +1,586 @@
+{
+    "id": "819c6d17-c61a-4f4d-9f6f-2d05fb0d2d02",
+    "sceneType": "SCENE",
+    "settings": {
+        "compilerInsertSpaces": true,
+        "javaScriptInitFieldsInConstructor": true,
+        "exportClass": true,
+        "autoImport": true,
+        "superClassName": "RoomScene",
+        "preloadMethodName": "_preload",
+        "preloadPackFiles": [
+            "yukon/assets/media/rooms/dojofire/dojofire-pack.json"
+        ],
+        "createMethodName": "_create",
+        "sceneKey": "DojoFire",
+        "borderWidth": 1520,
+        "borderHeight": 960
+    },
+    "displayList": [
+        {
+            "type": "Image",
+            "id": "77f932dc-e490-410d-b69d-d85fed297ee5",
+            "label": "bg_distant",
+            "texture": {
+                "key": "dojofire",
+                "frame": "bg/distant"
+            },
+            "x": 760,
+            "y": 366
+        },
+        {
+            "type": "Rectangle",
+            "id": "849b9dad-7fa7-427c-973b-fa4e5f2dae1d",
+            "label": "rectangle",
+            "x": 760,
+            "y": 670,
+            "isFilled": true,
+            "fillColor": "#B93D00",
+            "width": 1129,
+            "height": 422
+        },
+        {
+            "type": "Sprite",
+            "id": "c14b9f28-0d0c-45c3-9402-c5a41822297a",
+            "label": "bgFlame1",
+            "components": [
+                "Animation"
+            ],
+            "Animation.key": "bg/flame_1",
+            "Animation.end": 10,
+            "texture": {
+                "key": "dojofire",
+                "frame": "bg/flame_10001"
+            },
+            "x": 133,
+            "y": 262
+        },
+        {
+            "type": "Sprite",
+            "id": "304bbf48-37b5-45ec-aa14-67faec9483e1",
+            "label": "bgFlame2",
+            "components": [
+                "Animation"
+            ],
+            "Animation.key": "bg/flame_2",
+            "Animation.end": 10,
+            "texture": {
+                "key": "dojofire",
+                "frame": "bg/flame_20001"
+            },
+            "x": 1394,
+            "y": 258
+        },
+        {
+            "type": "Image",
+            "id": "c9bbf113-7fa6-418d-8ddb-f0cc40bbf11f",
+            "label": "volcano",
+            "texture": {
+                "key": "dojofire",
+                "frame": "bg/volcano"
+            },
+            "x": 762,
+            "y": 508
+        },
+        {
+            "type": "Sprite",
+            "id": "779d8848-0d5a-4c38-93b2-1a51b4c294ed",
+            "label": "sensei",
+            "scope": "CLASS",
+            "texture": {
+                "key": "dojofire",
+                "frame": "sensei/sensei0001"
+            },
+            "x": 636,
+            "y": 57,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "3e6a3260-90a0-4171-8704-db02a8071f89",
+            "label": "flowers",
+            "texture": {
+                "key": "dojofire",
+                "frame": "flowers"
+            },
+            "x": 907,
+            "y": 222
+        },
+        {
+            "type": "Image",
+            "id": "f254b723-f462-4cbf-b100-dadcf1b8e2a0",
+            "label": "cauldronBack",
+            "texture": {
+                "key": "dojofire",
+                "frame": "cauldron/back"
+            },
+            "x": 580.5,
+            "y": 224.5,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Sprite",
+            "id": "da789a43-b7f1-43f1-a52e-3f2263308dfe",
+            "label": "cauldronOpening",
+            "components": [
+                "Animation"
+            ],
+            "Animation.key": "cauldron/opening",
+            "Animation.end": 30,
+            "texture": {
+                "key": "dojofire",
+                "frame": "cauldron/opening0001"
+            },
+            "x": 616,
+            "y": 237
+        },
+        {
+            "type": "Sprite",
+            "id": "af14ada9-4962-47b2-a360-9f49189a5894",
+            "label": "cauldronSmoke",
+            "components": [
+                "Animation"
+            ],
+            "Animation.key": "cauldron/glow",
+            "Animation.end": 60,
+            "texture": {
+                "key": "dojofire",
+                "frame": "cauldron/glow0001"
+            },
+            "x": 616,
+            "y": 185
+        },
+        {
+            "type": "Sprite",
+            "id": "8259038c-d1a9-4ca9-a4c3-c19a4f2c87e4",
+            "label": "cauldronParticles",
+            "components": [
+                "Animation"
+            ],
+            "Animation.key": "cauldron/particles",
+            "Animation.end": 30,
+            "texture": {
+                "key": "dojofire",
+                "frame": "cauldron/particles0001"
+            },
+            "x": 614,
+            "y": 228
+        },
+        {
+            "type": "Image",
+            "id": "cb465f3b-f7c4-491c-9b8b-035cccf288c1",
+            "label": "cauldronFront",
+            "texture": {
+                "key": "dojofire",
+                "frame": "cauldron/front"
+            },
+            "x": 587.5,
+            "y": 235,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Rectangle",
+            "id": "ddcfe359-2530-437e-8de5-d24516fa0c13",
+            "label": "zone",
+            "components": [
+                "Zone",
+                "MoveTo"
+            ],
+            "Zone.hoverCallback": "() => this.onSenseiOver()",
+            "Zone.hoverOutCallback": "() => this.onSenseiOut()",
+            "Zone.callback": "() => this.onSenseiClick()",
+            "MoveTo.x": "760",
+            "MoveTo.y": "320",
+            "x": 758,
+            "y": 177,
+            "alpha": 0.5,
+            "isFilled": true,
+            "fillColor": "#00ff00",
+            "width": 240,
+            "height": 240
+        },
+        {
+            "type": "Image",
+            "id": "830fc0ed-4935-4dad-ba63-89d6787dbfc1",
+            "label": "legendPoster",
+            "components": [
+                "Button"
+            ],
+            "Button.spriteName": "bg/poster_1",
+            "Button.callback": "() => this.onLegendClick()",
+            "Button.activeFrame": false,
+            "Button.pixelPerfect": true,
+            "texture": {
+                "key": "dojofire",
+                "frame": "bg/poster_1"
+            },
+            "x": 365,
+            "y": 363
+        },
+        {
+            "type": "Image",
+            "id": "e3987856-31b7-4390-8f73-5209b26987fc",
+            "label": "instructionsPoster",
+            "components": [
+                "Button"
+            ],
+            "Button.spriteName": "bg/poster_2",
+            "Button.callback": "() => this.onInstructionsClick()",
+            "Button.activeFrame": false,
+            "Button.pixelPerfect": true,
+            "texture": {
+                "key": "dojofire",
+                "frame": "bg/poster_2"
+            },
+            "x": 1152,
+            "y": 368
+        },
+        {
+            "type": "Image",
+            "id": "f46f01ec-07d1-4b12-a6f0-85be80db403f",
+            "label": "pipe",
+            "texture": {
+                "key": "dojofire",
+                "frame": "bg/pipe"
+            },
+            "x": 1154,
+            "y": 354
+        },
+        {
+            "prefabId": "dd0c9306-214f-4c2d-9668-a77a70cafe4f",
+            "id": "256f9ede-b617-4054-baff-e4e7cdda1764",
+            "unlock": [
+                "x",
+                "y",
+                "moveToX",
+                "moveToY"
+            ],
+            "label": "waddle300",
+            "scope": "CLASS",
+            "moveToX": 470,
+            "moveToY": 520,
+            "x": 475,
+            "y": 526
+        },
+        {
+            "prefabId": "c5016574-0a83-461a-b803-259d608e7afb",
+            "id": "a3c3a4fc-9bad-466d-bb57-9ce4811d1061",
+            "unlock": [
+                "x",
+                "y",
+                "moveToX",
+                "moveToY"
+            ],
+            "label": "waddle301",
+            "scope": "CLASS",
+            "moveToX": 1040,
+            "moveToY": 520,
+            "x": 1042,
+            "y": 526
+        },
+        {
+            "prefabId": "389da694-4d2e-4314-bdff-167d22b36927",
+            "id": "c44911ee-3d58-4e0b-997b-8232acfd4ebd",
+            "unlock": [
+                "x",
+                "y",
+                "moveToX",
+                "moveToY"
+            ],
+            "label": "waddle302",
+            "scope": "CLASS",
+            "moveToX": 460,
+            "moveToY": 760,
+            "x": 464,
+            "y": 760
+        },
+        {
+            "prefabId": "9cada54a-0031-4c4f-9ea3-7fa101e8dced",
+            "id": "1d495fb5-047e-4d44-ae6f-4df6c0d39220",
+            "unlock": [
+                "x",
+                "y",
+                "moveToX",
+                "moveToY"
+            ],
+            "label": "waddle303",
+            "scope": "CLASS",
+            "moveToX": 1050,
+            "moveToY": 760,
+            "x": 1054,
+            "y": 759
+        },
+        {
+            "type": "Image",
+            "id": "db98fe75-d796-46d1-8193-924ce25e26da",
+            "label": "stairs",
+            "texture": {
+                "key": "dojofire",
+                "frame": "stairs"
+            },
+            "x": 740,
+            "y": 334.6515315859377,
+            "originY": 0.20289433981862204
+        },
+        {
+            "type": "Image",
+            "id": "1aab956a-48ba-4601-a9c8-c0b552d8a2cb",
+            "label": "hot_sauce",
+            "texture": {
+                "key": "dojofire",
+                "frame": "hot_sauce"
+            },
+            "x": 225.5,
+            "y": 543.5,
+            "originY": 0.07962776335292525
+        },
+        {
+            "type": "Sprite",
+            "id": "9aa33e10-7606-485c-b5b3-830eb533629e",
+            "label": "flame1",
+            "components": [
+                "Animation"
+            ],
+            "Animation.key": "flame/flame_1",
+            "Animation.end": 11,
+            "texture": {
+                "key": "dojofire",
+                "frame": "flame/flame_10001"
+            },
+            "x": 280,
+            "y": 532.0264281813274,
+            "originY": 0.7722114254506196
+        },
+        {
+            "type": "Sprite",
+            "id": "254e15b2-429a-4490-a72a-c54be4e9e26c",
+            "label": "flame2",
+            "components": [
+                "Animation"
+            ],
+            "Animation.key": "flame/flame_2",
+            "Animation.end": 11,
+            "texture": {
+                "key": "dojofire",
+                "frame": "flame/flame_20001"
+            },
+            "x": 564,
+            "y": 449.45225548006766,
+            "originY": 0.7756180438405413
+        },
+        {
+            "type": "Sprite",
+            "id": "e4bab841-c58f-490e-a7c9-f732afd24e7a",
+            "label": "flame3",
+            "components": [
+                "Animation"
+            ],
+            "Animation.key": "flame/flame_3",
+            "Animation.end": 11,
+            "texture": {
+                "key": "dojofire",
+                "frame": "flame/flame_30001"
+            },
+            "x": 955.5,
+            "y": 449.57471232980333,
+            "originY": 0.7725976986384266
+        },
+        {
+            "type": "Sprite",
+            "id": "e75ba624-1cc9-4cea-ba8c-71e589f80881",
+            "label": "flame4",
+            "components": [
+                "Animation"
+            ],
+            "Animation.key": "flame/flame_4",
+            "Animation.end": 11,
+            "texture": {
+                "key": "dojofire",
+                "frame": "flame/flame_40001"
+            },
+            "x": 1239,
+            "y": 534,
+            "originY": 0.7725878820393173
+        },
+        {
+            "type": "Sprite",
+            "id": "06bc2262-5b18-422e-8426-05f98671ee53",
+            "label": "flame5",
+            "components": [
+                "Animation"
+            ],
+            "Animation.key": "flame/flame_2",
+            "Animation.end": 11,
+            "texture": {
+                "key": "dojofire",
+                "frame": "flame/flame_20001"
+            },
+            "x": 254,
+            "y": 755,
+            "originY": 0.7756180438405413
+        },
+        {
+            "type": "Sprite",
+            "id": "929fdb8c-d943-4b13-b92d-0f7546fbd8b5",
+            "label": "flame6",
+            "components": [
+                "Animation"
+            ],
+            "Animation.key": "flame/flame_3",
+            "Animation.end": 11,
+            "texture": {
+                "key": "dojofire",
+                "frame": "flame/flame_30001"
+            },
+            "x": 540,
+            "y": 847,
+            "originY": 0.7725976986384266,
+            "flipX": true
+        },
+        {
+            "type": "Sprite",
+            "id": "143e8915-f122-448d-8985-22ef2f3f4561",
+            "label": "flame7",
+            "components": [
+                "Animation"
+            ],
+            "Animation.key": "flame/flame_4",
+            "Animation.end": 11,
+            "texture": {
+                "key": "dojofire",
+                "frame": "flame/flame_40001"
+            },
+            "x": 963,
+            "y": 852,
+            "originY": 0.7725878820393173
+        },
+        {
+            "type": "Sprite",
+            "id": "9028395c-1242-47d2-b80c-a6b4f9421963",
+            "label": "flame8",
+            "components": [
+                "Animation"
+            ],
+            "Animation.key": "flame/flame_1",
+            "Animation.end": 11,
+            "texture": {
+                "key": "dojofire",
+                "frame": "flame/flame_10001"
+            },
+            "x": 1271,
+            "y": 750,
+            "originY": 0.7722114254506196,
+            "flipX": true
+        },
+        {
+            "type": "Container",
+            "id": "c9bede91-4c2a-46bc-8e81-2c37bcd9884d",
+            "label": "foreground",
+            "y": 960,
+            "list": [
+                {
+                    "type": "Image",
+                    "id": "3f9b639d-5af7-4bd2-9395-66650c0124c9",
+                    "label": "fgBack",
+                    "texture": {
+                        "key": "dojofire",
+                        "frame": "fg/back"
+                    },
+                    "x": 762,
+                    "y": -228
+                },
+                {
+                    "type": "Sprite",
+                    "id": "7680f353-5b8d-4a4e-b71b-447d8efef91e",
+                    "label": "lavaLeft",
+                    "components": [
+                        "Animation"
+                    ],
+                    "Animation.key": "fg/lava_left",
+                    "Animation.end": 50,
+                    "texture": {
+                        "key": "dojofire",
+                        "frame": "fg/lava_left0001"
+                    },
+                    "x": 139,
+                    "y": -85
+                },
+                {
+                    "type": "Sprite",
+                    "id": "52962800-d47d-485a-a6f6-720e67c0d827",
+                    "label": "lavaRight",
+                    "components": [
+                        "Animation"
+                    ],
+                    "Animation.key": "fg/lava_right",
+                    "Animation.end": 50,
+                    "texture": {
+                        "key": "dojofire",
+                        "frame": "fg/lava_right0001"
+                    },
+                    "x": 1381,
+                    "y": -85
+                },
+                {
+                    "type": "Image",
+                    "id": "f421d79c-51df-4084-8e21-d7f90a23949c",
+                    "label": "fgFront",
+                    "texture": {
+                        "key": "dojofire",
+                        "frame": "fg/front"
+                    },
+                    "x": 760,
+                    "y": -92
+                }
+            ]
+        },
+        {
+            "type": "Image",
+            "id": "f8368dcf-c97e-4fd6-8b91-a1e62e7bd9c1",
+            "label": "cards",
+            "scope": "CLASS",
+            "components": [
+                "Button"
+            ],
+            "Button.spriteName": "cards_button",
+            "Button.callback": "() => this.interface.loadWidget('NinjaProgress')",
+            "Button.activeFrame": false,
+            "Button.pixelPerfect": true,
+            "texture": {
+                "key": "dojofire",
+                "frame": "cards_button"
+            },
+            "x": 1421,
+            "y": 875
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 4
+    },
+    "lists": [
+        {
+            "id": "c8fa90c4-eb87-42b0-bf25-b207abb55980",
+            "label": "sort",
+            "objectIds": [
+                "1aab956a-48ba-4601-a9c8-c0b552d8a2cb",
+                "9aa33e10-7606-485c-b5b3-830eb533629e",
+                "254e15b2-429a-4490-a72a-c54be4e9e26c",
+                "db98fe75-d796-46d1-8193-924ce25e26da",
+                "e4bab841-c58f-490e-a7c9-f732afd24e7a",
+                "e75ba624-1cc9-4cea-ba8c-71e589f80881",
+                "06bc2262-5b18-422e-8426-05f98671ee53",
+                "929fdb8c-d943-4b13-b92d-0f7546fbd8b5",
+                "143e8915-f122-448d-8985-22ef2f3f4561",
+                "9028395c-1242-47d2-b80c-a6b4f9421963",
+                "c9bede91-4c2a-46bc-8e81-2c37bcd9884d"
+            ]
+        }
+    ]
+}

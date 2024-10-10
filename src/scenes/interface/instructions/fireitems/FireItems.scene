@@ -1,0 +1,74 @@
+{
+    "id": "48ab0026-da06-4f4f-88ca-709675b18e8f",
+    "sceneType": "PREFAB",
+    "settings": {
+        "compilerInsertSpaces": true,
+        "javaScriptInitFieldsInConstructor": true,
+        "exportClass": true,
+        "autoImport": true,
+        "superClassName": "BaseContainer",
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "borderWidth": 1520,
+        "borderHeight": 960
+    },
+    "displayList": [
+        {
+            "type": "Container",
+            "id": "37458a2b-3844-483f-b834-fac9d35b618b",
+            "label": "container_1",
+            "x": 760,
+            "y": 480,
+            "list": [
+                {
+                    "type": "Rectangle",
+                    "id": "b7cfc003-3ecc-487f-8eee-a2571916ac7f",
+                    "label": "block",
+                    "components": [
+                        "Interactive"
+                    ],
+                    "isFilled": true,
+                    "fillColor": "#000000",
+                    "fillAlpha": 0.2,
+                    "width": 1520,
+                    "height": 960
+                },
+                {
+                    "type": "Image",
+                    "id": "1c38c2ef-db58-4e2f-b05b-6a52ccec9260",
+                    "label": "bg",
+                    "texture": {
+                        "key": "fireitems",
+                        "frame": "bg"
+                    },
+                    "x": 1,
+                    "y": -15.5
+                },
+                {
+                    "type": "Image",
+                    "id": "b7aac7a3-2340-4824-99cc-eae0a589dd3d",
+                    "label": "close",
+                    "components": [
+                        "Button"
+                    ],
+                    "Button.spriteName": "close",
+                    "Button.callback": "() => this.close()",
+                    "texture": {
+                        "key": "fireitems",
+                        "frame": "close"
+                    },
+                    "x": 216,
+                    "y": -391
+                }
+            ]
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 4
+    }
+}

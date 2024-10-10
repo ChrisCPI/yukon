@@ -8,6 +8,8 @@ const widgets = {
 
     'AgentQuiz': require('@scenes/interface/quiz/agent/AgentQuiz'),
     'FindFour': require('@scenes/games/four/FindFour'),
+    'FireItems': require('@scenes/interface/instructions/fireitems/FireItems'),
+    'FireInstructions': require('@scenes/interface/instructions/fireinstructions/FireInstructions'),
     'Mancala': require('@scenes/games/mancala/Mancala'),
     'Map': require('@scenes/interface/game/map/Map'),
     'Missions': require('@scenes/interface/game/missions/Missions'),

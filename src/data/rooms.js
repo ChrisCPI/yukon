@@ -149,6 +149,12 @@ const rooms = {
         x: 840,
         y: 480
     },
+    812: {
+        key: 'DojoFire',
+        scene: require('@rooms/dojofire/DojoFire').default,
+        x: 1280,
+        y: 620
+    },
     951: {
         key: 'Sensei',
         scene: require('@rooms/../games/sensei/Sensei').default

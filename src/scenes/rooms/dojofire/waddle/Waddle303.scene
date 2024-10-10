@@ -1,0 +1,199 @@
+{
+    "id": "9cada54a-0031-4c4f-9ea3-7fa101e8dced",
+    "sceneType": "PREFAB",
+    "settings": {
+        "compilerInsertSpaces": true,
+        "javaScriptInitFieldsInConstructor": true,
+        "exportClass": true,
+        "autoImport": true,
+        "superClassName": "BaseContainer",
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "borderWidth": 1520,
+        "borderHeight": 960
+    },
+    "displayList": [
+        {
+            "type": "Container",
+            "id": "554a67c0-5164-46c1-bf4a-615ab1ca3789",
+            "label": "waddle300",
+            "list": [
+                {
+                    "type": "Image",
+                    "id": "9613ab0d-94c6-4d3a-93ce-9100181a2f57",
+                    "label": "mat",
+                    "components": [
+                        "Button",
+                        "ShowHint"
+                    ],
+                    "Button.spriteName": "mat/mat_3",
+                    "Button.activeFrame": false,
+                    "Button.pixelPerfect": true,
+                    "ShowHint.text": "fire_hint",
+                    "texture": {
+                        "key": "dojofire",
+                        "frame": "mat/mat_3"
+                    }
+                },
+                {
+                    "prefabId": "3d402c83-0ef8-4993-bf56-3e076074ec9e",
+                    "id": "d4faf8fc-93ff-4d86-b7bd-90cdb55b59fc",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "visible"
+                    ],
+                    "label": "done3",
+                    "scope": "CLASS",
+                    "x": 158.6,
+                    "y": -69.4,
+                    "visible": false
+                },
+                {
+                    "prefabId": "3d402c83-0ef8-4993-bf56-3e076074ec9e",
+                    "id": "590f483e-9be2-44b2-af1e-54bef9b6b1e0",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "visible"
+                    ],
+                    "label": "done2",
+                    "scope": "CLASS",
+                    "x": -212.7,
+                    "y": 32.4,
+                    "visible": false
+                },
+                {
+                    "prefabId": "3d402c83-0ef8-4993-bf56-3e076074ec9e",
+                    "id": "e7025400-864b-45be-a1b8-2e2294d52420",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "visible"
+                    ],
+                    "label": "done1",
+                    "scope": "CLASS",
+                    "x": -24.9,
+                    "y": -93.8,
+                    "visible": false
+                },
+                {
+                    "prefabId": "3d402c83-0ef8-4993-bf56-3e076074ec9e",
+                    "id": "76c13d68-81f8-4905-8f51-ed7eb7ca5258",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "visible"
+                    ],
+                    "label": "done0",
+                    "scope": "CLASS",
+                    "x": -149.3,
+                    "y": -48.4,
+                    "visible": false
+                },
+                {
+                    "prefabId": "3d402c83-0ef8-4993-bf56-3e076074ec9e",
+                    "id": "be48b8c7-f4aa-4568-a752-b2fd4d405acb",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "sitFrame",
+                        "donePoint",
+                        "visible"
+                    ],
+                    "label": "seat3",
+                    "scope": "CLASS",
+                    "sitFrame": 6,
+                    "donePoint": "done3",
+                    "x": 85.7,
+                    "y": -9.3,
+                    "visible": false
+                },
+                {
+                    "prefabId": "3d402c83-0ef8-4993-bf56-3e076074ec9e",
+                    "id": "a252a2a0-6fa9-4bae-8747-adba93cd1665",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "sitFrame",
+                        "donePoint",
+                        "visible"
+                    ],
+                    "label": "seat2",
+                    "scope": "CLASS",
+                    "sitFrame": 6,
+                    "donePoint": "done2",
+                    "x": -27.5,
+                    "y": 33.9,
+                    "visible": false
+                },
+                {
+                    "prefabId": "3d402c83-0ef8-4993-bf56-3e076074ec9e",
+                    "id": "4e772bd7-1288-4dcf-9a74-1fb1f463cb0f",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "sitFrame",
+                        "donePoint",
+                        "visible"
+                    ],
+                    "label": "seat1",
+                    "scope": "CLASS",
+                    "sitFrame": 2,
+                    "donePoint": "done1",
+                    "x": 19.7,
+                    "y": -45.6,
+                    "visible": false
+                },
+                {
+                    "prefabId": "3d402c83-0ef8-4993-bf56-3e076074ec9e",
+                    "id": "5cafc711-4848-4dcf-a245-177028fa68d2",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "sitFrame",
+                        "donePoint",
+                        "visible"
+                    ],
+                    "label": "seat0",
+                    "scope": "CLASS",
+                    "sitFrame": 6,
+                    "donePoint": "done0",
+                    "x": -87.8,
+                    "y": -9.2,
+                    "visible": false
+                }
+            ]
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 4
+    },
+    "prefabProperties": [
+        {
+            "name": "moveToX",
+            "label": "moveToX",
+            "tooltip": "moveToX",
+            "defValue": 0,
+            "customDefinition": false,
+            "type": {
+                "id": "number"
+            }
+        },
+        {
+            "name": "moveToY",
+            "label": "moveToY",
+            "tooltip": "moveToY",
+            "defValue": 0,
+            "customDefinition": false,
+            "type": {
+                "id": "number"
+            }
+        }
+    ]
+}
