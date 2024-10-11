@@ -3,7 +3,7 @@
 import BaseContainer from "../../../base/BaseContainer";
 /* START-USER-IMPORTS */
 
-//import layout from '../layout'
+import layout from '../layout'
 
 /* END-USER-IMPORTS */
 
@@ -119,24 +119,22 @@ export default class CardJitsuCard extends BaseContainer {
         return this.disabled.visible
     }
 
-    init(player, state, card = null) {
-        if (!player.dealtCards.includes(null)) {
+    init(state, card = null) {
+        if (!this.scene.deck.includes(null)) {
             return
         }
 
-        this.player = player
-
-        let empty = player.dealtCards.indexOf(null)
-        player.dealtCards[empty] = this
+        let empty = this.scene.deck.indexOf(null)
+        this.scene.deck[empty] = this
 
         if (card) {
             this.updateCard(card)
         }
 
-        this.updateDepth()
+        //this.updateDepth()
         this.setState(state)
 
-        this.tweenToDealt(empty)
+        this.placeInDeck(empty)
     }
 
     get isPowerCard() {
@@ -155,7 +153,7 @@ export default class CardJitsuCard extends BaseContainer {
         this.valueText.text = card.value
         this.colorSprite.tint = tint
 
-        this.element.setFrame(`card/${card.element}`)
+        this.element.setFrame(`cards/card/${card.element}`)
 
         if (this.isPowerCard) {
             this.glow.tint = tint
@@ -169,12 +167,6 @@ export default class CardJitsuCard extends BaseContainer {
             case 'back':
                 this.setStateBack()
                 break
-            case 'pick':
-                this.setStatePick()
-                break
-            case 'reveal':
-                this.setStateReveal()
-                break
             default:
                 this.setStateFront()
                 break
@@ -182,7 +174,7 @@ export default class CardJitsuCard extends BaseContainer {
     }
 
     setStateFront() {
-        this.scale = layout.scale.front
+        this.scale = layout.scale.deck
         this.spacer = layout.spacer.dealtFront
 
         this.showFrontSprites(true)
@@ -215,32 +207,13 @@ export default class CardJitsuCard extends BaseContainer {
         this.glow.visible = show && this.isPowerCard
     }
 
-    tweenToDealt(empty) {
-        let seat = this.player.seat
+    placeInDeck(empty) {
+        let pos = layout.pos.card.deck
+        let spacer = layout.spacer.deck
 
-        let pos = layout.pos.dealts[seat]
+        let y = pos.y + (spacer * empty)
 
-        let x = (seat === 0)
-            ? pos.x + (this.spacer * empty)
-            : pos.x - (this.spacer * empty) - this.spacer
-
-        this.tweenTo(x, pos.y)
-
-        this.tween.once('complete', this.onTweenToDealtComplete, this)
-    }
-
-    onTweenToDealtComplete() {
-        if (this.player != this.scene.myPlayer) {
-            return
-        }
-
-        for (let card of this.player.dealtNotNull) {
-            if (card.tween) {
-                return
-            }
-        }
-
-        this.scene.allCardsDealt()
+        this.setPosition(pos.x, y)
     }
 
     tweenToPick() {
@@ -264,33 +237,6 @@ export default class CardJitsuCard extends BaseContainer {
         this.tween.once('complete', this.updateDepth, this)
     }
 
-    tweenToOver(cardIndex) {
-        if (this.tween) {
-            this.tween.once('complete', () => this.tweenToOver(cardIndex))
-            return
-        }
-
-        let spacer = layout.spacer.out
-
-        let pos = layout.pos.over[this.player.seat]
-
-        let x = pos.x + (spacer * cardIndex)
-
-        this.tweenTo(x, pos.y)
-    }
-
-    tweenTo(x, y) {
-        this.tween = this.scene.tweens.add({
-            targets: this,
-            duration: 500,
-
-            x: x,
-            y: y
-        })
-
-        this.tween.once('complete', this.removeTween, this)
-    }
-
     removeTween() {
         if (!this.tween) {
             return
@@ -308,8 +254,7 @@ export default class CardJitsuCard extends BaseContainer {
         this.input.hitArea.x = this.colorSprite.x
         this.input.hitArea.y = this.colorSprite.y
 
-        this.disabled.visible = false
-        this.glow.visible = this.isPowerCard
+        this.enableCard()
     }
 
     disableInput() {
@@ -320,6 +265,12 @@ export default class CardJitsuCard extends BaseContainer {
     disableCard() {
         this.disableInput()
         this.glow.visible = false
+        this.disabled.visible = true
+    }
+
+    enableCard() {
+        this.glow.visible = this.isPowerCard
+        this.disabled.visible = false
     }
 
     onUp() {

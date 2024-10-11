@@ -115,6 +115,20 @@
                     "fontStyle": "bold italic",
                     "color": "#000",
                     "strokeThickness": 7
+                },
+                {
+                    "type": "Rectangle",
+                    "id": "6810bd16-3443-470b-8ba5-0b7fbada61e1",
+                    "label": "maskRect",
+                    "scope": "CLASS",
+                    "x": -94,
+                    "y": -111,
+                    "originX": 0,
+                    "originY": 0,
+                    "visible": false,
+                    "isFilled": true,
+                    "width": 260,
+                    "height": 220
                 }
             ]
         }

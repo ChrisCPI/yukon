@@ -23,8 +23,6 @@ export default class Avatar extends BaseContainer {
         this.sensei;
         /** @type {Phaser.GameObjects.Sprite} */
         this.arm_front;
-        /** @type {Phaser.GameObjects.Rectangle} */
-        this.maskRect;
         /** @type {Phaser.GameObjects.Sprite[]} */
         this.tinted;
 
@@ -57,15 +55,6 @@ export default class Avatar extends BaseContainer {
         const arm_front = scene.add.sprite(-1, -1, "fire", "portraits/avatar/arm-front0001");
         this.add(arm_front);
 
-        // maskRect
-        const maskRect = scene.add.rectangle(-161, -208, 380, 300);
-        maskRect.setOrigin(0, 0);
-        maskRect.visible = false;
-        maskRect.isFilled = true;
-        maskRect.fillColor = 65280;
-        maskRect.fillAlpha = 0.5;
-        this.add(maskRect);
-
         // lists
         const tinted = [arm_front, body, arm_back];
 
@@ -76,7 +65,6 @@ export default class Avatar extends BaseContainer {
         this.beak = beak;
         this.sensei = sensei;
         this.arm_front = arm_front;
-        this.maskRect = maskRect;
         this.tinted = tinted;
 
         /* START-USER-CTR-CODE */
@@ -95,18 +83,6 @@ export default class Avatar extends BaseContainer {
 
         this.ninja.visible = !user.isSensei
         this.sensei.visible = user.isSensei
-
-        // Mask
-        let rect = this.maskRect
-        let graphics = this.scene.make.graphics()
-
-        let matrix = rect.getWorldTransformMatrix()
-
-        graphics.fillRect(matrix.getX(0, 0), matrix.getY(0, 0), rect.width, rect.height)
-
-        let mask = graphics.createGeometryMask()
-
-        this.setMask(mask)
     }
 
     /* END-USER-CODE */

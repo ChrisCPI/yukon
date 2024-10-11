@@ -9,7 +9,7 @@ import Energy from "./energy/Energy";
 export default class Portrait extends BasePortrait {
 
     constructor(scene, x, y) {
-        super(scene, x ?? 0, y ?? 0);
+        super(scene, x ?? 760, y ?? 480);
 
         /** @type {Phaser.GameObjects.Image} */
         this.highlight;
@@ -29,6 +29,8 @@ export default class Portrait extends BasePortrait {
         this.arrow;
         /** @type {Phaser.GameObjects.Text} */
         this.nickname;
+        /** @type {Phaser.GameObjects.Rectangle} */
+        this.maskRect;
         /** @type {number} */
         this.seat = 0;
 
@@ -77,6 +79,15 @@ export default class Portrait extends BasePortrait {
         nickname.setStyle({ "align": "center", "color": "#000", "fixedWidth":200,"fixedHeight":40,"fontFamily": "CCFaceFront", "fontSize": "25px", "fontStyle": "bold italic", "strokeThickness":7});
         this.add(nickname);
 
+        // maskRect
+        const maskRect = scene.add.rectangle(-137, -130, 220, 220);
+        maskRect.setOrigin(0, 0);
+        maskRect.visible = false;
+        maskRect.isFilled = true;
+        maskRect.fillColor = 65280;
+        maskRect.fillAlpha = 0.5;
+        this.add(maskRect);
+
         this.highlight = highlight;
         this.bg = bg;
         this.side = side;
@@ -86,6 +97,7 @@ export default class Portrait extends BasePortrait {
         this.energy = energy;
         this.arrow = arrow;
         this.nickname = nickname;
+        this.maskRect = maskRect;
 
         /* START-USER-CTR-CODE */
         /* END-USER-CTR-CODE */

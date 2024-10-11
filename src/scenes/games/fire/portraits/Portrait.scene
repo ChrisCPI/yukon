@@ -18,6 +18,8 @@
             "type": "Container",
             "id": "d4f3be7b-b532-4cb8-8d6c-9543cffb0961",
             "label": "container_1",
+            "x": 760,
+            "y": 480,
             "list": [
                 {
                     "type": "Image",
@@ -140,6 +142,22 @@
                     "fontStyle": "bold italic",
                     "color": "#000",
                     "strokeThickness": 7
+                },
+                {
+                    "type": "Rectangle",
+                    "id": "3dada093-5710-469e-9c10-dbe66f36b24b",
+                    "label": "maskRect",
+                    "scope": "CLASS",
+                    "x": -137,
+                    "y": -130,
+                    "originX": 0,
+                    "originY": 0,
+                    "visible": false,
+                    "isFilled": true,
+                    "fillColor": "#00ff00",
+                    "fillAlpha": 0.5,
+                    "width": 220,
+                    "height": 220
                 }
             ]
         }

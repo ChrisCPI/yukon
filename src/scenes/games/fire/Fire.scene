@@ -68,6 +68,61 @@
             "y": 540
         },
         {
+            "type": "Image",
+            "id": "f2d999e1-9a1e-4e52-816c-36b376a0b4e9",
+            "label": "bg_front_rock",
+            "texture": {
+                "key": "fire",
+                "frame": "bg/front/rock"
+            },
+            "x": 761,
+            "y": 714
+        },
+        {
+            "type": "Sprite",
+            "id": "6e30ad44-67f2-4afd-925d-46f8229a8840",
+            "label": "lava2",
+            "components": [
+                "Animation"
+            ],
+            "Animation.key": "bg/front/lava_anim",
+            "Animation.end": 51,
+            "texture": {
+                "key": "fire",
+                "frame": "bg/front/lava_anim0001"
+            },
+            "x": 1390,
+            "y": 961
+        },
+        {
+            "type": "Sprite",
+            "id": "9ea8fcfb-7acc-4a24-bfb6-0363226c19ad",
+            "label": "lava1",
+            "components": [
+                "Animation"
+            ],
+            "Animation.key": "bg/front/lava_anim",
+            "Animation.end": 51,
+            "texture": {
+                "key": "fire",
+                "frame": "bg/front/lava_anim0001"
+            },
+            "x": 141,
+            "y": 961,
+            "flipX": true
+        },
+        {
+            "type": "Image",
+            "id": "daa263ea-61aa-4a39-bdec-da025cabba16",
+            "label": "bg_front_top",
+            "texture": {
+                "key": "fire",
+                "frame": "bg/front/top"
+            },
+            "x": 728,
+            "y": 876
+        },
+        {
             "prefabId": "397ec0b2-70f4-489a-a37e-a30e233fedf7",
             "id": "df9faf1f-822f-4aee-aa24-df788c3ff90f",
             "unlock": [
@@ -164,6 +219,36 @@
             },
             "x": 1471,
             "y": 46
+        },
+        {
+            "type": "Text",
+            "id": "b6192cd9-e585-4625-825d-f38c8cf0dd08",
+            "label": "statusText",
+            "scope": "CLASS",
+            "x": 776.791114206862,
+            "y": 369.9863075131626,
+            "originX": 0.4459703740153312,
+            "originY": 0.4098174200271478,
+            "visible": false,
+            "alpha": 0,
+            "alphaTopLeft": 0,
+            "alphaTopRight": 0,
+            "alphaBottomLeft": 0,
+            "alphaBottomRight": 0,
+            "text": "<empty message>",
+            "fixedWidth": 600,
+            "fixedHeight": 150,
+            "paddingTop": 20,
+            "align": "center",
+            "fontFamily": "CCComiccrazy",
+            "fontSize": "45px",
+            "color": "#000",
+            "stroke": "#ff9900",
+            "strokeThickness": 8,
+            "shadow.stroke": true,
+            "shadow.fill": true,
+            "shadow.color": "#f5d589",
+            "shadow.blur": 25
         },
         {
             "prefabId": "4fa1d156-ce19-4ed0-8dae-0dc698757c12",

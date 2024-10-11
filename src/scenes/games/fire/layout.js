@@ -46,6 +46,11 @@ const layout = {
         },
         y: {
             color: 0xfbeb2d
+        },
+
+        energy: {
+            enabled: [0xffff00, 0x00ff00, 0xff00ff, 0x00ffff],
+            disabled: [0xff9600, 0x007f00, 0x7f007f, 0x007f7f]
         }
     }
 }

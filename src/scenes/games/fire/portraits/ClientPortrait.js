@@ -25,6 +25,8 @@ export default class ClientPortrait extends BasePortrait {
         this.energy;
         /** @type {Phaser.GameObjects.Text} */
         this.nickname;
+        /** @type {Phaser.GameObjects.Rectangle} */
+        this.maskRect;
 
 
         // bg
@@ -60,6 +62,13 @@ export default class ClientPortrait extends BasePortrait {
         nickname.setStyle({ "align": "center", "color": "#000", "fixedWidth":300,"fixedHeight":40,"fontFamily": "CCFaceFront", "fontSize": "30px", "fontStyle": "bold italic", "strokeThickness":7});
         this.add(nickname);
 
+        // maskRect
+        const maskRect = scene.add.rectangle(-94, -111, 260, 220);
+        maskRect.setOrigin(0, 0);
+        maskRect.visible = false;
+        maskRect.isFilled = true;
+        this.add(maskRect);
+
         this.bg = bg;
         this.side = side;
         this.bottom = bottom;
@@ -67,6 +76,7 @@ export default class ClientPortrait extends BasePortrait {
         this.avatar = avatar;
         this.energy = energy;
         this.nickname = nickname;
+        this.maskRect = maskRect;
 
         /* START-USER-CTR-CODE */
         /* END-USER-CTR-CODE */

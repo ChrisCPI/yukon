@@ -2,6 +2,9 @@
 
 import BaseContainer from "../../../../base/BaseContainer";
 /* START-USER-IMPORTS */
+
+import layout from '../../layout'
+
 /* END-USER-IMPORTS */
 
 export default class Energy extends BaseContainer {
@@ -36,7 +39,7 @@ export default class Energy extends BaseContainer {
         this.add(outline);
 
         // text
-        const text = scene.add.text(-5, 0, "", {});
+        const text = scene.add.text(0, 1, "", {});
         text.setOrigin(0.5, 0.5);
         text.text = "10";
         text.setStyle({ "align": "center", "color": "#000", "fixedWidth":70,"fixedHeight":45,"fontFamily": "CCFaceFront", "fontSize": "37px", "fontStyle": "bold italic", "strokeThickness":7});
@@ -47,11 +50,37 @@ export default class Energy extends BaseContainer {
         this.text = text;
 
         /* START-USER-CTR-CODE */
+
+        this.energy = 0
+
         /* END-USER-CTR-CODE */
     }
 
 
     /* START-USER-CODE */
+
+    setEnergy(energy) {
+        if (energy > this.energy) {
+            // play gain energy
+        } else if (energy < this.energy) {
+            // play lose energy
+        }
+
+        this.text.text = energy
+
+        this.energy = energy
+    }
+
+    tintEnabled() {
+        const seat = this.parentContainer.seat
+        this.fill.tint = layout.colors.energy.enabled[seat]
+    }
+
+    tintDisabled() {
+        const seat = this.parentContainer.seat
+        this.fill.tint = layout.colors.energy.disabled[seat]
+    }
+
     /* END-USER-CODE */
 }
 

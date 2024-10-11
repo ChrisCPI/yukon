@@ -9,6 +9,10 @@ import Button from "../../components/Button";
 import ElementPopup from "./popups/element/ElementPopup";
 import TimerPopup from "./popups/timer/TimerPopup";
 /* START-USER-IMPORTS */
+
+import CardLoader from '@engine/loaders/CardLoader'
+import CardJitsuCard from './card/CardJitsuCard'
+
 /* END-USER-IMPORTS */
 
 export default class Fire extends GameScene {
@@ -28,6 +32,8 @@ export default class Fire extends GameScene {
         this.portrait3;
         /** @type {Phaser.GameObjects.Image} */
         this.closeX;
+        /** @type {Phaser.GameObjects.Text} */
+        this.statusText;
         /** @type {ElementPopup} */
         this.elementPopup;
         /** @type {TimerPopup} */
@@ -63,6 +69,19 @@ export default class Fire extends GameScene {
         const board = new Board(this, 780, 540);
         this.add.existing(board);
 
+        // bg_front_rock
+        this.add.image(761, 714, "fire", "bg/front/rock");
+
+        // lava2
+        const lava2 = this.add.sprite(1390, 961, "fire", "bg/front/lava_anim0001");
+
+        // lava1
+        const lava1 = this.add.sprite(141, 961, "fire", "bg/front/lava_anim0001");
+        lava1.flipX = true;
+
+        // bg_front_top
+        this.add.image(728, 876, "fire", "bg/front/top");
+
         // portrait0
         const portrait0 = new ClientPortrait(this, 168, 175);
         this.add.existing(portrait0);
@@ -94,6 +113,19 @@ export default class Fire extends GameScene {
         // closeX
         const closeX = this.add.image(1471, 46, "main", "grey-x");
 
+        // statusText
+        const statusText = this.add.text(776.791114206862, 369.9863075131626, "", {});
+        statusText.setOrigin(0.4459703740153312, 0.4098174200271478);
+        statusText.visible = false;
+        statusText.alpha = 0;
+        statusText.alphaTopLeft = 0;
+        statusText.alphaTopRight = 0;
+        statusText.alphaBottomLeft = 0;
+        statusText.alphaBottomRight = 0;
+        statusText.text = "<empty message>";
+        statusText.setStyle({ "align": "center", "color": "#000", "fixedWidth":600,"fixedHeight":150,"fontFamily": "CCComiccrazy", "fontSize": "45px", "stroke": "#ff9900", "strokeThickness":8,"shadow.color": "#f5d589", "shadow.blur":25,"shadow.stroke":true,"shadow.fill":true});
+        statusText.setPadding({"top":20});
+
         // elementPopup
         const elementPopup = new ElementPopup(this, 780, 450);
         this.add.existing(elementPopup);
@@ -108,6 +140,16 @@ export default class Fire extends GameScene {
         const lanternLightAnimation = new Animation(lanternLight);
         lanternLightAnimation.key = "bg/back/lantern_light";
         lanternLightAnimation.end = 80;
+
+        // lava2 (components)
+        const lava2Animation = new Animation(lava2);
+        lava2Animation.key = "bg/front/lava_anim";
+        lava2Animation.end = 51;
+
+        // lava1 (components)
+        const lava1Animation = new Animation(lava1);
+        lava1Animation.key = "bg/front/lava_anim";
+        lava1Animation.end = 51;
 
         // portrait1 (prefab fields)
         portrait1.seat = 1;
@@ -129,6 +171,7 @@ export default class Fire extends GameScene {
         this.portrait2 = portrait2;
         this.portrait3 = portrait3;
         this.closeX = closeX;
+        this.statusText = statusText;
         this.elementPopup = elementPopup;
         this.timerPopup = timerPopup;
 
@@ -145,11 +188,19 @@ export default class Fire extends GameScene {
 
         this.portraits = [this.portrait0, this.portrait1, this.portrait2, this.portrait3]
 
+        this.deck = [null, null, null, null, null]
+
+        this.onCardLoad = this.onCardLoad.bind(this)
+
+        this.cardLoader = new CardLoader(this)
+
         for (const portrait of this.portraits) {
             portrait.close()
         }
 
         this.ninjas = []
+
+        this.currentNinja = null
 
         this.timerPopup.show()
 
@@ -158,10 +209,16 @@ export default class Fire extends GameScene {
 
     addListeners() {
         this.network.events.on('start_game', this.handleStartGame, this)
+        this.network.events.on('next_round', this.handleNextRound, this)
     }
 
     removeListeners() {
         this.network.events.off('start_game', this.handleStartGame, this)
+        this.network.events.off('next_round', this.handleNextRound, this)
+    }
+
+    get isMyTurn() {
+        return this.world.isClientUsername(this.currentNinja.username)
     }
 
     handleStartGame(args) {
@@ -186,6 +243,86 @@ export default class Fire extends GameScene {
 
             ninja.portrait.setPlayer(user)
         }
+    }
+
+    handleNextRound(args) {
+        for (let [slot, card] of args.deck.entries()) {
+            if (this.deck[slot] !== null) continue
+
+            this.cardLoader.loadCard(card, this.onCardLoad)
+        }
+
+        if (this.currentNinja) {
+            this.currentNinja.portrait.disablePortrait()
+        }
+        this.currentNinja = this.ninjas[args.ninja]
+        this.currentNinja.portrait.enablePortrait()
+
+        let text
+        if (this.isMyTurn) {
+            text = this.getString('fire_client_turn')
+        } else {
+            text = this.getFormatString('fire_turn', this.currentNinja.username.toUpperCase())
+        }
+
+        this.playStatusText(text)
+    }
+
+    onCardLoad(key, card) {
+        const newCard = this.createCard()
+
+        newCard.init('front', card)
+        newCard.icon.setTexture(key)
+    }
+
+    createCard() {
+        let card = new CardJitsuCard(this)
+        this.add.existing(card)
+
+        return card
+    }
+
+    playStatusText(text) {
+        this.statusText.text = text
+
+        this.tweens.killTweensOf(this.statusText)
+
+        this.statusText.visible = true
+
+        const data = {
+            targets: this.statusText,
+            ease: 'Linear'
+        }
+
+        this.tweens.chain({
+            ...data,
+            tweens: [
+                {
+                    scale: { from: 0.25, to: 0.8 },
+                    duration: 875
+                },
+                {
+                    scale: { from: 0.8, to: 1 },
+                    duration: 958
+                }
+            ]
+        })
+
+        this.tweens.chain({
+            ...data,
+            tweens: [
+                {
+                    alpha: { from: 0, to: 1 },
+                    duration: 125
+                },
+                {
+                    delay: 1250,
+                    alpha: { from: 1, to: 0 },
+                    duration: 375
+                }
+            ],
+            onComplete: () => this.statusText.visible = false
+        })
     }
 
     sendLeaveGame() {

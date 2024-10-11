@@ -65,7 +65,7 @@
                     "id": "d6662dbe-f054-4dbe-a698-1b95f1a5b0a4",
                     "label": "text",
                     "scope": "CLASS",
-                    "x": -5,
+                    "y": 1,
                     "originX": 0.5,
                     "originY": 0.5,
                     "text": "10",

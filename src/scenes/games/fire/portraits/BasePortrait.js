@@ -9,6 +9,8 @@ export default class BasePortrait extends BaseContainer {
     }
 
     setPlayer(user) {
+        this.createMask()
+
         this.nickname.text = user.username
 
         this.top.setFrame(`portraits/${this.seat}/top`)
@@ -17,7 +19,48 @@ export default class BasePortrait extends BaseContainer {
 
         this.avatar.setPlayer(user)
 
+        this.energy.setEnergy(user.energy)
+        this.energy.tintDisabled()
+
+        if (this.arrow) this.arrow.visible = false
+
         this.show()
+    }
+
+    enablePortrait() {
+        this.setParts(true)
+    }
+
+    disablePortrait() {
+        this.setParts(false)
+    }
+
+    setParts(enabled) {
+        const suffix = enabled ? '-active' : ''
+
+        this.bg.setFrame(`portraits/${this.seat === 0 ? 0 : 'common'}/bg${suffix}`)
+        this.top.setFrame(`portraits/${this.seat}/top${suffix}`)
+        this.side.setFrame(`portraits/${this.seat}/side${suffix}`)
+        this.bottom.setFrame(`portraits/${this.seat}/bottom${suffix}`)
+
+        if (enabled) {
+            this.energy.tintEnabled()
+        } else {
+            this.energy.tintDisabled()
+        }
+    }
+
+    createMask() {
+        let rect = this.maskRect
+        let graphics = this.scene.make.graphics()
+
+        let matrix = rect.getWorldTransformMatrix()
+
+        graphics.fillRect(matrix.getX(0, 0), matrix.getY(0, 0), rect.width, rect.height)
+
+        let mask = graphics.createGeometryMask()
+
+        this.avatar.setMask(mask)
     }
 
 }
