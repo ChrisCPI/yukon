@@ -36,6 +36,10 @@ export default class GameScene extends BaseScene {
 
     preload() {
         this._preload()
+
+        if (this.music && !this.cache.audio.exists(this.music)) {
+            this.load.audio(this.music, `assets/media/music/${this.music}.mp3`)
+        }
     }
 
     stop() {

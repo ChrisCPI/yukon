@@ -1,0 +1,204 @@
+{
+    "id": "3a075371-8fef-4d76-8453-cfe8b42074f2",
+    "sceneType": "SCENE",
+    "settings": {
+        "compilerInsertSpaces": true,
+        "javaScriptInitFieldsInConstructor": true,
+        "exportClass": true,
+        "autoImport": true,
+        "superClassName": "GameScene",
+        "preloadMethodName": "_preload",
+        "preloadPackFiles": [
+            "yukon/assets/media/games/fire/fire-pack.json"
+        ],
+        "createMethodName": "_create",
+        "sceneKey": "Fire",
+        "borderWidth": 1520,
+        "borderHeight": 960
+    },
+    "displayList": [
+        {
+            "type": "Image",
+            "id": "d908d7bc-04b2-48fe-bdf5-fb343c4b7ff1",
+            "label": "bg_back_bg",
+            "texture": {
+                "key": "fire",
+                "frame": "bg/back/bg"
+            },
+            "x": 761,
+            "y": 480
+        },
+        {
+            "type": "Sprite",
+            "id": "e849ceab-3a13-4284-a2da-44aa94c556be",
+            "label": "lanternLight",
+            "components": [
+                "Animation"
+            ],
+            "Animation.key": "bg/back/lantern_light",
+            "Animation.end": 80,
+            "texture": {
+                "key": "fire",
+                "frame": "bg/back/lantern_light0001"
+            },
+            "x": 1428,
+            "y": 365
+        },
+        {
+            "type": "Image",
+            "id": "854289ce-bdfd-4a02-8400-76a76444cdda",
+            "label": "lantern",
+            "texture": {
+                "key": "fire",
+                "frame": "bg/back/lantern"
+            },
+            "x": 1413,
+            "y": 390
+        },
+        {
+            "prefabId": "78ee7abc-2551-44f8-b39b-416b7e54e0bc",
+            "id": "a4850a73-c37c-416d-928f-0fc98e74c6dc",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "board",
+            "scope": "CLASS",
+            "x": 780,
+            "y": 540
+        },
+        {
+            "prefabId": "397ec0b2-70f4-489a-a37e-a30e233fedf7",
+            "id": "df9faf1f-822f-4aee-aa24-df788c3ff90f",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "portrait0",
+            "scope": "CLASS",
+            "x": 168,
+            "y": 175
+        },
+        {
+            "prefabId": "9f1b0ab1-0525-47e3-ab3a-bde0694ab0c7",
+            "id": "3c54031b-52e1-443d-bbe2-4aa6295de7a3",
+            "unlock": [
+                "x",
+                "y",
+                "seat"
+            ],
+            "label": "portrait1",
+            "scope": "CLASS",
+            "seat": 1,
+            "x": 1376,
+            "y": 216
+        },
+        {
+            "prefabId": "9f1b0ab1-0525-47e3-ab3a-bde0694ab0c7",
+            "id": "5d07d96f-ab67-4714-b1a1-1a7217e3c3e6",
+            "unlock": [
+                "x",
+                "y",
+                "seat"
+            ],
+            "label": "portrait2",
+            "scope": "CLASS",
+            "seat": 2,
+            "x": 1376,
+            "y": 506
+        },
+        {
+            "prefabId": "9f1b0ab1-0525-47e3-ab3a-bde0694ab0c7",
+            "id": "6ca210c4-d352-4b40-8c12-ea5a3e7624ae",
+            "unlock": [
+                "x",
+                "y",
+                "seat"
+            ],
+            "label": "portrait3",
+            "scope": "CLASS",
+            "seat": 3,
+            "x": 1376,
+            "y": 796
+        },
+        {
+            "type": "Image",
+            "id": "bfd25385-4e6f-4328-8813-ee0f94a41506",
+            "label": "closeButton",
+            "components": [
+                "Button"
+            ],
+            "Button.spriteName": "grey-button",
+            "Button.callback": "() => this.sendLeaveGame()",
+            "texture": {
+                "key": "main",
+                "frame": "grey-button"
+            },
+            "x": 1471,
+            "y": 48
+        },
+        {
+            "type": "Image",
+            "id": "f9b7f1e6-021e-47fd-a90a-0dafb995ce2a",
+            "label": "fire_ref",
+            "texture": {
+                "key": "fire_ref"
+            },
+            "x": 760,
+            "y": 480,
+            "visible": false,
+            "alpha": 0.5,
+            "alphaTopLeft": 0.5,
+            "alphaTopRight": 0.5,
+            "alphaBottomLeft": 0.5,
+            "alphaBottomRight": 0.5
+        },
+        {
+            "type": "Image",
+            "id": "82f99991-5827-42bf-a152-7d3e3e3b3716",
+            "label": "closeX",
+            "scope": "CLASS",
+            "texture": {
+                "key": "main",
+                "frame": "grey-x"
+            },
+            "x": 1471,
+            "y": 46
+        },
+        {
+            "prefabId": "4fa1d156-ce19-4ed0-8dae-0dc698757c12",
+            "id": "9d3f4575-8607-4e7d-8d28-4a9c6df2287d",
+            "unlock": [
+                "x",
+                "y",
+                "visible"
+            ],
+            "label": "elementPopup",
+            "scope": "CLASS",
+            "x": 780,
+            "y": 450,
+            "visible": false
+        },
+        {
+            "prefabId": "1b707097-a909-4ba0-a08d-c012bd34f4aa",
+            "id": "cf53fb92-43c4-4b60-a5e3-8e52f9dca8f7",
+            "unlock": [
+                "x",
+                "y",
+                "visible"
+            ],
+            "label": "timerPopup",
+            "scope": "CLASS",
+            "x": 760,
+            "y": 480,
+            "visible": false
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 4
+    }
+}

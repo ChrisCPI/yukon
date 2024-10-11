@@ -1,0 +1,62 @@
+{
+    "id": "75a9a8c8-f5c7-465d-91c1-41bbc27aaf01",
+    "sceneType": "PREFAB",
+    "settings": {
+        "compilerInsertSpaces": true,
+        "javaScriptInitFieldsInConstructor": true,
+        "exportClass": true,
+        "autoImport": true,
+        "superClassName": "BaseContainer",
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "borderWidth": 1520,
+        "borderHeight": 960
+    },
+    "displayList": [
+        {
+            "type": "Container",
+            "id": "8a253170-a37b-4e66-9ac2-34f1f80a907c",
+            "label": "container_1",
+            "x": 760,
+            "y": 480,
+            "list": [
+                {
+                    "type": "Image",
+                    "id": "03680cd7-c164-4490-a70e-eca6241d870f",
+                    "label": "bg",
+                    "texture": {
+                        "key": "fire",
+                        "frame": "cards/frame/bg"
+                    }
+                },
+                {
+                    "type": "Image",
+                    "id": "ba8ab6b0-c70d-4674-8090-be034437f133",
+                    "label": "outline",
+                    "texture": {
+                        "key": "fire",
+                        "frame": "cards/frame/outline"
+                    }
+                },
+                {
+                    "type": "Image",
+                    "id": "f2093a8d-8032-4a58-b530-89fe3517e53d",
+                    "label": "symbol",
+                    "scope": "CLASS",
+                    "texture": {
+                        "key": "fire",
+                        "frame": "cards/frame/symbol-cardjitsu"
+                    }
+                }
+            ]
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 4
+    }
+}

@@ -1,0 +1,91 @@
+{
+    "id": "6612fdc9-0029-4ec5-a81f-a91f9844091b",
+    "sceneType": "PREFAB",
+    "settings": {
+        "compilerInsertSpaces": true,
+        "javaScriptInitFieldsInConstructor": true,
+        "exportClass": true,
+        "autoImport": true,
+        "superClassName": "BaseContainer",
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "borderWidth": 1520,
+        "borderHeight": 960
+    },
+    "displayList": [
+        {
+            "type": "Container",
+            "id": "587afd90-f13b-4a0a-86a7-762e224e95cc",
+            "label": "container_1",
+            "list": [
+                {
+                    "type": "Sprite",
+                    "id": "3b59769e-6189-48c8-a211-bf0894d8853d",
+                    "label": "fire",
+                    "scope": "CLASS",
+                    "texture": {
+                        "key": "fire",
+                        "frame": "portraits/energy/fire0002"
+                    },
+                    "y": -74,
+                    "scaleX": 0.4,
+                    "scaleY": 0.4
+                },
+                {
+                    "type": "Image",
+                    "id": "8c4800ed-caa5-4f4e-a62e-ea3d91a1d609",
+                    "label": "fill",
+                    "scope": "CLASS",
+                    "texture": {
+                        "key": "fire",
+                        "frame": "portraits/energy/fill"
+                    }
+                },
+                {
+                    "type": "Image",
+                    "id": "f7f952be-20c7-41d3-985d-4830a9e3bd69",
+                    "label": "picture",
+                    "texture": {
+                        "key": "fire",
+                        "frame": "portraits/energy/picture"
+                    }
+                },
+                {
+                    "type": "Image",
+                    "id": "01ce9112-3a38-4b9a-b202-17d8fb40f05a",
+                    "label": "outline",
+                    "texture": {
+                        "key": "fire",
+                        "frame": "portraits/energy/outline"
+                    }
+                },
+                {
+                    "type": "Text",
+                    "id": "d6662dbe-f054-4dbe-a698-1b95f1a5b0a4",
+                    "label": "text",
+                    "scope": "CLASS",
+                    "x": -5,
+                    "originX": 0.5,
+                    "originY": 0.5,
+                    "text": "10",
+                    "fixedWidth": 70,
+                    "fixedHeight": 45,
+                    "align": "center",
+                    "fontFamily": "CCFaceFront",
+                    "fontSize": "37px",
+                    "fontStyle": "bold italic",
+                    "color": "#000",
+                    "strokeThickness": 7
+                }
+            ]
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 4
+    }
+}

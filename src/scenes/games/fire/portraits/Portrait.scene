@@ -1,0 +1,166 @@
+{
+    "id": "9f1b0ab1-0525-47e3-ab3a-bde0694ab0c7",
+    "sceneType": "PREFAB",
+    "settings": {
+        "compilerInsertSpaces": true,
+        "javaScriptInitFieldsInConstructor": true,
+        "exportClass": true,
+        "autoImport": true,
+        "superClassName": "BasePortrait",
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "borderWidth": 1520,
+        "borderHeight": 960
+    },
+    "displayList": [
+        {
+            "type": "Container",
+            "id": "d4f3be7b-b532-4cb8-8d6c-9543cffb0961",
+            "label": "container_1",
+            "list": [
+                {
+                    "type": "Image",
+                    "id": "0a607d37-cbda-4fcd-a50d-ed9b213926d3",
+                    "label": "highlight",
+                    "scope": "CLASS",
+                    "texture": {
+                        "key": "fire",
+                        "frame": "portraits/common/highlight"
+                    },
+                    "x": 7,
+                    "y": 6,
+                    "visible": false
+                },
+                {
+                    "type": "Image",
+                    "id": "9e0b63d5-557d-49ef-8cb3-76244e2d3965",
+                    "label": "bg",
+                    "scope": "CLASS",
+                    "texture": {
+                        "key": "fire",
+                        "frame": "portraits/common/bg"
+                    }
+                },
+                {
+                    "type": "Image",
+                    "id": "b9afbfd1-0235-44fb-9a96-79616c8079b8",
+                    "label": "side",
+                    "scope": "CLASS",
+                    "texture": {
+                        "key": "fire",
+                        "frame": "portraits/1/side"
+                    },
+                    "x": 84,
+                    "y": -3
+                },
+                {
+                    "type": "Image",
+                    "id": "28554aff-a615-4294-911e-caee90b16af3",
+                    "label": "bottom",
+                    "scope": "CLASS",
+                    "texture": {
+                        "key": "fire",
+                        "frame": "portraits/1/bottom"
+                    },
+                    "x": 6,
+                    "y": 17
+                },
+                {
+                    "type": "Image",
+                    "id": "96b72299-3532-47e8-a0cd-b21997fe40d4",
+                    "label": "top",
+                    "scope": "CLASS",
+                    "texture": {
+                        "key": "fire",
+                        "frame": "portraits/1/top"
+                    },
+                    "x": 7,
+                    "y": -103
+                },
+                {
+                    "prefabId": "5446bc8c-bd57-42cb-89a8-b170244632f0",
+                    "id": "0813803f-6865-4a2e-918f-0102687db564",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "scaleX",
+                        "scaleY"
+                    ],
+                    "label": "avatar",
+                    "scope": "CLASS",
+                    "x": -9,
+                    "y": 35,
+                    "scaleX": -0.59,
+                    "scaleY": 0.59
+                },
+                {
+                    "prefabId": "6612fdc9-0029-4ec5-a81f-a91f9844091b",
+                    "id": "9997bb00-93e2-4280-a338-a245aed4766a",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "scaleX",
+                        "scaleY"
+                    ],
+                    "label": "energy",
+                    "scope": "CLASS",
+                    "x": 84,
+                    "y": 65,
+                    "scaleX": 0.78,
+                    "scaleY": 0.78
+                },
+                {
+                    "type": "Image",
+                    "id": "30bd2cb8-7df1-47d3-b5ba-9d4ea82d320f",
+                    "label": "arrow",
+                    "scope": "CLASS",
+                    "texture": {
+                        "key": "fire",
+                        "frame": "portraits/common/arrow"
+                    },
+                    "x": -150,
+                    "y": 113
+                },
+                {
+                    "type": "Text",
+                    "id": "8efad774-2a9a-44a6-80dc-f8946181fc3b",
+                    "label": "nickname",
+                    "scope": "CLASS",
+                    "x": 4,
+                    "y": 116,
+                    "originX": 0.5,
+                    "originY": 0.5,
+                    "text": "<nickname>",
+                    "fixedWidth": 200,
+                    "fixedHeight": 40,
+                    "align": "center",
+                    "fontFamily": "CCFaceFront",
+                    "fontSize": "25px",
+                    "fontStyle": "bold italic",
+                    "color": "#000",
+                    "strokeThickness": 7
+                }
+            ]
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 4
+    },
+    "prefabProperties": [
+        {
+            "name": "seat",
+            "label": "seat",
+            "tooltip": "seat",
+            "defValue": 0,
+            "customDefinition": false,
+            "type": {
+                "id": "number"
+            }
+        }
+    ]
+}

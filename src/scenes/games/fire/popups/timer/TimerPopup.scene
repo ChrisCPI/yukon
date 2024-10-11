@@ -1,0 +1,80 @@
+{
+    "id": "1b707097-a909-4ba0-a08d-c012bd34f4aa",
+    "sceneType": "PREFAB",
+    "settings": {
+        "compilerInsertSpaces": true,
+        "javaScriptInitFieldsInConstructor": true,
+        "exportClass": true,
+        "autoImport": true,
+        "superClassName": "BaseContainer",
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "borderWidth": 1520,
+        "borderHeight": 960
+    },
+    "displayList": [
+        {
+            "type": "Container",
+            "id": "41ee9d76-6022-46a4-bff7-eb2244663c02",
+            "label": "container_1",
+            "x": 760,
+            "y": 480,
+            "list": [
+                {
+                    "type": "Image",
+                    "id": "55294d0d-50bd-4e4e-8c5f-aa2ef07c01c0",
+                    "label": "bg",
+                    "texture": {
+                        "key": "fire",
+                        "frame": "popups/timer/bg"
+                    }
+                },
+                {
+                    "type": "Image",
+                    "id": "ac843f39-6ef6-4130-bb28-a02da26dc5b3",
+                    "label": "circle",
+                    "texture": {
+                        "key": "fire",
+                        "frame": "popups/timer/circle"
+                    },
+                    "y": -38
+                },
+                {
+                    "type": "Image",
+                    "id": "27e42a2f-c4a3-4e48-9604-54956795b2b9",
+                    "label": "spinner",
+                    "scope": "CLASS",
+                    "texture": {
+                        "key": "load",
+                        "frame": "spinner"
+                    },
+                    "y": -38
+                },
+                {
+                    "type": "Text",
+                    "id": "9e9bcf6a-d021-4aca-806e-5d7e433ce71e",
+                    "label": "text",
+                    "scope": "CLASS",
+                    "y": 90,
+                    "originX": 0.5,
+                    "originY": 0.5,
+                    "text": "60",
+                    "fixedWidth": 150,
+                    "fixedHeight": 80,
+                    "align": "center",
+                    "fontFamily": "Candombe",
+                    "fontSize": "100px",
+                    "color": "#41311D"
+                }
+            ]
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 4
+    }
+}

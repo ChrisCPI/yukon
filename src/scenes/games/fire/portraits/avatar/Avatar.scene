@@ -1,0 +1,145 @@
+{
+    "id": "5446bc8c-bd57-42cb-89a8-b170244632f0",
+    "sceneType": "PREFAB",
+    "settings": {
+        "compilerInsertSpaces": true,
+        "javaScriptInitFieldsInConstructor": true,
+        "exportClass": true,
+        "autoImport": true,
+        "superClassName": "BaseContainer",
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "borderWidth": 1520,
+        "borderHeight": 960
+    },
+    "displayList": [
+        {
+            "type": "Container",
+            "id": "ab9a3041-8e95-41ed-b709-1a198a2804e3",
+            "label": "container_1",
+            "x": 760,
+            "y": 480,
+            "list": [
+                {
+                    "type": "Sprite",
+                    "id": "01e007a1-4624-412b-8393-3422f135c48a",
+                    "label": "arm_back",
+                    "scope": "CLASS",
+                    "texture": {
+                        "key": "fire",
+                        "frame": "portraits/avatar/arm-back0001"
+                    },
+                    "x": 109,
+                    "y": -7
+                },
+                {
+                    "type": "Sprite",
+                    "id": "09e0137c-5376-4eed-89ab-be1fc84c16a5",
+                    "label": "body_lines",
+                    "scope": "CLASS",
+                    "texture": {
+                        "key": "fire",
+                        "frame": "portraits/avatar/body-lines0001"
+                    },
+                    "x": -2,
+                    "y": -4
+                },
+                {
+                    "type": "Sprite",
+                    "id": "78509143-5fe9-49db-916e-0fd8a4fcff49",
+                    "label": "body",
+                    "scope": "CLASS",
+                    "texture": {
+                        "key": "fire",
+                        "frame": "portraits/avatar/body0001"
+                    },
+                    "x": -2,
+                    "y": -8
+                },
+                {
+                    "type": "Sprite",
+                    "id": "0ab9e80f-8595-4ae0-97ab-55796082d313",
+                    "label": "ninja",
+                    "scope": "CLASS",
+                    "texture": {
+                        "key": "fire",
+                        "frame": "portraits/avatar/mask0001"
+                    },
+                    "x": -1,
+                    "y": -47
+                },
+                {
+                    "type": "Sprite",
+                    "id": "3e1f995b-508e-4983-8af5-afb9b7c8454f",
+                    "label": "beak",
+                    "scope": "CLASS",
+                    "texture": {
+                        "key": "fire",
+                        "frame": "portraits/avatar/beak0001"
+                    },
+                    "x": 32,
+                    "y": -41
+                },
+                {
+                    "type": "Sprite",
+                    "id": "f2cacae2-cd9d-4bce-bdd0-f58159da7628",
+                    "label": "sensei",
+                    "scope": "CLASS",
+                    "texture": {
+                        "key": "fire",
+                        "frame": "portraits/avatar/sensei0001"
+                    },
+                    "x": 14,
+                    "y": 4
+                },
+                {
+                    "type": "Sprite",
+                    "id": "df93cbb4-a6a2-4fad-a3b3-0ba20d1e4af8",
+                    "label": "arm_front",
+                    "scope": "CLASS",
+                    "texture": {
+                        "key": "fire",
+                        "frame": "portraits/avatar/arm-front0001"
+                    },
+                    "x": -1,
+                    "y": -1
+                },
+                {
+                    "type": "Rectangle",
+                    "id": "324379b5-999e-416b-9c56-160566d135db",
+                    "label": "maskRect",
+                    "scope": "CLASS",
+                    "x": -161,
+                    "y": -208,
+                    "originX": 0,
+                    "originY": 0,
+                    "visible": false,
+                    "isFilled": true,
+                    "fillColor": "#00ff00",
+                    "fillAlpha": 0.5,
+                    "width": 380,
+                    "height": 300
+                }
+            ]
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 4
+    },
+    "lists": [
+        {
+            "id": "7d0665c1-1a8f-4bf5-9fa7-bc32c88f10a7",
+            "label": "tinted",
+            "objectIds": [
+                "df93cbb4-a6a2-4fad-a3b3-0ba20d1e4af8",
+                "78509143-5fe9-49db-916e-0fd8a4fcff49",
+                "01e007a1-4624-412b-8393-3422f135c48a"
+            ]
+        }
+    ]
+}

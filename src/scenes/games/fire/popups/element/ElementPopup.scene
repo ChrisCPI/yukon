@@ -1,0 +1,137 @@
+{
+    "id": "4fa1d156-ce19-4ed0-8dae-0dc698757c12",
+    "sceneType": "PREFAB",
+    "settings": {
+        "compilerInsertSpaces": true,
+        "javaScriptInitFieldsInConstructor": true,
+        "exportClass": true,
+        "autoImport": true,
+        "superClassName": "BaseContainer",
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "borderWidth": 1520,
+        "borderHeight": 960
+    },
+    "displayList": [
+        {
+            "type": "Container",
+            "id": "c0a64473-efd3-4d07-a987-aa4175915da3",
+            "label": "container_1",
+            "x": 760,
+            "y": 480,
+            "list": [
+                {
+                    "type": "Image",
+                    "id": "f21acb26-b3ef-4355-919e-3e763e3a2eec",
+                    "label": "bg",
+                    "texture": {
+                        "key": "fire",
+                        "frame": "popups/element/bg"
+                    }
+                },
+                {
+                    "type": "Text",
+                    "id": "0ddc7a28-50d0-4124-bb5b-c22ea98685ad",
+                    "label": "text",
+                    "x": -1,
+                    "y": -107,
+                    "originX": 0.5,
+                    "originY": 0.5,
+                    "text": "Choose an element",
+                    "fixedWidth": 450,
+                    "fixedHeight": 50,
+                    "align": "center",
+                    "fontFamily": "Candombe",
+                    "fontSize": "70px",
+                    "color": "#41311D"
+                },
+                {
+                    "type": "Image",
+                    "id": "8aff0d1a-3639-4e3f-9ccd-7db67b79f192",
+                    "label": "fire",
+                    "components": [
+                        "Button"
+                    ],
+                    "Button.spriteName": "popups/element/fire",
+                    "Button.hoverCallback": "() => this.onFireHover()",
+                    "Button.hoverOutCallback": "() => this.onOut()",
+                    "Button.callback": "() => this.onElementClick('f')",
+                    "Button.activeFrame": false,
+                    "texture": {
+                        "key": "fire",
+                        "frame": "popups/element/fire"
+                    },
+                    "x": -173,
+                    "y": 29
+                },
+                {
+                    "type": "Image",
+                    "id": "d191d8da-4810-4108-a553-49ec2c79f81d",
+                    "label": "water",
+                    "components": [
+                        "Button"
+                    ],
+                    "Button.spriteName": "popups/element/water",
+                    "Button.hoverCallback": "() => this.onWaterHover()",
+                    "Button.hoverOutCallback": "() => this.onOut()",
+                    "Button.callback": "() => this.onElementClick('w')",
+                    "Button.activeFrame": false,
+                    "texture": {
+                        "key": "fire",
+                        "frame": "popups/element/water"
+                    },
+                    "x": 7,
+                    "y": 29
+                },
+                {
+                    "type": "Image",
+                    "id": "2c9fce63-b729-4b3f-b6f6-b22584bd56a7",
+                    "label": "snow",
+                    "components": [
+                        "Button"
+                    ],
+                    "Button.spriteName": "popups/element/snow",
+                    "Button.hoverCallback": "() => this.onSnowHover()",
+                    "Button.hoverOutCallback": "() => this.onOut",
+                    "Button.callback": "() => this.onElementClick('s')",
+                    "Button.activeFrame": false,
+                    "texture": {
+                        "key": "fire",
+                        "frame": "popups/element/snow"
+                    },
+                    "x": 186,
+                    "y": 29
+                },
+                {
+                    "type": "Sprite",
+                    "id": "5e0d8007-f9d3-47a7-9aef-2eea46469ec8",
+                    "label": "shine",
+                    "scope": "CLASS",
+                    "components": [
+                        "Animation"
+                    ],
+                    "Animation.key": "popups/element/shine",
+                    "Animation.end": 50,
+                    "Animation.autoPlay": false,
+                    "Animation.showOnStart": true,
+                    "Animation.hideOnComplete": true,
+                    "texture": {
+                        "key": "fire",
+                        "frame": "popups/element/shine0001"
+                    },
+                    "x": -173,
+                    "y": 30,
+                    "visible": false
+                }
+            ]
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 4
+    }
+}

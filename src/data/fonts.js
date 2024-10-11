@@ -6,6 +6,7 @@ const fonts = {
             'Asterisk:n4',
             'Burbank Big Regular:n7',
             'Burbank Small:n4,n7',
+            'Candombe:n4',
             'CCComiccrazy:n4,n7',
             'CCFaceFront:n4,i7',
             'CPLCD:n4'

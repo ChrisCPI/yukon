@@ -1,0 +1,129 @@
+{
+    "id": "397ec0b2-70f4-489a-a37e-a30e233fedf7",
+    "sceneType": "PREFAB",
+    "settings": {
+        "compilerInsertSpaces": true,
+        "javaScriptInitFieldsInConstructor": true,
+        "exportClass": true,
+        "autoImport": true,
+        "superClassName": "BasePortrait",
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "borderWidth": 1520,
+        "borderHeight": 960
+    },
+    "displayList": [
+        {
+            "type": "Container",
+            "id": "56eab2e5-b479-400a-94e6-4e8598a6b6d1",
+            "label": "container_2",
+            "x": 760,
+            "y": 480,
+            "list": [
+                {
+                    "type": "Image",
+                    "id": "40fbcbdd-add5-4c44-9ae2-421830c56be9",
+                    "label": "bg",
+                    "scope": "CLASS",
+                    "texture": {
+                        "key": "fire",
+                        "frame": "portraits/0/bg"
+                    },
+                    "x": 8,
+                    "y": -5
+                },
+                {
+                    "type": "Image",
+                    "id": "6b8bc0d8-10b9-4768-b38a-d6cba0bae5f3",
+                    "label": "side",
+                    "scope": "CLASS",
+                    "texture": {
+                        "key": "fire",
+                        "frame": "portraits/0/side"
+                    },
+                    "x": -107,
+                    "y": -36
+                },
+                {
+                    "type": "Image",
+                    "id": "39250093-861e-42d5-aad3-0a5c9aa30270",
+                    "label": "bottom",
+                    "scope": "CLASS",
+                    "texture": {
+                        "key": "fire",
+                        "frame": "portraits/0/bottom"
+                    },
+                    "x": -5,
+                    "y": 11
+                },
+                {
+                    "type": "Image",
+                    "id": "b4417ecf-63b0-4145-b69a-af8a6b790e1b",
+                    "label": "top",
+                    "scope": "CLASS",
+                    "texture": {
+                        "key": "fire",
+                        "frame": "portraits/0/top"
+                    },
+                    "x": -6,
+                    "y": -136
+                },
+                {
+                    "prefabId": "5446bc8c-bd57-42cb-89a8-b170244632f0",
+                    "id": "bd5e4ab7-83ad-4ed1-85db-f9e2589d6fdd",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "scaleX",
+                        "scaleY"
+                    ],
+                    "label": "avatar",
+                    "scope": "CLASS",
+                    "x": 13,
+                    "y": 42,
+                    "scaleX": 0.73,
+                    "scaleY": 0.73
+                },
+                {
+                    "prefabId": "6612fdc9-0029-4ec5-a81f-a91f9844091b",
+                    "id": "3594b086-83fa-4912-a69a-7166225577a5",
+                    "unlock": [
+                        "x",
+                        "y"
+                    ],
+                    "label": "energy",
+                    "scope": "CLASS",
+                    "x": -105,
+                    "y": 72
+                },
+                {
+                    "type": "Text",
+                    "id": "bf340c68-20e9-4ad7-b3d8-9a8b14c4a401",
+                    "label": "nickname",
+                    "scope": "CLASS",
+                    "x": -6,
+                    "y": 134,
+                    "originX": 0.5,
+                    "originY": 0.5,
+                    "text": "<nickname>",
+                    "fixedWidth": 300,
+                    "fixedHeight": 40,
+                    "align": "center",
+                    "fontFamily": "CCFaceFront",
+                    "fontSize": "30px",
+                    "fontStyle": "bold italic",
+                    "color": "#000",
+                    "strokeThickness": 7
+                }
+            ]
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 4
+    }
+}
