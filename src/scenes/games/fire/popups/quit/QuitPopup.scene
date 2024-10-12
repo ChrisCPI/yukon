@@ -1,0 +1,102 @@
+{
+    "id": "c02650cc-516b-4710-bb44-c30e581ed304",
+    "sceneType": "PREFAB",
+    "settings": {
+        "compilerInsertSpaces": true,
+        "javaScriptInitFieldsInConstructor": true,
+        "exportClass": true,
+        "autoImport": true,
+        "superClassName": "BaseContainer",
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "borderWidth": 1520,
+        "borderHeight": 960
+    },
+    "displayList": [
+        {
+            "type": "Container",
+            "id": "a41b217a-90ae-46bd-b3eb-e2c25f209e34",
+            "label": "container_1",
+            "x": 760,
+            "y": 480,
+            "list": [
+                {
+                    "type": "Rectangle",
+                    "id": "d1eb22a4-e4a2-4d62-a21e-25850c34670b",
+                    "label": "block",
+                    "components": [
+                        "Interactive"
+                    ],
+                    "x": -7,
+                    "y": 22,
+                    "alpha": 0.4,
+                    "isFilled": true,
+                    "fillColor": "#000",
+                    "width": 1600,
+                    "height": 1000
+                },
+                {
+                    "type": "Image",
+                    "id": "77a2e0cf-4c37-4325-9d40-888e176bc00b",
+                    "label": "bg",
+                    "texture": {
+                        "key": "fire",
+                        "frame": "popups/quit/bg"
+                    }
+                },
+                {
+                    "type": "Image",
+                    "id": "146588b9-e21f-444f-8e36-2b155bddc7fc",
+                    "label": "button",
+                    "components": [
+                        "Button"
+                    ],
+                    "Button.spriteName": "popups/quit/button",
+                    "Button.callback": "() => this.callback()",
+                    "Button.pixelPerfect": true,
+                    "texture": {
+                        "key": "fire",
+                        "frame": "popups/quit/button"
+                    },
+                    "y": 95
+                },
+                {
+                    "type": "Text",
+                    "id": "63a989c1-31b1-40e5-b591-033d8acf1f13",
+                    "label": "button_text",
+                    "y": 95,
+                    "originX": 0.5,
+                    "originY": 0.5,
+                    "text": "OK",
+                    "align": "center",
+                    "fontFamily": "CCComicrazy",
+                    "fontSize": "25px",
+                    "color": "#644e30"
+                },
+                {
+                    "type": "Text",
+                    "id": "b651263f-7ac4-417a-93a0-70bbb29fedff",
+                    "label": "text",
+                    "y": -61,
+                    "originX": 0.5,
+                    "originY": 0.5,
+                    "text": "All other players\nhave quit this game",
+                    "fixedWidth": 450,
+                    "fixedHeight": 150,
+                    "align": "center",
+                    "fontFamily": "Candombe",
+                    "fontSize": "70px",
+                    "color": "#41311D"
+                }
+            ]
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 4
+    }
+}

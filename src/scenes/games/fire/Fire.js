@@ -8,6 +8,7 @@ import Portrait from "./portraits/Portrait";
 import Button from "../../components/Button";
 import ElementPopup from "./popups/element/ElementPopup";
 import TimerPopup from "./popups/timer/TimerPopup";
+import QuitPopup from "./popups/quit/QuitPopup";
 /* START-USER-IMPORTS */
 
 import CardLoader from '@engine/loaders/CardLoader'
@@ -38,6 +39,8 @@ export default class Fire extends GameScene {
         this.elementPopup;
         /** @type {TimerPopup} */
         this.timerPopup;
+        /** @type {QuitPopup} */
+        this.quitPopup;
 
 
         /* START-USER-CTR-CODE */
@@ -136,6 +139,11 @@ export default class Fire extends GameScene {
         this.add.existing(timerPopup);
         timerPopup.visible = false;
 
+        // quitPopup
+        const quitPopup = new QuitPopup(this, 780, 448.8999938964844);
+        this.add.existing(quitPopup);
+        quitPopup.visible = false;
+
         // lanternLight (components)
         const lanternLightAnimation = new Animation(lanternLight);
         lanternLightAnimation.key = "bg/back/lantern_light";
@@ -174,6 +182,7 @@ export default class Fire extends GameScene {
         this.statusText = statusText;
         this.elementPopup = elementPopup;
         this.timerPopup = timerPopup;
+        this.quitPopup = quitPopup;
 
         this.events.emit("scene-awake");
     }
@@ -257,7 +266,7 @@ export default class Fire extends GameScene {
         }
         this.currentNinja = this.ninjas[args.ninja]
         this.currentNinja.portrait.enablePortrait()
-        
+
         for (let [seat, ninja] of this.ninjas.entries()) {
             if (seat === args.ninja) {
                 ninja.portrait.avatar.playThinking()

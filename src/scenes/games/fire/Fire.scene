@@ -277,6 +277,20 @@
             "x": 760,
             "y": 480,
             "visible": false
+        },
+        {
+            "prefabId": "c02650cc-516b-4710-bb44-c30e581ed304",
+            "id": "bd0d7d66-b998-493f-9d53-1b1e9953c27a",
+            "unlock": [
+                "x",
+                "y",
+                "visible"
+            ],
+            "label": "quitPopup",
+            "scope": "CLASS",
+            "x": 780,
+            "y": 448.8999938964844,
+            "visible": false
         }
     ],
     "plainObjects": [],
