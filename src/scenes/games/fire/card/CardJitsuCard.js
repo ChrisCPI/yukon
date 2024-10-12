@@ -103,7 +103,7 @@ export default class CardJitsuCard extends BaseContainer {
 
         this.tween
 
-        this.glow.anims.play('card/glow')
+        this.glow.anims.play('fire/card/glow')
 
         this.on('pointerup', this.onUp, this)
         this.on('pointerover', this.onOver, this)
@@ -222,19 +222,6 @@ export default class CardJitsuCard extends BaseContainer {
         let pos = layout.pos.picks[this.player.seat]
 
         this.tweenTo(pos.x, pos.y)
-    }
-
-    tweenToWin() {
-        let pos = layout.pos.wins[this.player.seat][this.elementId]
-
-        let wins = this.player.getElementWins(this.elementId)
-        let index = wins.indexOf(this) + 1
-
-        let y = pos.y + (this.spacer * index)
-
-        this.tweenTo(pos.x, y)
-
-        this.tween.once('complete', this.updateDepth, this)
     }
 
     removeTween() {

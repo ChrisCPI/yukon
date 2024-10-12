@@ -30,8 +30,8 @@
                         "key": "fire",
                         "frame": "portraits/avatar/arm-back0001"
                     },
-                    "x": 109,
-                    "y": -7
+                    "x": 98,
+                    "y": -9
                 },
                 {
                     "type": "Sprite",

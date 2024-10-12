@@ -257,6 +257,14 @@ export default class Fire extends GameScene {
         }
         this.currentNinja = this.ninjas[args.ninja]
         this.currentNinja.portrait.enablePortrait()
+        
+        for (let [seat, ninja] of this.ninjas.entries()) {
+            if (seat === args.ninja) {
+                ninja.portrait.avatar.playThinking()
+            } else {
+                ninja.portrait.avatar.playWaiting()
+            }
+        }
 
         let text
         if (this.isMyTurn) {
