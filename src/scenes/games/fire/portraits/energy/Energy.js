@@ -73,12 +73,12 @@ export default class Energy extends BaseContainer {
 
     tintEnabled() {
         const seat = this.parentContainer.seat
-        this.fill.tint = layout.colors.energy.enabled[seat]
+        this.fill.tint = layout.colors.highlight.enabled[seat]
     }
 
     tintDisabled() {
         const seat = this.parentContainer.seat
-        this.fill.tint = layout.colors.energy.disabled[seat]
+        this.fill.tint = layout.colors.highlight.disabled[seat]
     }
 
     /* END-USER-CODE */

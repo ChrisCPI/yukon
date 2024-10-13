@@ -70,7 +70,7 @@
                     "originY": 0.5,
                     "text": "OK",
                     "align": "center",
-                    "fontFamily": "CCComicrazy",
+                    "fontFamily": "CCComiccrazy",
                     "fontSize": "25px",
                     "color": "#644e30"
                 },

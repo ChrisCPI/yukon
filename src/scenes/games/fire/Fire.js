@@ -13,6 +13,7 @@ import QuitPopup from "./popups/quit/QuitPopup";
 
 import CardLoader from '@engine/loaders/CardLoader'
 import CardJitsuCard from './card/CardJitsuCard'
+import FirePlayer from './FirePlayer'
 
 /* END-USER-IMPORTS */
 
@@ -243,14 +244,20 @@ export default class Fire extends GameScene {
         }
 
         for (let [seat, user] of args.users.entries()) {
+            const clientSeat = Math.abs(clientIndex - seat)
+
             this.ninjas.push({
-                portrait: this.portraits[Math.abs(clientIndex - seat)],
+                portrait: this.portraits[clientSeat],
+                player: new FirePlayer(this, 0, 0),
                 username: user.username
             })
 
             const ninja = this.ninjas[seat]
 
+            this.board.add(ninja.player)
+
             ninja.portrait.setPlayer(user)
+            ninja.player.setPlayer(user, clientSeat)
         }
     }
 
@@ -266,6 +273,7 @@ export default class Fire extends GameScene {
         }
         this.currentNinja = this.ninjas[args.ninja]
         this.currentNinja.portrait.enablePortrait()
+        this.currentNinja.player.setHighlightActive()
 
         for (let [seat, ninja] of this.ninjas.entries()) {
             if (seat === args.ninja) {

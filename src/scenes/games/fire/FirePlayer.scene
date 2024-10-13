@@ -1,0 +1,175 @@
+{
+    "id": "d2fb2ada-c92c-42ce-8632-d5d4dad07ce2",
+    "sceneType": "PREFAB",
+    "settings": {
+        "compilerInsertSpaces": true,
+        "javaScriptInitFieldsInConstructor": true,
+        "exportClass": true,
+        "autoImport": true,
+        "superClassName": "BaseContainer",
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "borderWidth": 1520,
+        "borderHeight": 960
+    },
+    "displayList": [
+        {
+            "type": "Container",
+            "id": "8dd23e43-cf1f-476b-9857-e87a2807a51c",
+            "label": "container_1",
+            "x": 760,
+            "y": 480,
+            "list": [
+                {
+                    "type": "Image",
+                    "id": "a5a7824f-f9c4-4810-af04-57341f9cc642",
+                    "label": "highlight",
+                    "scope": "CLASS",
+                    "texture": {
+                        "key": "fire",
+                        "frame": "penguins/highlight"
+                    }
+                },
+                {
+                    "type": "Sprite",
+                    "id": "617dbe6c-29d7-4ded-8a5c-5f5612afe783",
+                    "label": "back_arm",
+                    "scope": "CLASS",
+                    "texture": {
+                        "key": "fire",
+                        "frame": "penguins/0/backarm0001"
+                    },
+                    "x": -1,
+                    "y": -83
+                },
+                {
+                    "type": "Sprite",
+                    "id": "fb017845-83f3-4239-bf3d-5c87653ccc10",
+                    "label": "feet",
+                    "scope": "CLASS",
+                    "texture": {
+                        "key": "fire",
+                        "frame": "penguins/0/feet0001"
+                    },
+                    "x": -1,
+                    "y": -83
+                },
+                {
+                    "type": "Sprite",
+                    "id": "ef88937d-125b-49f4-af4c-1288c2c3af8d",
+                    "label": "outline",
+                    "scope": "CLASS",
+                    "texture": {
+                        "key": "fire",
+                        "frame": "penguins/0/outline0001"
+                    },
+                    "x": -1,
+                    "y": -83
+                },
+                {
+                    "type": "Sprite",
+                    "id": "1233ee79-ac93-4aab-9b9d-1c9e971959d5",
+                    "label": "body",
+                    "scope": "CLASS",
+                    "texture": {
+                        "key": "fire",
+                        "frame": "penguins/0/body0001"
+                    },
+                    "x": -1,
+                    "y": -83
+                },
+                {
+                    "type": "Sprite",
+                    "id": "5880ac0f-4629-43eb-aed8-11d2b449add3",
+                    "label": "shadow",
+                    "scope": "CLASS",
+                    "texture": {
+                        "key": "fire",
+                        "frame": "penguins/0/shadow0001"
+                    },
+                    "x": -1,
+                    "y": -83
+                },
+                {
+                    "type": "Sprite",
+                    "id": "87eb96ee-84a1-4c19-a368-f60ae4548dd7",
+                    "label": "black_belt",
+                    "scope": "CLASS",
+                    "texture": {
+                        "key": "fire",
+                        "frame": "penguins/0/blackbelt0001"
+                    },
+                    "x": -1,
+                    "y": -83
+                },
+                {
+                    "type": "Sprite",
+                    "id": "7156d5a3-a011-4cba-be08-c31933064ee8",
+                    "label": "beak",
+                    "scope": "CLASS",
+                    "texture": {
+                        "key": "fire",
+                        "frame": "penguins/0/beak0001"
+                    },
+                    "x": -1,
+                    "y": -83
+                },
+                {
+                    "type": "Sprite",
+                    "id": "4ea25bd5-723f-4c1b-960f-c1771ef115d7",
+                    "label": "sensei",
+                    "scope": "CLASS",
+                    "texture": {
+                        "key": "fire",
+                        "frame": "penguins/2/sensei0001"
+                    },
+                    "x": -1,
+                    "y": -83
+                },
+                {
+                    "type": "Sprite",
+                    "id": "a3a1bf55-8f58-4ca0-8961-3ee0a89d9394",
+                    "label": "front_arm",
+                    "scope": "CLASS",
+                    "texture": {
+                        "key": "fire",
+                        "frame": "penguins/0/frontarm0001"
+                    },
+                    "x": -1,
+                    "y": -83
+                },
+                {
+                    "type": "Sprite",
+                    "id": "40979265-0470-464b-bee8-6dcad1b1878f",
+                    "label": "upper_feet",
+                    "scope": "CLASS",
+                    "texture": {
+                        "key": "fire",
+                        "frame": "penguins/0/misc0001"
+                    },
+                    "x": -1,
+                    "y": -83
+                }
+            ]
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 4
+    },
+    "lists": [
+        {
+            "id": "549d01be-1a9c-4189-b34a-ed7e17c7062d",
+            "label": "tinted",
+            "objectIds": [
+                "1233ee79-ac93-4aab-9b9d-1c9e971959d5",
+                "617dbe6c-29d7-4ded-8a5c-5f5612afe783",
+                "a3a1bf55-8f58-4ca0-8961-3ee0a89d9394"
+            ]
+        }
+    ]
+}

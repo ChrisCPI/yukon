@@ -24,7 +24,8 @@
                 {
                     "type": "Image",
                     "id": "e069ae81-d69d-4259-9068-60f67c2e0720",
-                    "label": "board_space00001",
+                    "label": "space0",
+                    "scope": "CLASS",
                     "texture": {
                         "key": "fire",
                         "frame": "board/space00001"
@@ -35,7 +36,8 @@
                 {
                     "type": "Image",
                     "id": "ac7d3223-380d-4ffb-8731-05c52c649eb4",
-                    "label": "board_space10001",
+                    "label": "space1",
+                    "scope": "CLASS",
                     "texture": {
                         "key": "fire",
                         "frame": "board/space10001"
@@ -46,7 +48,8 @@
                 {
                     "type": "Image",
                     "id": "07a0b395-f53c-426a-88a7-71b8dbfd030d",
-                    "label": "board_space20001",
+                    "label": "space2",
+                    "scope": "CLASS",
                     "texture": {
                         "key": "fire",
                         "frame": "board/space20001"
@@ -57,7 +60,8 @@
                 {
                     "type": "Image",
                     "id": "436be6a1-ad92-4559-96a7-3db77116602d",
-                    "label": "board_space30001",
+                    "label": "space3",
+                    "scope": "CLASS",
                     "texture": {
                         "key": "fire",
                         "frame": "board/space30001"
@@ -68,7 +72,8 @@
                 {
                     "type": "Image",
                     "id": "baaf3edb-cb2d-4411-8958-1260ac20b770",
-                    "label": "board_space40001",
+                    "label": "space4",
+                    "scope": "CLASS",
                     "texture": {
                         "key": "fire",
                         "frame": "board/space40001"
@@ -79,7 +84,8 @@
                 {
                     "type": "Image",
                     "id": "3af33489-2b7b-4803-8925-42cce008d4b2",
-                    "label": "board_space50001",
+                    "label": "space5",
+                    "scope": "CLASS",
                     "texture": {
                         "key": "fire",
                         "frame": "board/space50001"
@@ -90,7 +96,8 @@
                 {
                     "type": "Image",
                     "id": "cbabe2bc-41b6-4436-80d9-59c69de8124b",
-                    "label": "board_space60001",
+                    "label": "space6",
+                    "scope": "CLASS",
                     "texture": {
                         "key": "fire",
                         "frame": "board/space60001"
@@ -101,7 +108,8 @@
                 {
                     "type": "Image",
                     "id": "f0dc9a4e-a03b-4e77-9846-cb26db86c001",
-                    "label": "board_space70001",
+                    "label": "space7",
+                    "scope": "CLASS",
                     "texture": {
                         "key": "fire",
                         "frame": "board/space70001"
@@ -112,7 +120,8 @@
                 {
                     "type": "Image",
                     "id": "aeaea509-75cd-4d8c-9435-c368291ab620",
-                    "label": "board_space80001",
+                    "label": "space8",
+                    "scope": "CLASS",
                     "texture": {
                         "key": "fire",
                         "frame": "board/space80001"
@@ -123,7 +132,8 @@
                 {
                     "type": "Image",
                     "id": "16b503f9-9ad1-408d-902c-41f119e93063",
-                    "label": "board_space90001",
+                    "label": "space9",
+                    "scope": "CLASS",
                     "texture": {
                         "key": "fire",
                         "frame": "board/space90001"
@@ -134,7 +144,8 @@
                 {
                     "type": "Image",
                     "id": "b26a2d2c-12a6-4c3e-8d66-eff34c271494",
-                    "label": "board_space100001",
+                    "label": "space10",
+                    "scope": "CLASS",
                     "texture": {
                         "key": "fire",
                         "frame": "board/space100001"
@@ -145,7 +156,8 @@
                 {
                     "type": "Image",
                     "id": "45f11982-8a29-4691-a0fd-83a2df1aa0c6",
-                    "label": "board_space110001",
+                    "label": "space11",
+                    "scope": "CLASS",
                     "texture": {
                         "key": "fire",
                         "frame": "board/space110001"
@@ -156,7 +168,8 @@
                 {
                     "type": "Image",
                     "id": "f9c5c6a0-972e-4518-a814-31fa5946def3",
-                    "label": "board_space120001",
+                    "label": "space12",
+                    "scope": "CLASS",
                     "texture": {
                         "key": "fire",
                         "frame": "board/space120001"
@@ -167,7 +180,8 @@
                 {
                     "type": "Image",
                     "id": "6f34ad72-63d9-4ea1-9978-62aaf558d1d8",
-                    "label": "board_space130001",
+                    "label": "space13",
+                    "scope": "CLASS",
                     "texture": {
                         "key": "fire",
                         "frame": "board/space130001"
@@ -178,7 +192,8 @@
                 {
                     "type": "Image",
                     "id": "a392931d-afc4-432d-961f-3f3edb8ee084",
-                    "label": "board_space140001",
+                    "label": "space14",
+                    "scope": "CLASS",
                     "texture": {
                         "key": "fire",
                         "frame": "board/space140001"
@@ -189,7 +204,8 @@
                 {
                     "type": "Image",
                     "id": "b37d6808-a61a-4c7b-acf9-5385619459f0",
-                    "label": "board_space150001",
+                    "label": "space15",
+                    "scope": "CLASS",
                     "texture": {
                         "key": "fire",
                         "frame": "board/space150001"
@@ -206,5 +222,30 @@
         "url": "https://phasereditor2d.com",
         "contentType": "phasereditor2d.core.scene.SceneContentType",
         "version": 4
-    }
+    },
+    "lists": [
+        {
+            "id": "ae70feb4-c1b9-4087-bf25-7d57b9a1a68d",
+            "label": "spaces",
+            "objectIds": [
+                "e069ae81-d69d-4259-9068-60f67c2e0720",
+                "ac7d3223-380d-4ffb-8731-05c52c649eb4",
+                "07a0b395-f53c-426a-88a7-71b8dbfd030d",
+                "436be6a1-ad92-4559-96a7-3db77116602d",
+                "baaf3edb-cb2d-4411-8958-1260ac20b770",
+                "3af33489-2b7b-4803-8925-42cce008d4b2",
+                "cbabe2bc-41b6-4436-80d9-59c69de8124b",
+                "f0dc9a4e-a03b-4e77-9846-cb26db86c001",
+                "aeaea509-75cd-4d8c-9435-c368291ab620",
+                "16b503f9-9ad1-408d-902c-41f119e93063",
+                "b26a2d2c-12a6-4c3e-8d66-eff34c271494",
+                "45f11982-8a29-4691-a0fd-83a2df1aa0c6",
+                "f9c5c6a0-972e-4518-a814-31fa5946def3",
+                "6f34ad72-63d9-4ea1-9978-62aaf558d1d8",
+                "a392931d-afc4-432d-961f-3f3edb8ee084",
+                "b37d6808-a61a-4c7b-acf9-5385619459f0"
+            ],
+            "scope": "METHOD"
+        }
+    ]
 }

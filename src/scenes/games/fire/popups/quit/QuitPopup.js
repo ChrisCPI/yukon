@@ -30,7 +30,7 @@ export default class QuitPopup extends BaseContainer {
         const button_text = scene.add.text(0, 95, "", {});
         button_text.setOrigin(0.5, 0.5);
         button_text.text = "OK";
-        button_text.setStyle({ "align": "center", "color": "#644e30", "fontFamily": "CCComicrazy", "fontSize": "25px" });
+        button_text.setStyle({ "align": "center", "color": "#644e30", "fontFamily": "CCComiccrazy", "fontSize": "25px" });
         this.add(button_text);
 
         // text
