@@ -53,6 +53,7 @@ const layout = {
             disabled: [0xff9600, 0x007f00, 0x7f007f, 0x007f7f]
         }
     },
+    boardTrumps: ['n', 's', 'w', 'f', 'n', 's', 'f', 'w', 'n', 's', 'w', 'f', 'n', 'w', 's', 'f'],
     board: [
         [
             [

@@ -154,6 +154,13 @@ export default class Board extends BaseContainer {
         }
     }
 
+    disableActiveSpaces() {
+        for (let id of this.activeSpaces) {
+            const space = this.spaces[id]
+            space.disableInteractive()
+        }
+    }
+
     /* END-USER-CODE */
 }
 

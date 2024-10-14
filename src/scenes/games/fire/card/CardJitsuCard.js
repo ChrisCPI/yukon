@@ -70,6 +70,10 @@ export default class CardJitsuCard extends BaseContainer {
         // disabled
         const disabled = scene.add.image(95, 107, "fire", "cards/card/disabled");
         disabled.visible = false;
+        disabled.tintTopLeft = 0;
+        disabled.tintTopRight = 0;
+        disabled.tintBottomLeft = 0;
+        disabled.tintBottomRight = 0;
         this.add(disabled);
 
         // valueText

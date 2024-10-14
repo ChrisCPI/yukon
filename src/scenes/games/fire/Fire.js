@@ -340,6 +340,26 @@ export default class Fire extends GameScene {
         return card
     }
 
+    filterCards(element) {
+        if (element === 'n') return
+
+        for (let card of this.deck) {
+            if (card === null) continue
+
+            if (card.elementId !== element) {
+                card.disableCard()
+            }
+        }
+    }
+
+    enableAllCards() {
+        for (let card of this.deck) {
+            if (card === null) continue
+            
+            card.enableCard()
+        }
+    }
+
     playStatusText(text) {
         this.statusText.text = text
 

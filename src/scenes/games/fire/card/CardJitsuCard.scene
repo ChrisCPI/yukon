@@ -116,7 +116,11 @@
                     },
                     "x": 95,
                     "y": 107,
-                    "visible": false
+                    "visible": false,
+                    "tintTopLeft": "#000",
+                    "tintTopRight": "#000",
+                    "tintBottomLeft": "#000",
+                    "tintBottomRight": "#000"
                 },
                 {
                     "type": "Text",
