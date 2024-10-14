@@ -3,11 +3,48 @@ import layout from '../layout'
 
 export default class Space {
 
-    constructor(sprite) {
+    constructor(sprite, id) {
         this.sprite = sprite
         this.scene = sprite.scene
+        this.id = id
 
         this.clone = this.createClone()
+
+        sprite.on('animationcomplete', () => {
+            if (sprite.anims.currentAnim.key == `fire/space${id}_local`) {
+                this.playLocal(15)
+            }
+        })
+    }
+
+    show(seat) {
+        this.clicked = false
+        this.clone.setInteractive()
+        this.clone.tint = layout.colors.highlight.enabled[seat]
+        this.clone.visible = true
+
+        if (this.scene.isMyTurn) {
+            this.playLocal()
+        } else {
+            this.sprite.play(`fire/space${this.id}_remote`)
+        }
+    }
+
+    onClick() {
+        if (this.clicked) return
+        this.clone.disableInteractive()
+        this.clone.emit('pointerout')
+        this.clicked = true
+        // Todo
+    }
+
+    reset() {
+        this.clone.visible = false
+        this.sprite.setFrame(`board/space${this.id}0001`)
+    }
+
+    playLocal(startFrame = 1) {
+        this.sprite.play({ key: `fire/space${this.id}_local`, startFrame: startFrame })
     }
 
     /**
@@ -18,9 +55,14 @@ export default class Space {
         const space = this.sprite
         const clone = this.scene.add.sprite(space.x, space.y, space.texture.key, space.frame.name)
         clone.setOrigin(space.originX, space.originY)
+        clone.alpha = 0.25
         clone.visible = false
 
         this.sprite.parentContainer.add(clone)
+
+        clone.setInteractive({ cursor: 'pointer', pixelPerfect: true })
+
+        clone.on('pointerup', () => this.onClick())
 
         return clone
     }

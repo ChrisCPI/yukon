@@ -229,6 +229,7 @@ export default class Spinner extends BaseContainer {
         this.flipBottom.play('fire/spinner/flip/bottom')
 
         this.scene.time.delayedCall(333.33, () => {
+            this.flame.visible = true
             this.flame.play(`fire/spinner/tab/${tabId}/flame`)
 
             let currentNum = num
@@ -243,6 +244,8 @@ export default class Spinner extends BaseContainer {
                 if (currentNum > 6) currentNum = 1
                 if (currentTab > 6) currentTab = 1
             }
+
+            this.scene.board.highlightSpaces()
         })
     }
 

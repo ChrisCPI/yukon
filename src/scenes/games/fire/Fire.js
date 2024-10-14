@@ -266,12 +266,14 @@ export default class Fire extends GameScene {
         }
 
         for (let [seat, user] of args.users.entries()) {
+            // The seat of the user from the perspective of the client; NOT the actual seat
             const clientSeat = Math.abs(clientIndex - seat)
 
             this.ninjas.push({
                 portrait: this.portraits[clientSeat],
                 player: new FirePlayer(this, 0, 0),
-                username: user.username
+                username: user.username,
+                clientSeat: clientSeat
             })
 
             const ninja = this.ninjas[seat]
@@ -311,6 +313,8 @@ export default class Fire extends GameScene {
         } else {
             text = this.getFormatString('fire_turn', this.currentNinja.username.toUpperCase())
         }
+
+        this.board.activeSpaces = [args.spin.cw, args.spin.ccw]
 
         this.spinner.spinAmount = args.spin.amount
         this.spinner.playRise()
