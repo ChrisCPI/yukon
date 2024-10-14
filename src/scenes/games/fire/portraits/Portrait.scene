@@ -130,7 +130,7 @@
                     "label": "nickname",
                     "scope": "CLASS",
                     "x": 4,
-                    "y": 116,
+                    "y": 118,
                     "originX": 0.5,
                     "originY": 0.5,
                     "text": "<nickname>",
@@ -138,7 +138,7 @@
                     "fixedHeight": 40,
                     "align": "center",
                     "fontFamily": "CCFaceFront",
-                    "fontSize": "25px",
+                    "fontSize": "22px",
                     "fontStyle": "bold italic",
                     "color": "#000",
                     "strokeThickness": 7

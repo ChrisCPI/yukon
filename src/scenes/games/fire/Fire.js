@@ -3,6 +3,7 @@
 import GameScene from "../GameScene";
 import Animation from "../../components/Animation";
 import Board from "./board/Board";
+import Spinner from "./spinner/Spinner";
 import ClientPortrait from "./portraits/ClientPortrait";
 import Portrait from "./portraits/Portrait";
 import Button from "../../components/Button";
@@ -24,6 +25,12 @@ export default class Fire extends GameScene {
 
         /** @type {Board} */
         this.board;
+        /** @type {Spinner} */
+        this.spinner;
+        /** @type {Phaser.GameObjects.Layer} */
+        this.playersLayer;
+        /** @type {Phaser.GameObjects.Layer} */
+        this.cardsLayer;
         /** @type {ClientPortrait} */
         this.portrait0;
         /** @type {Portrait} */
@@ -60,7 +67,7 @@ export default class Fire extends GameScene {
     /** @returns {void} */
     _create() {
 
-        // bg_back_bg
+        // bg
         this.add.image(761, 480, "fire", "bg/back/bg");
 
         // lanternLight
@@ -73,7 +80,14 @@ export default class Fire extends GameScene {
         const board = new Board(this, 780, 540);
         this.add.existing(board);
 
-        // bg_front_rock
+        // spinner
+        const spinner = new Spinner(this, 773, 552);
+        this.add.existing(spinner);
+
+        // playersLayer
+        const playersLayer = this.add.layer();
+
+        // frontRock
         this.add.image(761, 714, "fire", "bg/front/rock");
 
         // lava2
@@ -83,8 +97,11 @@ export default class Fire extends GameScene {
         const lava1 = this.add.sprite(141, 961, "fire", "bg/front/lava_anim0001");
         lava1.flipX = true;
 
-        // bg_front_top
+        // frontTop
         this.add.image(728, 876, "fire", "bg/front/top");
+
+        // cardsLayer
+        const cardsLayer = this.add.layer();
 
         // portrait0
         const portrait0 = new ClientPortrait(this, 168, 175);
@@ -175,6 +192,9 @@ export default class Fire extends GameScene {
         closeButtonButton.callback = () => this.sendLeaveGame();
 
         this.board = board;
+        this.spinner = spinner;
+        this.playersLayer = playersLayer;
+        this.cardsLayer = cardsLayer;
         this.portrait0 = portrait0;
         this.portrait1 = portrait1;
         this.portrait2 = portrait2;
@@ -220,11 +240,13 @@ export default class Fire extends GameScene {
     addListeners() {
         this.network.events.on('start_game', this.handleStartGame, this)
         this.network.events.on('next_round', this.handleNextRound, this)
+        this.network.events.on('spinner_select', this.handleSpinnerSelect, this)
     }
 
     removeListeners() {
         this.network.events.off('start_game', this.handleStartGame, this)
         this.network.events.off('next_round', this.handleNextRound, this)
+        this.network.events.off('spinner_select', this.handleSpinnerSelect, this)
     }
 
     get isMyTurn() {
@@ -254,7 +276,7 @@ export default class Fire extends GameScene {
 
             const ninja = this.ninjas[seat]
 
-            this.board.add(ninja.player)
+            this.playersLayer.add(ninja.player)
 
             ninja.portrait.setPlayer(user)
             ninja.player.setPlayer(user, clientSeat)
@@ -290,7 +312,14 @@ export default class Fire extends GameScene {
             text = this.getFormatString('fire_turn', this.currentNinja.username.toUpperCase())
         }
 
+        this.spinner.spinAmount = args.spin.amount
+        this.spinner.playRise()
+
         this.playStatusText(text)
+    }
+
+    handleSpinnerSelect(args) {
+        this.spinner.playFlip(args.tabId)
     }
 
     onCardLoad(key, card) {
@@ -302,7 +331,7 @@ export default class Fire extends GameScene {
 
     createCard() {
         let card = new CardJitsuCard(this)
-        this.add.existing(card)
+        this.cardsLayer.add(card)
 
         return card
     }

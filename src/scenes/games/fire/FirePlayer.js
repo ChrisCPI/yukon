@@ -186,9 +186,9 @@ export default class FirePlayer extends BaseContainer {
         const pos = layout.board[tile][occupants - 1][0]
 
         // Todo: change the x and y values to be correct so we dont need to multiply here
-        const x = (pos.x * 2) - this.parentContainer.x
-        const y = (pos.y * 2) - this.parentContainer.y
-        
+        const x = (pos.x * 2)
+        const y = (pos.y * 2)
+
         this.setPosition(x, y)
     }
 

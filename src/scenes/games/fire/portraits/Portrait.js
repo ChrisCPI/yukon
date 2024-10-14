@@ -73,10 +73,10 @@ export default class Portrait extends BasePortrait {
         this.add(arrow);
 
         // nickname
-        const nickname = scene.add.text(4, 116, "", {});
+        const nickname = scene.add.text(4, 118, "", {});
         nickname.setOrigin(0.5, 0.5);
         nickname.text = "<nickname>";
-        nickname.setStyle({ "align": "center", "color": "#000", "fixedWidth":200,"fixedHeight":40,"fontFamily": "CCFaceFront", "fontSize": "25px", "fontStyle": "bold italic", "strokeThickness":7});
+        nickname.setStyle({ "align": "center", "color": "#000", "fixedWidth":200,"fixedHeight":40,"fontFamily": "CCFaceFront", "fontSize": "22px", "fontStyle": "bold italic", "strokeThickness":7});
         this.add(nickname);
 
         // maskRect

@@ -1,0 +1,277 @@
+{
+    "id": "4b050da7-f100-4764-a258-a803ffdee6cd",
+    "sceneType": "PREFAB",
+    "settings": {
+        "compilerInsertSpaces": true,
+        "javaScriptInitFieldsInConstructor": true,
+        "exportClass": true,
+        "autoImport": true,
+        "superClassName": "BaseContainer",
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "borderWidth": 1520,
+        "borderHeight": 960
+    },
+    "displayList": [
+        {
+            "type": "Container",
+            "id": "25ed642c-f099-4c13-91b8-187560aab890",
+            "label": "container_1",
+            "x": 760,
+            "y": 480,
+            "list": [
+                {
+                    "type": "Sprite",
+                    "id": "ba881a2f-7d58-4110-bff4-b09a96f25edb",
+                    "label": "main",
+                    "scope": "CLASS",
+                    "texture": {
+                        "key": "fire",
+                        "frame": "spinner/spinner0040"
+                    }
+                },
+                {
+                    "type": "Sprite",
+                    "id": "19c318a6-aacb-440c-9bf3-cf30ecf2c6e6",
+                    "label": "flipBottom",
+                    "scope": "CLASS",
+                    "texture": {
+                        "key": "fire",
+                        "frame": "spinner/tabs/flips/bottom0001"
+                    },
+                    "visible": false
+                },
+                {
+                    "type": "Sprite",
+                    "id": "133323a7-3578-4dc0-a27e-53044f60e382",
+                    "label": "flame",
+                    "scope": "CLASS",
+                    "texture": {
+                        "key": "fire",
+                        "frame": "spinner/tabs/1/flame0001"
+                    },
+                    "visible": false
+                },
+                {
+                    "type": "Sprite",
+                    "id": "2a71101f-a411-4a4a-868e-63ef0c451435",
+                    "label": "flipTop",
+                    "scope": "CLASS",
+                    "texture": {
+                        "key": "fire",
+                        "frame": "spinner/tabs/flips/top0001"
+                    },
+                    "visible": false
+                },
+                {
+                    "type": "Sprite",
+                    "id": "9cd2ea6a-f575-4975-b7c3-e8349efa4a0a",
+                    "label": "select1",
+                    "scope": "CLASS",
+                    "texture": {
+                        "key": "fire",
+                        "frame": "spinner/tabs/1/select0001"
+                    },
+                    "visible": false
+                },
+                {
+                    "type": "Sprite",
+                    "id": "5fdc805c-c0f9-4b47-9ee8-a41402e74d73",
+                    "label": "select2",
+                    "scope": "CLASS",
+                    "texture": {
+                        "key": "fire",
+                        "frame": "spinner/tabs/2/select0001"
+                    },
+                    "visible": false
+                },
+                {
+                    "type": "Sprite",
+                    "id": "acdf9ffb-7043-41c5-b63e-ff5e03e40980",
+                    "label": "select3",
+                    "scope": "CLASS",
+                    "texture": {
+                        "key": "fire",
+                        "frame": "spinner/tabs/3/select0001"
+                    },
+                    "visible": false
+                },
+                {
+                    "type": "Sprite",
+                    "id": "b1b52ce6-90a5-4bae-b974-c339025bc621",
+                    "label": "select4",
+                    "scope": "CLASS",
+                    "texture": {
+                        "key": "fire",
+                        "frame": "spinner/tabs/4/select0001"
+                    },
+                    "visible": false
+                },
+                {
+                    "type": "Sprite",
+                    "id": "ab4a0fb7-0e3c-4db4-bd9f-b0e356af66e2",
+                    "label": "select5",
+                    "scope": "CLASS",
+                    "texture": {
+                        "key": "fire",
+                        "frame": "spinner/tabs/5/select0001"
+                    },
+                    "visible": false
+                },
+                {
+                    "type": "Sprite",
+                    "id": "61140f65-2bd2-4ce2-8073-d3b2933ffc1a",
+                    "label": "select6",
+                    "scope": "CLASS",
+                    "texture": {
+                        "key": "fire",
+                        "frame": "spinner/tabs/6/select0001"
+                    },
+                    "visible": false
+                },
+                {
+                    "prefabId": "e721e66e-77c5-479b-aa67-dd586721cd17",
+                    "id": "8047f3bf-f683-41f8-a547-c3f9471e9ec7",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "angle",
+                        "scaleX",
+                        "scaleY",
+                        "visible"
+                    ],
+                    "label": "tab1Number",
+                    "scope": "CLASS",
+                    "x": -164,
+                    "y": -29,
+                    "scaleX": 0.76,
+                    "scaleY": 0.96,
+                    "angle": -80,
+                    "visible": false
+                },
+                {
+                    "prefabId": "e721e66e-77c5-479b-aa67-dd586721cd17",
+                    "id": "698dab53-27b8-4b40-98ff-416fa147957b",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "angle",
+                        "scaleX",
+                        "scaleY",
+                        "visible"
+                    ],
+                    "label": "tab2Number",
+                    "scope": "CLASS",
+                    "x": -74,
+                    "y": -109,
+                    "scaleX": 0.62,
+                    "scaleY": 0.66,
+                    "angle": -40,
+                    "visible": false
+                },
+                {
+                    "prefabId": "e721e66e-77c5-479b-aa67-dd586721cd17",
+                    "id": "5790c9c8-6078-4daa-8868-5afb5cf9d31f",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "angle",
+                        "scaleX",
+                        "scaleY",
+                        "visible"
+                    ],
+                    "label": "tab3Number",
+                    "scope": "CLASS",
+                    "x": 69,
+                    "y": -110,
+                    "scaleX": 0.62,
+                    "scaleY": 0.66,
+                    "angle": 40,
+                    "visible": false
+                },
+                {
+                    "prefabId": "e721e66e-77c5-479b-aa67-dd586721cd17",
+                    "id": "7da075a4-0dd7-407b-a93d-aa980ae3930f",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "angle",
+                        "scaleX",
+                        "scaleY",
+                        "visible"
+                    ],
+                    "label": "tab4Number",
+                    "scope": "CLASS",
+                    "x": 177,
+                    "y": -32,
+                    "scaleX": 0.76,
+                    "scaleY": 0.96,
+                    "angle": 80,
+                    "visible": false
+                },
+                {
+                    "prefabId": "e721e66e-77c5-479b-aa67-dd586721cd17",
+                    "id": "577ccf0d-8689-44ab-a6d2-478a52975ca1",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "angle",
+                        "scaleX",
+                        "scaleY",
+                        "visible"
+                    ],
+                    "label": "tab5Number",
+                    "scope": "CLASS",
+                    "x": 74,
+                    "y": 75,
+                    "scaleX": 0.95,
+                    "scaleY": 0.88,
+                    "angle": 150,
+                    "visible": false
+                },
+                {
+                    "prefabId": "e721e66e-77c5-479b-aa67-dd586721cd17",
+                    "id": "49ed464c-2a72-4b8b-9eb1-3dd725e75e89",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "angle",
+                        "scaleX",
+                        "scaleY",
+                        "visible"
+                    ],
+                    "label": "tab6Number",
+                    "scope": "CLASS",
+                    "x": -74,
+                    "y": 78,
+                    "scaleX": 0.95,
+                    "scaleY": 0.88,
+                    "angle": -150,
+                    "visible": false
+                }
+            ]
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 4
+    },
+    "lists": [
+        {
+            "id": "e0029692-12f2-4cfb-b364-4d49f144c375",
+            "label": "selects",
+            "objectIds": [
+                "9cd2ea6a-f575-4975-b7c3-e8349efa4a0a",
+                "5fdc805c-c0f9-4b47-9ee8-a41402e74d73",
+                "acdf9ffb-7043-41c5-b63e-ff5e03e40980",
+                "b1b52ce6-90a5-4bae-b974-c339025bc621",
+                "ab4a0fb7-0e3c-4db4-bd9f-b0e356af66e2",
+                "61140f65-2bd2-4ce2-8073-d3b2933ffc1a"
+            ]
+        }
+    ]
+}

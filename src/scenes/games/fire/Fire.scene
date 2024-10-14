@@ -20,7 +20,7 @@
         {
             "type": "Image",
             "id": "d908d7bc-04b2-48fe-bdf5-fb343c4b7ff1",
-            "label": "bg_back_bg",
+            "label": "bg",
             "texture": {
                 "key": "fire",
                 "frame": "bg/back/bg"
@@ -68,9 +68,27 @@
             "y": 540
         },
         {
+            "prefabId": "4b050da7-f100-4764-a258-a803ffdee6cd",
+            "id": "5d0407c3-5fea-4b1a-aaaf-f3a095b45759",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "spinner",
+            "scope": "CLASS",
+            "x": 773,
+            "y": 552
+        },
+        {
+            "type": "Layer",
+            "id": "5eb4fbf7-a6d3-4837-8832-8c0c53cd4882",
+            "label": "playersLayer",
+            "scope": "CLASS"
+        },
+        {
             "type": "Image",
             "id": "f2d999e1-9a1e-4e52-816c-36b376a0b4e9",
-            "label": "bg_front_rock",
+            "label": "frontRock",
             "texture": {
                 "key": "fire",
                 "frame": "bg/front/rock"
@@ -114,13 +132,19 @@
         {
             "type": "Image",
             "id": "daa263ea-61aa-4a39-bdec-da025cabba16",
-            "label": "bg_front_top",
+            "label": "frontTop",
             "texture": {
                 "key": "fire",
                 "frame": "bg/front/top"
             },
             "x": 728,
             "y": 876
+        },
+        {
+            "type": "Layer",
+            "id": "d4be6e20-c45e-495b-9e91-b595f4866fff",
+            "label": "cardsLayer",
+            "scope": "CLASS"
         },
         {
             "prefabId": "397ec0b2-70f4-489a-a37e-a30e233fedf7",

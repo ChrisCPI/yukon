@@ -131,7 +131,7 @@ export default class CardJitsuCard extends BaseContainer {
             this.updateCard(card)
         }
 
-        //this.updateDepth()
+        this.updateDepth()
         this.setState(state)
 
         this.placeInDeck(empty)
