@@ -19,13 +19,14 @@ export default class Space {
 
     show(seat) {
         this.clicked = false
-        this.clone.setInteractive()
         this.clone.tint = layout.colors.highlight.enabled[seat]
         this.clone.visible = true
 
         if (this.scene.isMyTurn) {
+            this.clone.setInteractive()
             this.playLocal()
         } else {
+            this.clone.disableInteractive()
             this.sprite.play(`fire/space${this.id}_remote`)
         }
     }

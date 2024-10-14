@@ -180,16 +180,16 @@ export default class FirePlayer extends BaseContainer {
         this.playIdle()
         this.setHighlightInactive()
         this.setTilePosition(user.tile)
+
+        const pos = layout.board[user.tile][0][0]
+        this.setPosition(pos.x, pos.y)
+        this.setDirection(pos, { x: 760, y: 498 })
     }
 
     setTilePosition(tile, occupants = 1) {
         const pos = layout.board[tile][occupants - 1][0]
 
-        // Todo: change the x and y values to be correct so we dont need to multiply here
-        const x = (pos.x * 2)
-        const y = (pos.y * 2)
-
-        this.setPosition(x, y)
+        this.setPosition(pos.x, pos.y)
     }
 
     setHighlightActive() {
@@ -220,6 +220,14 @@ export default class FirePlayer extends BaseContainer {
         for (let part of this.parts) {
             const key = (action === 'jump') ? `jump/${part.id}` : `${this.seat}/${part.id}/${action}`
             part.sprite.play(`fire/player/${key}`)
+        }
+    }
+
+    setDirection(pos1, pos2) {
+        if (pos1.x < pos2.x) {
+            this.scaleX = Math.abs(this.scaleX)
+        } else {
+            this.scaleX = Math.abs(this.scaleX) * -1
         }
     }
 

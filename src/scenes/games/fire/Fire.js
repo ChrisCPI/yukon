@@ -135,7 +135,7 @@ export default class Fire extends GameScene {
         const closeX = this.add.image(1471, 46, "main", "grey-x");
 
         // statusText
-        const statusText = this.add.text(776.791114206862, 369.9863075131626, "", {});
+        const statusText = this.add.text(752, 370, "", {});
         statusText.setOrigin(0.4459703740153312, 0.4098174200271478);
         statusText.visible = false;
         statusText.alpha = 0;
