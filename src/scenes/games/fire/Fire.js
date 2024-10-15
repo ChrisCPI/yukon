@@ -15,6 +15,7 @@ import QuitPopup from "./popups/quit/QuitPopup";
 import CardLoader from '@engine/loaders/CardLoader'
 import CardJitsuCard from './card/CardJitsuCard'
 import FirePlayer from './FirePlayer'
+import layout from './layout'
 
 /* END-USER-IMPORTS */
 
@@ -241,12 +242,14 @@ export default class Fire extends GameScene {
         this.network.events.on('start_game', this.handleStartGame, this)
         this.network.events.on('next_round', this.handleNextRound, this)
         this.network.events.on('spinner_select', this.handleSpinnerSelect, this)
+        this.network.events.on('board_select', this.handleBoardSelect, this)
     }
 
     removeListeners() {
         this.network.events.off('start_game', this.handleStartGame, this)
         this.network.events.off('next_round', this.handleNextRound, this)
         this.network.events.off('spinner_select', this.handleSpinnerSelect, this)
+        this.network.events.off('board_select', this.handleBoardSelect, this)
     }
 
     get isMyTurn() {
@@ -326,6 +329,38 @@ export default class Fire extends GameScene {
         this.spinner.playFlip(args.tabId)
     }
 
+    handleBoardSelect(args) {
+        this.spinner.playSink()
+
+        const space = this.board.spaces[args.tile]
+        const spacePos = layout.board[args.tile]
+
+        // Todo: handle when ninja jumps off a space, so the ninjas on it can move back
+
+        let pos
+        let lookAt
+
+        if (space.occupants.length > 0) {
+            const newLength = space.occupants.length + 1
+            for (let [index, ninja] of space.occupants.entries()) {
+                pos = spacePos[newLength - 1]
+                lookAt = pos
+                ninja.jumpTo(pos[index], lookAt)
+            }
+        } else {
+            pos = spacePos[0]
+            lookAt = { x: 760 }
+        }
+
+        const ninja = this.ninjas[args.ninja]
+
+        const prevSpace = this.board.spaces[ninja.player.tile]
+
+        prevSpace.removeNinja(ninja.player)
+        space.addNinja(ninja.player)
+        ninja.player.jumpTo(pos[space.occupants.length - 1], lookAt)
+    }
+
     onCardLoad(key, card) {
         const newCard = this.createCard()
 
@@ -355,8 +390,10 @@ export default class Fire extends GameScene {
     enableAllCards() {
         for (let card of this.deck) {
             if (card === null) continue
-            
-            card.enableCard()
+
+            if (card.disabled.visible) {
+                card.enableCard()
+            }
         }
     }
 

@@ -9,6 +9,8 @@ export default class Space {
         this.board = sprite.parentContainer
         this.id = id
 
+        this.occupants = []
+
         this.clone = this.createClone()
 
         sprite.on('animationcomplete', () => {
@@ -28,7 +30,7 @@ export default class Space {
             this.playLocal()
         } else {
             this.clone.disableInteractive()
-            this.sprite.play(`fire/space${this.id}_remote`)
+            this.playRemote()
         }
     }
 
@@ -42,9 +44,8 @@ export default class Space {
 
     onClick() {
         if (this.clicked) return
-        this.board.disableActiveSpaces()
+        this.board.onSpaceClick(this.id)
         this.clicked = true
-        // Todo
     }
 
     disableInteractive() {
@@ -54,6 +55,7 @@ export default class Space {
 
     reset() {
         this.clone.visible = false
+        this.sprite.anims.stop()
         this.sprite.setFrame(`board/space${this.id}0001`)
     }
 
@@ -61,9 +63,22 @@ export default class Space {
         this.sprite.play({ key: `fire/space${this.id}_local`, startFrame: startFrame })
     }
 
+    playRemote() {
+        this.sprite.play(`fire/space${this.id}_remote`)
+    }
+
+    addNinja(ninja) {
+        this.occupants.push(ninja)
+        ninja.tile = this.id
+    }
+
+    removeNinja(ninja) {
+        this.occupants = this.occupants.filter(n => n.seat !== ninja.seat)
+    }
+
     /**
      * Makes a duplicates of the space, which is then tint filled
-     * at 20% alpha, to simulate the color effect for remote ninjas
+     * at 25% alpha, to simulate the color effect for ninja seats
      */
     createClone() {
         const space = this.sprite

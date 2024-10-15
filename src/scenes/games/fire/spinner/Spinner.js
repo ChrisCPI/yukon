@@ -44,6 +44,8 @@ export default class Spinner extends BaseContainer {
         this.tab6Number;
         /** @type {Phaser.GameObjects.Sprite[]} */
         this.selects;
+        /** @type {TabNumber[]} */
+        this.numbers;
 
 
         // main
@@ -145,6 +147,7 @@ export default class Spinner extends BaseContainer {
 
         // lists
         const selects = [select1, select2, select3, select4, select5, select6];
+        const numbers = [tab1Number, tab2Number, tab3Number, tab4Number, tab5Number, tab6Number];
 
         this.main = main;
         this.flipBottom = flipBottom;
@@ -163,6 +166,7 @@ export default class Spinner extends BaseContainer {
         this.tab5Number = tab5Number;
         this.tab6Number = tab6Number;
         this.selects = selects;
+        this.numbers = numbers;
 
         /* START-USER-CTR-CODE */
 
@@ -211,10 +215,12 @@ export default class Spinner extends BaseContainer {
     }
 
     playFlip(tabId) {
-        const num = this.spinAmount
+        if (this.currentMainAnim === 'flip') return
 
         this.currentMainAnim = 'flip'
         this.main.play('fire/spinner/flip')
+
+        const num = this.spinAmount
 
         for (let tablet of this.selects) {
             tablet.visible = false
@@ -229,13 +235,15 @@ export default class Spinner extends BaseContainer {
         this.flipBottom.play('fire/spinner/flip/bottom')
 
         this.scene.time.delayedCall(333.33, () => {
+            if (this.currentMainAnim !== 'flip') return
+
             this.flame.visible = true
             this.flame.play(`fire/spinner/tab/${tabId}/flame`)
 
             let currentNum = num
             let currentTab = tabId
             for (let i = 1; i < 7; i++) {
-                const text = this[`tab${currentTab}Number`]
+                const text = this.numbers[currentTab - 1]
                 text.show(currentNum, currentTab === tabId)
 
                 currentNum++
@@ -247,6 +255,24 @@ export default class Spinner extends BaseContainer {
 
             this.scene.board.highlightSpaces()
         })
+    }
+
+    playSink() {
+        this.currentMainAnim = 'sink'
+        this.main.play('fire/spinner/sink')
+
+        this.flame.anims.stop()
+        this.flame.visible = false
+
+        this.flipTop.anims.stop()
+        this.flipBottom.anims.stop()
+
+        this.flipTop.visible = false
+        this.flipBottom.visible = false
+
+        for (let num of this.numbers) {
+            num.visible = false
+        }
     }
 
     onTabClick(tabId) {
@@ -266,6 +292,10 @@ export default class Spinner extends BaseContainer {
                 if (this.scene.isMyTurn) {
                     this.playSelect()
                 }
+                break
+
+            case 'sink':
+                this.main.visible = false
                 break
 
             default:

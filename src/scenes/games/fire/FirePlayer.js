@@ -4,6 +4,7 @@ import BaseContainer from "../../base/BaseContainer";
 /* START-USER-IMPORTS */
 
 import layout from './layout'
+import PathEngine from '@engine/world/penguin/pathfinding/PathEngine'
 
 /* END-USER-IMPORTS */
 
@@ -179,11 +180,12 @@ export default class FirePlayer extends BaseContainer {
 
         this.playIdle()
         this.setHighlightInactive()
-        this.setTilePosition(user.tile)
 
         const pos = layout.board[user.tile][0][0]
         this.setPosition(pos.x, pos.y)
         this.setDirection(pos, { x: 760, y: 498 })
+
+        this.scene.board.spaces[user.tile].addNinja(this)
     }
 
     setTilePosition(tile, occupants = 1) {
@@ -210,16 +212,22 @@ export default class FirePlayer extends BaseContainer {
         this.playAction('idle')
     }
 
-    playJump() {
+    playReact() {
+        this.playAction('react')
+    }
+
+    playJump(action) {
         this.highlight.visible = false
-        this.playAction('jump')
+        this.currentAction = `jump/${action}`
+        for (let part of this.parts) {
+            part.sprite.play(`fire/player/${this.currentAction}/${part.id}`)
+        }
     }
 
     playAction(action) {
         this.currentAction = action
         for (let part of this.parts) {
-            const key = (action === 'jump') ? `jump/${part.id}` : `${this.seat}/${part.id}/${action}`
-            part.sprite.play(`fire/player/${key}`)
+            part.sprite.play(`fire/player/${this.seat}/${part.id}/${action}`)
         }
     }
 
@@ -240,16 +248,94 @@ export default class FirePlayer extends BaseContainer {
             this.animsFinished = []
 
             switch (this.currentAction) {
-                case 'jump':
-                    this.highlight.visible = true
+                case 'jump/start':
+                    this.playJump('spin')
+                    break
+                    
+                case 'jump/land':
                     this.playStart()
                     break
+
                 case 'start':
+                case 'react':
                     this.playIdle()
                     break
+
                 default:
                     break
             }
+        }
+    }
+
+    jumpTo(pos, lookAt) {
+        this.lookAt = lookAt
+        this.playJump('start')
+        this.setDirection(this, this.lookAt)
+        this.addTween(pos.x, pos.y)
+    }
+
+    addTween(x, y) {
+        let distance = Phaser.Math.Distance.Between(this.x, this.y, x, y)
+        let duration = distance > 480 ? 521 : 417 //PathEngine.getFrameBasedDuration(distance, this.speed * 2)
+
+        let peak = this.getPeak(duration)
+        let control = this.getMidPoint([this.x, this.y], [x, y])
+
+        let curve = new Phaser.Curves.QuadraticBezier([
+            this.x, this.y,
+            control.x, control.y - peak,
+            x, y
+        ])
+
+        this.tween = this.scene.tweens.add({
+            targets: this,
+            duration: duration,
+            y: y,
+
+            onStart: () => this.onTweenStart(),
+            onUpdate: () => this.onTweenUpdate(curve),
+            onComplete: () => this.onTweenComplete(curve)
+        })
+    }
+
+    onTweenStart() {
+        this.highlight.visible = false
+    }
+
+    onTweenUpdate(curve) {
+        let position = curve.getPoint(this.tween.totalProgress)
+
+        this.x = position.x
+        this.y = position.y
+
+        this.depth = this.y + 1
+
+        this.setDirection(this, this.lookAt)
+
+        if (this.tween.totalProgress >= 0.8 && this.currentAction !== 'jump/land') {
+            this.playJump('land')
+        }
+    }
+
+    onTweenComplete(curve) {
+        this.onTweenUpdate(curve)
+        this.tween = null
+
+        this.highlight.visible = true
+    }
+
+    getPeak(duration) {
+        const maxHeight = 400
+        const minHeight = 100
+
+        let peak = Math.max(duration / 2, minHeight)
+        return Math.min(peak, maxHeight)
+    }
+
+    getMidPoint([x1, y1], [x2, y2]) {
+        return {
+            x: (x1 + x2) / 2,
+            y: (y1 + y2) / 2
         }
     }
 

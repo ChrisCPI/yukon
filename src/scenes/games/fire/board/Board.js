@@ -141,6 +141,8 @@ export default class Board extends BaseContainer {
             this.spaces.push(space)
         }
 
+        this.spaceChosen = false
+
         /* END-USER-CTR-CODE */
     }
 
@@ -154,11 +156,29 @@ export default class Board extends BaseContainer {
         }
     }
 
-    disableActiveSpaces() {
+    onSpaceClick(spaceId) {
+        if (this.spaceChosen) {
+            return
+        }
+
+        if (!this.activeSpaces.includes(spaceId)) {
+            return
+        }
+
+        this.spaceChosen = true
+
         for (let id of this.activeSpaces) {
             const space = this.spaces[id]
             space.disableInteractive()
+
+            if (id === spaceId) {
+                space.playRemote()
+            } else {
+                space.reset()
+            }
         }
+
+        this.network.send('board_select', { spaceId: spaceId })
     }
 
     /* END-USER-CODE */
