@@ -85,14 +85,17 @@ export default class ElementPopup extends BaseContainer {
     /* START-USER-CODE */
 
     onFireHover() {
+        this.scene.filterCards('f')
         this.playShine(-173)
     }
 
     onWaterHover() {
+        this.scene.filterCards('w')
         this.playShine(8)
     }
 
     onSnowHover() {
+        this.scene.filterCards('s')
         this.playShine(186)
     }
 
@@ -102,12 +105,16 @@ export default class ElementPopup extends BaseContainer {
     }
 
     onOut() {
+        if (!this.visible) return
+        this.scene.enableAllCards()
         this.shine.__Animation.stop()
     }
 
     onElementClick(element) {
-        // Todo
+        this.onOut()
+        this.network.send('choose_element', { element: element })
         this.close()
+        // Play sound
     }
 
     /* END-USER-CODE */

@@ -268,6 +268,7 @@ export default class Fire extends GameScene {
         this.network.events.on('board_select', this.handleBoardSelect, this)
         this.network.events.on('start_battle', this.handleStartBattle, this)
         this.network.events.on('opponent_pick_card', this.handleOpponentPickCard, this)
+        this.network.events.on('choose_element', this.handleChooseElement, this)
     }
 
     removeListeners() {
@@ -277,6 +278,7 @@ export default class Fire extends GameScene {
         this.network.events.off('board_select', this.handleBoardSelect, this)
         this.network.events.off('start_battle', this.handleStartBattle, this)
         this.network.events.off('opponent_pick_card', this.handleOpponentPickCard, this)
+        this.network.events.off('choose_element', this.handleChooseElement, this)
     }
 
     get isMyTurn() {
@@ -410,6 +412,14 @@ export default class Fire extends GameScene {
         ninja.holder.addCard(newCard)
     }
 
+    handleChooseElement(args) {
+        if (this.jumpsDone) {
+            this.elementPopup.show()
+        } else {
+            this.events.once('jumps_done', () => this.elementPopup.show())
+        }
+    }
+
     startBattle(args) {
         let holderPos
         let posOffset = 0
@@ -471,6 +481,8 @@ export default class Fire extends GameScene {
 
             if (card.elementId !== element) {
                 card.disableCard()
+            } else if (card.disabled.visible) {
+                card.enableCard()
             }
         }
     }
