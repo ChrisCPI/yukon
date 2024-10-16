@@ -22,7 +22,7 @@ export default class Space {
 
     show(seat) {
         this.clicked = false
-        this.clone.tint = layout.colors.highlight.enabled[seat]
+        this.clone.tintFill = layout.colors.highlight.enabled[seat]
         this.clone.visible = true
 
         if (this.scene.isMyTurn) {

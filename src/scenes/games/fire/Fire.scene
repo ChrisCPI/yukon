@@ -147,6 +147,12 @@
             "scope": "CLASS"
         },
         {
+            "type": "Layer",
+            "id": "e6302443-87c2-4f67-80fb-a839e2e3b346",
+            "label": "holderLayer",
+            "scope": "CLASS"
+        },
+        {
             "prefabId": "397ec0b2-70f4-489a-a37e-a30e233fedf7",
             "id": "df9faf1f-822f-4aee-aa24-df788c3ff90f",
             "unlock": [

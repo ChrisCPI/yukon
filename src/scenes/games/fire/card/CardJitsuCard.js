@@ -1,6 +1,7 @@
 /* START OF COMPILED CODE */
 
 import BaseContainer from "../../../base/BaseContainer";
+import FireArrow from "../misc/FireArrow";
 /* START-USER-IMPORTS */
 
 import layout from '../layout'
@@ -28,6 +29,8 @@ export default class CardJitsuCard extends BaseContainer {
         this.disabled;
         /** @type {Phaser.GameObjects.Text} */
         this.valueText;
+        /** @type {FireArrow} */
+        this.arrow;
 
 
         // shadow
@@ -82,6 +85,13 @@ export default class CardJitsuCard extends BaseContainer {
         valueText.setStyle({ "align": "center", "color": "#000", "fixedWidth":52,"fontFamily": "Burbank Big Regular", "fontSize": "38px", "fontStyle": "bold" });
         this.add(valueText);
 
+        // arrow
+        const arrow = new FireArrow(scene, 226, 50);
+        arrow.flipX = true;
+        arrow.flipY = false;
+        arrow.visible = false;
+        this.add(arrow);
+
         this.shadow = shadow;
         this.back = back;
         this.glow = glow;
@@ -90,6 +100,7 @@ export default class CardJitsuCard extends BaseContainer {
         this.element = element;
         this.disabled = disabled;
         this.valueText = valueText;
+        this.arrow = arrow;
 
         /* START-USER-CTR-CODE */
 
@@ -123,22 +134,23 @@ export default class CardJitsuCard extends BaseContainer {
         return this.disabled.visible
     }
 
-    init(state, card = null) {
-        if (!this.scene.deck.includes(null)) {
+    init(state, card = null, deck = false) {
+        if (deck && !this.scene.deck.includes(null)) {
             return
         }
-
-        let empty = this.scene.deck.indexOf(null)
-        this.scene.deck[empty] = this
 
         if (card) {
             this.updateCard(card)
         }
 
-        this.updateDepth()
         this.setState(state)
 
-        this.placeInDeck(empty)
+        if (deck) {
+            let empty = this.scene.deck.indexOf(null)
+            this.scene.deck[empty] = this
+            this.placeInDeck(empty)
+            this.updateDepth()
+        }
     }
 
     get isPowerCard() {
@@ -185,21 +197,7 @@ export default class CardJitsuCard extends BaseContainer {
     }
 
     setStateBack() {
-        this.scale = layout.scale.back
-        this.spacer = layout.spacer.dealtBack
-
         this.showFrontSprites(false)
-    }
-
-    setStatePick() {
-        this.scale = layout.scale.pick
-
-        if (!this.tween) {
-            this.tweenToPick()
-            return
-        }
-
-        this.tween.once('complete', this.tweenToPick, this)
     }
 
     showFrontSprites(show) {
@@ -239,18 +237,20 @@ export default class CardJitsuCard extends BaseContainer {
 
     enableInput() {
         this.setSize(this.colorSprite.width, this.colorSprite.height)
-        this.setInteractive()
+        this.setInteractive({ cursor: 'pointer' })
 
         // Offset
         this.input.hitArea.x = this.colorSprite.x
         this.input.hitArea.y = this.colorSprite.y
 
         this.enableCard()
+        this.arrow.show()
     }
 
     disableInput() {
         this.disableInteractive()
         this.onOut()
+        if (this.arrow.visible) this.arrow.close()
     }
 
     disableCard() {

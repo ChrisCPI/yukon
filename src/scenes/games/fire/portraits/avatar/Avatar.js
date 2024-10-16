@@ -138,6 +138,18 @@ export default class Avatar extends BaseContainer {
         this.playEmotion('thinking')
     }
 
+    playBattling() {
+        this.playEmotion('battling')
+    }
+
+    playVictory() {
+        this.playEmotion('happy')
+    }
+
+    playDefeat() {
+        this.playEmotion('sad')
+    }
+
     playEmotion(emotion) {
         this.emotion = emotion
         for (let part of this.parts) {

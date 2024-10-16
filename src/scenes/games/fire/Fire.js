@@ -14,6 +14,7 @@ import QuitPopup from "./popups/quit/QuitPopup";
 
 import CardLoader from '@engine/loaders/CardLoader'
 import CardJitsuCard from './card/CardJitsuCard'
+import CardHolder from './card/CardHolder'
 import FirePlayer from './FirePlayer'
 import layout from './layout'
 
@@ -32,6 +33,8 @@ export default class Fire extends GameScene {
         this.playersLayer;
         /** @type {Phaser.GameObjects.Layer} */
         this.cardsLayer;
+        /** @type {Phaser.GameObjects.Layer} */
+        this.holderLayer;
         /** @type {ClientPortrait} */
         this.portrait0;
         /** @type {Portrait} */
@@ -103,6 +106,9 @@ export default class Fire extends GameScene {
 
         // cardsLayer
         const cardsLayer = this.add.layer();
+
+        // holderLayer
+        const holderLayer = this.add.layer();
 
         // portrait0
         const portrait0 = new ClientPortrait(this, 168, 175);
@@ -196,6 +202,7 @@ export default class Fire extends GameScene {
         this.spinner = spinner;
         this.playersLayer = playersLayer;
         this.cardsLayer = cardsLayer;
+        this.holderLayer = holderLayer;
         this.portrait0 = portrait0;
         this.portrait1 = portrait1;
         this.portrait2 = portrait2;
@@ -217,12 +224,21 @@ export default class Fire extends GameScene {
 
         this.addListeners()
 
+        this.mySeat = 0
+
+        this.holders = []
+        for (let i = 0; i < 4; i++) {
+            const holder = new CardHolder(this)
+            holder.visible = false
+            this.holderLayer.add(holder)
+            this.holders.push(holder)
+        }
+
         this.portraits = [this.portrait0, this.portrait1, this.portrait2, this.portrait3]
 
         this.deck = [null, null, null, null, null]
-
-        this.onCardLoad = this.onCardLoad.bind(this)
-
+        this.onCardDeckLoad = this.onCardDeckLoad.bind(this)
+        this.onCardHolderLoad = this.onCardHolderLoad.bind(this)
         this.cardLoader = new CardLoader(this)
 
         for (const portrait of this.portraits) {
@@ -231,9 +247,16 @@ export default class Fire extends GameScene {
 
         this.ninjas = []
 
+        this.jumpQueue = []
+
         this.currentNinja = null
 
         this.timerPopup.show()
+
+        this.jumpsDone = false
+        this.events.on('jumps_done', () => {
+            this.jumpsDone = true
+        })
 
         this.network.send('start_game')
     }
@@ -243,6 +266,8 @@ export default class Fire extends GameScene {
         this.network.events.on('next_round', this.handleNextRound, this)
         this.network.events.on('spinner_select', this.handleSpinnerSelect, this)
         this.network.events.on('board_select', this.handleBoardSelect, this)
+        this.network.events.on('start_battle', this.handleStartBattle, this)
+        this.network.events.on('opponent_pick_card', this.handleOpponentPickCard, this)
     }
 
     removeListeners() {
@@ -250,6 +275,8 @@ export default class Fire extends GameScene {
         this.network.events.off('next_round', this.handleNextRound, this)
         this.network.events.off('spinner_select', this.handleSpinnerSelect, this)
         this.network.events.off('board_select', this.handleBoardSelect, this)
+        this.network.events.off('start_battle', this.handleStartBattle, this)
+        this.network.events.off('opponent_pick_card', this.handleOpponentPickCard, this)
     }
 
     get isMyTurn() {
@@ -264,6 +291,7 @@ export default class Fire extends GameScene {
         for (let [index, user] of args.users.entries()) {
             if (this.world.isClientUsername(user.username)) {
                 clientIndex = index
+                this.mySeat = index
                 break
             }
         }
@@ -274,8 +302,9 @@ export default class Fire extends GameScene {
 
             this.ninjas.push({
                 portrait: this.portraits[clientSeat],
-                player: new FirePlayer(this, 0, 0),
+                player: new FirePlayer(this),
                 username: user.username,
+                holder: this.holders[clientSeat],
                 clientSeat: clientSeat
             })
 
@@ -289,10 +318,8 @@ export default class Fire extends GameScene {
     }
 
     handleNextRound(args) {
-        for (let [slot, card] of args.deck.entries()) {
-            if (this.deck[slot] !== null) continue
-
-            this.cardLoader.loadCard(card, this.onCardLoad)
+        for (let card of args.deck) {
+            this.cardLoader.loadCard(card, this.onCardDeckLoad)
         }
 
         if (this.currentNinja) {
@@ -323,6 +350,8 @@ export default class Fire extends GameScene {
         this.spinner.playRise()
 
         this.playStatusText(text)
+
+        this.jumpsDone = false
     }
 
     handleSpinnerSelect(args) {
@@ -346,6 +375,8 @@ export default class Fire extends GameScene {
                 pos = spacePos[newLength - 1]
                 lookAt = pos
                 ninja.jumpTo(pos[index], lookAt)
+
+                this.jumpQueue.push(ninja)
             }
         } else {
             pos = spacePos[0]
@@ -354,6 +385,8 @@ export default class Fire extends GameScene {
 
         const ninja = this.ninjas[args.ninja]
 
+        this.jumpQueue.push(ninja.player)
+
         const prevSpace = this.board.spaces[ninja.player.tile]
 
         prevSpace.removeNinja(ninja.player)
@@ -361,16 +394,71 @@ export default class Fire extends GameScene {
         ninja.player.jumpTo(pos[space.occupants.length - 1], lookAt)
     }
 
-    onCardLoad(key, card) {
-        const newCard = this.createCard()
+    handleStartBattle(args) {
+        if (this.jumpsDone) {
+            this.startBattle(args)
+        } else {
+            this.events.once('jumps_done', () => this.startBattle(args))
+        }
+    }
 
-        newCard.init('front', card)
+    handleOpponentPickCard(args) {
+        const newCard = this.createCard()
+        newCard.init('back')
+
+        const ninja = this.ninjas[args.seat]
+        ninja.holder.addCard(newCard)
+    }
+
+    startBattle(args) {
+        let holderPos
+        let posOffset = 0
+
+        if (args.seats.length === 2 && !args.seats.includes(this.mySeat)) {
+            holderPos = layout.pos.holder[1]
+            posOffset = 1
+        } else {
+            holderPos = layout.pos.holder[args.seats.length - 2]
+        }
+
+        for (let seat of args.seats) {
+            const ninja = this.ninjas[seat]
+
+            const pos = holderPos[ninja.clientSeat + posOffset]
+            ninja.holder.setPosition(pos.x, pos.y)
+
+            ninja.holder.show(args.type, seat === this.mySeat)
+
+            ninja.portrait.avatar.playBattling()
+        }
+
+        if (args.seats.includes(this.mySeat)) {
+            for (let card of this.deck) {
+                if (card.elementId === args.type || args.type === 'b') {
+                    card.enableInput()
+                } else {
+                    card.disableCard()
+                }
+            }
+
+            this.playStatusText(this.getString(`fire_battle_${args.type}`))
+        }
+    }
+
+    onCardDeckLoad(key, card) {
+        const newCard = this.createCard()
+        this.cardsLayer.add(newCard)
+
+        newCard.init('front', card, true)
         newCard.icon.setTexture(key)
+    }
+
+    onCardHolderLoad(key, slot) {
+        
     }
 
     createCard() {
         let card = new CardJitsuCard(this)
-        this.cardsLayer.add(card)
 
         return card
     }
@@ -395,6 +483,32 @@ export default class Fire extends GameScene {
                 card.enableCard()
             }
         }
+    }
+
+    hasNoPlayableCards(element) {
+        if (element === 'b') {
+            return false
+        }
+
+        const filteredCards = this.deck.filter(card => card.elementId === element)
+
+        return filteredCards.length === 0
+    }
+
+    pickCard(card) {
+        for (let c of this.deck) {
+            c.disableInput()
+        }
+
+        const slot = this.deck.indexOf(card)
+
+        this.deck[slot] = null
+
+        this.cardsLayer.remove(card)
+        
+        this.ninjas[this.mySeat].holder.addCard(card)
+
+        this.network.send('pick_card', { card: card.id })
     }
 
     playStatusText(text) {
@@ -447,6 +561,8 @@ export default class Fire extends GameScene {
 
     leaveGame() {
         this.removeListeners()
+
+        this.events.off('jumps_done')
 
         this.world.client.sendJoinLastRoom()
     }

@@ -136,6 +136,24 @@
                     "fontSize": "38px",
                     "fontStyle": "bold",
                     "color": "#000"
+                },
+                {
+                    "prefabId": "059491c4-a53e-4cfd-8eb7-95bde5a1efc1",
+                    "id": "2e526f83-b5b5-4248-abd3-8b8037c12bfd",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "flipX",
+                        "flipY",
+                        "visible"
+                    ],
+                    "label": "arrow",
+                    "scope": "CLASS",
+                    "x": 226,
+                    "y": 50,
+                    "flipX": true,
+                    "flipY": false,
+                    "visible": false
                 }
             ]
         }

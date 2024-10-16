@@ -253,6 +253,7 @@ export default class FirePlayer extends BaseContainer {
                     break
                     
                 case 'jump/land':
+                    this.filterFromJumpQueue()
                     this.playStart()
                     break
 
@@ -272,6 +273,14 @@ export default class FirePlayer extends BaseContainer {
         this.playJump('start')
         this.setDirection(this, this.lookAt)
         this.addTween(pos.x, pos.y)
+    }
+
+    filterFromJumpQueue() {
+        this.scene.jumpQueue = this.scene.jumpQueue.filter(ninja => ninja.seat !== this.seat)
+
+        if (this.scene.jumpQueue.length === 0) {
+            this.scene.events.emit('jumps_done')
+        }
     }
 
     addTween(x, y) {
