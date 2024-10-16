@@ -248,14 +248,22 @@ export default class Fire extends GameScene {
         this.ninjas = []
 
         this.jumpQueue = []
+        this.cardAnimQueue = 0
 
         this.currentNinja = null
 
         this.timerPopup.show()
 
+        this.queuedCardLoads = []
+
         this.jumpsDone = false
         this.events.on('jumps_done', () => {
             this.jumpsDone = true
+        })
+
+        this.cardAnimsDone = false
+        this.events.on('card_anims_done', () => {
+            this.cardAnimsDone = true
         })
 
         this.network.send('start_game')
@@ -269,6 +277,7 @@ export default class Fire extends GameScene {
         this.network.events.on('start_battle', this.handleStartBattle, this)
         this.network.events.on('opponent_pick_card', this.handleOpponentPickCard, this)
         this.network.events.on('choose_element', this.handleChooseElement, this)
+        this.network.events.on('judge_battle', this.handleJudgeBattle, this)
     }
 
     removeListeners() {
@@ -279,6 +288,7 @@ export default class Fire extends GameScene {
         this.network.events.off('start_battle', this.handleStartBattle, this)
         this.network.events.off('opponent_pick_card', this.handleOpponentPickCard, this)
         this.network.events.off('choose_element', this.handleChooseElement, this)
+        this.network.events.off('judge_battle', this.handleJudgeBattle, this)
     }
 
     get isMyTurn() {
@@ -320,12 +330,16 @@ export default class Fire extends GameScene {
     }
 
     handleNextRound(args) {
+        // todo: handle cards that already exist, use slot from entries idk
         for (let card of args.deck) {
             this.cardLoader.loadCard(card, this.onCardDeckLoad)
         }
 
+        this.enableAllCards()
+
         if (this.currentNinja) {
             this.currentNinja.portrait.disablePortrait()
+            this.currentNinja.player.setHighlightInactive()
         }
         this.currentNinja = this.ninjas[args.ninja]
         this.currentNinja.portrait.enablePortrait()
@@ -346,6 +360,7 @@ export default class Fire extends GameScene {
             text = this.getFormatString('fire_turn', this.currentNinja.username.toUpperCase())
         }
 
+        this.board.resetSpaces()
         this.board.activeSpaces = [args.spin.cw, args.spin.ccw]
 
         this.spinner.spinAmount = args.spin.amount
@@ -354,6 +369,7 @@ export default class Fire extends GameScene {
         this.playStatusText(text)
 
         this.jumpsDone = false
+        this.cardAnimsDone = false
     }
 
     handleSpinnerSelect(args) {
@@ -420,6 +436,68 @@ export default class Fire extends GameScene {
         }
     }
 
+    handleJudgeBattle(args) {
+        this.queuedCardLoads = []
+
+        this.events.once('all_cards_loaded', () => this.judgeBattle(args))
+
+        for (let data of args.ninjas) {
+            if (!this.queuedCardLoads.includes(data.card)) {
+                this.queuedCardLoads.push(data.card)
+            }
+        }
+
+        for (let card of this.queuedCardLoads) {
+            this.cardLoader.loadCard(card, this.onCardHolderLoad)
+        }
+    }
+
+    judgeBattle(args) {
+        for (let data of args.ninjas) {
+            const ninja = this.ninjas[data.seat]
+
+            ninja.holder.card.updateCard(data.card)
+            ninja.holder.card.icon.setTexture(this.cardLoader.getKey(data.card.id))
+            ninja.holder.card.setState('front')
+
+            ninja.portrait.energy.setEnergy(data.energy)
+
+            let statusText
+            switch (data.state) {
+                case 1:
+                    ninja.portrait.avatar.playDefeat()
+                    ninja.holder.playAnim(args.battleType, 'trump')
+                    statusText = this.getString('fire_defeat')
+                    break
+                case 2:
+                    ninja.portrait.avatar.playWaiting()
+                    ninja.holder.playEmpty()
+                    statusText = this.getString('fire_tie_game')
+                    break
+                case 3:
+                    ninja.portrait.avatar.playVictory()
+                    ninja.holder.playEmpty()
+                    statusText = this.getString('fire_win')
+                    break
+            }
+
+            if (data.seat === this.mySeat) {
+                this.playStatusText(statusText)
+
+                if (data.state === 2) {
+                    // Play sound
+                }
+            }
+        }
+
+        this.events.once('card_anims_done', () => {
+            for (let data of args.ninjas) {
+                this.ninjas[data.seat].holder.reset()
+            }
+            this.network.send('ninja_ready')
+        })
+    }
+
     startBattle(args) {
         let holderPos
         let posOffset = 0
@@ -444,7 +522,7 @@ export default class Fire extends GameScene {
 
         if (args.seats.includes(this.mySeat)) {
             for (let card of this.deck) {
-                if (card.elementId === args.type || args.type === 'b') {
+                if (card.elementId === args.type || this.hasNoPlayableCards(args.type)) {
                     card.enableInput()
                 } else {
                     card.disableCard()
@@ -463,8 +541,12 @@ export default class Fire extends GameScene {
         newCard.icon.setTexture(key)
     }
 
-    onCardHolderLoad(key, slot) {
-        
+    onCardHolderLoad(key, card) {
+        this.queuedCardLoads = this.queuedCardLoads.filter(c => c.id !== card.id)
+
+        if (this.queuedCardLoads.length === 0) {
+            this.events.emit('all_cards_loaded')
+        }
     }
 
     createCard() {
@@ -521,6 +603,14 @@ export default class Fire extends GameScene {
         this.ninjas[this.mySeat].holder.addCard(card)
 
         this.network.send('pick_card', { card: card.id })
+    }
+
+    decreaseCardAnimQueue() {
+        this.cardAnimQueue--
+
+        if (this.cardAnimQueue === 0) {
+            this.events.emit('card_anims_done')
+        }
     }
 
     playStatusText(text) {

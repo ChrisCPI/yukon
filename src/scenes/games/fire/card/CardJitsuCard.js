@@ -146,6 +146,7 @@ export default class CardJitsuCard extends BaseContainer {
         this.setState(state)
 
         if (deck) {
+            this.scale = layout.scale.deck
             let empty = this.scene.deck.indexOf(null)
             this.scene.deck[empty] = this
             this.placeInDeck(empty)
@@ -190,7 +191,6 @@ export default class CardJitsuCard extends BaseContainer {
     }
 
     setStateFront() {
-        this.scale = layout.scale.deck
         this.spacer = layout.spacer.dealtFront
 
         this.showFrontSprites(true)

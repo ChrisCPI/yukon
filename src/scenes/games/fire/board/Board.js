@@ -181,6 +181,14 @@ export default class Board extends BaseContainer {
         this.network.send('board_select', { spaceId: spaceId })
     }
 
+    resetSpaces() {
+        this.spaceChosen = false
+        for (let id of this.activeSpaces) {
+            const space = this.spaces[id]
+            space.reset()
+        }
+    }
+
     /* END-USER-CODE */
 }
 

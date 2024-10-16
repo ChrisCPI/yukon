@@ -130,6 +130,7 @@ export default class Avatar extends BaseContainer {
 
     playWaiting() {
         const randomEmotions = ['blink', 'look_left', 'look_right', 'waiting']
+        if (randomEmotions.includes(this.emotion)) return
         const emotion = Phaser.Utils.Array.GetRandom(randomEmotions)
         this.playEmotion(emotion)
     }
@@ -147,6 +148,10 @@ export default class Avatar extends BaseContainer {
     }
 
     playDefeat() {
+        this.playEmotion('ouch')
+    }
+
+    playLeave() {
         this.playEmotion('sad')
     }
 

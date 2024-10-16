@@ -48,6 +48,32 @@
                         "key": "fire",
                         "frame": "cards/frame/symbol-cardjitsu"
                     }
+                },
+                {
+                    "type": "Sprite",
+                    "id": "9d25c371-00b4-4bb0-8df2-565cc82a5286",
+                    "label": "cardAnim",
+                    "scope": "CLASS",
+                    "texture": {
+                        "key": "fire",
+                        "frame": "cards/trump/fire0001"
+                    },
+                    "x": -60,
+                    "y": -33,
+                    "visible": false
+                },
+                {
+                    "type": "Sprite",
+                    "id": "3959cfa2-6b6c-4637-adc0-a3de74c30635",
+                    "label": "cardMask",
+                    "scope": "CLASS",
+                    "texture": {
+                        "key": "fire",
+                        "frame": "cards/masks/trump/fire0001"
+                    },
+                    "x": -60,
+                    "y": -33,
+                    "visible": false
                 }
             ]
         }

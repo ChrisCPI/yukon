@@ -5,6 +5,8 @@ const symbolMap = {
     'b': 'cardjitsu'
 }
 
+const emptyTime = 2916
+
 /* START OF COMPILED CODE */
 
 import BaseContainer from "../../../base/BaseContainer";
@@ -21,6 +23,10 @@ export default class CardHolder extends BaseContainer {
 
         /** @type {Phaser.GameObjects.Image} */
         this.symbol;
+        /** @type {Phaser.GameObjects.Sprite} */
+        this.cardAnim;
+        /** @type {Phaser.GameObjects.Sprite} */
+        this.cardMask;
 
 
         // bg
@@ -35,11 +41,26 @@ export default class CardHolder extends BaseContainer {
         const symbol = scene.add.image(0, 0, "fire", "cards/frame/symbol-cardjitsu");
         this.add(symbol);
 
+        // cardAnim
+        const cardAnim = scene.add.sprite(-60, -33, "fire", "cards/trump/fire0001");
+        cardAnim.visible = false;
+        this.add(cardAnim);
+
+        // cardMask
+        const cardMask = scene.add.sprite(-60, -33, "fire", "cards/masks/trump/fire0001");
+        cardMask.visible = false;
+        this.add(cardMask);
+
         this.symbol = symbol;
+        this.cardAnim = cardAnim;
+        this.cardMask = cardMask;
 
         /* START-USER-CTR-CODE */
 
         this.card = null
+
+        this.cardAnim.on('animationcomplete', () => scene.decreaseCardAnimQueue())
+        this.cardMask.on('animationcomplete', () => scene.decreaseCardAnimQueue())
 
         /* END-USER-CTR-CODE */
     }
@@ -50,7 +71,7 @@ export default class CardHolder extends BaseContainer {
     show(element, isClient) {
         let frame
 
-        if (isClient && element !== 'b' && this.scene.hasNoPlayableCards(element)) {
+        if (isClient && this.scene.hasNoPlayableCards(element)) {
             frame = `cards/frame/symbol-no${symbolMap[element]}`
         } else {
             frame = `cards/frame/symbol-${symbolMap[element]}`
@@ -62,14 +83,45 @@ export default class CardHolder extends BaseContainer {
     }
 
     addCard(card) {
+        this.card = card
+
         card.scale = layout.scale.holder
 
         this.add(card)
 
+        this.bringToTop(this.cardAnim)
+
         const pos = layout.pos.card.holder
         card.setPosition(pos.x, pos.y)
+    }
 
-        this.card = card
+    playAnim(element, type) {
+        this.cardAnim.play(`fire/card/${type}/${symbolMap[element]}`)
+        this.cardMask.play(`fire/card/${type}/${symbolMap[element]}-mask`)
+
+        // + 2 for both normal anim and mask anim
+        this.scene.cardAnimQueue += 2
+
+        // Set correct mask position
+        const matrix = this.cardMask.getWorldTransformMatrix()
+
+        this.cardMask.x = matrix.getX(0, 0)
+        this.cardMask.y = matrix.getY(0, 0)
+
+        const mask = this.cardMask.createBitmapMask()
+        this.card.mask = mask
+    }
+
+    playEmpty() {
+        this.scene.cardAnimQueue++
+
+        this.scene.time.delayedCall(emptyTime, () => this.scene.decreaseCardAnimQueue())
+    }
+
+    reset() {
+        this.remove(this.card, true)
+        this.card = null
+        this.close()
     }
 
     /* END-USER-CODE */
