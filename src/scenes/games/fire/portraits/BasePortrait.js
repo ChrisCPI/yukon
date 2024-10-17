@@ -24,6 +24,8 @@ export default class BasePortrait extends BaseContainer {
 
         if (this.arrow) this.arrow.visible = false
 
+        this.hideClock()
+
         this.show()
     }
 
@@ -48,6 +50,14 @@ export default class BasePortrait extends BaseContainer {
         } else {
             this.energy.tintDisabled()
         }
+    }
+
+    playClock() {
+        this.clock.show()
+    }
+
+    hideClock() {
+        this.clock.close()
     }
 
     createMask() {

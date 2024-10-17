@@ -1,0 +1,76 @@
+{
+    "id": "6e25ab21-dc5b-47ed-af62-0c9b52cfc124",
+    "sceneType": "PREFAB",
+    "settings": {
+        "compilerInsertSpaces": true,
+        "javaScriptInitFieldsInConstructor": true,
+        "exportClass": true,
+        "autoImport": true,
+        "superClassName": "BaseContainer",
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "borderWidth": 1520,
+        "borderHeight": 960
+    },
+    "displayList": [
+        {
+            "type": "Container",
+            "id": "d256bd1a-9f68-4ceb-bb2b-8ba2d7b0cb77",
+            "label": "container_1",
+            "x": 760,
+            "y": 480,
+            "list": [
+                {
+                    "type": "Image",
+                    "id": "db159589-7ec0-4e15-add5-b3576c481ac6",
+                    "label": "clock",
+                    "scope": "CLASS",
+                    "texture": {
+                        "key": "fire",
+                        "frame": "portraits/clock/20"
+                    },
+                    "flipX": true
+                },
+                {
+                    "type": "Sprite",
+                    "id": "08f59d76-b0e5-46e0-bce5-612688f23612",
+                    "label": "border",
+                    "scope": "CLASS",
+                    "texture": {
+                        "key": "fire",
+                        "frame": "portraits/clock/frame0001"
+                    },
+                    "scaleX": 0.975,
+                    "scaleY": 0.975
+                },
+                {
+                    "type": "Text",
+                    "id": "ce6f332b-9089-4168-881e-250129f72a86",
+                    "label": "time",
+                    "scope": "CLASS",
+                    "originX": 0.5,
+                    "originY": 0.5,
+                    "text": "20",
+                    "fixedWidth": 200,
+                    "align": "center",
+                    "fontFamily": "CCComiccrazy",
+                    "fontSize": "44px",
+                    "color": "#000",
+                    "strokeThickness": 5,
+                    "shadow.stroke": true,
+                    "shadow.fill": true,
+                    "shadow.color": "#fff",
+                    "shadow.blur": 5
+                }
+            ]
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 4
+    }
+}

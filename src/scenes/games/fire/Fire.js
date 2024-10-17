@@ -348,6 +348,7 @@ export default class Fire extends GameScene {
         for (let [seat, ninja] of this.ninjas.entries()) {
             if (seat === args.ninja) {
                 ninja.portrait.avatar.playThinking()
+                ninja.portrait.playClock()
             } else {
                 ninja.portrait.avatar.playWaiting()
             }
@@ -383,6 +384,8 @@ export default class Fire extends GameScene {
         const spacePos = layout.board[args.tile]
 
         const ninja = this.ninjas[args.ninja]
+
+        ninja.portrait.hideClock()
 
         const prevSpace = this.board.spaces[ninja.player.tile]
         const prevSpacePos = layout.board[ninja.player.tile]
@@ -438,6 +441,7 @@ export default class Fire extends GameScene {
 
         const ninja = this.ninjas[args.seat]
         ninja.holder.addCard(newCard)
+        ninja.portrait.hideClock()
     }
 
     handleChooseElement(args) {
@@ -484,6 +488,8 @@ export default class Fire extends GameScene {
             ninja.holder.show(args.type, seat === this.mySeat)
 
             ninja.portrait.avatar.playBattling()
+
+            ninja.portrait.playClock()
         }
 
         if (args.seats.includes(this.mySeat)) {
@@ -628,7 +634,9 @@ export default class Fire extends GameScene {
 
         this.cardsLayer.remove(card)
 
-        this.ninjas[this.mySeat].holder.addCard(card)
+        const me = this.ninjas[this.mySeat]
+        me.holder.addCard(card)
+        me.portrait.hideClock()
 
         this.network.send('pick_card', { card: card.id })
     }
@@ -684,6 +692,14 @@ export default class Fire extends GameScene {
         })
     }
 
+    stop() {
+        super.stop()
+
+        for (let portrait of this.portraits) {
+            portrait.clock.clearTimer()
+        }
+    }
+
     sendLeaveGame() {
         this.network.send('leave_game')
         this.leaveGame()
@@ -694,6 +710,7 @@ export default class Fire extends GameScene {
 
         this.events.off('jumps_done')
         this.events.off('card_anims_done')
+        this.events.off('all_cards_loaded')
 
         this.world.client.sendJoinLastRoom()
     }

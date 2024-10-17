@@ -3,6 +3,7 @@
 import BasePortrait from "./BasePortrait";
 import Avatar from "./avatar/Avatar";
 import Energy from "./energy/Energy";
+import PortraitClock from "./clock/PortraitClock";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
 
@@ -27,6 +28,8 @@ export default class ClientPortrait extends BasePortrait {
         this.nickname;
         /** @type {Phaser.GameObjects.Rectangle} */
         this.maskRect;
+        /** @type {PortraitClock} */
+        this.clock;
 
 
         // bg
@@ -69,6 +72,12 @@ export default class ClientPortrait extends BasePortrait {
         maskRect.isFilled = true;
         this.add(maskRect);
 
+        // clock
+        const clock = new PortraitClock(scene, 137, -51);
+        clock.scaleX = 0.8;
+        clock.scaleY = 0.8;
+        this.add(clock);
+
         this.bg = bg;
         this.side = side;
         this.bottom = bottom;
@@ -77,6 +86,7 @@ export default class ClientPortrait extends BasePortrait {
         this.top = top;
         this.nickname = nickname;
         this.maskRect = maskRect;
+        this.clock = clock;
 
         /* START-USER-CTR-CODE */
         /* END-USER-CTR-CODE */

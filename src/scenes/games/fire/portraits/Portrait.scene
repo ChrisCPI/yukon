@@ -158,6 +158,22 @@
                     "fillAlpha": 0.5,
                     "width": 220,
                     "height": 220
+                },
+                {
+                    "prefabId": "6e25ab21-dc5b-47ed-af62-0c9b52cfc124",
+                    "id": "2a60f11d-a46a-4aa0-8d70-baf006d92e75",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "scaleX",
+                        "scaleY"
+                    ],
+                    "label": "clock",
+                    "scope": "CLASS",
+                    "x": -83,
+                    "y": -65,
+                    "scaleX": 0.6,
+                    "scaleY": 0.6
                 }
             ]
         }

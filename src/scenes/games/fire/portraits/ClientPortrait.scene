@@ -129,6 +129,22 @@
                     "isFilled": true,
                     "width": 260,
                     "height": 220
+                },
+                {
+                    "prefabId": "6e25ab21-dc5b-47ed-af62-0c9b52cfc124",
+                    "id": "bc5a2172-911b-47ea-802e-5acb77cd0a7f",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "scaleX",
+                        "scaleY"
+                    ],
+                    "label": "clock",
+                    "scope": "CLASS",
+                    "x": 137,
+                    "y": -51,
+                    "scaleX": 0.8,
+                    "scaleY": 0.8
                 }
             ]
         }
