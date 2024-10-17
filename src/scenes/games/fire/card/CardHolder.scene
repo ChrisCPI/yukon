@@ -58,8 +58,8 @@
                         "key": "fire",
                         "frame": "cards/trump/fire0001"
                     },
-                    "x": -60,
                     "y": -33,
+                    "originX": 0.5980312691189295,
                     "visible": false
                 },
                 {

@@ -231,6 +231,16 @@ export default class FirePlayer extends BaseContainer {
         }
     }
 
+    afterJumpLand() {
+        this.filterFromJumpQueue()
+
+        if (this.shouldPlayReact) {
+            this.playReact()
+        } else {
+            this.playStart()
+        }
+    }
+
     setDirection(pos1, pos2) {
         if (pos1.x < pos2.x) {
             this.scaleX = Math.abs(this.scaleX)
@@ -253,8 +263,7 @@ export default class FirePlayer extends BaseContainer {
                     break
                     
                 case 'jump/land':
-                    this.filterFromJumpQueue()
-                    this.playStart()
+                    this.afterJumpLand()
                     break
 
                 case 'start':
@@ -268,14 +277,17 @@ export default class FirePlayer extends BaseContainer {
         }
     }
 
-    jumpTo(pos, lookAt) {
+    jumpTo(pos, lookAt, playReact) {
         this.lookAt = lookAt
+        this.shouldPlayReact = playReact
         this.playJump('start')
         this.setDirection(this, this.lookAt)
         this.addTween(pos.x, pos.y)
     }
 
     filterFromJumpQueue() {
+        if(this.scene.jumpQueue.length === 0) return
+
         this.scene.jumpQueue = this.scene.jumpQueue.filter(ninja => ninja.seat !== this.seat)
 
         if (this.scene.jumpQueue.length === 0) {
@@ -331,6 +343,8 @@ export default class FirePlayer extends BaseContainer {
         this.tween = null
 
         this.highlight.visible = true
+
+        this.afterJumpLand()
     }
 
     getPeak(duration) {

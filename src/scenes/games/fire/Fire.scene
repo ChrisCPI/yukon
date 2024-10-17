@@ -266,7 +266,7 @@
             "alphaBottomLeft": 0,
             "alphaBottomRight": 0,
             "text": "<empty message>",
-            "fixedWidth": 600,
+            "fixedWidth": 750,
             "fixedHeight": 150,
             "paddingTop": 20,
             "align": "center",

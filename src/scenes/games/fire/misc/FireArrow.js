@@ -10,6 +10,9 @@ export default class FireArrow extends BaseImage {
         super(scene, x ?? 760, y ?? 408, texture || "fire", frame ?? "portraits/common/arrow");
 
         /* START-USER-CTR-CODE */
+
+        this.startingX = this.x
+
         /* END-USER-CTR-CODE */
     }
 
@@ -34,6 +37,8 @@ export default class FireArrow extends BaseImage {
         this.tween.stop()
         this.tween.destroy()
         this.tween = null
+
+        this.x = this.startingX
     }
 
     /* END-USER-CODE */

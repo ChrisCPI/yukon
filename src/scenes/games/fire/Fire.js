@@ -151,7 +151,7 @@ export default class Fire extends GameScene {
         statusText.alphaBottomLeft = 0;
         statusText.alphaBottomRight = 0;
         statusText.text = "<empty message>";
-        statusText.setStyle({ "align": "center", "color": "#000", "fixedWidth":600,"fixedHeight":150,"fontFamily": "CCComiccrazy", "fontSize": "45px", "stroke": "#ff9900", "strokeThickness":8,"shadow.color": "#f5d589", "shadow.blur":25,"shadow.stroke":true,"shadow.fill":true});
+        statusText.setStyle({ "align": "center", "color": "#000", "fixedWidth":750,"fixedHeight":150,"fontFamily": "CCComiccrazy", "fontSize": "45px", "stroke": "#ff9900", "strokeThickness":8,"shadow.color": "#f5d589", "shadow.blur":25,"shadow.stroke":true,"shadow.fill":true});
         statusText.setPadding({"top":20});
 
         // elementPopup
@@ -386,13 +386,15 @@ export default class Fire extends GameScene {
 
         let pos
         let lookAt
+        let playReact = false
 
         if (space.occupants.length > 0) {
+            playReact = true
             const newLength = space.occupants.length + 1
             for (let [index, ninja] of space.occupants.entries()) {
                 pos = spacePos[newLength - 1]
                 lookAt = pos
-                ninja.jumpTo(pos[index], lookAt)
+                ninja.jumpTo(pos[index], lookAt, playReact)
 
                 this.jumpQueue.push(ninja)
             }
@@ -409,7 +411,7 @@ export default class Fire extends GameScene {
 
         prevSpace.removeNinja(ninja.player)
         space.addNinja(ninja.player)
-        ninja.player.jumpTo(pos[space.occupants.length - 1], lookAt)
+        ninja.player.jumpTo(pos[space.occupants.length - 1], lookAt, playReact)
     }
 
     handleStartBattle(args) {
@@ -452,52 +454,6 @@ export default class Fire extends GameScene {
         }
     }
 
-    judgeBattle(args) {
-        for (let data of args.ninjas) {
-            const ninja = this.ninjas[data.seat]
-
-            ninja.holder.card.updateCard(data.card)
-            ninja.holder.card.icon.setTexture(this.cardLoader.getKey(data.card.id))
-            ninja.holder.card.setState('front')
-
-            ninja.portrait.energy.setEnergy(data.energy)
-
-            let statusText
-            switch (data.state) {
-                case 1:
-                    ninja.portrait.avatar.playDefeat()
-                    ninja.holder.playAnim(args.battleType, 'trump')
-                    statusText = this.getString('fire_defeat')
-                    break
-                case 2:
-                    ninja.portrait.avatar.playWaiting()
-                    ninja.holder.playEmpty()
-                    statusText = this.getString('fire_tie_game')
-                    break
-                case 3:
-                    ninja.portrait.avatar.playVictory()
-                    ninja.holder.playEmpty()
-                    statusText = this.getString('fire_win')
-                    break
-            }
-
-            if (data.seat === this.mySeat) {
-                this.playStatusText(statusText)
-
-                if (data.state === 2) {
-                    // Play sound
-                }
-            }
-        }
-
-        this.events.once('card_anims_done', () => {
-            for (let data of args.ninjas) {
-                this.ninjas[data.seat].holder.reset()
-            }
-            this.network.send('ninja_ready')
-        })
-    }
-
     startBattle(args) {
         let holderPos
         let posOffset = 0
@@ -522,7 +478,7 @@ export default class Fire extends GameScene {
 
         if (args.seats.includes(this.mySeat)) {
             for (let card of this.deck) {
-                if (card.elementId === args.type || this.hasNoPlayableCards(args.type)) {
+                if (card.elementId === args.type || args.type === 'b' || this.hasNoPlayableCards(args.type)) {
                     card.enableInput()
                 } else {
                     card.disableCard()
@@ -531,6 +487,66 @@ export default class Fire extends GameScene {
 
             this.playStatusText(this.getString(`fire_battle_${args.type}`))
         }
+    }
+
+    judgeBattle(args) {
+        for (let data of args.ninjas) {
+            const animType = args.ninjas.some(n => n.state === 4) && args.ninjas.some(n => n.seat === this.mySeat)
+                ? 'energy'
+                : 'trump'
+
+            const ninja = this.ninjas[data.seat]
+
+            const card = ninja.holder.card
+            card.updateCard(data.card)
+            card.icon.setTexture(this.cardLoader.getKey(data.card.id))
+            card.setState('front')
+
+            ninja.portrait.energy.setEnergy(data.energy)
+
+            let statusText
+            switch (data.state) {
+                case 1:
+                    ninja.portrait.avatar.playDefeat()
+                    ninja.holder.playAnim(args.battleType, animType, ninja.clientSeat === 0)
+                    this.holderLayer.bringToTop(ninja.holder)
+                    statusText = this.getString('fire_defeat')
+                    break
+
+                case 2:
+                    ninja.portrait.avatar.playWaiting()
+                    ninja.holder.playEmpty()
+                    statusText = this.getString('fire_tie_game')
+                    break
+
+                case 3:
+                    ninja.portrait.avatar.playVictory()
+                    ninja.holder.playEmpty()
+                    statusText = this.getString('fire_win')
+                    break
+
+                case 4:
+                    ninja.portrait.avatar.playVictory()
+                    ninja.holder.playEmpty()
+                    statusText = this.getString('fire_win_b')
+                    break
+            }
+
+            if (data.seat === this.mySeat) {
+                this.playStatusText(statusText)
+
+                if (data.state === 2) {
+                    // Play sound
+                }
+            }
+        }
+
+        this.events.once('card_anims_done', () => {
+            for (let data of args.ninjas) {
+                this.ninjas[data.seat].holder.reset()
+            }
+            this.network.send('ninja_ready')
+        })
     }
 
     onCardDeckLoad(key, card) {
@@ -599,7 +615,7 @@ export default class Fire extends GameScene {
         this.deck[slot] = null
 
         this.cardsLayer.remove(card)
-        
+
         this.ninjas[this.mySeat].holder.addCard(card)
 
         this.network.send('pick_card', { card: card.id })

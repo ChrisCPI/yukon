@@ -42,7 +42,8 @@ export default class CardHolder extends BaseContainer {
         this.add(symbol);
 
         // cardAnim
-        const cardAnim = scene.add.sprite(-60, -33, "fire", "cards/trump/fire0001");
+        const cardAnim = scene.add.sprite(0, -33, "fire", "cards/trump/fire0001");
+        cardAnim.setOrigin(0.5980312691189295, 0.5);
         cardAnim.visible = false;
         this.add(cardAnim);
 
@@ -58,6 +59,10 @@ export default class CardHolder extends BaseContainer {
         /* START-USER-CTR-CODE */
 
         this.card = null
+
+        // Card mask pos must be reset to this before being set to world position
+        this.cardMaskX = this.cardMask.x
+        this.cardMaskY = this.cardMask.y
 
         this.cardAnim.on('animationcomplete', () => scene.decreaseCardAnimQueue())
         this.cardMask.on('animationcomplete', () => scene.decreaseCardAnimQueue())
@@ -95,7 +100,9 @@ export default class CardHolder extends BaseContainer {
         card.setPosition(pos.x, pos.y)
     }
 
-    playAnim(element, type) {
+    playAnim(element, type, shouldFlip) {
+        this.cardAnim.scaleX = shouldFlip && type === 'energy' ? -1 : 1
+        
         this.cardAnim.play(`fire/card/${type}/${symbolMap[element]}`)
         this.cardMask.play(`fire/card/${type}/${symbolMap[element]}-mask`)
 
@@ -103,6 +110,7 @@ export default class CardHolder extends BaseContainer {
         this.scene.cardAnimQueue += 2
 
         // Set correct mask position
+        this.cardMask.setPosition(this.cardMaskX, this.cardMaskY)
         const matrix = this.cardMask.getWorldTransformMatrix()
 
         this.cardMask.x = matrix.getX(0, 0)
