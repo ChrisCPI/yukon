@@ -266,6 +266,11 @@ export default class Fire extends GameScene {
             this.cardAnimsDone = true
         })
 
+        this.tabsFlipped = false
+        this.events.on('tabs_flipped', () => {
+            this.tabsFlipped = true
+        })
+
         this.network.send('start_game')
     }
 
@@ -273,8 +278,10 @@ export default class Fire extends GameScene {
         this.network.events.on('start_game', this.handleStartGame, this)
         this.network.events.on('next_round', this.handleNextRound, this)
         this.network.events.on('spinner_select', this.handleSpinnerSelect, this)
+        this.network.events.on('auto_board_select', this.handleAutoBoardSelect, this)
         this.network.events.on('board_select', this.handleBoardSelect, this)
         this.network.events.on('start_battle', this.handleStartBattle, this)
+        this.network.events.on('auto_pick_card', this.handleAutoPickCard, this)
         this.network.events.on('opponent_pick_card', this.handleOpponentPickCard, this)
         this.network.events.on('choose_element', this.handleChooseElement, this)
         this.network.events.on('judge_battle', this.handleJudgeBattle, this)
@@ -284,8 +291,10 @@ export default class Fire extends GameScene {
         this.network.events.off('start_game', this.handleStartGame, this)
         this.network.events.off('next_round', this.handleNextRound, this)
         this.network.events.off('spinner_select', this.handleSpinnerSelect, this)
+        this.network.events.off('auto_board_select', this.handleAutoBoardSelect, this)
         this.network.events.off('board_select', this.handleBoardSelect, this)
         this.network.events.off('start_battle', this.handleStartBattle, this)
+        this.network.events.off('auto_pick_card', this.handleAutoPickCard, this)
         this.network.events.off('opponent_pick_card', this.handleOpponentPickCard, this)
         this.network.events.off('choose_element', this.handleChooseElement, this)
         this.network.events.off('judge_battle', this.handleJudgeBattle, this)
@@ -371,13 +380,26 @@ export default class Fire extends GameScene {
 
         this.jumpsDone = false
         this.cardAnimsDone = false
+        this.tabsFlipped = false
     }
 
     handleSpinnerSelect(args) {
         this.spinner.playFlip(args.tabId)
     }
 
+    handleAutoBoardSelect(args) {
+        this.board.onSpaceClick(args.tile, false)
+    }
+
     handleBoardSelect(args) {
+        if (this.tabsFlipped) {
+            this.selectBoard(args)
+        } else {
+            this.events.once('tabs_flipped', () => this.selectBoard(args))
+        }
+    }
+
+    selectBoard(args) {
         this.spinner.playSink()
 
         const space = this.board.spaces[args.tile]
@@ -433,6 +455,12 @@ export default class Fire extends GameScene {
         } else {
             this.events.once('jumps_done', () => this.startBattle(args))
         }
+    }
+
+    handleAutoPickCard(args) {
+        const card = this.deck.find(card => card !== null && card.id == args.card)
+
+        this.pickCard(card, false)
     }
 
     handleOpponentPickCard(args) {
@@ -623,7 +651,7 @@ export default class Fire extends GameScene {
         return filteredCards.length === 0
     }
 
-    pickCard(card) {
+    pickCard(card, send = true) {
         for (let c of this.deck) {
             c.disableInput()
         }
@@ -638,7 +666,9 @@ export default class Fire extends GameScene {
         me.holder.addCard(card)
         me.portrait.hideClock()
 
-        this.network.send('pick_card', { card: card.id })
+        if (send) {
+            this.network.send('pick_card', { card: card.id })
+        }
     }
 
     decreaseCardAnimQueue() {
@@ -711,6 +741,7 @@ export default class Fire extends GameScene {
         this.events.off('jumps_done')
         this.events.off('card_anims_done')
         this.events.off('all_cards_loaded')
+        this.events.off('tabs_flipped')
 
         this.world.client.sendJoinLastRoom()
     }

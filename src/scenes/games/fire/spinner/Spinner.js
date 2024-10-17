@@ -254,6 +254,7 @@ export default class Spinner extends BaseContainer {
             }
 
             this.scene.board.highlightSpaces()
+            this.scene.events.emit('tabs_flipped')
         })
     }
 

@@ -156,7 +156,7 @@ export default class Board extends BaseContainer {
         }
     }
 
-    onSpaceClick(spaceId) {
+    onSpaceClick(spaceId, send = true) {
         if (this.spaceChosen) {
             return
         }
@@ -178,7 +178,9 @@ export default class Board extends BaseContainer {
             }
         }
 
-        this.network.send('board_select', { spaceId: spaceId })
+        if (send) {
+            this.network.send('board_select', { spaceId: spaceId })
+        }
     }
 
     resetSpaces() {
