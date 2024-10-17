@@ -382,32 +382,42 @@ export default class Fire extends GameScene {
         const space = this.board.spaces[args.tile]
         const spacePos = layout.board[args.tile]
 
-        // Todo: handle when ninja jumps off a space, so the ninjas on it can move back
+        const ninja = this.ninjas[args.ninja]
+
+        const prevSpace = this.board.spaces[ninja.player.tile]
+        const prevSpacePos = layout.board[ninja.player.tile]
 
         let pos
         let lookAt
         let playReact = false
 
+        if (prevSpace.occupants.length > 1) {
+            const occupants = prevSpace.occupants.filter(player => player.seat !== ninja.player.seat)
+            for (let [index, player] of occupants.entries()) {
+                pos = prevSpacePos[occupants.length - 1]
+                lookAt = pos
+                player.jumpTo(pos[index], lookAt, playReact)
+
+                this.jumpQueue.push(player)
+            }
+        }
+        
         if (space.occupants.length > 0) {
             playReact = true
             const newLength = space.occupants.length + 1
-            for (let [index, ninja] of space.occupants.entries()) {
+            for (let [index, player] of space.occupants.entries()) {
                 pos = spacePos[newLength - 1]
                 lookAt = pos
-                ninja.jumpTo(pos[index], lookAt, playReact)
+                player.jumpTo(pos[index], lookAt, playReact)
 
-                this.jumpQueue.push(ninja)
+                this.jumpQueue.push(player)
             }
         } else {
             pos = spacePos[0]
             lookAt = { x: 760 }
         }
 
-        const ninja = this.ninjas[args.ninja]
-
         this.jumpQueue.push(ninja.player)
-
-        const prevSpace = this.board.spaces[ninja.player.tile]
 
         prevSpace.removeNinja(ninja.player)
         space.addNinja(ninja.player)
@@ -600,7 +610,9 @@ export default class Fire extends GameScene {
             return false
         }
 
-        const filteredCards = this.deck.filter(card => card.elementId === element)
+        const filteredCards = this.deck
+            .filter(card => card !== null)
+            .filter(card => card.elementId === element)
 
         return filteredCards.length === 0
     }
@@ -681,6 +693,7 @@ export default class Fire extends GameScene {
         this.removeListeners()
 
         this.events.off('jumps_done')
+        this.events.off('card_anims_done')
 
         this.world.client.sendJoinLastRoom()
     }

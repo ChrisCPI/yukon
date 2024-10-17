@@ -22,15 +22,14 @@
                 {
                     "type": "Sprite",
                     "id": "3b59769e-6189-48c8-a211-bf0894d8853d",
-                    "label": "fire",
+                    "label": "flame",
                     "scope": "CLASS",
                     "texture": {
                         "key": "fire",
-                        "frame": "portraits/energy/fire0002"
+                        "frame": "portraits/energy/flame0001"
                     },
-                    "y": -74,
-                    "scaleX": 0.4,
-                    "scaleY": 0.4
+                    "y": -31,
+                    "originY": 0.8495735883837177
                 },
                 {
                     "type": "Image",
@@ -61,10 +60,36 @@
                     }
                 },
                 {
+                    "type": "Sprite",
+                    "id": "20016972-533a-41fc-9d11-2f758a067428",
+                    "label": "gainEffect",
+                    "scope": "CLASS",
+                    "texture": {
+                        "key": "fire",
+                        "frame": "portraits/energy/fire0002"
+                    },
+                    "x": 1,
+                    "y": -87,
+                    "visible": false
+                },
+                {
+                    "type": "Sprite",
+                    "id": "968a1a77-c788-42f3-8066-4cf7e4ac5ffc",
+                    "label": "loseEffect",
+                    "scope": "CLASS",
+                    "texture": {
+                        "key": "fire",
+                        "frame": "portraits/energy/smoke0004"
+                    },
+                    "y": -6,
+                    "visible": false
+                },
+                {
                     "type": "Text",
                     "id": "d6662dbe-f054-4dbe-a698-1b95f1a5b0a4",
                     "label": "text",
                     "scope": "CLASS",
+                    "x": 1,
                     "y": 1,
                     "originX": 0.5,
                     "originY": 0.5,

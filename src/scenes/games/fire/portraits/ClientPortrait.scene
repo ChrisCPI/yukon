@@ -58,18 +58,6 @@
                     "y": 11
                 },
                 {
-                    "type": "Image",
-                    "id": "b4417ecf-63b0-4145-b69a-af8a6b790e1b",
-                    "label": "top",
-                    "scope": "CLASS",
-                    "texture": {
-                        "key": "fire",
-                        "frame": "portraits/0/top"
-                    },
-                    "x": -6,
-                    "y": -136
-                },
-                {
                     "prefabId": "5446bc8c-bd57-42cb-89a8-b170244632f0",
                     "id": "bd5e4ab7-83ad-4ed1-85db-f9e2589d6fdd",
                     "unlock": [
@@ -96,6 +84,18 @@
                     "scope": "CLASS",
                     "x": -105,
                     "y": 72
+                },
+                {
+                    "type": "Image",
+                    "id": "b4417ecf-63b0-4145-b69a-af8a6b790e1b",
+                    "label": "top",
+                    "scope": "CLASS",
+                    "texture": {
+                        "key": "fire",
+                        "frame": "portraits/0/top"
+                    },
+                    "x": -6,
+                    "y": -136
                 },
                 {
                     "type": "Text",
