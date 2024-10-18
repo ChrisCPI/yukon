@@ -31,7 +31,7 @@ export default class CardHolder extends BaseContainer {
         this.add(outline);
 
         // symbol
-        const symbol = scene.add.image(0, 0, "fire", "cards/frame/symbol-cardjitsu");
+        const symbol = scene.add.image(0, 0, "fire", "cards/frame/symbol-b");
         this.add(symbol);
 
         // cardAnim

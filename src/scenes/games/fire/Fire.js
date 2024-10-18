@@ -407,7 +407,11 @@ export default class Fire extends GameScene {
     }
 
     handleAutoBoardSelect(args) {
-        this.board.onSpaceClick(args.tile, false)
+        if (this.tabsFlipped) {
+            this.board.onSpaceClick(args.tile, false)
+        } else {
+            this.events.once('tabs_flipped', () => this.board.onSpaceClick(args.tile, false))
+        }
     }
 
     handleBoardSelect(args) {

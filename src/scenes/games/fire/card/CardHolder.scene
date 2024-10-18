@@ -46,7 +46,7 @@
                     "scope": "CLASS",
                     "texture": {
                         "key": "fire",
-                        "frame": "cards/frame/symbol-cardjitsu"
+                        "frame": "cards/frame/symbol-b"
                     }
                 },
                 {
