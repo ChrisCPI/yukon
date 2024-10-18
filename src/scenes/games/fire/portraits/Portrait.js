@@ -1,8 +1,10 @@
 /* START OF COMPILED CODE */
 
 import BasePortrait from "./BasePortrait";
+import SimpleButton from "../../../components/SimpleButton";
 import Avatar from "./avatar/Avatar";
 import Energy from "./energy/Energy";
+import FireArrow from "../misc/FireArrow";
 import PortraitClock from "./clock/PortraitClock";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
@@ -30,7 +32,7 @@ export default class Portrait extends BasePortrait {
         this.subText;
         /** @type {Energy} */
         this.energy;
-        /** @type {Phaser.GameObjects.Image} */
+        /** @type {FireArrow} */
         this.arrow;
         /** @type {Phaser.GameObjects.Text} */
         this.nickname;
@@ -93,7 +95,7 @@ export default class Portrait extends BasePortrait {
         this.add(energy);
 
         // arrow
-        const arrow = scene.add.image(-150, 113, "fire", "portraits/common/arrow");
+        const arrow = new FireArrow(scene, -150, 113);
         this.add(arrow);
 
         // nickname
@@ -119,6 +121,10 @@ export default class Portrait extends BasePortrait {
         clock.visible = false;
         this.add(clock);
 
+        // highlight (components)
+        const highlightSimpleButton = new SimpleButton(highlight);
+        highlightSimpleButton.callback = () => this.onClick();
+
         this.highlight = highlight;
         this.bg = bg;
         this.side = side;
@@ -139,6 +145,21 @@ export default class Portrait extends BasePortrait {
 
 
     /* START-USER-CODE */
+
+    enablePick() {
+        this.highlight.visible = true
+        this.arrow.show()
+    }
+
+    disablePick() {
+        this.highlight.visible = false
+        this.arrow.close()
+    }
+
+    onClick() {
+        this.scene.chooseOpponent(this.seat)
+    }
+
     /* END-USER-CODE */
 }
 

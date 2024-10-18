@@ -286,6 +286,7 @@ export default class Fire extends GameScene {
         this.network.events.on('auto_pick_card', this.handleAutoPickCard, this)
         this.network.events.on('opponent_pick_card', this.handleOpponentPickCard, this)
         this.network.events.on('choose_element', this.handleChooseElement, this)
+        this.network.events.on('choose_opponent', this.handleChooseOpponent, this)
         this.network.events.on('judge_battle', this.handleJudgeBattle, this)
         this.network.events.on('player_quit', this.handlePlayerQuit, this)
     }
@@ -300,6 +301,7 @@ export default class Fire extends GameScene {
         this.network.events.off('auto_pick_card', this.handleAutoPickCard, this)
         this.network.events.off('opponent_pick_card', this.handleOpponentPickCard, this)
         this.network.events.off('choose_element', this.handleChooseElement, this)
+        this.network.events.off('choose_opponent', this.handleChooseOpponent, this)
         this.network.events.off('judge_battle', this.handleJudgeBattle, this)
         this.network.events.off('player_quit', this.handlePlayerQuit, this)
     }
@@ -486,6 +488,26 @@ export default class Fire extends GameScene {
         }
     }
 
+    handleChooseOpponent(args) {
+        if (this.jumpsDone) {
+            this.showChooseOpponent()
+        } else {
+            this.events.once('jumps_done', () => this.showChooseOpponent())
+        }
+    }
+
+    showChooseOpponent(visible = true) {
+        for (let ninja of this.ninjas) {
+            if (ninja === null || ninja.clientSeat === 0) continue
+
+            if (visible) {
+                ninja.portrait.enablePick()
+            } else {
+                ninja.portrait.disablePick()
+            }
+        }
+    }
+
     handleJudgeBattle(args) {
         this.queuedCardLoads = []
 
@@ -617,6 +639,22 @@ export default class Fire extends GameScene {
             }
             this.network.send('ninja_ready')
         })
+    }
+
+    chooseOpponent(clientSeat, send = true) {
+        for (let ninja of this.ninjas) {
+            if (ninja === null || ninja.clientSeat === 0) continue
+
+            ninja.portrait.disablePick()
+        }
+
+        if (send) {
+            const ninja = this.ninjas.find(n => n !== null && n.clientSeat === clientSeat)
+
+            const seat = this.ninjas.indexOf(ninja)
+
+            this.network.send('choose_opponent', { seat: seat })
+        }
     }
 
     onCardDeckLoad(key, card) {

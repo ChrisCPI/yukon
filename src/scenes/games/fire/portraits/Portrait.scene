@@ -26,6 +26,10 @@
                     "id": "0a607d37-cbda-4fcd-a50d-ed9b213926d3",
                     "label": "highlight",
                     "scope": "CLASS",
+                    "components": [
+                        "SimpleButton"
+                    ],
+                    "SimpleButton.callback": "() => this.onClick()",
                     "texture": {
                         "key": "fire",
                         "frame": "portraits/common/highlight"
@@ -151,14 +155,14 @@
                     "scaleY": 0.78
                 },
                 {
-                    "type": "Image",
-                    "id": "30bd2cb8-7df1-47d3-b5ba-9d4ea82d320f",
+                    "prefabId": "059491c4-a53e-4cfd-8eb7-95bde5a1efc1",
+                    "id": "c8c7f940-f0e8-44f1-8266-ba5ed7c7d8a4",
+                    "unlock": [
+                        "x",
+                        "y"
+                    ],
                     "label": "arrow",
                     "scope": "CLASS",
-                    "texture": {
-                        "key": "fire",
-                        "frame": "portraits/common/arrow"
-                    },
                     "x": -150,
                     "y": 113
                 },
