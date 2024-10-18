@@ -48,6 +48,17 @@ export default class TimerPopup extends BaseContainer {
             paused: true
         })
 
+        this.timerConfig = {
+            delay: 1000,
+            callback: this.onTimeEvent,
+            callbackScope: this,
+            repeat: 60,
+            startAt: 1000,
+            paused: true
+        }
+
+        this.timer = scene.time.addEvent(this.timerConfig)
+
         /* END-USER-CTR-CODE */
     }
 
@@ -58,6 +69,8 @@ export default class TimerPopup extends BaseContainer {
         this.tween.restart()
         this.tween.play()
 
+        this.timer.paused = false
+
         super.show()
     }
 
@@ -65,7 +78,28 @@ export default class TimerPopup extends BaseContainer {
         this.tween.pause()
         this.spinner.angle = 0
 
+        this.timer.reset(this.timerConfig)
+        this.timer.paused = true
+
         super.close()
+    }
+
+    onTimeEvent() {
+        if (this.timer.repeatCount == 0) {
+            this.timeUp()
+            return
+        }
+
+        this.updateTimer()
+    }
+
+    timeUp() {
+        this.close()
+        this.scene.initTimeoutUp()
+    }
+
+    updateTimer() {
+        this.text.text = this.timer.repeatCount
     }
 
     /* END-USER-CODE */

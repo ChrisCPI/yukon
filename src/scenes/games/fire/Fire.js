@@ -859,6 +859,11 @@ export default class Fire extends GameScene {
         }
     }
 
+    initTimeoutUp() {
+        this.network.send('leave_game')
+        this.quitPopup.show()
+    }
+
     sendLeaveGame() {
         this.network.send('leave_game')
         this.leaveGame()
