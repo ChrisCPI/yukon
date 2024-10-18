@@ -430,8 +430,6 @@ export default class Fire extends GameScene {
 
         const ninja = this.ninjas[args.ninja]
 
-        ninja.portrait.hideClock()
-
         const prevSpace = this.board.spaces[ninja.player.tile]
         const prevSpacePos = layout.board.spaces[ninja.player.tile]
 
@@ -568,6 +566,10 @@ export default class Fire extends GameScene {
     }
 
     startBattle(args) {
+        if (this.elementPopup.visible) {
+            this.elementPopup.close()
+        }
+        
         let holderPos
         let posOffset = 0
 
