@@ -1,10 +1,3 @@
-const symbolMap = {
-    'f': 'fire',
-    'w': 'water',
-    's': 'snow',
-    'b': 'cardjitsu'
-}
-
 const emptyTime = 2916
 
 /* START OF COMPILED CODE */
@@ -77,9 +70,9 @@ export default class CardHolder extends BaseContainer {
         let frame
 
         if (isClient && this.scene.hasNoPlayableCards(element)) {
-            frame = `cards/frame/symbol-no${symbolMap[element]}`
+            frame = `cards/frame/symbol-no-${element}`
         } else {
-            frame = `cards/frame/symbol-${symbolMap[element]}`
+            frame = `cards/frame/symbol-${element}`
         }
 
         this.symbol.setFrame(frame)
@@ -103,8 +96,8 @@ export default class CardHolder extends BaseContainer {
     playAnim(element, type, shouldFlip) {
         this.cardAnim.scaleX = shouldFlip && type === 'energy' ? -1 : 1
         
-        this.cardAnim.play(`fire/card/${type}/${symbolMap[element]}`)
-        this.cardMask.play(`fire/card/${type}/${symbolMap[element]}-mask`)
+        this.cardAnim.play(`fire/card/${type}/${element}`)
+        this.cardMask.play(`fire/card/${type}/${element}-mask`)
 
         // + 2 for both normal anim and mask anim
         this.scene.cardAnimQueue += 2

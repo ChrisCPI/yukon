@@ -264,11 +264,11 @@ export default class Spinner extends BaseContainer {
             const which = Math.abs(4 - frame)
 
             for (let [index, num] of this.numbers.entries()) {
-                Object.assign(num, pos[index][which])
-
                 if (frame === 4) {
                     num.setNormal()
                 }
+
+                Object.assign(num, pos[index][which])
 
                 num.visible = true
             }

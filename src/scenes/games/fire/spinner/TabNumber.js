@@ -51,16 +51,6 @@ export default class TabNumber extends Phaser.GameObjects.Text {
 
     /* START-USER-CODE */
 
-    show(showHighlight) {
-        if (showHighlight) {
-            this.setHighlight()
-        } else {
-            this.setNormal()
-        }
-
-        this.visible = true
-    }
-
     setNumber(num) {
         this.text = num
     }
