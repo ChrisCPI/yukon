@@ -53,7 +53,75 @@ const layout = {
                     y: 789
                 }
             ]
-        ]
+        ],
+        gameOver: {
+            side1: {
+                start: -39,
+                end: -575, 
+            },
+            side2: {
+                start: 42,
+                end: 590, 
+            },
+            finish: [
+                {
+                    title: {
+                        x: -123,
+                        y: -224  
+                    },
+                    message: {
+                        x: -296,
+                        y: -14    
+                    },
+                    button: {
+                        x: -296,
+                        y: 122
+                    }
+                },
+                {
+                    title: {
+                        x: -34,
+                        y: -230
+                    },
+                    message: {
+                        x: -35,
+                        y: 33
+                    },
+                    button: {
+                        x: -35,
+                        y: 154
+                    }
+                },
+                {
+                    title: {
+                        x: 13,
+                        y: -218
+                    },
+                    message: {
+                        x: -35,
+                        y: 4
+                    },
+                    button: {
+                        x: -39,
+                        y: 167
+                    }
+                },
+                {
+                    title: {
+                        x: 39,
+                        y: -218
+                    },
+                    message: {
+                        x: -35,
+                        y: 25
+                    },
+                    button: {
+                        x: -38,
+                        y: 143
+                    }
+                }
+            ]
+        }
     },
     spacer: {
         deck: 100

@@ -1,0 +1,186 @@
+{
+    "id": "409384cc-0d5d-4b95-9cce-7bed30c70c31",
+    "sceneType": "PREFAB",
+    "settings": {
+        "compilerInsertSpaces": true,
+        "javaScriptInitFieldsInConstructor": true,
+        "exportClass": true,
+        "autoImport": true,
+        "superClassName": "BaseContainer",
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "borderWidth": 1520,
+        "borderHeight": 960
+    },
+    "displayList": [
+        {
+            "type": "Container",
+            "id": "91f65e9d-ec82-4b89-a6c0-e4b0ae68c221",
+            "label": "container_1",
+            "x": 760,
+            "y": 480,
+            "list": [
+                {
+                    "type": "Rectangle",
+                    "id": "325a4e4b-f61b-4bf5-ac5e-496459fbef71",
+                    "label": "block",
+                    "components": [
+                        "Interactive"
+                    ],
+                    "alpha": 0.4,
+                    "isFilled": true,
+                    "fillColor": "#000",
+                    "width": 1520,
+                    "height": 960
+                },
+                {
+                    "type": "Container",
+                    "id": "0e657669-9b3c-41a6-a390-5bcef120560d",
+                    "label": "content",
+                    "scope": "CLASS",
+                    "x": 30,
+                    "list": [
+                        {
+                            "type": "Image",
+                            "id": "84bd4b55-31d3-4cdb-bd63-e3dce70bebac",
+                            "label": "scroll",
+                            "scope": "CLASS",
+                            "texture": {
+                                "key": "fire",
+                                "frame": "popups/gameover/scroll4"
+                            }
+                        },
+                        {
+                            "type": "Text",
+                            "id": "f3fb42c2-1510-4c16-909b-6d9e38982d02",
+                            "label": "text",
+                            "scope": "CLASS",
+                            "x": -35,
+                            "y": 25,
+                            "originX": 0.5,
+                            "originY": 0.5,
+                            "text": "Your skills are growing...\nYou nearly won, but this time,\nyou earned second place.",
+                            "fixedWidth": 450,
+                            "fixedHeight": 150,
+                            "align": "center",
+                            "fontFamily": "Candombe",
+                            "fontSize": "52px",
+                            "color": "#000"
+                        },
+                        {
+                            "type": "Text",
+                            "id": "f45b8a55-eb20-4e9e-8c68-e571bbe4f1f5",
+                            "label": "title",
+                            "scope": "CLASS",
+                            "x": 39,
+                            "y": -218,
+                            "originX": 0.5,
+                            "originY": 0.5,
+                            "text": "There is much practicing ahead",
+                            "fixedWidth": 800,
+                            "fixedHeight": 100,
+                            "align": "center",
+                            "fontFamily": "Candombe",
+                            "fontSize": "88px",
+                            "color": "#41311D"
+                        },
+                        {
+                            "type": "Container",
+                            "id": "f584b1cd-f360-4bf0-90d8-39cdd49c67cf",
+                            "label": "buttonContainer",
+                            "scope": "CLASS",
+                            "x": -38,
+                            "y": 143,
+                            "list": [
+                                {
+                                    "type": "Image",
+                                    "id": "7dfa7034-d850-478b-ab93-744bc6ce838f",
+                                    "label": "button",
+                                    "components": [
+                                        "Button"
+                                    ],
+                                    "Button.spriteName": "popups/quit/button",
+                                    "Button.callback": "() => this.onClick()",
+                                    "Button.pixelPerfect": true,
+                                    "texture": {
+                                        "key": "fire",
+                                        "frame": "popups/quit/button"
+                                    }
+                                },
+                                {
+                                    "type": "Text",
+                                    "id": "7d8291fa-6ba1-42cd-ad21-2f2a42f037bd",
+                                    "label": "button_text",
+                                    "originX": 0.5,
+                                    "originY": 0.5,
+                                    "text": "OK",
+                                    "align": "center",
+                                    "fontFamily": "CCComiccrazy",
+                                    "fontSize": "25px",
+                                    "color": "#644e30"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Rectangle",
+                    "id": "5d448b8f-300f-4f87-ad8a-278546ff5f0c",
+                    "label": "maskRect",
+                    "scope": "CLASS",
+                    "x": 6,
+                    "y": -9,
+                    "visible": false,
+                    "isFilled": true,
+                    "width": 1200,
+                    "height": 650
+                },
+                {
+                    "type": "Image",
+                    "id": "6f3befc5-1649-42c4-bec0-79c28a77678d",
+                    "label": "side2",
+                    "scope": "CLASS",
+                    "texture": {
+                        "key": "fire",
+                        "frame": "popups/gameover/scroll_side"
+                    },
+                    "x": 590,
+                    "y": -34
+                },
+                {
+                    "type": "Image",
+                    "id": "798fbd3b-25d9-4beb-803a-83079636a18d",
+                    "label": "side1",
+                    "scope": "CLASS",
+                    "texture": {
+                        "key": "fire",
+                        "frame": "popups/gameover/scroll_side"
+                    },
+                    "x": -575,
+                    "y": -35
+                },
+                {
+                    "type": "Image",
+                    "id": "c9cf9bcb-65f8-44dd-8322-42f87561236b",
+                    "label": "star",
+                    "scope": "CLASS",
+                    "texture": {
+                        "key": "fire",
+                        "frame": "popups/gameover/star"
+                    },
+                    "x": -476,
+                    "y": -266,
+                    "visible": false
+                }
+            ]
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 4
+    }
+}

@@ -10,6 +10,7 @@ import Button from "../../components/Button";
 import ElementPopup from "./popups/element/ElementPopup";
 import TimerPopup from "./popups/timer/TimerPopup";
 import QuitPopup from "./popups/quit/QuitPopup";
+import GameOverPopup from "./popups/gameover/GameOverPopup";
 /* START-USER-IMPORTS */
 
 import CardLoader from '@engine/loaders/CardLoader'
@@ -53,6 +54,8 @@ export default class Fire extends GameScene {
         this.timerPopup;
         /** @type {QuitPopup} */
         this.quitPopup;
+        /** @type {GameOverPopup} */
+        this.gameOverPopup;
 
 
         /* START-USER-CTR-CODE */
@@ -169,6 +172,11 @@ export default class Fire extends GameScene {
         this.add.existing(quitPopup);
         quitPopup.visible = false;
 
+        // gameOverPopup
+        const gameOverPopup = new GameOverPopup(this, 760, 480);
+        this.add.existing(gameOverPopup);
+        gameOverPopup.visible = false;
+
         // lanternLight (components)
         const lanternLightAnimation = new Animation(lanternLight);
         lanternLightAnimation.key = "bg/back/lantern_light";
@@ -212,6 +220,7 @@ export default class Fire extends GameScene {
         this.elementPopup = elementPopup;
         this.timerPopup = timerPopup;
         this.quitPopup = quitPopup;
+        this.gameOverPopup = gameOverPopup;
 
         this.events.emit("scene-awake");
     }
@@ -288,6 +297,7 @@ export default class Fire extends GameScene {
         this.network.events.on('choose_element', this.handleChooseElement, this)
         this.network.events.on('choose_opponent', this.handleChooseOpponent, this)
         this.network.events.on('judge_battle', this.handleJudgeBattle, this)
+        this.network.events.on('finish', this.handleFinish, this)
         this.network.events.on('player_quit', this.handlePlayerQuit, this)
     }
 
@@ -303,6 +313,7 @@ export default class Fire extends GameScene {
         this.network.events.off('choose_element', this.handleChooseElement, this)
         this.network.events.off('choose_opponent', this.handleChooseOpponent, this)
         this.network.events.off('judge_battle', this.handleJudgeBattle, this)
+        this.network.events.off('finish', this.handleFinish, this)
         this.network.events.off('player_quit', this.handlePlayerQuit, this)
     }
 
@@ -434,7 +445,7 @@ export default class Fire extends GameScene {
                 this.jumpQueue.push(player)
             }
         }
-        
+
         if (space.occupants.length > 0) {
             playReact = true
             const newLength = space.occupants.length + 1
@@ -524,6 +535,10 @@ export default class Fire extends GameScene {
         }
     }
 
+    handleFinish(args) {
+        this.gameOverPopup.setFinish(args.finish)
+    }
+
     handlePlayerQuit(args) {
         if (args.allQuit) {
             this.hideGameElements()
@@ -532,16 +547,20 @@ export default class Fire extends GameScene {
             return
         }
 
-        const ninja = this.ninjas[args.seat]
+        this.ninjas[args.seat].portrait.playerQuit()
 
-        ninja.portrait.playerQuit()
+        this.removeNinja(args.seat, true)
+    }
+
+    removeNinja(seat) {
+        const ninja = this.ninjas[seat]
 
         this.board.spaces[ninja.player.tile].removeNinja(ninja.player)
 
         this.playersLayer.remove(ninja.player)
         ninja.player.destroy()
 
-        this.ninjas[args.seat] = null
+        this.ninjas[seat] = null
     }
 
     startBattle(args) {
@@ -633,12 +652,7 @@ export default class Fire extends GameScene {
             }
         }
 
-        this.events.once('card_anims_done', () => {
-            for (let data of args.ninjas) {
-                this.ninjas[data.seat].holder.reset()
-            }
-            this.network.send('ninja_ready')
-        })
+        this.events.once('card_anims_done', () => this.handlePostRound(args))
     }
 
     chooseOpponent(clientSeat, send = true) {
@@ -657,9 +671,35 @@ export default class Fire extends GameScene {
         }
     }
 
+    handlePostRound(args) {
+        for (let data of args.ninjas) {
+            this.ninjas[data.seat].holder.reset()
+        }
+
+        for (let [seat, position] of args.podium.entries()) {
+            if (position > 0) {
+                const ninja = this.ninjas[seat]
+
+                if (ninja === null) continue
+
+                ninja.portrait.playerFinish(position)
+
+                this.removeNinja(seat)
+            }
+        }
+
+        if (this.gameOverPopup.finish > 0) {
+            this.hideGameElements()
+            this.gameOverPopup.show()
+            return
+        }
+
+        this.network.send('ninja_ready')
+    }
+
     onCardDeckLoad(key, card) {
         if (this.gameDone) return
-        
+
         const newCard = this.createCard()
         this.cardsLayer.add(newCard)
 

@@ -68,6 +68,10 @@ export default class BasePortrait extends BaseContainer {
         this.statusText.visible = true
     }
 
+    playerFinish() {
+        // Todo
+    }
+
     createMask() {
         let rect = this.maskRect
         let graphics = this.scene.make.graphics()
