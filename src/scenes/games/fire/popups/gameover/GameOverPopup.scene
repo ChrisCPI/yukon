@@ -73,11 +73,11 @@
                             "id": "f45b8a55-eb20-4e9e-8c68-e571bbe4f1f5",
                             "label": "title",
                             "scope": "CLASS",
-                            "x": 39,
+                            "x": 8,
                             "y": -218,
                             "originX": 0.5,
                             "originY": 0.5,
-                            "text": "There is much practicing ahead",
+                            "text": "You have done well!",
                             "fixedWidth": 800,
                             "fixedHeight": 100,
                             "align": "center",
@@ -169,9 +169,53 @@
                         "key": "fire",
                         "frame": "popups/gameover/star"
                     },
-                    "x": -476,
-                    "y": -266,
-                    "visible": false
+                    "x": 488,
+                    "y": -281
+                },
+                {
+                    "type": "Container",
+                    "id": "72d90240-a72f-4174-9c81-55d9bca746a9",
+                    "label": "starText",
+                    "scope": "CLASS",
+                    "x": 466,
+                    "y": -314,
+                    "list": [
+                        {
+                            "type": "Text",
+                            "id": "a75c432a-b3bc-4ccf-bb77-950f7949dd3c",
+                            "label": "starText1",
+                            "scope": "CLASS",
+                            "x": -7,
+                            "y": 37,
+                            "originX": 0.5,
+                            "originY": 0.5,
+                            "text": "4",
+                            "fixedWidth": 70,
+                            "fixedHeight": 100,
+                            "align": "right",
+                            "fontFamily": "CCFaceFront",
+                            "fontSize": "100px",
+                            "color": "#41311D"
+                        },
+                        {
+                            "type": "Text",
+                            "id": "0476a6b1-f20c-44b2-aaaa-fb10494e0417",
+                            "label": "starText2",
+                            "scope": "CLASS",
+                            "x": 70,
+                            "y": 22,
+                            "originX": 0.5,
+                            "originY": 0.5,
+                            "text": "th",
+                            "fixedWidth": 100,
+                            "fixedHeight": 80,
+                            "paddingLeft": 10,
+                            "fontFamily": "CCFaceFront",
+                            "fontSize": "56px",
+                            "fontStyle": "bold italic",
+                            "color": "#41311D"
+                        }
+                    ]
                 }
             ]
         }

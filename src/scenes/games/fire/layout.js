@@ -76,6 +76,15 @@ const layout = {
                     button: {
                         x: -296,
                         y: 122
+                    },
+                    star: {
+                        x: -476,
+                        y: -266
+                    },
+                    starText: {
+                        x: -511,
+                        y: -292,
+                        angle: -10
                     }
                 },
                 {
@@ -90,6 +99,15 @@ const layout = {
                     button: {
                         x: -35,
                         y: 154
+                    },
+                    star: {
+                        x: 391,
+                        y: -251,
+                    },
+                    starText: {
+                        x: 363,
+                        y: -288,
+                        angle: 5
                     }
                 },
                 {
@@ -104,6 +122,15 @@ const layout = {
                     button: {
                         x: -39,
                         y: 167
+                    },
+                    star: {
+                        x: -270,
+                        y: -271,
+                    },
+                    starText: {
+                        x: -299,
+                        y: -296,
+                        angle: -10
                     }
                 },
                 {
@@ -118,6 +145,15 @@ const layout = {
                     button: {
                         x: -38,
                         y: 143
+                    },
+                    star: {
+                        x: 488,
+                        y: -281,
+                    },
+                    starText: {
+                        x: 466,
+                        y: -314,
+                        angle: 5
                     }
                 }
             ]

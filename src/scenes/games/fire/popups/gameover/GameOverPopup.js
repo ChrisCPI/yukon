@@ -1,3 +1,5 @@
+const subscripts = ['st', 'nd', 'rd', 'th']
+
 /* START OF COMPILED CODE */
 
 import BaseContainer from "../../../../base/BaseContainer";
@@ -32,6 +34,12 @@ export default class GameOverPopup extends BaseContainer {
         this.side1;
         /** @type {Phaser.GameObjects.Image} */
         this.star;
+        /** @type {Phaser.GameObjects.Text} */
+        this.starText1;
+        /** @type {Phaser.GameObjects.Text} */
+        this.starText2;
+        /** @type {Phaser.GameObjects.Container} */
+        this.starText;
 
 
         // block
@@ -57,9 +65,9 @@ export default class GameOverPopup extends BaseContainer {
         content.add(text);
 
         // title
-        const title = scene.add.text(39, -218, "", {});
+        const title = scene.add.text(8, -218, "", {});
         title.setOrigin(0.5, 0.5);
-        title.text = "There is much practicing ahead";
+        title.text = "You have done well!";
         title.setStyle({ "align": "center", "color": "#41311D", "fixedWidth":800,"fixedHeight":100,"fontFamily": "Candombe", "fontSize": "88px" });
         content.add(title);
 
@@ -93,9 +101,27 @@ export default class GameOverPopup extends BaseContainer {
         this.add(side1);
 
         // star
-        const star = scene.add.image(-476, -266, "fire", "popups/gameover/star");
-        star.visible = false;
+        const star = scene.add.image(488, -281, "fire", "popups/gameover/star");
         this.add(star);
+
+        // starText
+        const starText = scene.add.container(466, -314);
+        this.add(starText);
+
+        // starText1
+        const starText1 = scene.add.text(-7, 37, "", {});
+        starText1.setOrigin(0.5, 0.5);
+        starText1.text = "4";
+        starText1.setStyle({ "align": "right", "color": "#41311D", "fixedWidth":70,"fixedHeight":100,"fontFamily": "CCFaceFront", "fontSize": "100px" });
+        starText.add(starText1);
+
+        // starText2
+        const starText2 = scene.add.text(70, 22, "", {});
+        starText2.setOrigin(0.5, 0.5);
+        starText2.text = "th";
+        starText2.setStyle({ "color": "#41311D", "fixedWidth":100,"fixedHeight":80,"fontFamily": "CCFaceFront", "fontSize": "56px", "fontStyle": "bold italic" });
+        starText2.setPadding({"left":10});
+        starText.add(starText2);
 
         // block (components)
         new Interactive(block);
@@ -115,6 +141,9 @@ export default class GameOverPopup extends BaseContainer {
         this.side2 = side2;
         this.side1 = side1;
         this.star = star;
+        this.starText1 = starText1;
+        this.starText2 = starText2;
+        this.starText = starText;
 
         /* START-USER-CTR-CODE */
 
@@ -132,7 +161,7 @@ export default class GameOverPopup extends BaseContainer {
 
     show() {
         super.show()
-        
+
         const matrix = this.maskRect.getWorldTransformMatrix()
 
         this.maskRect.x = matrix.getX(0,0)
@@ -145,12 +174,24 @@ export default class GameOverPopup extends BaseContainer {
         this.title.text = this.getString(`fire_gameover_title${this.finish}`)
         this.text.text = this.getString(`fire_gameover_message${this.finish}`)
 
+        this.starText1.text = this.finish
+        this.starText2.text = subscripts[this.finish - 1]
+
         const posData = layout.pos.gameOver
 
         const staticPos = posData.finish[this.finish - 1]
+
         this.title.setPosition(staticPos.title.x, staticPos.title.y)
         this.text.setPosition(staticPos.message.x, staticPos.message.y)
         this.buttonContainer.setPosition(staticPos.button.x, staticPos.button.y)
+
+        this.star.setPosition(staticPos.star.x, staticPos.star.y)
+
+        this.starText.setPosition(staticPos.starText.x, staticPos.starText.y)
+        this.starText.angle = staticPos.starText.angle
+
+        this.star.visible = false
+        this.starText.visible = false
 
         // this can probably be optimized somehow
 
@@ -220,7 +261,7 @@ export default class GameOverPopup extends BaseContainer {
                     delay: 85,
                     duration: 83,
                     scale: { from: 1.3, to: 1 },
-                    onComplete: () => {}
+                    onComplete: () => this.starText.visible = true
                 }
             ]
         })
