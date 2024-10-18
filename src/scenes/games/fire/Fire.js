@@ -390,7 +390,7 @@ export default class Fire extends GameScene {
         }
 
         this.board.resetSpaces()
-        this.board.activeSpaces = [args.spin.cw, args.spin.ccw]
+        this.board.activeSpaces = args.spin.tiles
 
         this.spinner.spinAmount = args.spin.amount
         this.spinner.playRise()
