@@ -226,6 +226,8 @@ export default class Fire extends GameScene {
 
         this.mySeat = 0
 
+        this.gameDone = false
+
         this.holders = []
         for (let i = 0; i < 4; i++) {
             const holder = new CardHolder(this)
@@ -285,6 +287,7 @@ export default class Fire extends GameScene {
         this.network.events.on('opponent_pick_card', this.handleOpponentPickCard, this)
         this.network.events.on('choose_element', this.handleChooseElement, this)
         this.network.events.on('judge_battle', this.handleJudgeBattle, this)
+        this.network.events.on('player_quit', this.handlePlayerQuit, this)
     }
 
     removeListeners() {
@@ -298,6 +301,7 @@ export default class Fire extends GameScene {
         this.network.events.off('opponent_pick_card', this.handleOpponentPickCard, this)
         this.network.events.off('choose_element', this.handleChooseElement, this)
         this.network.events.off('judge_battle', this.handleJudgeBattle, this)
+        this.network.events.off('player_quit', this.handlePlayerQuit, this)
     }
 
     get isMyTurn() {
@@ -355,6 +359,8 @@ export default class Fire extends GameScene {
         this.currentNinja.player.setHighlightActive()
 
         for (let [seat, ninja] of this.ninjas.entries()) {
+            if (ninja === null) continue
+
             if (seat === args.ninja) {
                 ninja.portrait.avatar.playThinking()
                 ninja.portrait.playClock()
@@ -496,6 +502,26 @@ export default class Fire extends GameScene {
         }
     }
 
+    handlePlayerQuit(args) {
+        if (args.allQuit) {
+            this.hideGameElements()
+            this.removeGameListeners()
+            this.quitPopup.show()
+            return
+        }
+
+        const ninja = this.ninjas[args.seat]
+
+        ninja.portrait.playerQuit()
+
+        this.board.spaces[ninja.player.tile].removeNinja(ninja.player)
+
+        this.playersLayer.remove(ninja.player)
+        ninja.player.destroy()
+
+        this.ninjas[args.seat] = null
+    }
+
     startBattle(args) {
         let holderPos
         let posOffset = 0
@@ -594,6 +620,8 @@ export default class Fire extends GameScene {
     }
 
     onCardDeckLoad(key, card) {
+        if (this.gameDone) return
+        
         const newCard = this.createCard()
         this.cardsLayer.add(newCard)
 
@@ -602,6 +630,8 @@ export default class Fire extends GameScene {
     }
 
     onCardHolderLoad(key, card) {
+        if (this.gameDone) return
+
         this.queuedCardLoads = this.queuedCardLoads.filter(c => c.id !== card.id)
 
         if (this.queuedCardLoads.length === 0) {
@@ -644,9 +674,7 @@ export default class Fire extends GameScene {
             return false
         }
 
-        const filteredCards = this.deck
-            .filter(card => card !== null)
-            .filter(card => card.elementId === element)
+        const filteredCards = this.deck.filter(card => card !== null && card.elementId === element)
 
         return filteredCards.length === 0
     }
@@ -722,6 +750,29 @@ export default class Fire extends GameScene {
         })
     }
 
+    hideGameElements() {
+        for (let portrait of this.portraits) {
+            portrait.close()
+        }
+
+        for (let player of this.playersLayer.list) {
+            player.close()
+        }
+
+        for (let holder of this.holders) {
+            holder.close()
+        }
+
+        for (let card of this.deck) {
+            if (card === null) continue
+
+            card.destroy()
+        }
+        this.spinner.close()
+
+        this.gameDone = true
+    }
+
     stop() {
         super.stop()
 
@@ -735,13 +786,17 @@ export default class Fire extends GameScene {
         this.leaveGame()
     }
 
-    leaveGame() {
-        this.removeListeners()
-
+    removeGameListeners() {
         this.events.off('jumps_done')
         this.events.off('card_anims_done')
         this.events.off('all_cards_loaded')
         this.events.off('tabs_flipped')
+    }
+
+    leaveGame() {
+        this.removeListeners()
+
+        this.removeGameListeners()
 
         this.world.client.sendJoinLastRoom()
     }

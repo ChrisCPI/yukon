@@ -60,6 +60,14 @@ export default class BasePortrait extends BaseContainer {
         this.clock.close()
     }
 
+    playerQuit() {
+        this.energy.setEnergy(0)
+        this.avatar.playLeave()
+        
+        this.statusText.text = this.getString('quit')
+        this.statusText.visible = true
+    }
+
     createMask() {
         let rect = this.maskRect
         let graphics = this.scene.make.graphics()

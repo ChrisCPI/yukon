@@ -97,6 +97,44 @@
                     "scaleY": 0.59
                 },
                 {
+                    "type": "Text",
+                    "id": "f10ab6ad-7ba9-42bb-bab0-354fba869dc3",
+                    "label": "statusText",
+                    "scope": "CLASS",
+                    "x": -6,
+                    "y": -55,
+                    "originX": 0.5,
+                    "originY": 0.5,
+                    "visible": false,
+                    "text": "4   ",
+                    "fixedWidth": 100,
+                    "fixedHeight": 50,
+                    "align": "center",
+                    "fontFamily": "Burbank Small",
+                    "fontSize": "43px",
+                    "fontStyle": "bold",
+                    "stroke": "#000"
+                },
+                {
+                    "type": "Text",
+                    "id": "2d561b11-4d48-4753-8d0f-5116dac38b4a",
+                    "label": "subText",
+                    "scope": "CLASS",
+                    "x": 11,
+                    "y": -57,
+                    "originX": 0.5,
+                    "originY": 0.5,
+                    "visible": false,
+                    "text": "th",
+                    "fixedWidth": 50,
+                    "fixedHeight": 50,
+                    "paddingLeft": 5,
+                    "fontFamily": "Burbank Small",
+                    "fontSize": "30px",
+                    "fontStyle": "bold",
+                    "stroke": "#000"
+                },
+                {
                     "prefabId": "6612fdc9-0029-4ec5-a81f-a91f9844091b",
                     "id": "9997bb00-93e2-4280-a338-a245aed4766a",
                     "unlock": [
@@ -166,14 +204,16 @@
                         "x",
                         "y",
                         "scaleX",
-                        "scaleY"
+                        "scaleY",
+                        "visible"
                     ],
                     "label": "clock",
                     "scope": "CLASS",
                     "x": -83,
                     "y": -65,
                     "scaleX": 0.6,
-                    "scaleY": 0.6
+                    "scaleY": 0.6,
+                    "visible": false
                 }
             ]
         }

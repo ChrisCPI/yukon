@@ -304,6 +304,14 @@ export default class Spinner extends BaseContainer {
         }
     }
 
+    close() {
+        super.close()
+        this.main.anims.stop()
+        this.flame.anims.stop()
+        this.flipTop.anims.stop()
+        this.flipBottom.anims.stop()
+    }
+
     /* END-USER-CODE */
 }
 

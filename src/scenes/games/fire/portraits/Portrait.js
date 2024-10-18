@@ -24,6 +24,10 @@ export default class Portrait extends BasePortrait {
         this.top;
         /** @type {Avatar} */
         this.avatar;
+        /** @type {Phaser.GameObjects.Text} */
+        this.statusText;
+        /** @type {Phaser.GameObjects.Text} */
+        this.subText;
         /** @type {Energy} */
         this.energy;
         /** @type {Phaser.GameObjects.Image} */
@@ -65,6 +69,23 @@ export default class Portrait extends BasePortrait {
         avatar.scaleY = 0.59;
         this.add(avatar);
 
+        // statusText
+        const statusText = scene.add.text(-6, -55, "", {});
+        statusText.setOrigin(0.5, 0.5);
+        statusText.visible = false;
+        statusText.text = "4   ";
+        statusText.setStyle({ "align": "center", "fixedWidth":100,"fixedHeight":50,"fontFamily": "Burbank Small", "fontSize": "43px", "fontStyle": "bold", "stroke": "#000" });
+        this.add(statusText);
+
+        // subText
+        const subText = scene.add.text(11, -57, "", {});
+        subText.setOrigin(0.5, 0.5);
+        subText.visible = false;
+        subText.text = "th";
+        subText.setStyle({ "fixedWidth":50,"fixedHeight":50,"fontFamily": "Burbank Small", "fontSize": "30px", "fontStyle": "bold", "stroke": "#000" });
+        subText.setPadding({"left":5});
+        this.add(subText);
+
         // energy
         const energy = new Energy(scene, 84, 65);
         energy.scaleX = 0.78;
@@ -95,6 +116,7 @@ export default class Portrait extends BasePortrait {
         const clock = new PortraitClock(scene, -83, -65);
         clock.scaleX = 0.6;
         clock.scaleY = 0.6;
+        clock.visible = false;
         this.add(clock);
 
         this.highlight = highlight;
@@ -103,6 +125,8 @@ export default class Portrait extends BasePortrait {
         this.bottom = bottom;
         this.top = top;
         this.avatar = avatar;
+        this.statusText = statusText;
+        this.subText = subText;
         this.energy = energy;
         this.arrow = arrow;
         this.nickname = nickname;
