@@ -181,7 +181,7 @@ export default class FirePlayer extends BaseContainer {
         this.playIdle()
         this.setHighlightInactive()
 
-        const pos = layout.board[user.tile][0][0]
+        const pos = layout.board.spaces[user.tile][0][0]
         this.setPosition(pos.x, pos.y)
         this.setDirection(pos, { x: 760, y: 498 })
 
@@ -189,7 +189,7 @@ export default class FirePlayer extends BaseContainer {
     }
 
     setTilePosition(tile, occupants = 1) {
-        const pos = layout.board[tile][occupants - 1][0]
+        const pos = layout.board.spaces[tile][occupants - 1][0]
 
         this.setPosition(pos.x, pos.y)
     }

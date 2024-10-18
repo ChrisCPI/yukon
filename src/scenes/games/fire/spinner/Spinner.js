@@ -3,6 +3,9 @@
 import BaseContainer from "../../../base/BaseContainer";
 import TabNumber from "./TabNumber";
 /* START-USER-IMPORTS */
+
+import layout from '../layout'
+
 /* END-USER-IMPORTS */
 
 export default class Spinner extends BaseContainer {
@@ -176,6 +179,10 @@ export default class Spinner extends BaseContainer {
 
         this.main.on('animationcomplete', () => this.onMainAnimComplete())
 
+        this.flipBottom.on('animationupdate', () => this.checkTileFlips())
+
+        this.flipBottom.on('animationcomplete', () => this.onFlipsDone())
+
         for (let [tabId, tablet] of selects.entries()) {
             tablet.setInteractive({ cursor: 'pointer', pixelPerfect: true })
 
@@ -183,6 +190,8 @@ export default class Spinner extends BaseContainer {
         }
 
         this.spinAmount = 0
+
+        this.selected = null
 
         /* END-USER-CTR-CODE */
     }
@@ -220,8 +229,6 @@ export default class Spinner extends BaseContainer {
         this.currentMainAnim = 'flip'
         this.main.play('fire/spinner/flip')
 
-        const num = this.spinAmount
-
         for (let tablet of this.selects) {
             tablet.visible = false
 
@@ -234,28 +241,50 @@ export default class Spinner extends BaseContainer {
         this.flipTop.play('fire/spinner/flip/top')
         this.flipBottom.play('fire/spinner/flip/bottom')
 
-        this.scene.time.delayedCall(333.33, () => {
+        this.selected = tabId
+
+        let currentNum = this.spinAmount
+        let currentTab = this.selected
+        for (let i = 1; i < 7; i++) {
+            const text = this.numbers[currentTab - 1]
+            text.setNumber(currentNum)
+
+            currentNum++
+            currentTab++
+
+            if (currentNum > 6) currentNum = 1
+            if (currentTab > 6) currentTab = 1
+        }
+    }
+
+    checkTileFlips() {
+        const frame = this.flipBottom.anims.currentFrame.index
+        const pos = layout.numberFlips
+        if (frame === 4 || frame === 5) {
+            const which = Math.abs(4 - frame)
+
+            for (let [index, num] of this.numbers.entries()) {
+                Object.assign(num, pos[index][which])
+
+                if (frame === 4) {
+                    num.setNormal()
+                }
+
+                num.visible = true
+            }
+        } else if (frame === 6) {
             if (this.currentMainAnim !== 'flip') return
 
             this.flame.visible = true
-            this.flame.play(`fire/spinner/tab/${tabId}/flame`)
+            this.flame.play(`fire/spinner/tab/${this.selected}/flame`)
 
-            let currentNum = num
-            let currentTab = tabId
-            for (let i = 1; i < 7; i++) {
-                const text = this.numbers[currentTab - 1]
-                text.show(currentNum, currentTab === tabId)
+            this.numbers[this.selected - 1].setHighlight()
+        }
+    }
 
-                currentNum++
-                currentTab++
-
-                if (currentNum > 6) currentNum = 1
-                if (currentTab > 6) currentTab = 1
-            }
-
-            this.scene.board.highlightSpaces()
-            this.scene.events.emit('tabs_flipped')
-        })
+    onFlipsDone() {
+        this.scene.board.highlightSpaces()
+        this.scene.events.emit('tabs_flipped')
     }
 
     playSink() {

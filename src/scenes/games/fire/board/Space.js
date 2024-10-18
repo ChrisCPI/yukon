@@ -35,7 +35,7 @@ export default class Space {
     }
 
     onOver() {
-        this.scene.filterCards(layout.boardTrumps[this.id])
+        this.scene.filterCards(layout.board.trumps[this.id])
     }
 
     onOut() {

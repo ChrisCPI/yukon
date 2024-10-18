@@ -422,14 +422,14 @@ export default class Fire extends GameScene {
         this.spinner.playSink()
 
         const space = this.board.spaces[args.tile]
-        const spacePos = layout.board[args.tile]
+        const spacePos = layout.board.spaces[args.tile]
 
         const ninja = this.ninjas[args.ninja]
 
         ninja.portrait.hideClock()
 
         const prevSpace = this.board.spaces[ninja.player.tile]
-        const prevSpacePos = layout.board[ninja.player.tile]
+        const prevSpacePos = layout.board.spaces[ninja.player.tile]
 
         let pos
         let lookAt
