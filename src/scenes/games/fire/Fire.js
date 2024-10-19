@@ -247,7 +247,7 @@ export default class Fire extends GameScene {
 
         this.portraits = [this.portrait0, this.portrait1, this.portrait2, this.portrait3]
 
-        this.deck = [null, null, null, null, null]
+        this.deck = new Array(5).fill(null)
         this.onCardDeckLoad = this.onCardDeckLoad.bind(this)
         this.onCardHolderLoad = this.onCardHolderLoad.bind(this)
         this.cardLoader = new CardLoader(this)
@@ -334,9 +334,21 @@ export default class Fire extends GameScene {
             }
         }
 
+        let clientSeats = new Array(args.users.length).fill(0)
+
+        for (let i = 0; i < clientSeats.length; i++) {
+            clientSeats[clientIndex] = i
+
+            if (clientIndex + 1 >= clientSeats.length) {
+                clientIndex = 0
+            } else {
+                clientIndex++
+            }
+        }
+
         for (let [seat, user] of args.users.entries()) {
             // The seat of the user from the perspective of the client; NOT the actual seat
-            const clientSeat = Math.abs(clientIndex - seat)
+            const clientSeat = clientSeats[seat]
 
             this.ninjas.push({
                 portrait: this.portraits[clientSeat],
@@ -569,13 +581,13 @@ export default class Fire extends GameScene {
         if (this.elementPopup.visible) {
             this.elementPopup.close()
         }
-        
+
         let holderPos
-        let posOffset = 0
+        let isRemoteBattle = false
 
         if (args.seats.length === 2 && !args.seats.includes(this.mySeat)) {
             holderPos = layout.pos.holder[1]
-            posOffset = 1
+            isRemoteBattle = true
         } else {
             holderPos = layout.pos.holder[args.seats.length - 2]
         }
@@ -583,7 +595,15 @@ export default class Fire extends GameScene {
         for (let seat of args.seats) {
             const ninja = this.ninjas[seat]
 
-            const pos = holderPos[ninja.clientSeat + posOffset]
+            //const pos = holderPos[ninja.clientSeat + posOffset]
+            let pos
+            if (isRemoteBattle) {
+                let seats = args.seats.map(s => this.ninjas[s].clientSeat).sort((a, b) => a - b)
+                pos = holderPos[seats.indexOf(ninja.clientSeat) + 1]
+            } else {
+                //const index = args.seats.length === 2 && seat !==
+                pos = holderPos[Math.min(ninja.clientSeat, args.seats.length - 1)]
+            }
             ninja.holder.setPosition(pos.x, pos.y)
 
             ninja.holder.show(args.type, seat === this.mySeat)

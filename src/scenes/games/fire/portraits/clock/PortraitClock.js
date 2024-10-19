@@ -70,8 +70,6 @@ export default class PortraitClock extends BaseContainer {
 
         if (this.secs === 0) {
             this.clearTimer()
-            this.border.anims.stop()
-            this.border.setFrame(`portraits/clock/frame0001`)
             return
         } else if (this.secs === 5) {
             this.border.play('fire/clock/warn')
@@ -85,6 +83,9 @@ export default class PortraitClock extends BaseContainer {
     clearTimer() {
         clearInterval(this.timer)
         this.timer = null
+
+        this.border.anims.stop()
+        this.border.setFrame(`portraits/clock/frame0001`)
     }
 
     close() {
