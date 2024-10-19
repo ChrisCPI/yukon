@@ -324,15 +324,10 @@ export default class Fire extends GameScene {
     handleStartGame(args) {
         this.timerPopup.close()
 
-        let clientIndex = 0
+        let usernames = args.users.map(u => u.username.toLowerCase())
+        let clientIndex = usernames.indexOf(this.client.penguin.username.toLowerCase())
 
-        for (let [index, user] of args.users.entries()) {
-            if (this.world.isClientUsername(user.username)) {
-                clientIndex = index
-                this.mySeat = index
-                break
-            }
-        }
+        this.mySeat = clientIndex
 
         let clientSeats = new Array(args.users.length).fill(0)
 
