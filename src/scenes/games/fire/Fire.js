@@ -558,7 +558,7 @@ export default class Fire extends GameScene {
     }
 
     handlePlayerQuit(args) {
-        if (args.allQuitd) {
+        if (args.allQuit) {
             this.hideGameElements()
             this.removeGameListeners()
             this.quitPopup.show()
