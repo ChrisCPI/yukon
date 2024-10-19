@@ -22,7 +22,8 @@ const sounds = {
             frames: [
                 {
                     frame: 10,
-                    sound: 'snow_energy'
+                    sound: 'snow_energy',
+                    volume: 1
                 }
             ]
         },

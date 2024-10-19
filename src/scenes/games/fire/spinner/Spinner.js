@@ -257,6 +257,8 @@ export default class Spinner extends BaseContainer {
 
             if (currentNum > 6) currentNum = 1
             if (currentTab > 6) currentTab = 1
+
+            this.scene.playSound('spinner_flip', 0.35)
         }
     }
 
