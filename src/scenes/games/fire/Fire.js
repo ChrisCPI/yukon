@@ -19,7 +19,9 @@ import CardHolder from './card/CardHolder'
 import FirePlayer from './FirePlayer'
 import FireBubble from './misc/FireBubble'
 import FirePop from './misc/FirePop'
+
 import layout from './layout'
+import sounds from './sounds'
 
 /* END-USER-IMPORTS */
 
@@ -674,7 +676,7 @@ export default class Fire extends GameScene {
                 this.playStatusText(statusText)
 
                 if (data.state === 2) {
-                    // Play sound
+                    this.playSound('tie', 0.5)
                 }
             }
         }
@@ -853,6 +855,32 @@ export default class Fire extends GameScene {
             ],
             onComplete: () => this.statusText.visible = false
         })
+    }
+
+    /**
+     * Creates a "timeline" of sounds to play when `sprite`
+     * reaches certain frames in an animation.
+     * @param {Phaser.GameObjects.Sprite} sprite - The sprite to attach the listener
+     * @param {Object} configKey - The key of the object to grab from `sounds`, which the method will parse through.
+     */
+    registerSoundTimeline(sprite, configKey) {
+        const config = sounds[configKey]
+        sprite.on('animationupdate', () => {
+            for (let obj of config) {
+                if (sprite.anims.currentAnim.key == obj.key) {
+                    for (let frameData of obj.frames) {
+                        if (sprite.anims.currentFrame.index == frameData.frame) {
+                            this.playSound(frameData.sound, frameData.volume || 1)
+                        }
+                    }
+                    break
+                }
+            }
+        })
+    }
+
+    playSound(key, volume = 1) {
+        this.soundManager.play(`fire/${key}`, { volume: volume })
     }
 
     createBackgroundAnims() {

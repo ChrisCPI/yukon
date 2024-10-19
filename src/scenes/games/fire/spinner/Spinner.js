@@ -203,6 +203,7 @@ export default class Spinner extends BaseContainer {
         this.currentMainAnim = 'rise'
         this.main.visible = true
         this.main.play('fire/spinner/rise')
+        this.scene.playSound('spinner')
     }
 
     playSpin() {
@@ -234,6 +235,8 @@ export default class Spinner extends BaseContainer {
 
             tablet.anims.stop()
         }
+
+        this.scene.playSound('spinner_flare')
 
         this.flipTop.visible = true
         this.flipBottom.visible = true

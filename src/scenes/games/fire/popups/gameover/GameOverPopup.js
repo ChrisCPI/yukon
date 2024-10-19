@@ -162,6 +162,8 @@ export default class GameOverPopup extends BaseContainer {
     show() {
         super.show()
 
+        this.scene.playSound('win')
+
         const matrix = this.maskRect.getWorldTransformMatrix()
 
         this.maskRect.x = matrix.getX(0,0)
@@ -242,6 +244,8 @@ export default class GameOverPopup extends BaseContainer {
             ],
             onComplete: () => this.playStar()
         })
+
+        this.scene.time.delayedCall(250, () => this.scene.playSound('scroll_open', 0.5))
     }
 
     playStar() {
@@ -255,7 +259,10 @@ export default class GameOverPopup extends BaseContainer {
                 {
                     duration: 208,
                     scale: { from: 0.25, to: 1.3 },
-                    onStart: () => this.star.visible = true
+                    onStart: () => {
+                        this.star.visible = true
+                        this.scene.playSound('star_bounce', 0.5)
+                    }
                 },
                 {
                     delay: 85,

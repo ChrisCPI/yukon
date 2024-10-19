@@ -283,6 +283,7 @@ export default class FirePlayer extends BaseContainer {
         this.playJump('start')
         this.setDirection(this, this.lookAt)
         this.addTween(pos.x, pos.y)
+        this.scene.playSound('jump', 0.5)
     }
 
     filterFromJumpQueue() {

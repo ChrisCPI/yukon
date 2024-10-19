@@ -60,6 +60,8 @@ export default class CardHolder extends BaseContainer {
         this.cardAnim.on('animationcomplete', () => scene.decreaseCardAnimQueue())
         this.cardMask.on('animationcomplete', () => scene.decreaseCardAnimQueue())
 
+        this.scene.registerSoundTimeline(this.cardAnim, 'cardAnim')
+
         /* END-USER-CTR-CODE */
     }
 

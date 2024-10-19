@@ -114,7 +114,7 @@ export default class ElementPopup extends BaseContainer {
         this.onOut()
         this.network.send('choose_element', { element: element })
         this.close()
-        // Play sound
+        this.scene.playSound('choose_element', 0.5)
     }
 
     /* END-USER-CODE */
