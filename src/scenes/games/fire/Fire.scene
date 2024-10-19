@@ -56,6 +56,12 @@
             "y": 390
         },
         {
+            "type": "Layer",
+            "id": "3db6646e-cefc-4a8d-a33e-2ed1257d8fbd",
+            "label": "bubblesLayer",
+            "scope": "CLASS"
+        },
+        {
             "prefabId": "78ee7abc-2551-44f8-b39b-416b7e54e0bc",
             "id": "a4850a73-c37c-416d-928f-0fc98e74c6dc",
             "unlock": [
@@ -66,6 +72,12 @@
             "scope": "CLASS",
             "x": 780,
             "y": 540
+        },
+        {
+            "type": "Layer",
+            "id": "67d93dc7-8891-46a3-a3e4-11775e22a36a",
+            "label": "firepopsLayer",
+            "scope": "CLASS"
         },
         {
             "prefabId": "4b050da7-f100-4764-a258-a803ffdee6cd",
@@ -221,22 +233,6 @@
             },
             "x": 1471,
             "y": 48
-        },
-        {
-            "type": "Image",
-            "id": "f9b7f1e6-021e-47fd-a90a-0dafb995ce2a",
-            "label": "fire_ref",
-            "texture": {
-                "key": "fire_ref"
-            },
-            "x": 760,
-            "y": 480,
-            "visible": false,
-            "alpha": 0.5,
-            "alphaTopLeft": 0.5,
-            "alphaTopRight": 0.5,
-            "alphaBottomLeft": 0.5,
-            "alphaBottomRight": 0.5
         },
         {
             "type": "Image",

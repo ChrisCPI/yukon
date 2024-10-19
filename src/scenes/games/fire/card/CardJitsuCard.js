@@ -218,23 +218,6 @@ export default class CardJitsuCard extends BaseContainer {
         this.setPosition(pos.x, y)
     }
 
-    tweenToPick() {
-        this.scale = layout.scale.pick
-
-        let pos = layout.pos.picks[this.player.seat]
-
-        this.tweenTo(pos.x, pos.y)
-    }
-
-    removeTween() {
-        if (!this.tween) {
-            return
-        }
-
-        this.tween.stop()
-        this.tween = null
-    }
-
     enableInput() {
         this.setSize(this.colorSprite.width, this.colorSprite.height)
         this.setInteractive({ cursor: 'pointer' })

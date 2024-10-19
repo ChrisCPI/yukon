@@ -17,6 +17,8 @@ import CardLoader from '@engine/loaders/CardLoader'
 import CardJitsuCard from './card/CardJitsuCard'
 import CardHolder from './card/CardHolder'
 import FirePlayer from './FirePlayer'
+import FireBubble from './misc/FireBubble'
+import FirePop from './misc/FirePop'
 import layout from './layout'
 
 /* END-USER-IMPORTS */
@@ -26,8 +28,12 @@ export default class Fire extends GameScene {
     constructor() {
         super("Fire");
 
+        /** @type {Phaser.GameObjects.Layer} */
+        this.bubblesLayer;
         /** @type {Board} */
         this.board;
+        /** @type {Phaser.GameObjects.Layer} */
+        this.firepopsLayer;
         /** @type {Spinner} */
         this.spinner;
         /** @type {Phaser.GameObjects.Layer} */
@@ -83,9 +89,15 @@ export default class Fire extends GameScene {
         // lantern
         this.add.image(1413, 390, "fire", "bg/back/lantern");
 
+        // bubblesLayer
+        const bubblesLayer = this.add.layer();
+
         // board
         const board = new Board(this, 780, 540);
         this.add.existing(board);
+
+        // firepopsLayer
+        const firepopsLayer = this.add.layer();
 
         // spinner
         const spinner = new Spinner(this, 773, 552);
@@ -131,15 +143,6 @@ export default class Fire extends GameScene {
 
         // closeButton
         const closeButton = this.add.image(1471, 48, "main", "grey-button");
-
-        // fire_ref
-        const fire_ref = this.add.image(760, 480, "fire_ref");
-        fire_ref.visible = false;
-        fire_ref.alpha = 0.5;
-        fire_ref.alphaTopLeft = 0.5;
-        fire_ref.alphaTopRight = 0.5;
-        fire_ref.alphaBottomLeft = 0.5;
-        fire_ref.alphaBottomRight = 0.5;
 
         // closeX
         const closeX = this.add.image(1471, 46, "main", "grey-x");
@@ -206,7 +209,9 @@ export default class Fire extends GameScene {
         closeButtonButton.spriteName = "grey-button";
         closeButtonButton.callback = () => this.sendLeaveGame();
 
+        this.bubblesLayer = bubblesLayer;
         this.board = board;
+        this.firepopsLayer = firepopsLayer;
         this.spinner = spinner;
         this.playersLayer = playersLayer;
         this.cardsLayer = cardsLayer;
@@ -230,6 +235,8 @@ export default class Fire extends GameScene {
 
     create() {
         super.create()
+
+        this.createBackgroundAnims()
 
         this.addListeners()
 
@@ -363,7 +370,6 @@ export default class Fire extends GameScene {
     }
 
     handleNextRound(args) {
-        // todo: handle cards that already exist, use slot from entries idk
         for (let card of args.deck) {
             this.cardLoader.loadCard(card, this.onCardDeckLoad)
         }
@@ -374,6 +380,7 @@ export default class Fire extends GameScene {
             this.currentNinja.portrait.disablePortrait()
             this.currentNinja.player.setHighlightInactive()
         }
+
         this.currentNinja = this.ninjas[args.ninja]
         this.currentNinja.portrait.enablePortrait()
         this.currentNinja.player.setHighlightActive()
@@ -590,15 +597,14 @@ export default class Fire extends GameScene {
         for (let seat of args.seats) {
             const ninja = this.ninjas[seat]
 
-            //const pos = holderPos[ninja.clientSeat + posOffset]
             let pos
             if (isRemoteBattle) {
                 let seats = args.seats.map(s => this.ninjas[s].clientSeat).sort((a, b) => a - b)
                 pos = holderPos[seats.indexOf(ninja.clientSeat) + 1]
             } else {
-                //const index = args.seats.length === 2 && seat !==
                 pos = holderPos[Math.min(ninja.clientSeat, args.seats.length - 1)]
             }
+
             ninja.holder.setPosition(pos.x, pos.y)
 
             ninja.holder.show(args.type, seat === this.mySeat)
@@ -846,6 +852,56 @@ export default class Fire extends GameScene {
                 }
             ],
             onComplete: () => this.statusText.visible = false
+        })
+    }
+
+    createBackgroundAnims() {
+        this.bubbles = []
+        this.firePops = []
+
+        for (let pos of layout.bubbles) {
+            const bubble = new FireBubble(this, pos.x, pos.y)
+            this.bubblesLayer.add(bubble)
+            this.bubbles.push(bubble)
+            bubble.visible = false
+        }
+
+        for (let bubble of this.bubbles) {
+            bubble.depth = bubble.y
+        }
+
+        for (let pos of layout.firePops) {
+            const firePop = new FirePop(this, pos.x, pos.y)
+            this.firepopsLayer.add(firePop)
+            this.firePops.push(firePop)
+            firePop.visible = false
+        }
+
+        for (let firePop of this.firePops) {
+            firePop.depth = firePop.y
+        }
+
+        this.setBubbleTimer()
+        this.setFirePopTimer()
+    }
+
+    setBubbleTimer() {
+        const delay = Phaser.Math.Between(24, 96) * 50
+        this.time.delayedCall(delay, () => {
+            const bubble = Phaser.Utils.Array.GetRandom(this.bubbles)
+            bubble.show()
+
+            this.setBubbleTimer()
+        })
+    }
+
+    setFirePopTimer() {
+        const delay = Phaser.Math.Between(3, 480) * 50
+        this.time.delayedCall(delay, () => {
+            const firePop = Phaser.Utils.Array.GetRandom(this.firePops)
+            firePop.show()
+
+            this.setFirePopTimer()
         })
     }
 
