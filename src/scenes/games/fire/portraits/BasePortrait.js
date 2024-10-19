@@ -1,4 +1,8 @@
 import BaseContainer from '@scenes/base/BaseContainer'
+import layout from '../layout'
+import blendColors from '@engine/utils/color/blendColors'
+
+const subscripts = ['st', 'nd', 'rd', 'th']
 
 export default class BasePortrait extends BaseContainer {
 
@@ -6,6 +10,8 @@ export default class BasePortrait extends BaseContainer {
         super(scene, x, y)
 
         this.seat = 0
+
+        this.finish = 0
     }
 
     setPlayer(user) {
@@ -61,15 +67,58 @@ export default class BasePortrait extends BaseContainer {
     }
 
     playerQuit() {
-        this.energy.setEnergy(0)
-        this.avatar.playLeave()
-        
-        this.statusText.text = this.getString('quit')
-        this.statusText.visible = true
+        this.setInactive('quit')
     }
 
-    playerFinish() {
-        // Todo
+    playerFinish(finish) {
+        this.finish = finish
+        this.setInactive('finish')
+    }
+
+    setInactive(state) {
+        switch (state) {
+            case 'quit':
+                this.statusText.text = this.getString('quit')
+                this.energy.setEnergy(0)
+                break
+            case 'finish':
+                this.statusText.text = `${this.finish}   `
+                this.subText.text = subscripts[this.finish - 1]
+                break
+        }
+
+        this.avatar.playLeave()
+        this.statusText.visible = true
+
+        if (this.highlight?.visible) this.highlight.visible = false
+
+        if (this.arrow?.visible) {
+            this.arrow.close()
+        }
+
+        this.disablePortrait()
+        this.setDarken()
+    }
+
+    setDarken() {
+        const tint = layout.colors.darken.color
+
+        this.nickname.setTint(tint)
+        this.statusText.setTint(tint)
+
+        this.top.tint = tint
+        this.side.tint = tint
+        this.bottom.tint = tint
+
+        for (let child of this.energy.list) {
+            if (child == this.energy.fill) {
+                child.tint = blendColors(child.tint, tint)
+            } else {
+                child.tint = tint
+            }
+        }
+
+        this.avatar.setDarken()
     }
 
     createMask() {

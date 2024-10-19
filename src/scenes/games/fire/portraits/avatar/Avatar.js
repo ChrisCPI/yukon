@@ -2,6 +2,10 @@
 
 import BaseContainer from "../../../../base/BaseContainer";
 /* START-USER-IMPORTS */
+
+import layout from '../../layout'
+import blendColors from '@engine/utils/color/blendColors'
+
 /* END-USER-IMPORTS */
 
 export default class Avatar extends BaseContainer {
@@ -188,6 +192,17 @@ export default class Avatar extends BaseContainer {
                     break
                 default:
                     break
+            }
+        }
+    }
+
+    setDarken() {
+        const tint = layout.colors.darken.color
+        for (let part of this.parts) {
+            if (this.tinted.includes(part.sprite)) {
+                part.sprite.tint = blendColors(part.sprite.tint, tint)
+            } else {
+                part.sprite.tint = tint
             }
         }
     }
