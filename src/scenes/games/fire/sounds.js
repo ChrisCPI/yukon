@@ -22,8 +22,7 @@ const sounds = {
             frames: [
                 {
                     frame: 10,
-                    sound: 'snow_energy',
-                    volume: 1
+                    sound: 'snow_energy'
                 }
             ]
         },
@@ -52,7 +51,7 @@ const sounds = {
                 {
                     frame: 33,
                     sound: 'snow_trump',
-                    volume: 0.5
+                    volume: 0.6
                 }
             ]
         },
@@ -62,6 +61,18 @@ const sounds = {
                 {
                     frame: 34,
                     sound: 'water_trump',
+                    volume: 0.5
+                }
+            ]
+        }
+    ],
+    bubble: [
+        {
+            key: 'fire/bubble',
+            frames: [
+                {
+                    frame: 21,
+                    sound: 'fire/bubble',
                     volume: 0.5
                 }
             ]

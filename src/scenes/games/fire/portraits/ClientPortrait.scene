@@ -137,14 +137,54 @@
                         "x",
                         "y",
                         "scaleX",
-                        "scaleY"
+                        "scaleY",
+                        "visible"
                     ],
                     "label": "clock",
                     "scope": "CLASS",
                     "x": 137,
                     "y": -51,
                     "scaleX": 0.8,
-                    "scaleY": 0.8
+                    "scaleY": 0.8,
+                    "visible": false
+                },
+                {
+                    "type": "Text",
+                    "id": "818e3b3f-4608-47c8-a848-4c56683ef4a4",
+                    "label": "statusText",
+                    "scope": "CLASS",
+                    "x": 5,
+                    "y": -83,
+                    "originX": 0.5,
+                    "originY": 0.5,
+                    "visible": false,
+                    "text": "4   ",
+                    "fixedWidth": 100,
+                    "fixedHeight": 50,
+                    "align": "center",
+                    "fontFamily": "Burbank Small",
+                    "fontSize": "48px",
+                    "fontStyle": "bold",
+                    "stroke": "#000"
+                },
+                {
+                    "type": "Text",
+                    "id": "f7ac4a95-0048-4d7b-af08-acb67ad9e66d",
+                    "label": "subText",
+                    "scope": "CLASS",
+                    "x": 22,
+                    "y": -85,
+                    "originX": 0.5,
+                    "originY": 0.5,
+                    "visible": false,
+                    "text": "th",
+                    "fixedWidth": 50,
+                    "fixedHeight": 50,
+                    "paddingLeft": 5,
+                    "fontFamily": "Burbank Small",
+                    "fontSize": "35px",
+                    "fontStyle": "bold",
+                    "stroke": "#000"
                 }
             ]
         }

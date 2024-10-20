@@ -18,6 +18,7 @@ export default class FirePop extends BaseSprite {
     /* START-USER-CODE */
 
     show() {
+        this.scene.playSound('fire/firepop', 0.5)
         this.play('fire/firepop')
     }
 

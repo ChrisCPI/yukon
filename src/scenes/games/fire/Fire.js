@@ -586,6 +586,13 @@ export default class Fire extends GameScene {
             this.elementPopup.close()
         }
 
+        for (let n of this.ninjas) {
+            if (n.portrait.highlight.visible) {
+                n.portrait.highlight.visible = false
+                n.portrait.arrow.close()
+            }
+        }
+
         let holderPos
         let isRemoteBattle = false
 
@@ -891,6 +898,8 @@ export default class Fire extends GameScene {
             const bubble = new FireBubble(this, pos.x, pos.y)
             this.bubblesLayer.add(bubble)
             this.bubbles.push(bubble)
+
+            this.registerSoundTimeline(bubble, 'bubble')
             bubble.visible = false
         }
 

@@ -84,6 +84,7 @@ export default class BasePortrait extends BaseContainer {
             case 'finish':
                 this.statusText.text = `${this.finish}   `
                 this.subText.text = subscripts[this.finish - 1]
+                this.subText.visible = true
                 break
         }
 
@@ -96,6 +97,10 @@ export default class BasePortrait extends BaseContainer {
             this.arrow.close()
         }
 
+        if (this.clock.visible) {
+            this.hideClock()
+        }
+
         this.disablePortrait()
         this.setDarken()
     }
@@ -105,10 +110,12 @@ export default class BasePortrait extends BaseContainer {
 
         this.nickname.setTint(tint)
         this.statusText.setTint(tint)
+        this.subText.setTint(tint)
 
         this.top.tint = tint
         this.side.tint = tint
         this.bottom.tint = tint
+        this.bg.tint = tint
 
         for (let child of this.energy.list) {
             if (child == this.energy.fill) {

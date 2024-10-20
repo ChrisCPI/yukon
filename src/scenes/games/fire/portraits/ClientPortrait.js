@@ -30,6 +30,10 @@ export default class ClientPortrait extends BasePortrait {
         this.maskRect;
         /** @type {PortraitClock} */
         this.clock;
+        /** @type {Phaser.GameObjects.Text} */
+        this.statusText;
+        /** @type {Phaser.GameObjects.Text} */
+        this.subText;
 
 
         // bg
@@ -76,7 +80,25 @@ export default class ClientPortrait extends BasePortrait {
         const clock = new PortraitClock(scene, 137, -51);
         clock.scaleX = 0.8;
         clock.scaleY = 0.8;
+        clock.visible = false;
         this.add(clock);
+
+        // statusText
+        const statusText = scene.add.text(5, -83, "", {});
+        statusText.setOrigin(0.5, 0.5);
+        statusText.visible = false;
+        statusText.text = "4   ";
+        statusText.setStyle({ "align": "center", "fixedWidth":100,"fixedHeight":50,"fontFamily": "Burbank Small", "fontSize": "48px", "fontStyle": "bold", "stroke": "#000" });
+        this.add(statusText);
+
+        // subText
+        const subText = scene.add.text(22, -85, "", {});
+        subText.setOrigin(0.5, 0.5);
+        subText.visible = false;
+        subText.text = "th";
+        subText.setStyle({ "fixedWidth":50,"fixedHeight":50,"fontFamily": "Burbank Small", "fontSize": "35px", "fontStyle": "bold", "stroke": "#000" });
+        subText.setPadding({"left":5});
+        this.add(subText);
 
         this.bg = bg;
         this.side = side;
@@ -87,6 +109,8 @@ export default class ClientPortrait extends BasePortrait {
         this.nickname = nickname;
         this.maskRect = maskRect;
         this.clock = clock;
+        this.statusText = statusText;
+        this.subText = subText;
 
         /* START-USER-CTR-CODE */
         /* END-USER-CTR-CODE */
