@@ -39,7 +39,7 @@ export default class DojoFire extends RoomScene {
 
         this.roomTriggers = {
             'dojohide': () => null,
-            //'sensei': () => this.triggerGame(951),
+            'sensei': () => this.triggerGame(953),
             'waddle300': () => this.triggerMat(300),
             'waddle301': () => this.triggerMat(301),
             'waddle302': () => this.triggerMat(302),

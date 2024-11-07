@@ -159,6 +159,10 @@ const rooms = {
         key: 'Sensei',
         scene: require('@rooms/../games/sensei/Sensei').default
     },
+    953: {
+        key: 'FireSensei',
+        scene: require('@rooms/../games/firesensei/FireSensei').default
+    },
     997: {
         key: 'Fire',
         scene: require('@rooms/../games/fire/Fire').default

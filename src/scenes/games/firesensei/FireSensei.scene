@@ -1,0 +1,96 @@
+{
+    "id": "af747ddb-d437-44db-a16a-bf1c2e4c591f",
+    "sceneType": "SCENE",
+    "settings": {
+        "compilerInsertSpaces": true,
+        "javaScriptInitFieldsInConstructor": true,
+        "exportClass": true,
+        "autoImport": true,
+        "superClassName": "GameScene",
+        "preloadMethodName": "_preload",
+        "preloadPackFiles": [
+            "yukon/assets/media/games/senseifire/senseifire-pack.json"
+        ],
+        "createMethodName": "_create",
+        "sceneKey": "FireSensei",
+        "borderWidth": 1520,
+        "borderHeight": 960
+    },
+    "displayList": [
+        {
+            "prefabId": "f1f172a7-c82a-4e8e-9105-fd90e1d255d1",
+            "id": "7aa878aa-3621-43f5-a5f2-4fed0047b727",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "widget",
+            "scope": "CLASS",
+            "x": 0,
+            "y": -1
+        },
+        {
+            "type": "Image",
+            "id": "d871c8e3-cba7-463f-ab2f-39c1126c1226",
+            "label": "ref",
+            "texture": {
+                "key": "senseifire",
+                "frame": "ref"
+            },
+            "originX": 0,
+            "originY": 0,
+            "visible": false,
+            "alpha": 0.5,
+            "alphaTopLeft": 0.5,
+            "alphaTopRight": 0.5,
+            "alphaBottomLeft": 0.5,
+            "alphaBottomRight": 0.5
+        },
+        {
+            "prefabId": "72cb595e-9319-4103-89ae-3793edfc069c",
+            "id": "ebced699-3325-4494-96a4-088fe0ca55a8",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "menu",
+            "scope": "CLASS",
+            "x": 1059,
+            "y": 754
+        },
+        {
+            "type": "Image",
+            "id": "931acc13-5748-49c2-b341-63c5e9242a42",
+            "label": "xButton",
+            "components": [
+                "Button"
+            ],
+            "Button.spriteName": "grey-button",
+            "Button.callback": "() => this.world.client.sendJoinLastRoom()",
+            "texture": {
+                "key": "main",
+                "frame": "grey-button"
+            },
+            "x": 1474,
+            "y": 43
+        },
+        {
+            "type": "Image",
+            "id": "42c44031-0283-493f-84b0-702119a7182b",
+            "label": "x",
+            "texture": {
+                "key": "main",
+                "frame": "grey-x"
+            },
+            "x": 1474,
+            "y": 41
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 4
+    }
+}

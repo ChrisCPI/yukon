@@ -1,0 +1,152 @@
+{
+    "id": "f1f172a7-c82a-4e8e-9105-fd90e1d255d1",
+    "sceneType": "PREFAB",
+    "settings": {
+        "compilerInsertSpaces": true,
+        "javaScriptInitFieldsInConstructor": true,
+        "exportClass": true,
+        "autoImport": true,
+        "superClassName": "BaseContainer",
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "borderWidth": 1520,
+        "borderHeight": 960
+    },
+    "displayList": [
+        {
+            "type": "Container",
+            "id": "6c8b4abc-527b-4fb7-86e5-ce92b00f7ca6",
+            "label": "container_1",
+            "list": [
+                {
+                    "type": "Image",
+                    "id": "1108b99f-1a8e-46af-8dd7-c6bb7b65d23c",
+                    "label": "bg",
+                    "scope": "CLASS",
+                    "components": [
+                        "Interactive"
+                    ],
+                    "texture": {
+                        "key": "senseifire",
+                        "frame": "bg/bg"
+                    },
+                    "x": 705,
+                    "y": 461
+                },
+                {
+                    "type": "Sprite",
+                    "id": "1c9b8886-b8a3-4d0f-b8cc-232578277eb0",
+                    "label": "flowers",
+                    "scope": "CLASS",
+                    "components": [
+                        "Animation"
+                    ],
+                    "Animation.key": "bg/flowers",
+                    "Animation.end": 40,
+                    "texture": {
+                        "key": "senseifire",
+                        "frame": "bg/flowers0001"
+                    },
+                    "x": 1050,
+                    "y": 585
+                },
+                {
+                    "type": "Image",
+                    "id": "7f281779-09b8-454e-99dc-ad9a4eb8e69f",
+                    "label": "lanternLight",
+                    "scope": "CLASS",
+                    "texture": {
+                        "key": "senseifire",
+                        "frame": "bg/lantern/light"
+                    },
+                    "x": 1279,
+                    "y": 193
+                },
+                {
+                    "type": "Image",
+                    "id": "6150b7a5-7761-41fe-9e67-ef16aa4a201c",
+                    "label": "lantern",
+                    "texture": {
+                        "key": "senseifire",
+                        "frame": "bg/lantern/lantern"
+                    },
+                    "x": 1272,
+                    "y": 174
+                },
+                {
+                    "type": "Sprite",
+                    "id": "6da4de8f-36b2-4e5d-b1b0-e8cc3638a70c",
+                    "label": "fireDeck",
+                    "scope": "CLASS",
+                    "texture": {
+                        "key": "senseifire",
+                        "frame": "instructions/fireDeck/anim0001"
+                    },
+                    "x": 1026,
+                    "y": 517,
+                    "visible": false
+                },
+                {
+                    "type": "Image",
+                    "id": "8ba5c257-5b68-452f-98c9-3f17367236e5",
+                    "label": "ref",
+                    "texture": {
+                        "key": "senseifire",
+                        "frame": "ref"
+                    },
+                    "originX": 0,
+                    "originY": 0,
+                    "visible": false,
+                    "alpha": 0.5,
+                    "alphaTopLeft": 0.5,
+                    "alphaTopRight": 0.5,
+                    "alphaBottomLeft": 0.5,
+                    "alphaBottomRight": 0.5
+                },
+                {
+                    "prefabId": "8ff5b6d0-0ab0-4a6c-848f-f9f44d6246d0",
+                    "id": "0804fd42-00da-4095-ba61-7d3226480332",
+                    "unlock": [
+                        "x",
+                        "y"
+                    ],
+                    "label": "senseiSprite",
+                    "scope": "CLASS",
+                    "x": 396,
+                    "y": 519
+                },
+                {
+                    "prefabId": "444be2e7-01dd-43d1-a6f2-a10525e3debb",
+                    "id": "e5e647c1-06ca-4472-bd14-f5e25b8cd168",
+                    "unlock": [
+                        "x",
+                        "y"
+                    ],
+                    "label": "speech",
+                    "scope": "CLASS",
+                    "x": 1005,
+                    "y": 210
+                },
+                {
+                    "type": "Image",
+                    "id": "5216b1de-8608-4455-9109-e44fb689a48e",
+                    "label": "fg",
+                    "texture": {
+                        "key": "senseifire",
+                        "frame": "fg"
+                    },
+                    "x": 758,
+                    "y": 833
+                }
+            ]
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 4
+    }
+}

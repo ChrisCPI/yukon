@@ -1,0 +1,66 @@
+{
+    "id": "8ff5b6d0-0ab0-4a6c-848f-f9f44d6246d0",
+    "sceneType": "PREFAB",
+    "settings": {
+        "compilerInsertSpaces": true,
+        "javaScriptInitFieldsInConstructor": true,
+        "exportClass": true,
+        "autoImport": true,
+        "superClassName": "BaseContainer",
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "borderWidth": 1520,
+        "borderHeight": 960
+    },
+    "displayList": [
+        {
+            "type": "Container",
+            "id": "b9df0176-63fd-41e8-888a-702589196b2e",
+            "label": "container_2",
+            "list": [
+                {
+                    "type": "Sprite",
+                    "id": "483c8dd1-56f3-4534-8cca-2f0f617fc40c",
+                    "label": "body",
+                    "scope": "CLASS",
+                    "texture": {
+                        "key": "senseifire",
+                        "frame": "sensei/wait"
+                    },
+                    "y": 15
+                },
+                {
+                    "type": "Image",
+                    "id": "0c1a6b53-b228-4625-bbbb-1eaf6a7d2c49",
+                    "label": "amulet",
+                    "scope": "CLASS",
+                    "texture": {
+                        "key": "senseifire",
+                        "frame": "sensei/amulet"
+                    },
+                    "x": 7,
+                    "y": 15
+                },
+                {
+                    "type": "Sprite",
+                    "id": "c1864a32-712d-45ff-a455-c54365d53d89",
+                    "label": "beak",
+                    "scope": "CLASS",
+                    "texture": {
+                        "key": "senseifire",
+                        "frame": "sensei/beak/beak"
+                    },
+                    "x": 17
+                }
+            ]
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 4
+    }
+}

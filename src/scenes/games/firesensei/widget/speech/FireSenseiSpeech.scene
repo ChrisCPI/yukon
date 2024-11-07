@@ -1,0 +1,65 @@
+{
+    "id": "444be2e7-01dd-43d1-a6f2-a10525e3debb",
+    "sceneType": "PREFAB",
+    "settings": {
+        "compilerInsertSpaces": true,
+        "javaScriptInitFieldsInConstructor": true,
+        "exportClass": true,
+        "autoImport": true,
+        "superClassName": "BaseContainer",
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "borderWidth": 1520,
+        "borderHeight": 960
+    },
+    "displayList": [
+        {
+            "type": "Container",
+            "id": "dc495fa0-7d66-4e76-b386-db21c5ab4537",
+            "label": "container_1",
+            "x": 760,
+            "y": 480,
+            "list": [
+                {
+                    "type": "NinePatchContainer",
+                    "id": "d9884b99-aca4-473d-b2f7-710e29e6e081",
+                    "label": "bubble",
+                    "texture": {
+                        "key": "senseifire",
+                        "frame": "bubble"
+                    },
+                    "width": 977,
+                    "height": 306,
+                    "marginLeft": 130,
+                    "marginRight": 75,
+                    "marginTop": 80,
+                    "marginBottom": 173
+                },
+                {
+                    "type": "Text",
+                    "id": "a8c190d7-3f85-403e-9f9f-9c4daad160b1",
+                    "label": "dialog",
+                    "scope": "CLASS",
+                    "x": 26,
+                    "y": -50,
+                    "originX": 0.5,
+                    "originY": 0.5,
+                    "text": "This example text\nI have put it on three lines\nNot a good haiku",
+                    "fixedWidth": 1030,
+                    "align": "center",
+                    "fontFamily": "CCComiccrazy",
+                    "fontSize": "40px",
+                    "color": "#000"
+                }
+            ]
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 4
+    }
+}
