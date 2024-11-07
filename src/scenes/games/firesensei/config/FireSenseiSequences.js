@@ -61,17 +61,40 @@ export function intro(widget) {
     ]
 }
 
-export function introCards(widget) {
+export function returnWelcome(widget, id) {
     return [
         () => {
-            widget.showSpeech(widget.getString('help_firsttime_tobegin'))
-            widget.scene.instructions.showCards()
+            widget.showSpeech(widget.getString(id))
         },
         () => {
-            widget.network.send('add_starter_deck')
+            widget.hideSpeech()
+        }
+    ]
+}
 
-            widget.scene.instructions.hideCards()
-            //widget.scene.showMenu(menus.instrWhatDoIDo)
+export function volcanoIntro(widget) {
+    return [
+        () => {
+            widget.scene.showMenu(menus.volcanoQuestion)
+            widget.showSpeech(widget.getString('firehelp_return_volcanoquestion'))
+        }
+    ]
+}
+
+export function instrVolcano(widget) {
+    return [
+        () => {
+            widget.showSpeech(widget.getString('firehelp_return_volcanoawake'))
+        },
+        () => {
+            widget.showSpeech(widget.getString('firehelp_return_volcanograsshoppers'))
+        },
+        () => {
+            widget.showSpeech(widget.getString('firehelp_return_volcanoonlyninja'))
+        },
+        () => {
+            widget.hideSpeech()
+            widget.scene.showMenu(menus.start)
         }
     ]
 }

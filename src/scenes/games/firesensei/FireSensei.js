@@ -2,12 +2,13 @@
 
 import GameScene from "../GameScene";
 import FireSenseiWidget from "./widget/FireSenseiWidget";
+import Zone from "../../components/Zone";
 import FireSenseiMenu from "./menu/FireSenseiMenu";
 import Button from "../../components/Button";
 /* START-USER-IMPORTS */
 
 //import FireSenseiInstructions from './instructions/FireSenseiInstructions'
-import { intro } from './config/FireSenseiSequences'
+import * as sequences from './config/FireSenseiSequences'
 
 /* END-USER-IMPORTS */
 
@@ -39,15 +40,19 @@ export default class FireSensei extends GameScene {
         const widget = new FireSenseiWidget(this, 0, -1);
         this.add.existing(widget);
 
-        // ref
-        const ref = this.add.image(0, 0, "senseifire", "ref");
-        ref.setOrigin(0, 0);
-        ref.visible = false;
-        ref.alpha = 0.5;
-        ref.alphaTopLeft = 0.5;
-        ref.alphaTopRight = 0.5;
-        ref.alphaBottomLeft = 0.5;
-        ref.alphaBottomRight = 0.5;
+        // volcano1
+        const volcano1 = this.add.rectangle(0, 730, 300, 230);
+        volcano1.setOrigin(0, 0);
+        volcano1.alpha = 0.5;
+        volcano1.isFilled = true;
+        volcano1.fillColor = 65280;
+
+        // volcano2
+        const volcano2 = this.add.rectangle(1161, 731, 360, 230);
+        volcano2.setOrigin(0, 0);
+        volcano2.alpha = 0.5;
+        volcano2.isFilled = true;
+        volcano2.fillColor = 65280;
 
         // menu
         const menu = new FireSenseiMenu(this, 1059, 754);
@@ -58,6 +63,14 @@ export default class FireSensei extends GameScene {
 
         // x
         this.add.image(1474, 41, "main", "grey-x");
+
+        // volcano1 (components)
+        const volcano1Zone = new Zone(volcano1);
+        volcano1Zone.callback = () => this.onVolcanoClick();
+
+        // volcano2 (components)
+        const volcano2Zone = new Zone(volcano2);
+        volcano2Zone.callback = () => this.onVolcanoClick();
 
         // xButton (components)
         const xButtonButton = new Button(xButton);
@@ -74,7 +87,7 @@ export default class FireSensei extends GameScene {
     /* START-USER-CODE */
 
     get userHasDeck() {
-        return false//this.world.client.inventory.award.includes(821)
+        return true//this.world.client.inventory.award.includes(821)
     }
 
     create() {
@@ -86,15 +99,6 @@ export default class FireSensei extends GameScene {
 
         // Add instructions into widget
         //this.widget.addAt(this.instructions, this.widget.speechIndex)
-
-        if (!this.userHasDeck) {
-            this.startSequence(intro)
-            return
-        }
-
-        // todo: sensei reacts to different items you're wearing
-        this.showSpeech(this.getString('firehelp_return_welcome'))
-        this.showStartMenu()
 
         this.tweens.chain({
             targets: this.widget.lanternLight,
@@ -132,6 +136,15 @@ export default class FireSensei extends GameScene {
                 }
             ]
         })
+
+        if (!this.userHasDeck) {
+            this.startSequence(sequences.intro)
+            return
+        }
+
+        // todo: sensei reacts to different items you're wearing
+        this.startSequence(sequences.returnWelcome, 'firehelp_return_welcome')
+        this.showStartMenu()
     }
 
     onBackgroundOver() {
@@ -141,12 +154,15 @@ export default class FireSensei extends GameScene {
         // Speech displayed during menus other than the start menu should stick
         if (!this.menu.isStartMenuActive) return
 
+        // Speech should not hide in the welcome
+        if (this.widget.shouldSequenceStick) return
+
         this.widget.hideSpeech()
     }
 
-    startSequence(sequence) {
+    startSequence(sequence, ...args) {
         this.menu.close()
-        this.widget.startSequence(sequence)
+        this.widget.startSequence(sequence, ...args)
     }
 
     showMenu(menu) {
@@ -160,6 +176,19 @@ export default class FireSensei extends GameScene {
 
     showPreviousMenu() {
         this.menu.showPreviousMenu()
+    }
+
+    onVolcanoClick() {
+        if (!this.menu.isStartMenuActive) {
+            return
+        }
+
+        if (this.widget.shouldSequenceStick) {
+            this.widget.forwardSequence()
+            return
+        }
+
+        this.startSequence(sequences.volcanoIntro)
     }
 
     showMatch() {

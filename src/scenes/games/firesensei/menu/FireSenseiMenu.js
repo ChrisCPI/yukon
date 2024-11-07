@@ -77,6 +77,10 @@ export default class FireSenseiMenu extends BaseContainer {
         return this.currentMenu === menus.start
     }
 
+    get shouldStick() {
+        return this.scene.widget.shouldSequenceStick
+    }
+
     showStartMenu() {
         this.show(menus.start)
     }
@@ -106,8 +110,8 @@ export default class FireSenseiMenu extends BaseContainer {
         this.bg.resize(this.bg.width, (this.currentItems.length * 61) + 150)
     }
 
-    startSequence(sequence) {
-        this.scene.startSequence(sequence)
+    startSequence(sequence, ...args) {
+        this.scene.startSequence(sequence, ...args)
     }
 
     showSpeech(text) {

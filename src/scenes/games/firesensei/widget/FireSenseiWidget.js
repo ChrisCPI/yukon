@@ -97,7 +97,12 @@ export default class FireSenseiWidget extends BaseContainer {
 
         /* START-USER-CTR-CODE */
 
+        this.stickSeqs = [
+            sequences.returnWelcome
+        ]
+
         this.currentSequence
+        this.currentSequenceId
         this.currentSequenceIndex = 0
 
         this.rankId = 1
@@ -116,6 +121,14 @@ export default class FireSenseiWidget extends BaseContainer {
 
     get speechIndex() {
         return this.getIndex(this.speech)
+    }
+
+    get isSequenceEnded() {
+        return this.currentSequenceIndex === this.currentSequence.length - 1
+    }
+
+    get shouldSequenceStick() {
+        return this.stickSeqs.includes(this.currentSequenceId) && !this.isSequenceEnded
     }
 
     show() {
@@ -149,9 +162,10 @@ export default class FireSenseiWidget extends BaseContainer {
         }
     }
 
-    startSequence(sequence) {
+    startSequence(sequence, ...args) {
+        this.currentSequenceId = sequence
         // Pass SenseiWidget dependency
-        this.currentSequence = sequence(this)
+        this.currentSequence = this.currentSequenceId(this, ...args)
 
         this.currentSequenceIndex = 0
         this.updateSequence()
@@ -162,7 +176,7 @@ export default class FireSenseiWidget extends BaseContainer {
             return
         }
 
-        if (this.currentSequenceIndex === this.currentSequence.length - 1) {
+        if (this.isSequenceEnded) {
             return
         }
 

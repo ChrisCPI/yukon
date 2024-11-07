@@ -8,6 +8,7 @@ export function start(menu) {
             icon: 'options/icon/belt',
 
             over: () => {
+                if (menu.shouldStick) return
                 menu.showSpeech(menu.getString('firemenu_description_competition'))
             },
             up: () => {
@@ -19,6 +20,7 @@ export function start(menu) {
             icon: 'options/icon/sensei',
 
             over: () => {
+                if (menu.shouldStick) return
                 menu.showSpeech(menu.getString('firemenu_description_sensei'))
             },
             up: () => {
@@ -54,15 +56,16 @@ export function volcanoQuestion(menu) {
             text: menu.getString('help_response_yes'),
 
             up: () => {
-                // sensei yaps about how the fire dojo came to be
-                //menu.startSequence(sequences.instrHowToPlay)
+                menu.close()
+                menu.startSequence(sequences.instrVolcano)
             }
         },
         {
             text: menu.getString('help_response_no'),
 
             up: () => {
-                // return to main menu, sensei says no problem (help_return_noResponse)
+                menu.startSequence(sequences.returnWelcome, 'firehelp_return_noResponse')
+                menu.showStartMenu()
             }
         }
     ]

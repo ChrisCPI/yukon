@@ -30,21 +30,39 @@
             "y": -1
         },
         {
-            "type": "Image",
-            "id": "d871c8e3-cba7-463f-ab2f-39c1126c1226",
-            "label": "ref",
-            "texture": {
-                "key": "senseifire",
-                "frame": "ref"
-            },
+            "type": "Rectangle",
+            "id": "7f67de4d-d773-49f3-aca4-9e5cdd0b4a4a",
+            "label": "volcano1",
+            "components": [
+                "Zone"
+            ],
+            "Zone.callback": "() => this.onVolcanoClick()",
+            "y": 730,
             "originX": 0,
             "originY": 0,
-            "visible": false,
             "alpha": 0.5,
-            "alphaTopLeft": 0.5,
-            "alphaTopRight": 0.5,
-            "alphaBottomLeft": 0.5,
-            "alphaBottomRight": 0.5
+            "isFilled": true,
+            "fillColor": "#00ff00",
+            "width": 300,
+            "height": 230
+        },
+        {
+            "type": "Rectangle",
+            "id": "40e64382-b4ff-4881-986d-2027d10bc9a8",
+            "label": "volcano2",
+            "components": [
+                "Zone"
+            ],
+            "Zone.callback": "() => this.onVolcanoClick()",
+            "x": 1161,
+            "y": 731,
+            "originX": 0,
+            "originY": 0,
+            "alpha": 0.5,
+            "isFilled": true,
+            "fillColor": "#00ff00",
+            "width": 360,
+            "height": 230
         },
         {
             "prefabId": "72cb595e-9319-4103-89ae-3793edfc069c",

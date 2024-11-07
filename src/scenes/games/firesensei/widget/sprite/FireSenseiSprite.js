@@ -49,9 +49,14 @@ export default class FireSenseiSprite extends BaseContainer {
 
     /* START-USER-CODE */
 
+    get isTalking() {
+        return this.beak.anims.isPlaying
+    }
+
     playWait() {
         this.beak.anims.stop()
         this.beak.setFrame('sensei/beak/beak')
+        this.beak.visible = true
 
         this.body.anims.stop()
         this.body.setFrame('sensei/wait')
@@ -60,6 +65,8 @@ export default class FireSenseiSprite extends BaseContainer {
     }
 
     playTalk() {
+        if (this.isTalking) return
+
         this.beak.visible = true
         this.beak.play('firesensei/talk')
     }
@@ -71,6 +78,8 @@ export default class FireSenseiSprite extends BaseContainer {
 
     playBow() {
         this.beak.visible = false
+        this.beak.anims.stop()
+        
         this.amulet.visible = false
 
         this.body.play('firesensei/bow')
