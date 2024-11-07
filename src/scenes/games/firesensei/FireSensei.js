@@ -9,6 +9,7 @@ import Button from "../../components/Button";
 
 //import FireSenseiInstructions from './instructions/FireSenseiInstructions'
 import * as sequences from './config/FireSenseiSequences'
+import senseiResponses from './config/FireSenseiResponses'
 
 /* END-USER-IMPORTS */
 
@@ -142,8 +143,22 @@ export default class FireSensei extends GameScene {
             return
         }
 
-        // todo: sensei reacts to different items you're wearing
-        this.startSequence(sequences.returnWelcome, 'firehelp_return_welcome')
+        let sequence
+        const equipped = Object.values(this.client.penguin.items.equippedFlat)
+
+        for (let [item, id] of Object.entries(senseiResponses)) {
+            if (equipped.includes(parseInt(item))) {
+                sequence = id
+                break
+            }
+        }
+
+        // No equipped items tripped a special response
+        if (!sequence) {
+            sequence = 'welcome'
+        }
+
+        this.startSequence(sequences.returnWelcome, `firehelp_return_${sequence}`)
         this.showStartMenu()
     }
 
