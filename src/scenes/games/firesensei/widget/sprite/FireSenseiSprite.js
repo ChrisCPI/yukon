@@ -18,15 +18,15 @@ export default class FireSenseiSprite extends BaseContainer {
 
 
         // body
-        const body = scene.add.sprite(0, 15, "senseifire", "sensei/wait");
+        const body = scene.add.sprite(0, 15, "firesensei", "sensei/wait");
         this.add(body);
 
         // amulet
-        const amulet = scene.add.image(7, 15, "senseifire", "sensei/amulet");
+        const amulet = scene.add.image(7, 15, "firesensei", "sensei/amulet");
         this.add(amulet);
 
         // beak
-        const beak = scene.add.sprite(17, 0, "senseifire", "sensei/beak/beak");
+        const beak = scene.add.sprite(17, 0, "firesensei", "sensei/beak/beak");
         this.add(beak);
 
         this.body = body;
@@ -79,7 +79,7 @@ export default class FireSenseiSprite extends BaseContainer {
     playBow() {
         this.beak.visible = false
         this.beak.anims.stop()
-        
+
         this.amulet.visible = false
 
         this.body.play('firesensei/bow')

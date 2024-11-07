@@ -27,7 +27,7 @@
                     "label": "bg",
                     "scope": "CLASS",
                     "texture": {
-                        "key": "senseifire",
+                        "key": "firesensei",
                         "frame": "options/bg"
                     },
                     "y": -196,

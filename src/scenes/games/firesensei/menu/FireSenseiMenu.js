@@ -20,7 +20,7 @@ export default class FireSenseiMenu extends BaseContainer {
 
 
         // bg
-        const bg = scene.add.ninePatchContainer(0, -196, 880, 394, "senseifire", "options/bg");
+        const bg = scene.add.ninePatchContainer(0, -196, 880, 394, "firesensei", "options/bg");
         bg.marginLeft = 75;
         bg.marginTop = 85;
         bg.marginRight = 70;

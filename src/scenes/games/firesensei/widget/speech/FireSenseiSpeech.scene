@@ -26,7 +26,7 @@
                     "id": "d9884b99-aca4-473d-b2f7-710e29e6e081",
                     "label": "bubble",
                     "texture": {
-                        "key": "senseifire",
+                        "key": "firesensei",
                         "frame": "bubble"
                     },
                     "width": 977,

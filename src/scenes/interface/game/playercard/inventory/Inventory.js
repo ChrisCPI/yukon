@@ -7,6 +7,7 @@ import InventoryLoader from '@engine/loaders/InventoryLoader'
 
 const phoneId = 800
 const cardDeckId = 821
+const fireDeckId = 8006
 
 /* START OF COMPILED CODE */
 
@@ -311,6 +312,7 @@ export default class Inventory extends BaseContainer {
                 break
 
             case cardDeckId:
+            case fireDeckId:
                 this.interface.loadWidget('NinjaProgress')
                 break
 

@@ -20,7 +20,7 @@ export default class FireSenseiMenuItem extends BaseContainer {
 
 
         // item
-        const item = scene.add.image(0, 0, "senseifire", "options/item");
+        const item = scene.add.image(0, 0, "firesensei", "options/item");
         this.add(item);
 
         // text
@@ -31,7 +31,7 @@ export default class FireSenseiMenuItem extends BaseContainer {
         this.add(text);
 
         // icon
-        const icon = scene.add.image(-342, 0, "senseifire", "options/icon/belt");
+        const icon = scene.add.image(-342, 0, "firesensei", "options/icon/belt");
         icon.setOrigin(0.5106382978723404, 0.5106382978723404);
         icon.visible = false;
         this.add(icon);

@@ -14,7 +14,7 @@ export default class FireSenseiSpeech extends BaseContainer {
 
 
         // bubble
-        const bubble = scene.add.ninePatchContainer(0, 0, 977, 306, "senseifire", "bubble");
+        const bubble = scene.add.ninePatchContainer(0, 0, 977, 306, "firesensei", "bubble");
         bubble.marginLeft = 130;
         bubble.marginTop = 80;
         bubble.marginRight = 75;

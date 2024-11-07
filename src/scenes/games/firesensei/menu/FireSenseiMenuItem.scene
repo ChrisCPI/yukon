@@ -32,7 +32,7 @@
                     "Button.callback": "() => this.onUp()",
                     "Button.activeFrame": false,
                     "texture": {
-                        "key": "senseifire",
+                        "key": "firesensei",
                         "frame": "options/item"
                     }
                 },
@@ -55,7 +55,7 @@
                     "label": "icon",
                     "scope": "CLASS",
                     "texture": {
-                        "key": "senseifire",
+                        "key": "firesensei",
                         "frame": "options/icon/belt"
                     },
                     "x": -342,

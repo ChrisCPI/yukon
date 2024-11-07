@@ -31,7 +31,7 @@ export default class FireSensei extends GameScene {
     /** @returns {void} */
     _preload() {
 
-        this.load.pack("senseifire-pack", "assets/media/games/senseifire/senseifire-pack.json");
+        this.load.pack("firesensei-pack", "assets/media/games/firesensei/firesensei-pack.json");
     }
 
     /** @returns {void} */
@@ -88,7 +88,7 @@ export default class FireSensei extends GameScene {
     /* START-USER-CODE */
 
     get userHasDeck() {
-        return true//this.world.client.inventory.award.includes(821)
+        return this.world.client.inventory.award.includes(8006)
     }
 
     create() {
@@ -143,7 +143,8 @@ export default class FireSensei extends GameScene {
             return
         }
 
-        let sequence
+        let sequence = 'welcome'
+
         const equipped = Object.values(this.client.penguin.items.equippedFlat)
 
         for (let [item, id] of Object.entries(senseiResponses)) {
@@ -151,11 +152,6 @@ export default class FireSensei extends GameScene {
                 sequence = id
                 break
             }
-        }
-
-        // No equipped items tripped a special response
-        if (!sequence) {
-            sequence = 'welcome'
         }
 
         this.startSequence(sequences.returnWelcome, `firehelp_return_${sequence}`)

@@ -28,7 +28,7 @@
                         "Interactive"
                     ],
                     "texture": {
-                        "key": "senseifire",
+                        "key": "firesensei",
                         "frame": "bg/bg"
                     },
                     "x": 705,
@@ -45,7 +45,7 @@
                     "Animation.key": "bg/flowers",
                     "Animation.end": 40,
                     "texture": {
-                        "key": "senseifire",
+                        "key": "firesensei",
                         "frame": "bg/flowers0001"
                     },
                     "x": 1050,
@@ -57,7 +57,7 @@
                     "label": "lanternLight",
                     "scope": "CLASS",
                     "texture": {
-                        "key": "senseifire",
+                        "key": "firesensei",
                         "frame": "bg/lantern/light"
                     },
                     "x": 1279,
@@ -68,7 +68,7 @@
                     "id": "6150b7a5-7761-41fe-9e67-ef16aa4a201c",
                     "label": "lantern",
                     "texture": {
-                        "key": "senseifire",
+                        "key": "firesensei",
                         "frame": "bg/lantern/lantern"
                     },
                     "x": 1272,
@@ -80,7 +80,7 @@
                     "label": "fireDeck",
                     "scope": "CLASS",
                     "texture": {
-                        "key": "senseifire",
+                        "key": "firesensei",
                         "frame": "instructions/fireDeck/anim0001"
                     },
                     "x": 1026,
@@ -92,7 +92,7 @@
                     "id": "8ba5c257-5b68-452f-98c9-3f17367236e5",
                     "label": "ref",
                     "texture": {
-                        "key": "senseifire",
+                        "key": "firesensei",
                         "frame": "ref"
                     },
                     "originX": 0,
@@ -133,7 +133,7 @@
                     "id": "5216b1de-8608-4455-9109-e44fb689a48e",
                     "label": "fg",
                     "texture": {
-                        "key": "senseifire",
+                        "key": "firesensei",
                         "frame": "fg"
                     },
                     "x": 758,

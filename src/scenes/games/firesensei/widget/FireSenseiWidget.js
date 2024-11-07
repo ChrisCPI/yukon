@@ -37,28 +37,28 @@ export default class FireSenseiWidget extends BaseContainer {
 
 
         // bg
-        const bg = scene.add.image(705, 461, "senseifire", "bg/bg");
+        const bg = scene.add.image(705, 461, "firesensei", "bg/bg");
         this.add(bg);
 
         // flowers
-        const flowers = scene.add.sprite(1050, 585, "senseifire", "bg/flowers0001");
+        const flowers = scene.add.sprite(1050, 585, "firesensei", "bg/flowers0001");
         this.add(flowers);
 
         // lanternLight
-        const lanternLight = scene.add.image(1279, 193, "senseifire", "bg/lantern/light");
+        const lanternLight = scene.add.image(1279, 193, "firesensei", "bg/lantern/light");
         this.add(lanternLight);
 
         // lantern
-        const lantern = scene.add.image(1272, 174, "senseifire", "bg/lantern/lantern");
+        const lantern = scene.add.image(1272, 174, "firesensei", "bg/lantern/lantern");
         this.add(lantern);
 
         // fireDeck
-        const fireDeck = scene.add.sprite(1026, 517, "senseifire", "instructions/fireDeck/anim0001");
+        const fireDeck = scene.add.sprite(1026, 517, "firesensei", "instructions/fireDeck/anim0001");
         fireDeck.visible = false;
         this.add(fireDeck);
 
         // ref
-        const ref = scene.add.image(0, 0, "senseifire", "ref");
+        const ref = scene.add.image(0, 0, "firesensei", "ref");
         ref.setOrigin(0, 0);
         ref.visible = false;
         ref.alpha = 0.5;
@@ -77,7 +77,7 @@ export default class FireSenseiWidget extends BaseContainer {
         this.add(speech);
 
         // fg
-        const fg = scene.add.image(758, 833, "senseifire", "fg");
+        const fg = scene.add.image(758, 833, "firesensei", "fg");
         this.add(fg);
 
         // bg (components)
