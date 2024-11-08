@@ -37,7 +37,7 @@ export function itemsQuestion(menu) {
 
             up: () => {
                 menu.close()
-                menu.startSequence(sequences.instrAmulet)
+                menu.startSequence(sequences.instrItems)
             }
         },
         {

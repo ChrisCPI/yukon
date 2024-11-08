@@ -9,6 +9,8 @@ export default class FireSenseiSprite extends BaseContainer {
     constructor(scene, x, y) {
         super(scene, x ?? 0, y ?? 0);
 
+        /** @type {Phaser.GameObjects.Image} */
+        this.giGlow;
         /** @type {Phaser.GameObjects.Sprite} */
         this.body;
         /** @type {Phaser.GameObjects.Image} */
@@ -16,6 +18,11 @@ export default class FireSenseiSprite extends BaseContainer {
         /** @type {Phaser.GameObjects.Sprite} */
         this.beak;
 
+
+        // giGlow
+        const giGlow = scene.add.image(-82, 99, "firesensei", "sensei/gi-glow");
+        giGlow.visible = false;
+        this.add(giGlow);
 
         // body
         const body = scene.add.sprite(0, 15, "firesensei", "sensei/wait");
@@ -29,6 +36,7 @@ export default class FireSenseiSprite extends BaseContainer {
         const beak = scene.add.sprite(17, 0, "firesensei", "sensei/beak/beak");
         this.add(beak);
 
+        this.giGlow = giGlow;
         this.body = body;
         this.amulet = amulet;
         this.beak = beak;

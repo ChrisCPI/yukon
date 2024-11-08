@@ -149,32 +149,39 @@ export function instrAmulet(widget) {
     ]
 }
 
-export function instrHowToPlay(widget) {
+export function itemsIntro(widget) {
     return [
         () => {
-            widget.showSpeech(widget.getString('help_firsttime_pickacard'))
-            widget.scene.instructions.showPick()
+            widget.scene.showMenu(menus.itemsQuestion)
+            widget.showSpeech(widget.getString('firehelp_return_itemsquestion'))
+        }
+    ]
+}
+
+export function instrItems(widget) {
+    return [
+        () => {
+            widget.scene.setButtonsVisible(false)
+            widget.showSpeech(widget.getString('firehelp_return_itemslevels'))
+            widget.scene.instructions.showItems()
         },
         () => {
-            widget.showSpeech(widget.getString('help_firsttime_water'))
-            widget.scene.instructions.showWater()
+            widget.showSpeech(widget.getString('firehelp_return_itemsfiresuit'))
+            widget.scene.instructions.showFireSuit()
         },
         () => {
-            widget.showSpeech(widget.getString('help_firsttime_snow'))
-            widget.scene.instructions.showSnow()
+            widget.showSpeech(widget.getString('firehelp_return_itemschallenge'))
+            widget.scene.instructions.showChallenge()
         },
         () => {
-            widget.showSpeech(widget.getString('help_firsttime_fire'))
-            widget.scene.instructions.showFire()
-        },
-        () => {
-            widget.showSpeech(widget.getString('help_firsttime_tie'))
-            widget.scene.instructions.showTie()
+            widget.showSpeech(widget.getString('firehelp_return_itemsgem'))
+            widget.scene.instructions.showAmulet()
         },
         () => {
             widget.hideSpeech()
             widget.scene.hideInstructions()
-            //widget.scene.showMenu(menus.instrHowToWin)
+            widget.scene.showMenu(menus.start)
+            widget.scene.setButtonsVisible(true)
         }
     ]
 }

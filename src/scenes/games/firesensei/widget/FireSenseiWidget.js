@@ -227,6 +227,14 @@ export default class FireSenseiWidget extends BaseContainer {
         this.senseiSprite.amulet.setFrame('sensei/amulet')
     }
 
+    setGiOver() {
+        this.senseiSprite.giGlow.visible = true
+    }
+
+    setGiOut() {
+        this.senseiSprite.giGlow.visible = false
+    }
+
     showBelt() {
         this.award.showBelt(this.rankId)
     }

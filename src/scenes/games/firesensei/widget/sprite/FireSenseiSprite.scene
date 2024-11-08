@@ -20,6 +20,19 @@
             "label": "container_2",
             "list": [
                 {
+                    "type": "Image",
+                    "id": "fad7ca84-7e2a-4863-996b-26a90637dc98",
+                    "label": "giGlow",
+                    "scope": "CLASS",
+                    "texture": {
+                        "key": "firesensei",
+                        "frame": "sensei/gi-glow"
+                    },
+                    "x": -82,
+                    "y": 99,
+                    "visible": false
+                },
+                {
                     "type": "Sprite",
                     "id": "483c8dd1-56f3-4534-8cca-2f0f617fc40c",
                     "label": "body",

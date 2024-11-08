@@ -28,6 +28,14 @@ export default class FireSenseiInstructions extends BaseContainer {
         this.change;
         /** @type {Phaser.GameObjects.Sprite} */
         this.manyPlaces;
+        /** @type {Phaser.GameObjects.Sprite} */
+        this.items;
+        /** @type {Phaser.GameObjects.Sprite} */
+        this.fireSuit;
+        /** @type {Phaser.GameObjects.Sprite} */
+        this.challenge;
+        /** @type {Phaser.GameObjects.Sprite} */
+        this.amulet;
         /** @type {Array<FireSenseiAwake|FireSenseiGrasshoppers|FireSenseiOnlyNinjas|FireSenseiKeyElements|FireSenseiChange|Phaser.GameObjects.Sprite>} */
         this.masked;
 
@@ -71,22 +79,32 @@ export default class FireSenseiInstructions extends BaseContainer {
         manyPlaces.visible = false;
         this.add(manyPlaces);
 
+        // items
+        const items = scene.add.sprite(-3, 40, "firesenseiinstructions", "items/anim0001");
+        items.visible = false;
+        this.add(items);
+
+        // fireSuit
+        const fireSuit = scene.add.sprite(-15, -6, "firesenseiinstructions", "fireSuit");
+        fireSuit.visible = false;
+        this.add(fireSuit);
+
+        // challenge
+        const challenge = scene.add.sprite(-11, 51, "firesenseiinstructions", "challenge");
+        challenge.visible = false;
+        this.add(challenge);
+
+        // amulet
+        const amulet = scene.add.sprite(5, -9, "firesenseiinstructions", "amulet/anim0001");
+        amulet.visible = false;
+        this.add(amulet);
+
         // sides
         const sides = scene.add.image(3, 1, "firesenseiinstructions", "sides");
         this.add(sides);
 
-        // ref2
-        const ref2 = scene.add.image(3, 1, "firesenseiinstructions", "ref3");
-        ref2.visible = false;
-        ref2.alpha = 0.5;
-        ref2.alphaTopLeft = 0.5;
-        ref2.alphaTopRight = 0.5;
-        ref2.alphaBottomLeft = 0.5;
-        ref2.alphaBottomRight = 0.5;
-        this.add(ref2);
-
         // lists
-        const masked = [awake, grasshoppers, onlyNinjas, keyElements, change, manyPlaces];
+        const masked = [awake, grasshoppers, onlyNinjas, keyElements, change, manyPlaces, fireSuit, items, challenge, amulet];
 
         this.maskImage = maskImage;
         this.awake = awake;
@@ -95,6 +113,10 @@ export default class FireSenseiInstructions extends BaseContainer {
         this.keyElements = keyElements;
         this.change = change;
         this.manyPlaces = manyPlaces;
+        this.items = items;
+        this.fireSuit = fireSuit;
+        this.challenge = challenge;
+        this.amulet = amulet;
         this.masked = masked;
 
         /* START-USER-CTR-CODE */
@@ -158,6 +180,28 @@ export default class FireSenseiInstructions extends BaseContainer {
         this.showAndPlaySprite(this.manyPlaces, 'instructions/manyPlaces')
     }
 
+    showItems() {
+        this.showAndPlaySprite(this.items, 'instructions/items')
+    }
+
+    showFireSuit() {
+        this.show()
+        this.hideAll()
+
+        this.fireSuit.visible = true
+    }
+
+    showChallenge() {
+        this.show()
+        this.hideAll()
+
+        this.challenge.visible = true
+    }
+
+    showAmulet() {
+        this.showAndPlaySprite(this.amulet, 'instructions/amulet')
+    }
+
     showHelp() {
         this.showAndPlaySprite(this.help, 'instructions/help_start')
 
@@ -172,24 +216,9 @@ export default class FireSenseiInstructions extends BaseContainer {
         this.bubble.showCompete()
     }
 
-    showBelt() {
-        this.hideAll()
-
-        this.belt.show()
-    }
-
-    showBlackBelt() {
-        this.hideAll()
-
-        this.bubble.showBlackBelt()
-    }
-
-    showNinja() {
-        this.showAndPlaySprite(this.ninja, 'instructions/ninja')
-    }
-
     showAndPlaySprite(sprite, animKey) {
         this.hideAll()
+        this.show()
 
         sprite.visible = true
         sprite.play(animKey)

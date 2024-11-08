@@ -22,15 +22,15 @@ export default class FireSenseiChange extends BaseContainer {
         this.add(amulet);
 
         // fire
-        const fire = scene.add.image(-72, 60, "firesenseiinstructions", "change/fire");
+        const fire = scene.add.image(-72, 63, "firesenseiinstructions", "change/fire");
         this.add(fire);
 
         // water
-        const water = scene.add.image(21, -41, "firesenseiinstructions", "change/water");
+        const water = scene.add.image(21, -42, "firesenseiinstructions", "change/water");
         this.add(water);
 
         // snow
-        const snow = scene.add.image(73, 86, "firesenseiinstructions", "change/snow");
+        const snow = scene.add.image(68, 78, "firesenseiinstructions", "change/snow");
         this.add(snow);
 
         this.fire = fire;

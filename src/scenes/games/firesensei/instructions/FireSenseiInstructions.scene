@@ -128,6 +128,58 @@
                     "visible": false
                 },
                 {
+                    "type": "Sprite",
+                    "id": "eef447d9-e721-486d-8b09-dd15abf5b705",
+                    "label": "items",
+                    "scope": "CLASS",
+                    "texture": {
+                        "key": "firesenseiinstructions",
+                        "frame": "items/anim0001"
+                    },
+                    "x": -3,
+                    "y": 40,
+                    "visible": false
+                },
+                {
+                    "type": "Sprite",
+                    "id": "8af58406-4b4d-448f-8029-3b2900daba29",
+                    "label": "fireSuit",
+                    "scope": "CLASS",
+                    "texture": {
+                        "key": "firesenseiinstructions",
+                        "frame": "fireSuit"
+                    },
+                    "x": -15,
+                    "y": -6,
+                    "visible": false
+                },
+                {
+                    "type": "Sprite",
+                    "id": "b46b2689-931f-4033-90a4-0d3f5856d276",
+                    "label": "challenge",
+                    "scope": "CLASS",
+                    "texture": {
+                        "key": "firesenseiinstructions",
+                        "frame": "challenge"
+                    },
+                    "x": -11,
+                    "y": 51,
+                    "visible": false
+                },
+                {
+                    "type": "Sprite",
+                    "id": "b04ac391-2ca8-41b3-84ed-8eeed399b5d8",
+                    "label": "amulet",
+                    "scope": "CLASS",
+                    "texture": {
+                        "key": "firesenseiinstructions",
+                        "frame": "amulet/anim0001"
+                    },
+                    "x": 5,
+                    "y": -9,
+                    "visible": false
+                },
+                {
                     "type": "Image",
                     "id": "b4b4722f-07cd-4e5b-806f-ed200c5e9407",
                     "label": "sides",
@@ -137,23 +189,6 @@
                     },
                     "x": 3,
                     "y": 1
-                },
-                {
-                    "type": "Image",
-                    "id": "845218ae-56c4-4b86-9a55-754d4a1ebcd0",
-                    "label": "ref2",
-                    "texture": {
-                        "key": "firesenseiinstructions",
-                        "frame": "ref3"
-                    },
-                    "x": 3,
-                    "y": 1,
-                    "visible": false,
-                    "alpha": 0.5,
-                    "alphaTopLeft": 0.5,
-                    "alphaTopRight": 0.5,
-                    "alphaBottomLeft": 0.5,
-                    "alphaBottomRight": 0.5
                 }
             ]
         }
@@ -175,7 +210,11 @@
                 "6360cfaf-1fff-4367-995e-14a8d3aa7b36",
                 "01017aea-76c9-474c-b821-96f82ab9ccca",
                 "8f197a81-74b5-4657-ba9a-5c3b6a698e86",
-                "40e0c95b-2557-4cfc-b762-c54f17bb25be"
+                "40e0c95b-2557-4cfc-b762-c54f17bb25be",
+                "8af58406-4b4d-448f-8029-3b2900daba29",
+                "eef447d9-e721-486d-8b09-dd15abf5b705",
+                "b46b2689-931f-4033-90a4-0d3f5856d276",
+                "b04ac391-2ca8-41b3-84ed-8eeed399b5d8"
             ]
         }
     ]
