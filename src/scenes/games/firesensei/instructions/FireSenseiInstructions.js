@@ -4,6 +4,8 @@ import BaseContainer from "../../../base/BaseContainer";
 import FireSenseiAwake from "./awake/FireSenseiAwake";
 import FireSenseiGrasshoppers from "./grasshoppers/FireSenseiGrasshoppers";
 import FireSenseiOnlyNinjas from "./onlyNinjas/FireSenseiOnlyNinjas";
+import FireSenseiKeyElements from "./keyElements/FireSenseiKeyElements";
+import FireSenseiChange from "./change/FireSenseiChange";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
 
@@ -20,7 +22,13 @@ export default class FireSenseiInstructions extends BaseContainer {
         this.grasshoppers;
         /** @type {FireSenseiOnlyNinjas} */
         this.onlyNinjas;
-        /** @type {Array<FireSenseiAwake|FireSenseiGrasshoppers|FireSenseiOnlyNinjas>} */
+        /** @type {FireSenseiKeyElements} */
+        this.keyElements;
+        /** @type {FireSenseiChange} */
+        this.change;
+        /** @type {Phaser.GameObjects.Sprite} */
+        this.manyPlaces;
+        /** @type {Array<FireSenseiAwake|FireSenseiGrasshoppers|FireSenseiOnlyNinjas|FireSenseiKeyElements|FireSenseiChange|Phaser.GameObjects.Sprite>} */
         this.masked;
 
 
@@ -48,22 +56,45 @@ export default class FireSenseiInstructions extends BaseContainer {
         onlyNinjas.visible = false;
         this.add(onlyNinjas);
 
+        // keyElements
+        const keyElements = new FireSenseiKeyElements(scene, 0, 0);
+        keyElements.visible = false;
+        this.add(keyElements);
+
+        // change
+        const change = new FireSenseiChange(scene, 0, 0);
+        change.visible = false;
+        this.add(change);
+
+        // manyPlaces
+        const manyPlaces = scene.add.sprite(-41, 30, "firesenseiinstructions", "manyPlaces/anim0001");
+        manyPlaces.visible = false;
+        this.add(manyPlaces);
+
         // sides
         const sides = scene.add.image(3, 1, "firesenseiinstructions", "sides");
         this.add(sides);
 
         // ref2
-        const ref2 = scene.add.image(3, 1, "firesenseiinstructions", "ref1");
+        const ref2 = scene.add.image(3, 1, "firesenseiinstructions", "ref3");
         ref2.visible = false;
+        ref2.alpha = 0.5;
+        ref2.alphaTopLeft = 0.5;
+        ref2.alphaTopRight = 0.5;
+        ref2.alphaBottomLeft = 0.5;
+        ref2.alphaBottomRight = 0.5;
         this.add(ref2);
 
         // lists
-        const masked = [awake, grasshoppers, onlyNinjas];
+        const masked = [awake, grasshoppers, onlyNinjas, keyElements, change, manyPlaces];
 
         this.maskImage = maskImage;
         this.awake = awake;
         this.grasshoppers = grasshoppers;
         this.onlyNinjas = onlyNinjas;
+        this.keyElements = keyElements;
+        this.change = change;
+        this.manyPlaces = manyPlaces;
         this.masked = masked;
 
         /* START-USER-CTR-CODE */
@@ -109,8 +140,22 @@ export default class FireSenseiInstructions extends BaseContainer {
         this.onlyNinjas.show()
     }
 
-    showPick() {
-        this.showAndPlaySprite(this.pick, 'instructions/pick')
+    showKeyElements() {
+        this.show()
+        this.hideAll()
+
+        this.keyElements.show()
+    }
+
+    showChange() {
+        this.show()
+        this.hideAll()
+
+        this.change.show()
+    }
+
+    showManyPlaces() {
+        this.showAndPlaySprite(this.manyPlaces, 'instructions/manyPlaces')
     }
 
     showHelp() {

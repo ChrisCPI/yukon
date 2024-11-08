@@ -20,6 +20,12 @@ export default class FireSensei extends GameScene {
 
         /** @type {FireSenseiWidget} */
         this.widget;
+        /** @type {Phaser.GameObjects.Rectangle} */
+        this.volcano1;
+        /** @type {Phaser.GameObjects.Rectangle} */
+        this.volcano2;
+        /** @type {Phaser.GameObjects.Rectangle} */
+        this.amulet;
         /** @type {FireSenseiMenu} */
         this.menu;
 
@@ -56,6 +62,13 @@ export default class FireSensei extends GameScene {
         volcano2.isFilled = true;
         volcano2.fillColor = 65280;
 
+        // amulet
+        const amulet = this.add.rectangle(315, 488, 158, 125.3);
+        amulet.setOrigin(0, 0);
+        amulet.alpha = 0.5;
+        amulet.isFilled = true;
+        amulet.fillColor = 65280;
+
         // menu
         const menu = new FireSenseiMenu(this, 1059, 754);
         this.add.existing(menu);
@@ -74,12 +87,21 @@ export default class FireSensei extends GameScene {
         const volcano2Zone = new Zone(volcano2);
         volcano2Zone.callback = () => this.onVolcanoClick();
 
+        // amulet (components)
+        const amuletZone = new Zone(amulet);
+        amuletZone.hoverCallback = () => this.onAmuletOver();
+        amuletZone.hoverOutCallback = () => this.onAmuletOut();
+        amuletZone.callback = () => this.onAmuletClick();
+
         // xButton (components)
         const xButtonButton = new Button(xButton);
         xButtonButton.spriteName = "grey-button";
         xButtonButton.callback = () => this.world.client.sendJoinLastRoom();
 
         this.widget = widget;
+        this.volcano1 = volcano1;
+        this.volcano2 = volcano2;
+        this.amulet = amulet;
         this.menu = menu;
 
         this.events.emit("scene-awake");
@@ -195,12 +217,39 @@ export default class FireSensei extends GameScene {
             return
         }
 
-        if (this.widget.shouldSequenceStick) {
+        if (this.widget.shouldSequenceStick && this.widget.currentSequenceId !== sequences.returnWelcome) {
             this.widget.forwardSequence()
             return
         }
 
         this.startSequence(sequences.volcanoIntro)
+    }
+
+    onAmuletOver() {
+        this.widget.setAmuletOver()
+    }
+
+    onAmuletOut() {
+        this.widget.setAmuletOut()
+    }
+
+    onAmuletClick() {
+        if (!this.menu.isStartMenuActive) {
+            return
+        }
+
+        if (this.widget.shouldSequenceStick && this.widget.currentSequenceId !== sequences.returnWelcome) {
+            this.widget.forwardSequence()
+            return
+        }
+        
+        this.startSequence(sequences.amuletIntro)
+    }
+
+    setButtonsVisible(visible) {
+        this.amulet.zone.visible = visible
+        this.volcano1.zone.visible = visible
+        this.volcano2.zone.visible = visible
     }
 
     showMatch() {

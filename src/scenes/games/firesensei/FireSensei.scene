@@ -34,6 +34,7 @@
             "type": "Rectangle",
             "id": "7f67de4d-d773-49f3-aca4-9e5cdd0b4a4a",
             "label": "volcano1",
+            "scope": "CLASS",
             "components": [
                 "Zone"
             ],
@@ -51,6 +52,7 @@
             "type": "Rectangle",
             "id": "40e64382-b4ff-4881-986d-2027d10bc9a8",
             "label": "volcano2",
+            "scope": "CLASS",
             "components": [
                 "Zone"
             ],
@@ -64,6 +66,27 @@
             "fillColor": "#00ff00",
             "width": 360,
             "height": 230
+        },
+        {
+            "type": "Rectangle",
+            "id": "568d4d5d-6101-41b5-9322-76963d4eedb5",
+            "label": "amulet",
+            "scope": "CLASS",
+            "components": [
+                "Zone"
+            ],
+            "Zone.hoverCallback": "() => this.onAmuletOver()",
+            "Zone.hoverOutCallback": "() => this.onAmuletOut()",
+            "Zone.callback": "() => this.onAmuletClick()",
+            "x": 315,
+            "y": 488,
+            "originX": 0,
+            "originY": 0,
+            "alpha": 0.5,
+            "isFilled": true,
+            "fillColor": "#00ff00",
+            "width": 158,
+            "height": 125.3
         },
         {
             "prefabId": "72cb595e-9319-4103-89ae-3793edfc069c",

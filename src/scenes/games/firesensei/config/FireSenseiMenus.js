@@ -36,15 +36,16 @@ export function itemsQuestion(menu) {
             text: menu.getString('help_response_yes'),
 
             up: () => {
-                // sensei yaps about the fire suit
-                //menu.startSequence(sequences.instrHowToPlay)
+                menu.close()
+                menu.startSequence(sequences.instrAmulet)
             }
         },
         {
             text: menu.getString('help_response_no'),
 
             up: () => {
-                // return to main menu, sensei says no problem (help_return_noResponse)
+                menu.startSequence(sequences.returnNoResponse)
+                menu.showStartMenu()
             }
         }
     ]
@@ -64,7 +65,7 @@ export function volcanoQuestion(menu) {
             text: menu.getString('help_response_no'),
 
             up: () => {
-                menu.startSequence(sequences.returnWelcome, 'firehelp_return_noResponse')
+                menu.startSequence(sequences.returnNoResponse)
                 menu.showStartMenu()
             }
         }
@@ -77,15 +78,16 @@ export function amuletQuestion(menu) {
             text: menu.getString('help_response_yes'),
 
             up: () => {
-                // sensei yaps about the amulet
-                //menu.startSequence(sequences.instrHowToPlay)
+                menu.close()
+                menu.startSequence(sequences.instrAmulet)
             }
         },
         {
             text: menu.getString('help_response_no'),
 
             up: () => {
-                // return to main menu, sensei says no problem (help_return_noResponse)
+                menu.startSequence(sequences.returnNoResponse)
+                menu.showStartMenu()
             }
         }
     ]

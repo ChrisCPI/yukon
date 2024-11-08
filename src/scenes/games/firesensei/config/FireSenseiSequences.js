@@ -72,6 +72,17 @@ export function returnWelcome(widget, id) {
     ]
 }
 
+export function returnNoResponse(widget) {
+    return [
+        () => {
+            widget.showSpeech(widget.getString('firehelp_return_noresponse'))
+        },
+        () => {
+            widget.hideSpeech()
+        }
+    ]
+}
+
 export function volcanoIntro(widget) {
     return [
         () => {
@@ -84,6 +95,7 @@ export function volcanoIntro(widget) {
 export function instrVolcano(widget) {
     return [
         () => {
+            widget.scene.setButtonsVisible(false)
             widget.showSpeech(widget.getString('firehelp_return_volcanoawake'))
             widget.scene.instructions.showAwake()
         },
@@ -99,23 +111,40 @@ export function instrVolcano(widget) {
             widget.hideSpeech()
             widget.scene.hideInstructions()
             widget.scene.showMenu(menus.start)
+            widget.scene.setButtonsVisible(true)
         }
     ]
 }
 
-export function instrWhatDoIDo(widget) {
+export function amuletIntro(widget) {
     return [
         () => {
-            widget.showSpeech(widget.getString('help_firsttime_improve'))
-            widget.scene.instructions.showCompete()
+            widget.scene.showMenu(menus.amuletQuestion)
+            widget.showSpeech(widget.getString('firehelp_return_amuletquestion'))
+        }
+    ]
+}
+
+export function instrAmulet(widget) {
+    return [
+        () => {
+            widget.scene.setButtonsVisible(false)
+            widget.showSpeech(widget.getString('firehelp_return_amuletpowerful'))
+            widget.scene.instructions.showKeyElements()
         },
         () => {
-            widget.scene.hideInstructions()
-            widget.showSpeech(widget.getString('help_firsttime_areyouready'))
+            widget.showSpeech(widget.getString('firehelp_return_amuletmasterelements'))
+            widget.scene.instructions.showChange()
         },
         () => {
+            widget.showSpeech(widget.getString('firehelp_return_amuletsecret'))
+            widget.scene.instructions.showManyPlaces()
+        },
+        () => {
+            widget.hideSpeech()
             widget.scene.hideInstructions()
-            //widget.scene.showMenu(menus.instrYesPlease)
+            widget.scene.showMenu(menus.start)
+            widget.scene.setButtonsVisible(true)
         }
     ]
 }
@@ -171,34 +200,6 @@ export function instrHowToWin(widget) {
             widget.hideSpeech()
             widget.scene.hideInstructions()
             //widget.scene.showMenu(menus.instrHowToNinja)
-        }
-    ]
-}
-
-export function instrHowToNinja(widget) {
-    return [
-        () => {
-            widget.showSpeech(widget.getString('help_firsttime_joking'))
-        },
-        () => {
-            widget.showSpeech(widget.getString('help_firsttime_gainexp'))
-        },
-        () => {
-            widget.showSpeech(widget.getString('help_firsttime_belts'))
-            widget.scene.instructions.showBelt()
-        },
-        () => {
-            widget.showSpeech(widget.getString('help_firsttime_fightme'))
-            widget.scene.instructions.showBlackBelt()
-        },
-        () => {
-            widget.showSpeech(widget.getString('help_firsttime_ninja'))
-            widget.scene.instructions.showNinja()
-        },
-        () => {
-            widget.hideSpeech()
-            widget.scene.hideInstructions()
-            //widget.scene.showMenu(menus.instrCountMeIn)
         }
     ]
 }

@@ -98,7 +98,8 @@ export default class FireSenseiWidget extends BaseContainer {
         /* START-USER-CTR-CODE */
 
         this.stickSeqs = [
-            sequences.returnWelcome
+            sequences.returnWelcome,
+            sequences.returnNoResponse
         ]
 
         this.currentSequence
@@ -216,6 +217,14 @@ export default class FireSenseiWidget extends BaseContainer {
 
     playPoint() {
         this.senseiSprite.playPoint()
+    }
+
+    setAmuletOver() {
+        this.senseiSprite.amulet.setFrame('sensei/amulet-hover')
+    }
+
+    setAmuletOut() {
+        this.senseiSprite.amulet.setFrame('sensei/amulet')
     }
 
     showBelt() {

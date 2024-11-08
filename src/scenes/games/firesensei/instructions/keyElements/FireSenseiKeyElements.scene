@@ -1,0 +1,81 @@
+{
+    "id": "d8f7f3a5-87d4-4597-9361-bd4cc553795d",
+    "sceneType": "PREFAB",
+    "settings": {
+        "compilerInsertSpaces": true,
+        "javaScriptInitFieldsInConstructor": true,
+        "exportClass": true,
+        "autoImport": true,
+        "superClassName": "BaseContainer",
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "borderWidth": 1520,
+        "borderHeight": 960
+    },
+    "displayList": [
+        {
+            "type": "Container",
+            "id": "b83f4dc8-7db9-47c7-874d-ec34f4bd5229",
+            "label": "container_1",
+            "x": 760,
+            "y": 480,
+            "list": [
+                {
+                    "type": "Image",
+                    "id": "af383c9b-3061-4d66-8af2-b26470273093",
+                    "label": "ninja",
+                    "texture": {
+                        "key": "firesenseiinstructions",
+                        "frame": "keyElements/ninja"
+                    },
+                    "x": -14.5,
+                    "y": 50
+                },
+                {
+                    "type": "Image",
+                    "id": "b557f6f9-9d33-4042-9013-1c961e5c3ce2",
+                    "label": "fire",
+                    "scope": "CLASS",
+                    "texture": {
+                        "key": "firesenseiinstructions",
+                        "frame": "keyElements/fire"
+                    },
+                    "x": -179,
+                    "y": -49
+                },
+                {
+                    "type": "Image",
+                    "id": "a3582d2b-d327-45a3-8d0d-4e251984d63c",
+                    "label": "water",
+                    "scope": "CLASS",
+                    "texture": {
+                        "key": "firesenseiinstructions",
+                        "frame": "keyElements/water"
+                    },
+                    "x": -16,
+                    "y": -183
+                },
+                {
+                    "type": "Image",
+                    "id": "58556cc3-4b03-42f1-b2ab-1446b24487b1",
+                    "label": "snow",
+                    "scope": "CLASS",
+                    "texture": {
+                        "key": "firesenseiinstructions",
+                        "frame": "keyElements/snow"
+                    },
+                    "x": 157,
+                    "y": -50
+                }
+            ]
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 4
+    }
+}

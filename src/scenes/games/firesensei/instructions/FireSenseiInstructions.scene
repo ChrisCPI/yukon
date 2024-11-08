@@ -87,6 +87,47 @@
                     "visible": false
                 },
                 {
+                    "prefabId": "d8f7f3a5-87d4-4597-9361-bd4cc553795d",
+                    "id": "01017aea-76c9-474c-b821-96f82ab9ccca",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "visible"
+                    ],
+                    "label": "keyElements",
+                    "scope": "CLASS",
+                    "x": 0,
+                    "y": 0,
+                    "visible": false
+                },
+                {
+                    "prefabId": "9cbece8d-6975-42ae-84b5-c833b4bc5f19",
+                    "id": "8f197a81-74b5-4657-ba9a-5c3b6a698e86",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "visible"
+                    ],
+                    "label": "change",
+                    "scope": "CLASS",
+                    "x": 0,
+                    "y": 0,
+                    "visible": false
+                },
+                {
+                    "type": "Sprite",
+                    "id": "40e0c95b-2557-4cfc-b762-c54f17bb25be",
+                    "label": "manyPlaces",
+                    "scope": "CLASS",
+                    "texture": {
+                        "key": "firesenseiinstructions",
+                        "frame": "manyPlaces/anim0001"
+                    },
+                    "x": -41,
+                    "y": 30,
+                    "visible": false
+                },
+                {
                     "type": "Image",
                     "id": "b4b4722f-07cd-4e5b-806f-ed200c5e9407",
                     "label": "sides",
@@ -103,11 +144,16 @@
                     "label": "ref2",
                     "texture": {
                         "key": "firesenseiinstructions",
-                        "frame": "ref1"
+                        "frame": "ref3"
                     },
                     "x": 3,
                     "y": 1,
-                    "visible": false
+                    "visible": false,
+                    "alpha": 0.5,
+                    "alphaTopLeft": 0.5,
+                    "alphaTopRight": 0.5,
+                    "alphaBottomLeft": 0.5,
+                    "alphaBottomRight": 0.5
                 }
             ]
         }
@@ -126,7 +172,10 @@
             "objectIds": [
                 "8784f492-c28b-4243-944b-6443ab8e1f8c",
                 "a60a5b31-1183-4bd5-a1b9-614dfc3ab2d2",
-                "6360cfaf-1fff-4367-995e-14a8d3aa7b36"
+                "6360cfaf-1fff-4367-995e-14a8d3aa7b36",
+                "01017aea-76c9-474c-b821-96f82ab9ccca",
+                "8f197a81-74b5-4657-ba9a-5c3b6a698e86",
+                "40e0c95b-2557-4cfc-b762-c54f17bb25be"
             ]
         }
     ]
