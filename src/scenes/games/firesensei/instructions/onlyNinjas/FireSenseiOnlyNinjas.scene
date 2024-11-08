@@ -1,0 +1,91 @@
+{
+    "id": "2111a0b7-8411-4611-850d-63161c2f33e8",
+    "sceneType": "PREFAB",
+    "settings": {
+        "compilerInsertSpaces": true,
+        "javaScriptInitFieldsInConstructor": true,
+        "exportClass": true,
+        "autoImport": true,
+        "superClassName": "BaseContainer",
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "borderWidth": 1520,
+        "borderHeight": 960
+    },
+    "displayList": [
+        {
+            "type": "Container",
+            "id": "378f9161-1fb1-4fab-87eb-22cb4d4e1bfb",
+            "label": "container_1",
+            "x": 760,
+            "y": 480,
+            "list": [
+                {
+                    "type": "Image",
+                    "id": "b163570f-ba75-4134-bd0a-5faac41e040a",
+                    "label": "bg",
+                    "texture": {
+                        "key": "firesenseiinstructions",
+                        "frame": "onlyNinjas/bg"
+                    },
+                    "x": -15,
+                    "y": 61
+                },
+                {
+                    "type": "Sprite",
+                    "id": "18942742-b0e8-4246-97ae-332c110cddb2",
+                    "label": "flame2",
+                    "scope": "CLASS",
+                    "texture": {
+                        "key": "firesenseiinstructions",
+                        "frame": "onlyNinjas/flame0001"
+                    },
+                    "x": 102.5,
+                    "y": -98
+                },
+                {
+                    "type": "Sprite",
+                    "id": "1fa60084-12c8-426d-8dff-086d31555b96",
+                    "label": "flame1",
+                    "scope": "CLASS",
+                    "texture": {
+                        "key": "firesenseiinstructions",
+                        "frame": "onlyNinjas/flame0001"
+                    },
+                    "x": -99.5,
+                    "y": -90.5
+                },
+                {
+                    "type": "Image",
+                    "id": "05f0c40b-4c64-4fbf-b5c7-e7e5c252e22d",
+                    "label": "volcano",
+                    "texture": {
+                        "key": "firesenseiinstructions",
+                        "frame": "onlyNinjas/volcano"
+                    },
+                    "x": -10,
+                    "y": 107
+                },
+                {
+                    "type": "Image",
+                    "id": "fcd83867-2039-4aab-9e43-c9aca93d6614",
+                    "label": "lava",
+                    "texture": {
+                        "key": "firesenseiinstructions",
+                        "frame": "onlyNinjas/lava"
+                    },
+                    "x": 41,
+                    "y": 81
+                }
+            ]
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 4
+    }
+}

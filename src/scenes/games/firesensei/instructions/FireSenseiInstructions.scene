@@ -1,0 +1,133 @@
+{
+    "id": "324035e1-b6ba-4a89-a01c-4fe595078fad",
+    "sceneType": "PREFAB",
+    "settings": {
+        "compilerInsertSpaces": true,
+        "javaScriptInitFieldsInConstructor": true,
+        "exportClass": true,
+        "autoImport": true,
+        "superClassName": "BaseContainer",
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "borderWidth": 1520,
+        "borderHeight": 960
+    },
+    "displayList": [
+        {
+            "type": "Container",
+            "id": "99568c0f-223d-4542-9bb8-4ecbf442b388",
+            "label": "container_2",
+            "x": 1041,
+            "y": 605,
+            "list": [
+                {
+                    "type": "Image",
+                    "id": "73847fba-b2d7-47e5-8706-27555028b343",
+                    "label": "bg",
+                    "texture": {
+                        "key": "firesenseiinstructions",
+                        "frame": "bg"
+                    },
+                    "y": 23
+                },
+                {
+                    "type": "Image",
+                    "id": "3a7688ef-06be-45a4-a5f3-213fdc558316",
+                    "label": "maskImage",
+                    "scope": "CLASS",
+                    "texture": {
+                        "key": "firesenseiinstructions",
+                        "frame": "mask"
+                    },
+                    "x": -2,
+                    "y": 23,
+                    "visible": false
+                },
+                {
+                    "prefabId": "5395e456-abcb-4f78-99d0-e4f0cef67ebd",
+                    "id": "8784f492-c28b-4243-944b-6443ab8e1f8c",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "visible"
+                    ],
+                    "label": "awake",
+                    "scope": "CLASS",
+                    "x": 0,
+                    "y": 0,
+                    "visible": false
+                },
+                {
+                    "prefabId": "2db68d90-8751-45fc-b27f-d2defb5cf1eb",
+                    "id": "a60a5b31-1183-4bd5-a1b9-614dfc3ab2d2",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "visible"
+                    ],
+                    "label": "grasshoppers",
+                    "scope": "CLASS",
+                    "x": 0,
+                    "y": 0,
+                    "visible": false
+                },
+                {
+                    "prefabId": "2111a0b7-8411-4611-850d-63161c2f33e8",
+                    "id": "6360cfaf-1fff-4367-995e-14a8d3aa7b36",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "visible"
+                    ],
+                    "label": "onlyNinjas",
+                    "scope": "CLASS",
+                    "x": 0,
+                    "y": 0,
+                    "visible": false
+                },
+                {
+                    "type": "Image",
+                    "id": "b4b4722f-07cd-4e5b-806f-ed200c5e9407",
+                    "label": "sides",
+                    "texture": {
+                        "key": "firesenseiinstructions",
+                        "frame": "sides"
+                    },
+                    "x": 3,
+                    "y": 1
+                },
+                {
+                    "type": "Image",
+                    "id": "845218ae-56c4-4b86-9a55-754d4a1ebcd0",
+                    "label": "ref2",
+                    "texture": {
+                        "key": "firesenseiinstructions",
+                        "frame": "ref1"
+                    },
+                    "x": 3,
+                    "y": 1,
+                    "visible": false
+                }
+            ]
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 4
+    },
+    "lists": [
+        {
+            "id": "f62ac6a6-3baf-4ec1-9f92-9e6232733de8",
+            "label": "masked",
+            "objectIds": [
+                "8784f492-c28b-4243-944b-6443ab8e1f8c",
+                "a60a5b31-1183-4bd5-a1b9-614dfc3ab2d2",
+                "6360cfaf-1fff-4367-995e-14a8d3aa7b36"
+            ]
+        }
+    ]
+}

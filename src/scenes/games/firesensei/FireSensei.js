@@ -7,7 +7,7 @@ import FireSenseiMenu from "./menu/FireSenseiMenu";
 import Button from "../../components/Button";
 /* START-USER-IMPORTS */
 
-//import FireSenseiInstructions from './instructions/FireSenseiInstructions'
+import FireSenseiInstructions from './instructions/FireSenseiInstructions'
 import * as sequences from './config/FireSenseiSequences'
 import senseiResponses from './config/FireSenseiResponses'
 
@@ -32,6 +32,7 @@ export default class FireSensei extends GameScene {
     _preload() {
 
         this.load.pack("firesensei-pack", "assets/media/games/firesensei/firesensei-pack.json");
+        this.load.pack("firesenseiinstructions-pack", "assets/media/games/firesensei/instructions/firesenseiinstructions-pack.json");
     }
 
     /** @returns {void} */
@@ -96,10 +97,10 @@ export default class FireSensei extends GameScene {
 
         this.widget.addBackgroundEvent('pointerover', this.onBackgroundOver, this)
 
-        //this.instructions = new SenseiInstructions(this)
+        this.instructions = new FireSenseiInstructions(this)
 
         // Add instructions into widget
-        //this.widget.addAt(this.instructions, this.widget.speechIndex)
+        this.widget.addAt(this.instructions, this.widget.speechIndex)
 
         this.tweens.chain({
             targets: this.widget.lanternLight,
@@ -217,6 +218,7 @@ export default class FireSensei extends GameScene {
     }
 
     hideInstructions() {
+        this.instructions.close()
         this.instructions.hideAll()
     }
 

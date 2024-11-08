@@ -53,9 +53,21 @@ export default class FireSenseiWidget extends BaseContainer {
         this.add(lantern);
 
         // fireDeck
-        const fireDeck = scene.add.sprite(1026, 517, "firesensei", "instructions/fireDeck/anim0001");
+        const fireDeck = scene.add.sprite(1026, 517, "firesenseiinstructions", "fireDeck/anim0001");
         fireDeck.visible = false;
         this.add(fireDeck);
+
+        // senseiSprite
+        const senseiSprite = new FireSenseiSprite(scene, 396, 519);
+        this.add(senseiSprite);
+
+        // fg
+        const fg = scene.add.image(758, 833, "firesensei", "fg");
+        this.add(fg);
+
+        // speech
+        const speech = new FireSenseiSpeech(scene, 1005, 210);
+        this.add(speech);
 
         // ref
         const ref = scene.add.image(0, 0, "firesensei", "ref");
@@ -67,18 +79,6 @@ export default class FireSenseiWidget extends BaseContainer {
         ref.alphaBottomLeft = 0.5;
         ref.alphaBottomRight = 0.5;
         this.add(ref);
-
-        // senseiSprite
-        const senseiSprite = new FireSenseiSprite(scene, 396, 519);
-        this.add(senseiSprite);
-
-        // speech
-        const speech = new FireSenseiSpeech(scene, 1005, 210);
-        this.add(speech);
-
-        // fg
-        const fg = scene.add.image(758, 833, "firesensei", "fg");
-        this.add(fg);
 
         // bg (components)
         new Interactive(bg);

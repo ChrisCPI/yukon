@@ -80,12 +80,47 @@
                     "label": "fireDeck",
                     "scope": "CLASS",
                     "texture": {
-                        "key": "firesensei",
-                        "frame": "instructions/fireDeck/anim0001"
+                        "key": "firesenseiinstructions",
+                        "frame": "fireDeck/anim0001"
                     },
                     "x": 1026,
                     "y": 517,
                     "visible": false
+                },
+                {
+                    "prefabId": "8ff5b6d0-0ab0-4a6c-848f-f9f44d6246d0",
+                    "id": "0804fd42-00da-4095-ba61-7d3226480332",
+                    "unlock": [
+                        "x",
+                        "y"
+                    ],
+                    "label": "senseiSprite",
+                    "scope": "CLASS",
+                    "x": 396,
+                    "y": 519
+                },
+                {
+                    "type": "Image",
+                    "id": "5216b1de-8608-4455-9109-e44fb689a48e",
+                    "label": "fg",
+                    "texture": {
+                        "key": "firesensei",
+                        "frame": "fg"
+                    },
+                    "x": 758,
+                    "y": 833
+                },
+                {
+                    "prefabId": "444be2e7-01dd-43d1-a6f2-a10525e3debb",
+                    "id": "e5e647c1-06ca-4472-bd14-f5e25b8cd168",
+                    "unlock": [
+                        "x",
+                        "y"
+                    ],
+                    "label": "speech",
+                    "scope": "CLASS",
+                    "x": 1005,
+                    "y": 210
                 },
                 {
                     "type": "Image",
@@ -103,41 +138,6 @@
                     "alphaTopRight": 0.5,
                     "alphaBottomLeft": 0.5,
                     "alphaBottomRight": 0.5
-                },
-                {
-                    "prefabId": "8ff5b6d0-0ab0-4a6c-848f-f9f44d6246d0",
-                    "id": "0804fd42-00da-4095-ba61-7d3226480332",
-                    "unlock": [
-                        "x",
-                        "y"
-                    ],
-                    "label": "senseiSprite",
-                    "scope": "CLASS",
-                    "x": 396,
-                    "y": 519
-                },
-                {
-                    "prefabId": "444be2e7-01dd-43d1-a6f2-a10525e3debb",
-                    "id": "e5e647c1-06ca-4472-bd14-f5e25b8cd168",
-                    "unlock": [
-                        "x",
-                        "y"
-                    ],
-                    "label": "speech",
-                    "scope": "CLASS",
-                    "x": 1005,
-                    "y": 210
-                },
-                {
-                    "type": "Image",
-                    "id": "5216b1de-8608-4455-9109-e44fb689a48e",
-                    "label": "fg",
-                    "texture": {
-                        "key": "firesensei",
-                        "frame": "fg"
-                    },
-                    "x": 758,
-                    "y": 833
                 }
             ]
         }

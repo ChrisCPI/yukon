@@ -1,0 +1,70 @@
+{
+    "id": "2db68d90-8751-45fc-b27f-d2defb5cf1eb",
+    "sceneType": "PREFAB",
+    "settings": {
+        "compilerInsertSpaces": true,
+        "javaScriptInitFieldsInConstructor": true,
+        "exportClass": true,
+        "autoImport": true,
+        "superClassName": "BaseContainer",
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "borderWidth": 1520,
+        "borderHeight": 960
+    },
+    "displayList": [
+        {
+            "type": "Container",
+            "id": "10a13a63-ec48-441d-a9c1-f553a333fc0c",
+            "label": "grasshoppers",
+            "scope": "CLASS",
+            "x": 760,
+            "y": 480,
+            "list": [
+                {
+                    "type": "Image",
+                    "id": "b28e1182-6660-43a4-a426-2c0b77637bed",
+                    "label": "bg",
+                    "texture": {
+                        "key": "firesenseiinstructions",
+                        "frame": "grasshoppers/bg"
+                    },
+                    "x": -11,
+                    "y": 72
+                },
+                {
+                    "type": "Sprite",
+                    "id": "5598f36f-2d87-41bf-a98f-c59bfbe3a7fe",
+                    "label": "smoke1",
+                    "scope": "CLASS",
+                    "texture": {
+                        "key": "firesenseiinstructions",
+                        "frame": "grasshoppers/smoke10001"
+                    },
+                    "x": -154,
+                    "y": -137
+                },
+                {
+                    "type": "Sprite",
+                    "id": "e71d4cd0-d229-460c-9f65-2d12f2376bc6",
+                    "label": "smoke2",
+                    "scope": "CLASS",
+                    "texture": {
+                        "key": "firesenseiinstructions",
+                        "frame": "grasshoppers/smoke20001"
+                    },
+                    "x": -20,
+                    "y": -145
+                }
+            ]
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 4
+    }
+}

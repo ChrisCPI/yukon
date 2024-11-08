@@ -1,0 +1,111 @@
+{
+    "id": "5395e456-abcb-4f78-99d0-e4f0cef67ebd",
+    "sceneType": "PREFAB",
+    "settings": {
+        "compilerInsertSpaces": true,
+        "javaScriptInitFieldsInConstructor": true,
+        "exportClass": true,
+        "autoImport": true,
+        "superClassName": "BaseContainer",
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "borderWidth": 1520,
+        "borderHeight": 960
+    },
+    "displayList": [
+        {
+            "type": "Container",
+            "id": "18d260bf-936f-4ff8-92b0-b507c2bc0164",
+            "label": "awake",
+            "scope": "CLASS",
+            "x": 760,
+            "y": 480,
+            "list": [
+                {
+                    "type": "Image",
+                    "id": "9e98bde3-d7e7-4c86-b48d-e4691b9aaf11",
+                    "label": "clouds",
+                    "texture": {
+                        "key": "firesenseiinstructions",
+                        "frame": "awake/clouds"
+                    },
+                    "x": -1,
+                    "y": -186
+                },
+                {
+                    "type": "Image",
+                    "id": "500494a0-c1df-41c0-bd33-c9210f1d53aa",
+                    "label": "mountains",
+                    "scope": "CLASS",
+                    "texture": {
+                        "key": "firesenseiinstructions",
+                        "frame": "awake/mountains"
+                    },
+                    "x": 1,
+                    "y": 94,
+                    "scaleX": 0.95,
+                    "scaleY": 0.95
+                },
+                {
+                    "type": "Image",
+                    "id": "600dc183-e115-4868-b087-e0d116e1559d",
+                    "label": "volcano",
+                    "scope": "CLASS",
+                    "texture": {
+                        "key": "firesenseiinstructions",
+                        "frame": "awake/volcano"
+                    },
+                    "x": -2,
+                    "y": 25,
+                    "scaleX": 0.88,
+                    "scaleY": 0.88,
+                    "originY": 0.3
+                },
+                {
+                    "type": "Image",
+                    "id": "67c47b2d-f9b7-435c-b0a9-808c4a39e3f8",
+                    "label": "cloud1",
+                    "scope": "CLASS",
+                    "texture": {
+                        "key": "firesenseiinstructions",
+                        "frame": "awake/cloud1"
+                    },
+                    "x": 118,
+                    "y": -71
+                },
+                {
+                    "type": "Image",
+                    "id": "c48d768e-0a2b-4706-8ed0-3795da3c40ae",
+                    "label": "cloud2",
+                    "scope": "CLASS",
+                    "texture": {
+                        "key": "firesenseiinstructions",
+                        "frame": "awake/cloud2"
+                    },
+                    "x": -195,
+                    "y": -77
+                },
+                {
+                    "type": "Image",
+                    "id": "bb57fe55-48d5-4f84-b99b-a123c550c90e",
+                    "label": "cloud3",
+                    "scope": "CLASS",
+                    "texture": {
+                        "key": "firesenseiinstructions",
+                        "frame": "awake/cloud3"
+                    },
+                    "x": -72,
+                    "y": 73
+                }
+            ]
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 4
+    }
+}

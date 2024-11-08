@@ -1,4 +1,4 @@
-const senseiResponses = {
+export default {
     752: 'bluepuffle',
     757: 'blackpuffle',
     756: 'yellowpuffle',
@@ -16,5 +16,3 @@ const senseiResponses = {
     293: 'tuba',
     5040: 'bracers'
 }
-
-export default senseiResponses

@@ -85,15 +85,19 @@ export function instrVolcano(widget) {
     return [
         () => {
             widget.showSpeech(widget.getString('firehelp_return_volcanoawake'))
+            widget.scene.instructions.showAwake()
         },
         () => {
             widget.showSpeech(widget.getString('firehelp_return_volcanograsshoppers'))
+            widget.scene.instructions.showGrasshoppers()
         },
         () => {
             widget.showSpeech(widget.getString('firehelp_return_volcanoonlyninja'))
+            widget.scene.instructions.showOnlyNinjas()
         },
         () => {
             widget.hideSpeech()
+            widget.scene.hideInstructions()
             widget.scene.showMenu(menus.start)
         }
     ]

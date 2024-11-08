@@ -9,7 +9,8 @@
         "superClassName": "GameScene",
         "preloadMethodName": "_preload",
         "preloadPackFiles": [
-            "yukon/assets/media/games/firesensei/firesensei-pack.json"
+            "yukon/assets/media/games/firesensei/firesensei-pack.json",
+            "yukon/assets/media/games/firesensei/instructions/firesenseiinstructions-pack.json"
         ],
         "createMethodName": "_create",
         "sceneKey": "FireSensei",
