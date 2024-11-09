@@ -121,8 +121,6 @@ export default class FireSenseiInstructions extends BaseContainer {
 
         /* START-USER-CTR-CODE */
 
-        this.children = [this.awake]
-
         const mask = this.maskImage.createBitmapMask()
 
         const matrix = this.maskImage.getWorldTransformMatrix()
@@ -200,20 +198,6 @@ export default class FireSenseiInstructions extends BaseContainer {
 
     showAmulet() {
         this.showAndPlaySprite(this.amulet, 'instructions/amulet')
-    }
-
-    showHelp() {
-        this.showAndPlaySprite(this.help, 'instructions/help_start')
-
-        this.help.once('animationcomplete-instructions/help_start', () => {
-            this.help.play('instructions/help_loop')
-        })
-    }
-
-    showCompete() {
-        this.hideAll()
-
-        this.bubble.showCompete()
     }
 
     showAndPlaySprite(sprite, animKey) {
