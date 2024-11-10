@@ -1,0 +1,92 @@
+{
+    "id": "f0e40f61-2349-499c-a7e3-26ad8fffa676",
+    "sceneType": "PREFAB",
+    "settings": {
+        "compilerInsertSpaces": true,
+        "javaScriptInitFieldsInConstructor": true,
+        "exportClass": true,
+        "autoImport": true,
+        "superClassName": "BaseContainer",
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "borderWidth": 1520,
+        "borderHeight": 960
+    },
+    "displayList": [
+        {
+            "type": "Container",
+            "id": "9b135d12-5c57-4c31-a009-a0bcdef3695c",
+            "label": "container_2",
+            "x": 760,
+            "y": 480,
+            "list": [
+                {
+                    "type": "Image",
+                    "id": "0b431a8a-ba4f-4820-a653-bef770480812",
+                    "label": "body",
+                    "scope": "CLASS",
+                    "texture": {
+                        "key": "firesensei",
+                        "frame": "match/penguin/body-wait"
+                    },
+                    "x": -0.5,
+                    "y": 1
+                },
+                {
+                    "type": "Image",
+                    "id": "83cdb83c-e9a6-465d-8b49-252175358ed0",
+                    "label": "outline",
+                    "scope": "CLASS",
+                    "texture": {
+                        "key": "firesensei",
+                        "frame": "match/penguin/outline-wait"
+                    },
+                    "x": 7
+                },
+                {
+                    "type": "Sprite",
+                    "id": "c3889bde-f955-46ea-bf4d-3d7bcb36360d",
+                    "label": "eyes",
+                    "scope": "CLASS",
+                    "texture": {
+                        "key": "firesensei",
+                        "frame": "match/penguin/eyes0001"
+                    },
+                    "x": 20.7,
+                    "y": -24.5
+                },
+                {
+                    "type": "Image",
+                    "id": "4ed7c2be-fb7c-4bdb-a3db-35bfdc7058b8",
+                    "label": "beak",
+                    "scope": "CLASS",
+                    "texture": {
+                        "key": "firesensei",
+                        "frame": "match/penguin/beak"
+                    },
+                    "x": 29.5,
+                    "y": 2.5
+                },
+                {
+                    "type": "Image",
+                    "id": "8a70f1da-9114-4cc0-8c94-82b61866cbe1",
+                    "label": "empty",
+                    "scope": "CLASS",
+                    "texture": {
+                        "key": "firesensei",
+                        "frame": "match/penguin/empty"
+                    },
+                    "visible": false
+                }
+            ]
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 4
+    }
+}

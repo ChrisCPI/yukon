@@ -1,0 +1,85 @@
+{
+    "id": "c6ba1fff-4034-411c-b450-5d1219fb5111",
+    "sceneType": "PREFAB",
+    "settings": {
+        "compilerInsertSpaces": true,
+        "javaScriptInitFieldsInConstructor": true,
+        "exportClass": true,
+        "autoImport": true,
+        "superClassName": "FireSenseiMatchItem",
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "borderWidth": 1520,
+        "borderHeight": 960
+    },
+    "displayList": [
+        {
+            "type": "Container",
+            "id": "bebd6782-a204-44e8-94c9-7f57cc1537ce",
+            "label": "container_2",
+            "x": 760,
+            "y": 480,
+            "list": [
+                {
+                    "type": "Image",
+                    "id": "1dc897c9-6793-4c39-a1fe-cfe77da5af21",
+                    "label": "bg",
+                    "texture": {
+                        "key": "firesensei",
+                        "frame": "match/slot2/bg"
+                    },
+                    "y": 8
+                },
+                {
+                    "type": "Image",
+                    "id": "db620b29-b6ab-4914-b2a6-2b8021d2b35d",
+                    "label": "maskImage",
+                    "scope": "CLASS",
+                    "texture": {
+                        "key": "firesensei",
+                        "frame": "match/slot2/mask"
+                    },
+                    "x": 10,
+                    "visible": false
+                },
+                {
+                    "prefabId": "f0e40f61-2349-499c-a7e3-26ad8fffa676",
+                    "id": "0cdf83dd-85a7-4d14-8b65-9502029141de",
+                    "unlock": [
+                        "x",
+                        "y"
+                    ],
+                    "label": "penguin",
+                    "scope": "CLASS",
+                    "x": 1,
+                    "y": 10
+                },
+                {
+                    "type": "Text",
+                    "id": "0c64f67f-7feb-49d3-b04d-667f2917a9a7",
+                    "label": "username",
+                    "scope": "CLASS",
+                    "x": 2,
+                    "y": 74,
+                    "originX": 0.5,
+                    "originY": 0.5,
+                    "text": "Username",
+                    "fixedWidth": 250,
+                    "align": "center",
+                    "fontFamily": "CCComiccrazy",
+                    "fontSize": "30px",
+                    "stroke": "#000",
+                    "strokeThickness": 8
+                }
+            ]
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 4
+    }
+}

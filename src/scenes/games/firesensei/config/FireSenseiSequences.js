@@ -54,6 +54,7 @@ export function intro(widget) {
         },
         () => {
             widget.scene.showStartMenu()
+            widget.scene.setButtonsVisible(true)
             widget.hideSpeech()
             widget.hideFireDeck()
             widget.network.send('add_fire_deck')

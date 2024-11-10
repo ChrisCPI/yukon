@@ -12,7 +12,7 @@ export function start(menu) {
                 menu.showSpeech(menu.getString('firemenu_description_competition'))
             },
             up: () => {
-                //menu.showMatch()
+                menu.showMatch()
             }
         },
         {

@@ -114,6 +114,18 @@
             "y": 754
         },
         {
+            "prefabId": "2db13f43-5d08-412a-93fa-279c24add877",
+            "id": "99bc0ae0-bd27-4be2-9ae8-91afaed02462",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "match",
+            "scope": "CLASS",
+            "x": 0,
+            "y": 0
+        },
+        {
             "type": "Image",
             "id": "931acc13-5748-49c2-b341-63c5e9242a42",
             "label": "xButton",

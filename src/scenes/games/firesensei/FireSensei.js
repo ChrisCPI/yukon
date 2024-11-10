@@ -4,6 +4,7 @@ import GameScene from "../GameScene";
 import FireSenseiWidget from "./widget/FireSenseiWidget";
 import Zone from "../../components/Zone";
 import FireSenseiMenu from "./menu/FireSenseiMenu";
+import FireSenseiMatch from "./match/FireSenseiMatch";
 import Button from "../../components/Button";
 /* START-USER-IMPORTS */
 
@@ -30,6 +31,8 @@ export default class FireSensei extends GameScene {
         this.amulet;
         /** @type {FireSenseiMenu} */
         this.menu;
+        /** @type {FireSenseiMatch} */
+        this.match;
 
 
         /* START-USER-CTR-CODE */
@@ -81,6 +84,10 @@ export default class FireSensei extends GameScene {
         const menu = new FireSenseiMenu(this, 1059, 754);
         this.add.existing(menu);
 
+        // match
+        const match = new FireSenseiMatch(this, 0, 0);
+        this.add.existing(match);
+
         // xButton
         const xButton = this.add.image(1474, 43, "main", "grey-button");
 
@@ -112,6 +119,7 @@ export default class FireSensei extends GameScene {
         this.volcano2 = volcano2;
         this.amulet = amulet;
         this.menu = menu;
+        this.match = match;
 
         this.events.emit("scene-awake");
     }
@@ -125,6 +133,8 @@ export default class FireSensei extends GameScene {
 
     create() {
         super.create()
+
+        this.match.close()
 
         this.gi.isButton = true
         this.gi.setInteractive({
@@ -182,6 +192,7 @@ export default class FireSensei extends GameScene {
         })
 
         if (!this.userHasDeck) {
+            this.events.once('update', () => this.setButtonsVisible(false))
             this.startSequence(sequences.intro)
             return
         }
@@ -190,9 +201,9 @@ export default class FireSensei extends GameScene {
 
         const equipped = Object.values(this.client.penguin.items.equippedFlat)
 
-        for (let [item, id] of Object.entries(senseiResponses)) {
+        for (let [item, response] of Object.entries(senseiResponses)) {
             if (equipped.includes(parseInt(item))) {
-                sequence = id
+                sequence = response
                 break
             }
         }
@@ -301,6 +312,7 @@ export default class FireSensei extends GameScene {
     showMatch() {
         this.menu.close()
         this.hideSpeech()
+        this.setButtonsVisible(false)
         this.match.show()
     }
 

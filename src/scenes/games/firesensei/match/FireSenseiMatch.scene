@@ -1,0 +1,195 @@
+{
+    "id": "2db13f43-5d08-412a-93fa-279c24add877",
+    "sceneType": "PREFAB",
+    "settings": {
+        "compilerInsertSpaces": true,
+        "javaScriptInitFieldsInConstructor": true,
+        "exportClass": true,
+        "autoImport": true,
+        "superClassName": "BaseContainer",
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "borderWidth": 1520,
+        "borderHeight": 960
+    },
+    "displayList": [
+        {
+            "type": "Container",
+            "id": "9a6e0e67-d550-449a-9bce-3c38d02146cb",
+            "label": "container_1",
+            "list": [
+                {
+                    "type": "Rectangle",
+                    "id": "987b2309-18fe-4c56-923c-ff69b81bb057",
+                    "label": "block",
+                    "components": [
+                        "Interactive"
+                    ],
+                    "originX": 0,
+                    "originY": 0,
+                    "alpha": 0.2,
+                    "isFilled": true,
+                    "fillColor": "#000000",
+                    "width": 1520,
+                    "height": 960
+                },
+                {
+                    "type": "Image",
+                    "id": "4154e925-33b3-4a53-8972-b8d8412d5fd1",
+                    "label": "match_ref0001",
+                    "texture": {
+                        "key": "firesensei",
+                        "frame": "match/ref0003"
+                    },
+                    "x": 1007,
+                    "y": 485,
+                    "visible": false
+                },
+                {
+                    "type": "Image",
+                    "id": "5af45a39-2a49-4cf1-9afa-6c8de0308077",
+                    "label": "bg",
+                    "texture": {
+                        "key": "firesensei",
+                        "frame": "match/bg/wait"
+                    },
+                    "x": 1005,
+                    "y": 487
+                },
+                {
+                    "prefabId": "c6ba1fff-4034-411c-b450-5d1219fb5111",
+                    "id": "534cbd14-64eb-4fea-8ac1-df64ef5f7675",
+                    "unlock": [
+                        "x",
+                        "y"
+                    ],
+                    "label": "item4",
+                    "x": 1017,
+                    "y": 315
+                },
+                {
+                    "prefabId": "b72b5d5e-28cf-44bd-bda2-049eaa2a52b0",
+                    "id": "3d52c043-9ece-4543-973c-1e759c86cfc6",
+                    "unlock": [
+                        "x",
+                        "y"
+                    ],
+                    "label": "item3",
+                    "x": 1007,
+                    "y": 645
+                },
+                {
+                    "prefabId": "3692aa47-9e1d-4408-b7bb-963d030748ad",
+                    "id": "bc0eb4fd-fa06-4190-af9b-8055435f53d1",
+                    "unlock": [
+                        "x",
+                        "y"
+                    ],
+                    "label": "item2",
+                    "x": 1232,
+                    "y": 474
+                },
+                {
+                    "prefabId": "4b3a3bcf-d0bb-4bc0-a1c5-66f0974c21dc",
+                    "id": "3c492130-e202-49b4-99fb-fa8d9f385915",
+                    "unlock": [
+                        "x",
+                        "y"
+                    ],
+                    "label": "item1",
+                    "x": 787,
+                    "y": 474
+                },
+                {
+                    "type": "Image",
+                    "id": "e4d6146c-5dfe-4079-beaa-5041bb3fcf1d",
+                    "label": "spinner",
+                    "scope": "CLASS",
+                    "texture": {
+                        "key": "firesensei",
+                        "frame": "match/load"
+                    },
+                    "x": 796,
+                    "y": 486
+                },
+                {
+                    "type": "Sprite",
+                    "id": "6b13d10b-7826-4b1f-84fb-2f531cdd1a5a",
+                    "label": "flash",
+                    "scope": "CLASS",
+                    "texture": {
+                        "key": "firesensei",
+                        "frame": "match/flash0001"
+                    },
+                    "x": 1008,
+                    "y": 488,
+                    "visible": false
+                },
+                {
+                    "type": "Image",
+                    "id": "e3c69d0d-b5b1-4bcf-ade2-d01639852784",
+                    "label": "bottom",
+                    "texture": {
+                        "key": "firesensei",
+                        "frame": "match/side_horizontal"
+                    },
+                    "x": 1006,
+                    "y": 753.8439331054688
+                },
+                {
+                    "type": "Image",
+                    "id": "082f90e8-a10e-4eef-a6fb-7408e0a7eae8",
+                    "label": "top",
+                    "texture": {
+                        "key": "firesensei",
+                        "frame": "match/side_horizontal"
+                    },
+                    "x": 1007,
+                    "y": 219
+                },
+                {
+                    "type": "Image",
+                    "id": "1ce1bfe1-0ae7-4b08-9da2-23f5a311ba29",
+                    "label": "right",
+                    "texture": {
+                        "key": "firesensei",
+                        "frame": "match/side_vertical"
+                    },
+                    "x": 1365,
+                    "y": 488
+                },
+                {
+                    "type": "Image",
+                    "id": "cfd66d46-9141-4ade-9e7f-5bbc8d4ed75b",
+                    "label": "left",
+                    "texture": {
+                        "key": "firesensei",
+                        "frame": "match/side_vertical"
+                    },
+                    "x": 647,
+                    "y": 481
+                }
+            ]
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 4
+    },
+    "lists": [
+        {
+            "id": "887ddc73-6993-46c2-976e-d8e27f15c1c7",
+            "label": "items",
+            "objectIds": [
+                "3c492130-e202-49b4-99fb-fa8d9f385915",
+                "bc0eb4fd-fa06-4190-af9b-8055435f53d1",
+                "3d52c043-9ece-4543-973c-1e759c86cfc6",
+                "534cbd14-64eb-4fea-8ac1-df64ef5f7675"
+            ]
+        }
+    ]
+}
