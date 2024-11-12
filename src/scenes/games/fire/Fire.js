@@ -238,6 +238,9 @@ export default class Fire extends GameScene {
     create() {
         super.create()
 
+        this.awards = [6025, 4120, 2013, 1086]
+        this.rankUp = null
+
         this.createBackgroundAnims()
 
         this.addListeners()
@@ -306,6 +309,7 @@ export default class Fire extends GameScene {
         this.network.events.on('choose_element', this.handleChooseElement, this)
         this.network.events.on('choose_opponent', this.handleChooseOpponent, this)
         this.network.events.on('judge_battle', this.handleJudgeBattle, this)
+        this.network.events.on('award', this.handleAward, this)
         this.network.events.on('finish', this.handleFinish, this)
         this.network.events.on('player_quit', this.handlePlayerQuit, this)
     }
@@ -322,6 +326,7 @@ export default class Fire extends GameScene {
         this.network.events.off('choose_element', this.handleChooseElement, this)
         this.network.events.off('choose_opponent', this.handleChooseOpponent, this)
         this.network.events.off('judge_battle', this.handleJudgeBattle, this)
+        this.network.events.off('award', this.handleAward, this)
         this.network.events.off('finish', this.handleFinish, this)
         this.network.events.off('player_quit', this.handlePlayerQuit, this)
     }
@@ -350,7 +355,9 @@ export default class Fire extends GameScene {
             }
         }
 
-        for (let [seat, user] of args.users.entries()) {
+        for (let user of args.users) {
+            const seat = args.users.indexOf(user)
+
             // The seat of the user from the perspective of the client; NOT the actual seat
             const clientSeat = clientSeats[seat]
 
@@ -387,8 +394,10 @@ export default class Fire extends GameScene {
         this.currentNinja.portrait.enablePortrait()
         this.currentNinja.player.setHighlightActive()
 
-        for (let [seat, ninja] of this.ninjas.entries()) {
+        for (let ninja of this.ninjas) {
             if (ninja === null) continue
+
+            const seat = this.ninjas.indexOf(ninja)
 
             if (seat === args.ninja) {
                 ninja.portrait.avatar.playThinking()
@@ -587,7 +596,7 @@ export default class Fire extends GameScene {
         }
 
         for (let n of this.ninjas) {
-            if (n.portrait.highlight.visible) {
+            if (n.portrait.highlight?.visible) {
                 n.portrait.highlight.visible = false
                 n.portrait.arrow.close()
             }
@@ -712,8 +721,9 @@ export default class Fire extends GameScene {
             this.ninjas[data.seat].holder.reset()
         }
 
-        for (let [seat, position] of args.podium.entries()) {
+        for (let position of args.podium) {
             if (position > 0) {
+                const seat = args.podium.indexOf(position)
                 const ninja = this.ninjas[seat]
 
                 if (ninja === null) continue
@@ -963,6 +973,24 @@ export default class Fire extends GameScene {
         this.spinner.close()
 
         this.gameDone = true
+    }
+
+    handleAward(args) {
+        this.rankUp = args.rank
+
+        this.addAward(this.awards[args.rank - 1])
+    }
+
+    addAward(award) {
+        const type = ['feet', 'body', 'face', 'head'][this.rankUp - 1]
+
+        // this should be abstracted, user inventory could be its own class
+        if (this.world.client.inventory[type].includes(award)) {
+            return
+        }
+
+        this.world.client.inventory[type].push(award)
+        this.world.client.inventory[type].sort((a, b) => a - b)
     }
 
     stop() {

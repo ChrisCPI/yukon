@@ -117,10 +117,10 @@ export default class Avatar extends BaseContainer {
             sprite.tint = color
         }
 
-        this.ninja.visible = !user.isSensei
-        this.sensei.visible = user.isSensei
+        this.ninja.visible = !user.sensei
+        this.sensei.visible = user.sensei
 
-        if (user.isSensei) {
+        if (user.sensei) {
             this.parts.push({
                 id: 'sensei',
                 sprite: this.sensei

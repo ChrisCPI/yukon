@@ -15,6 +15,8 @@ export default class FireSenseiInstructions extends BaseContainer {
         super(scene, x ?? 1041, y ?? 605);
 
         /** @type {Phaser.GameObjects.Image} */
+        this.bg;
+        /** @type {Phaser.GameObjects.Image} */
         this.maskImage;
         /** @type {FireSenseiAwake} */
         this.awake;
@@ -36,6 +38,10 @@ export default class FireSenseiInstructions extends BaseContainer {
         this.challenge;
         /** @type {Phaser.GameObjects.Sprite} */
         this.amulet;
+        /** @type {Phaser.GameObjects.Image} */
+        this.sides;
+        /** @type {Phaser.GameObjects.Sprite} */
+        this.fireDeck;
         /** @type {Array<FireSenseiAwake|FireSenseiGrasshoppers|FireSenseiOnlyNinjas|FireSenseiKeyElements|FireSenseiChange|Phaser.GameObjects.Sprite>} */
         this.masked;
 
@@ -103,9 +109,15 @@ export default class FireSenseiInstructions extends BaseContainer {
         const sides = scene.add.image(3, 1, "firesenseiinstructions", "sides");
         this.add(sides);
 
+        // fireDeck
+        const fireDeck = scene.add.sprite(-15, -88, "firesenseiinstructions", "fireDeck/anim0001");
+        fireDeck.visible = false;
+        this.add(fireDeck);
+
         // lists
         const masked = [awake, grasshoppers, onlyNinjas, keyElements, change, manyPlaces, fireSuit, items, challenge, amulet];
 
+        this.bg = bg;
         this.maskImage = maskImage;
         this.awake = awake;
         this.grasshoppers = grasshoppers;
@@ -117,6 +129,8 @@ export default class FireSenseiInstructions extends BaseContainer {
         this.fireSuit = fireSuit;
         this.challenge = challenge;
         this.amulet = amulet;
+        this.sides = sides;
+        this.fireDeck = fireDeck;
         this.masked = masked;
 
         /* START-USER-CTR-CODE */
@@ -138,6 +152,18 @@ export default class FireSenseiInstructions extends BaseContainer {
 
 
     /* START-USER-CODE */
+
+    show(scrollVisible = true) {
+        this.bg.visible = scrollVisible
+        this.sides.visible = scrollVisible
+
+        super.show()
+    }
+
+    showFireDeck() {
+        this.showAndPlaySprite(this.fireDeck, 'instructions/fireDeck', false)
+        this.fireDeck.once('animationcomplete', () => this.fireDeck.play('instructions/fireDeck-loop'))
+    }
 
     showAwake() {
         this.show()
@@ -200,9 +226,9 @@ export default class FireSenseiInstructions extends BaseContainer {
         this.showAndPlaySprite(this.amulet, 'instructions/amulet')
     }
 
-    showAndPlaySprite(sprite, animKey) {
+    showAndPlaySprite(sprite, animKey, scrollVisible = true) {
         this.hideAll()
-        this.show()
+        this.show(scrollVisible)
 
         sprite.visible = true
         sprite.play(animKey)
@@ -213,6 +239,9 @@ export default class FireSenseiInstructions extends BaseContainer {
             child.stop()
             child.visible = false
         })
+
+        this.fireDeck.stop()
+        this.fireDeck.visible = false
     }
 
     /* END-USER-CODE */

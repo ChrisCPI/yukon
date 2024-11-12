@@ -75,19 +75,6 @@
                     "y": 174
                 },
                 {
-                    "type": "Sprite",
-                    "id": "6da4de8f-36b2-4e5d-b1b0-e8cc3638a70c",
-                    "label": "fireDeck",
-                    "scope": "CLASS",
-                    "texture": {
-                        "key": "firesenseiinstructions",
-                        "frame": "fireDeck/anim0001"
-                    },
-                    "x": 1026,
-                    "y": 517,
-                    "visible": false
-                },
-                {
                     "prefabId": "8ff5b6d0-0ab0-4a6c-848f-f9f44d6246d0",
                     "id": "0804fd42-00da-4095-ba61-7d3226480332",
                     "unlock": [
@@ -111,6 +98,20 @@
                     "y": 833
                 },
                 {
+                    "prefabId": "2bad10ca-47a3-4117-b52d-0aaada8b3d7b",
+                    "id": "d794f433-86a6-4c37-87a7-0a2ed3e9d3e0",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "visible"
+                    ],
+                    "label": "award",
+                    "scope": "CLASS",
+                    "x": 1089,
+                    "y": 577,
+                    "visible": false
+                },
+                {
                     "prefabId": "444be2e7-01dd-43d1-a6f2-a10525e3debb",
                     "id": "e5e647c1-06ca-4472-bd14-f5e25b8cd168",
                     "unlock": [
@@ -123,21 +124,37 @@
                     "y": 210
                 },
                 {
-                    "type": "Image",
-                    "id": "8ba5c257-5b68-452f-98c9-3f17367236e5",
-                    "label": "ref",
-                    "texture": {
-                        "key": "firesensei",
-                        "frame": "ref"
-                    },
-                    "originX": 0,
-                    "originY": 0,
+                    "type": "Container",
+                    "id": "36554203-dbc2-4281-bca4-e78e687d7023",
+                    "label": "wipe",
+                    "scope": "CLASS",
+                    "x": 755,
+                    "y": 1150,
                     "visible": false,
-                    "alpha": 0.5,
-                    "alphaTopLeft": 0.5,
-                    "alphaTopRight": 0.5,
-                    "alphaBottomLeft": 0.5,
-                    "alphaBottomRight": 0.5
+                    "list": [
+                        {
+                            "type": "Sprite",
+                            "id": "d20a8a5c-3ffa-4951-9d77-c585c12fca49",
+                            "label": "flame",
+                            "scope": "CLASS",
+                            "texture": {
+                                "key": "firesensei",
+                                "frame": "flame0001"
+                            },
+                            "originY": 1
+                        },
+                        {
+                            "type": "Rectangle",
+                            "id": "0f311c13-6fc9-47c4-930d-484f20e59958",
+                            "label": "rectangle",
+                            "x": -27,
+                            "y": 479,
+                            "isFilled": true,
+                            "fillColor": "#ffcc00",
+                            "width": 1600,
+                            "height": 960
+                        }
+                    ]
                 }
             ]
         }

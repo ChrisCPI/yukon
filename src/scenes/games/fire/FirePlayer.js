@@ -148,7 +148,7 @@ export default class FirePlayer extends BaseContainer {
 
     setPlayer(user, seat) {
         // Sensei frames only exist on seat 2
-        this.seat = user.isSensei ? 2 : seat
+        this.seat = user.sensei ? 2 : seat
 
         const color = this.world.getColor(user.color)
 
@@ -156,8 +156,8 @@ export default class FirePlayer extends BaseContainer {
             sprite.tint = color
         }
 
-        this.black_belt.visible = !user.isSensei
-        this.sensei.visible = user.isSensei
+        this.black_belt.visible = !user.sensei
+        this.sensei.visible = user.sensei
 
         // Misc frames do not exist on seat 1
         if (seat !== 1) {
@@ -167,7 +167,7 @@ export default class FirePlayer extends BaseContainer {
             })
         }
 
-        if (user.isSensei) {
+        if (user.sensei) {
             this.parts.push({
                 id: 'sensei',
                 sprite: this.sensei

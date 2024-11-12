@@ -1,14 +1,10 @@
 import * as menus from './FireSenseiMenus'
 
 
-export function beltAward(widget) {
+export function suitAward(widget) {
     return [
         () => {
-            widget.showSpeech(widget.getString('firehelp_award_congratulations'))
-        },
-        () => {
-            widget.showSpeech(widget.getFormatString('firehelp_award_belt_earned', widget.beltString))
-            widget.showBelt()
+            widget.showSpeech(widget.awardString)
         },
         () => {
             widget.leaveGame()
@@ -16,22 +12,16 @@ export function beltAward(widget) {
     ]
 }
 
-export function maskAward(widget) {
+export function gemAward(widget) {
     return [
         () => {
-            widget.showSpeech(widget.getString('firehelp_defeat_sensei_intro'))
+            widget.showSpeech(widget.getString('text_award5_part1'))
         },
         () => {
-            widget.showSpeech(widget.getString('help_defeat_sensei_kowtows'))
+            widget.showSpeech(widget.getString('text_award5_part2'))
         },
         () => {
-            widget.showSpeech(widget.getString('help_defeat_sensei_gift'))
-            widget.showMask()
-        },
-        () => {
-            widget.hideAward()
-            widget.showHideout()
-            widget.showSpeech(widget.getString('help_defeat_sensei_final'))
+            widget.showSpeech(widget.getFormatString('text_award5_part3', widget.world.client.penguin.username))
         },
         () => {
             widget.leaveGame()
@@ -50,13 +40,13 @@ export function intro(widget) {
         () => {
             widget.showSpeech(widget.getString('firehelp_firstTime_welcome3'))
             widget.senseiSprite.playPoint()
-            widget.playFireDeck()
+            widget.scene.instructions.showFireDeck()
         },
         () => {
             widget.scene.showStartMenu()
             widget.scene.setButtonsVisible(true)
             widget.hideSpeech()
-            widget.hideFireDeck()
+            widget.scene.hideInstructions()
             widget.network.send('add_fire_deck')
         }
     ]

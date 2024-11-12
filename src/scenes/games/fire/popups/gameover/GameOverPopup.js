@@ -275,7 +275,17 @@ export default class GameOverPopup extends BaseContainer {
     }
 
     onClick() {
-        this.scene.leaveGame()
+        if (!this.scene.rankUp) {
+            return this.scene.leaveGame()
+        }
+        
+        this.interface.events.once('sensei_ready', () => {
+            this.interface.loadedWidgets.FireSensei.rankUp(this.scene.rankUp)
+        })
+
+        this.close()
+
+        this.interface.loadWidget('FireSensei')
     }
 
     /* END-USER-CODE */

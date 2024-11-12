@@ -1,6 +1,6 @@
 export const preload = {
-    key: 'sensei-pack',
-    url: 'assets/media/games/sensei/sensei-pack.json',
+    key: 'firesensei-pack',
+    url: 'assets/media/games/firesensei/firesensei-pack.json',
     loadString: ['loading', 'sensei']
 }
 
@@ -10,6 +10,7 @@ import BaseContainer from "../../../base/BaseContainer";
 import Interactive from "../../../components/Interactive";
 import Animation from "../../../components/Animation";
 import FireSenseiSprite from "./sprite/FireSenseiSprite";
+import FireSenseiAward from "./award/FireSenseiAward";
 import FireSenseiSpeech from "./speech/FireSenseiSpeech";
 /* START-USER-IMPORTS */
 
@@ -28,12 +29,16 @@ export default class FireSenseiWidget extends BaseContainer {
         this.flowers;
         /** @type {Phaser.GameObjects.Image} */
         this.lanternLight;
-        /** @type {Phaser.GameObjects.Sprite} */
-        this.fireDeck;
         /** @type {FireSenseiSprite} */
         this.senseiSprite;
+        /** @type {FireSenseiAward} */
+        this.award;
         /** @type {FireSenseiSpeech} */
         this.speech;
+        /** @type {Phaser.GameObjects.Sprite} */
+        this.flame;
+        /** @type {Phaser.GameObjects.Container} */
+        this.wipe;
 
 
         // bg
@@ -52,11 +57,6 @@ export default class FireSenseiWidget extends BaseContainer {
         const lantern = scene.add.image(1272, 174, "firesensei", "bg/lantern/lantern");
         this.add(lantern);
 
-        // fireDeck
-        const fireDeck = scene.add.sprite(1026, 517, "firesenseiinstructions", "fireDeck/anim0001");
-        fireDeck.visible = false;
-        this.add(fireDeck);
-
         // senseiSprite
         const senseiSprite = new FireSenseiSprite(scene, 396, 519);
         this.add(senseiSprite);
@@ -65,20 +65,30 @@ export default class FireSenseiWidget extends BaseContainer {
         const fg = scene.add.image(758, 833, "firesensei", "fg");
         this.add(fg);
 
+        // award
+        const award = new FireSenseiAward(scene, 1089, 577);
+        award.visible = false;
+        this.add(award);
+
         // speech
         const speech = new FireSenseiSpeech(scene, 1005, 210);
         this.add(speech);
 
-        // ref
-        const ref = scene.add.image(0, 0, "firesensei", "ref");
-        ref.setOrigin(0, 0);
-        ref.visible = false;
-        ref.alpha = 0.5;
-        ref.alphaTopLeft = 0.5;
-        ref.alphaTopRight = 0.5;
-        ref.alphaBottomLeft = 0.5;
-        ref.alphaBottomRight = 0.5;
-        this.add(ref);
+        // wipe
+        const wipe = scene.add.container(755, 1150);
+        wipe.visible = false;
+        this.add(wipe);
+
+        // flame
+        const flame = scene.add.sprite(0, 0, "firesensei", "flame0001");
+        flame.setOrigin(0.5, 1);
+        wipe.add(flame);
+
+        // rectangle
+        const rectangle = scene.add.rectangle(-27, 479, 1600, 960);
+        rectangle.isFilled = true;
+        rectangle.fillColor = 16763904;
+        wipe.add(rectangle);
 
         // bg (components)
         new Interactive(bg);
@@ -91,9 +101,11 @@ export default class FireSenseiWidget extends BaseContainer {
         this.bg = bg;
         this.flowers = flowers;
         this.lanternLight = lanternLight;
-        this.fireDeck = fireDeck;
         this.senseiSprite = senseiSprite;
+        this.award = award;
         this.speech = speech;
+        this.flame = flame;
+        this.wipe = wipe;
 
         /* START-USER-CTR-CODE */
 
@@ -116,8 +128,8 @@ export default class FireSenseiWidget extends BaseContainer {
 
     /* START-USER-CODE */
 
-    get beltString() {
-        return this.getString(`belt_${this.rankId}`)
+    get awardString() {
+        return this.getString(`text_award${this.rankId}`)
     }
 
     get speechIndex() {
@@ -154,13 +166,17 @@ export default class FireSenseiWidget extends BaseContainer {
     }
 
     rankUp(rank) {
-        this.rankId = Phaser.Math.Clamp(rank, 1, 9)
+        this.rankId = Phaser.Math.Clamp(rank, 1, 5)
 
-        if (rank > 9) {
-            this.startSequence(sequences.maskAward)
-        } else {
-            this.startSequence(sequences.beltAward)
-        }
+        this.showWipe()
+    }
+
+    startAwardSequence() {
+        this.senseiSprite.playBow(() => {
+            this.senseiSprite.playPoint(true)
+
+            this.startSequence(this.rankId > 4 ? sequences.gemAward : sequences.suitAward)
+        })
     }
 
     startSequence(sequence, ...args) {
@@ -235,33 +251,79 @@ export default class FireSenseiWidget extends BaseContainer {
         this.senseiSprite.giGlow.visible = false
     }
 
-    showBelt() {
-        this.award.showBelt(this.rankId)
+    showWipe() {
+        this.setAlphaOfAll(0)
+        this.wipe.visible = true
+
+        this.flame.play('firesensei/flameWipe')
+
+        // Alpha
+        this.scene.tweens.add({
+            targets: this.wipe,
+            duration: 291,
+            ease: 'Linear',
+            alpha: { from: 0, to: 1 }
+        })
+
+        // Move up
+        this.scene.tweens.chain({
+            targets: this.wipe,
+
+            tweens: [
+                {
+                    duration: 1000,
+                    ease: 'Quad.easeIn',
+                    y: { from: 1150, to: 0 },
+
+                    onComplete: () => {
+                        this.setAlphaOfAll(1)
+                        this.scene.time.delayedCall(458, () => this.startAwardSequence())
+                    }
+                },
+                {
+                    delay: 125,
+                    duration: 791,
+                    ease: 'Linear',
+                    alpha: { from: 1, to: 0 },
+
+                    onComplete: () => {
+                        this.scene.time.delayedCall(125, () => {
+                            if (this.rankId === 5) {
+                                this.showFireGem()
+                            } else {
+                                this.showSuitPiece(this.rankId)
+                            }
+                        })
+                    }
+                },
+            ]
+        })
     }
 
-    showMask() {
-        this.award.showMask()
+    setAlphaOfAll(alpha) {
+        this.each(child => {
+            if (child !== this.wipe) {
+                child.alpha = alpha
+            }
+        })
+    }
+
+    showSuitPiece(rank) {
+        this.award.showAward(rank)
+    }
+
+    showFireGem() {
+        this.award.showAward(5)
     }
 
     hideAward() {
         this.award.close()
     }
 
-    playFireDeck() {
-        this.fireDeck.visible = true
-        this.fireDeck.play('firedeck')
-        this.fireDeck.once('animationcomplete', () => this.fireDeck.play('firedeck-loop'))
-    }
-
-    hideFireDeck() {
-        this.fireDeck.anims.stop()
-        this.fireDeck.visible = false
-    }
-
     hideAll() {
         this.hideSpeech()
         this.hideAward()
-        this.hideHideout()
+        this.flowers.visible = false
     }
 
     leaveGame() {

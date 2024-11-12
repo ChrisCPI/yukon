@@ -25,6 +25,7 @@
                     "type": "Image",
                     "id": "73847fba-b2d7-47e5-8706-27555028b343",
                     "label": "bg",
+                    "scope": "CLASS",
                     "texture": {
                         "key": "firesenseiinstructions",
                         "frame": "bg"
@@ -183,12 +184,26 @@
                     "type": "Image",
                     "id": "b4b4722f-07cd-4e5b-806f-ed200c5e9407",
                     "label": "sides",
+                    "scope": "CLASS",
                     "texture": {
                         "key": "firesenseiinstructions",
                         "frame": "sides"
                     },
                     "x": 3,
                     "y": 1
+                },
+                {
+                    "type": "Sprite",
+                    "id": "0924fc2f-0412-4cb5-8266-fd4eab4473ae",
+                    "label": "fireDeck",
+                    "scope": "CLASS",
+                    "texture": {
+                        "key": "firesenseiinstructions",
+                        "frame": "fireDeck/anim0001"
+                    },
+                    "x": -15,
+                    "y": -88,
+                    "visible": false
                 }
             ]
         }

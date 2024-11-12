@@ -1,0 +1,72 @@
+{
+    "id": "2bad10ca-47a3-4117-b52d-0aaada8b3d7b",
+    "sceneType": "PREFAB",
+    "settings": {
+        "compilerInsertSpaces": true,
+        "javaScriptInitFieldsInConstructor": true,
+        "exportClass": true,
+        "autoImport": true,
+        "superClassName": "BaseContainer",
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "borderWidth": 1520,
+        "borderHeight": 960
+    },
+    "displayList": [
+        {
+            "type": "Container",
+            "id": "52438ca3-dbb2-4d47-b187-34e3783e4460",
+            "label": "container_1",
+            "x": 760,
+            "y": 480,
+            "list": [
+                {
+                    "type": "Image",
+                    "id": "85a3bb1d-737b-48e0-adf4-3cffa5a38b1a",
+                    "label": "award",
+                    "scope": "CLASS",
+                    "texture": {
+                        "key": "firesensei",
+                        "frame": "award/rank5"
+                    }
+                },
+                {
+                    "type": "Sprite",
+                    "id": "3232166a-45a4-4668-8972-e824a2f24f47",
+                    "label": "fireGemGlow",
+                    "scope": "CLASS",
+                    "texture": {
+                        "key": "firesensei",
+                        "frame": "award/amulet/fireGemGlow0085"
+                    },
+                    "x": -116,
+                    "y": 124,
+                    "visible": false
+                },
+                {
+                    "type": "Image",
+                    "id": "bc8395f1-cde3-4b1e-b1ba-462bc9e8d887",
+                    "label": "fireGem",
+                    "scope": "CLASS",
+                    "texture": {
+                        "key": "firesensei",
+                        "frame": "award/amulet/fireGem"
+                    },
+                    "x": -117,
+                    "y": 123,
+                    "scaleX": 0.71,
+                    "scaleY": 0.71,
+                    "visible": false
+                }
+            ]
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 4
+    }
+}

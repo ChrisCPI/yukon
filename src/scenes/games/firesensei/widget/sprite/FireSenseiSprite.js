@@ -84,20 +84,44 @@ export default class FireSenseiSprite extends BaseContainer {
         this.beak.play('firesensei/talk2')
     }
 
-    playBow() {
+    playBow(onComplete) {
         this.beak.visible = false
         this.beak.anims.stop()
 
         this.amulet.visible = false
 
-        this.body.play('firesensei/bow')
+        const anim = 'firesensei/bow'
+
+        this.body.play(anim)
+
+        if (onComplete) {
+            this.body.once(`animationcomplete-${anim}`, () => onComplete())
+        }
     }
 
-    playPoint() {
+    playPoint(playPart2 = false) {
         this.amulet.visible = false
         this.beak.visible = false
 
-        this.body.play('firesensei/point')
+        const point = 'firesensei/point'
+        this.body.play(point)
+
+        if (playPart2) {
+            this.body.once(`animationcomplete-${point}`, () => this.playPoint2())
+        }
+    }
+
+    playPoint2() {
+        this.beak.visible = false
+        this.beak.anims.stop()
+        
+        const part2 = 'firesensei/point2'
+        this.body.play(part2)
+
+        this.body.once(`animationcomplete-${part2}`, () => {
+            this.playWait()
+            this.playTalk()
+        })
     }
 
     /* END-USER-CODE */
