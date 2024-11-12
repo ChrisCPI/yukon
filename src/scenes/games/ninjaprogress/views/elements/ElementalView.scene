@@ -1,0 +1,84 @@
+{
+    "id": "da3fa543-c6c3-4b50-b57d-fd690764319e",
+    "sceneType": "PREFAB",
+    "settings": {
+        "compilerInsertSpaces": true,
+        "javaScriptInitFieldsInConstructor": true,
+        "exportClass": true,
+        "autoImport": true,
+        "superClassName": "BaseContainer",
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "borderWidth": 1520,
+        "borderHeight": 960
+    },
+    "displayList": [
+        {
+            "type": "Container",
+            "id": "ba962384-bf49-416d-a5cd-ede7baff5153",
+            "label": "container_2",
+            "x": 760,
+            "y": 480,
+            "list": [
+                {
+                    "prefabId": "6a3f6989-3773-43d3-8a6f-966bd0cd76b5",
+                    "id": "fa2e542c-3396-41be-aa85-a275539accf8",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "callback"
+                    ],
+                    "label": "cardsButton",
+                    "scope": "CLASS",
+                    "callback": "() => this.onButtonClick()",
+                    "x": 368,
+                    "y": 181
+                },
+                {
+                    "type": "Image",
+                    "id": "4841dd5e-65c7-4468-940b-f80a42470507",
+                    "label": "amulet",
+                    "texture": {
+                        "key": "ninjaprogress",
+                        "frame": "amulet/amulet"
+                    },
+                    "x": 373,
+                    "y": -29
+                },
+                {
+                    "type": "Image",
+                    "id": "45f206ed-a8a1-4d44-92c9-7c58d7937c33",
+                    "label": "fireGem",
+                    "scope": "CLASS",
+                    "texture": {
+                        "key": "ninjaprogress",
+                        "frame": "amulet/fire"
+                    },
+                    "x": 314,
+                    "y": 29,
+                    "visible": false
+                },
+                {
+                    "prefabId": "da880c87-cb03-40f1-a37a-e05953dabc32",
+                    "id": "4e952eb4-7862-47eb-a64f-127be01ef0b8",
+                    "unlock": [
+                        "x",
+                        "y"
+                    ],
+                    "label": "fire",
+                    "scope": "CLASS",
+                    "x": -202,
+                    "y": 43
+                }
+            ]
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 4
+    }
+}

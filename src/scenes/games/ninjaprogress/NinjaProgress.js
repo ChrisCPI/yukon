@@ -9,6 +9,7 @@ export const preload = {
 import BaseContainer from "../../base/BaseContainer";
 import Interactive from "../../components/Interactive";
 import ProgressView from "./views/ProgressView";
+import ElementalView from "./views/elements/ElementalView";
 import Separator from "./Separator";
 import Button from "../../components/Button";
 /* START-USER-IMPORTS */
@@ -23,6 +24,8 @@ export default class NinjaProgress extends BaseContainer {
         this.cardsViewRect;
         /** @type {ProgressView} */
         this.progress;
+        /** @type {ElementalView} */
+        this.elements;
         /** @type {Separator} */
         this.separator;
 
@@ -49,6 +52,11 @@ export default class NinjaProgress extends BaseContainer {
         const progress = new ProgressView(scene, 0, 0);
         progress.visible = false;
         this.add(progress);
+
+        // elements
+        const elements = new ElementalView(scene, 0, 0);
+        elements.visible = false;
+        this.add(elements);
 
         // frame2
         const frame2 = scene.add.image(0, -2, "ninjaprogress", "frame/2");
@@ -78,12 +86,17 @@ export default class NinjaProgress extends BaseContainer {
 
         this.cardsViewRect = cardsViewRect;
         this.progress = progress;
+        this.elements = elements;
         this.separator = separator;
 
         /* START-USER-CTR-CODE */
 
         this.ninjaRank
         this.ninjaProgress
+
+        this.fireRank
+        this.fireProgress
+
         this.ninjaCards
 
         this.createCardsViewMask()
@@ -93,6 +106,14 @@ export default class NinjaProgress extends BaseContainer {
 
 
     /* START-USER-CODE */
+
+    get hasAmulet() {
+        return this.world.client.inventory.neck.includes(3032)
+    }
+
+    get progressView() {
+        return this.hasAmulet ? this.elements : this.progress
+    }
 
     addListeners() {
         this.network.events.on('get_ninja', this.handleGetNinja, this)
@@ -121,8 +142,8 @@ export default class NinjaProgress extends BaseContainer {
         this.separator.close()
         this.separator.cards.setCards([])
 
-        this.progress.close()
-        this.progress.setCardsNum(0)
+        this.progressView.close()
+        this.progressView.cardsButton.setCardsNum(0)
 
         this.separator.cards.page = 1
     }
@@ -130,9 +151,13 @@ export default class NinjaProgress extends BaseContainer {
     handleGetNinja(args) {
         this.ninjaRank = args.rank
         this.ninjaProgress = args.progress
+
+        this.fireRank = args.fire.rank
+        this.fireProgress = args.fire.progress
+
         this.ninjaCards = args.cards
 
-        this.progress.setCardsNum(args.cards.length)
+        this.progressView.cardsButton.setCardsNum(args.cards.length)
         this.showProgress()
 
         this.setCards()
@@ -141,13 +166,17 @@ export default class NinjaProgress extends BaseContainer {
     }
 
     showProgress() {
-        if (!this.progress.down) {
-            this.progress.show(this.ninjaRank, this.ninjaProgress)
+        if (!this.separator.down) {
+            if (this.hasAmulet) {
+                this.elements.show(this.fireRank, this.fireProgress)
+            } else {
+                this.progress.show(this.ninjaRank, this.ninjaProgress)
+            }
         }
     }
 
     hideProgress() {
-        this.progress.close()
+        this.progressView.close()
     }
 
     setCards() {

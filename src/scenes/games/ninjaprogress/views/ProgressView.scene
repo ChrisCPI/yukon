@@ -22,68 +22,18 @@
             "y": 480,
             "list": [
                 {
-                    "type": "Image",
-                    "id": "ceff7150-8ae8-4b1a-ba67-c7018433f491",
-                    "label": "cardsButton",
-                    "components": [
-                        "Button"
+                    "prefabId": "6a3f6989-3773-43d3-8a6f-966bd0cd76b5",
+                    "id": "446ad210-4790-44b3-8831-37173565f137",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "callback"
                     ],
-                    "Button.spriteName": "button",
-                    "Button.callback": "() => this.onButtonClick()",
-                    "texture": {
-                        "key": "ninjaprogress",
-                        "frame": "button"
-                    },
-                    "y": 254,
-                    "originY": 0.5060240963855421
-                },
-                {
-                    "type": "Image",
-                    "id": "7b9b4fe8-ae89-45a4-abb5-b027bf877c8b",
-                    "label": "cards",
-                    "texture": {
-                        "key": "ninjaprogress",
-                        "frame": "cards"
-                    },
-                    "x": 68,
-                    "y": 245
-                },
-                {
-                    "type": "Text",
-                    "id": "179eb58d-0975-484c-b228-cc6276263375",
-                    "label": "cardsNum",
+                    "label": "cardsButton",
                     "scope": "CLASS",
-                    "x": 64,
-                    "y": 248,
-                    "originX": 0.5,
-                    "originY": 0.5,
-                    "text": "0",
-                    "fixedWidth": 100,
-                    "align": "center",
-                    "fontFamily": "Burbank Big Regular",
-                    "fontSize": "48px",
-                    "fontStyle": "bold",
-                    "stroke": "#000",
-                    "strokeThickness": 8,
-                    "shadow.stroke": true,
-                    "shadow.fill": true,
-                    "shadow.blur": 2
-                },
-                {
-                    "type": "Text",
-                    "id": "928a8a3c-c2c0-4c2b-8b73-0b1bcd0cfe0e",
-                    "label": "cardsText",
-                    "x": -81,
-                    "y": 254,
-                    "originX": 0.5,
-                    "originY": 0.5,
-                    "text": "VIEW YOUR\nCARDS",
-                    "fixedWidth": 140,
-                    "align": "center",
-                    "fontFamily": "CCFaceFront",
-                    "fontSize": "20px",
-                    "fontStyle": "bold italic",
-                    "color": "#736357"
+                    "callback": "() => this.onButtonClick()",
+                    "x": 0,
+                    "y": 254
                 },
                 {
                     "type": "Image",
@@ -91,7 +41,7 @@
                     "label": "progressBg",
                     "texture": {
                         "key": "ninjaprogress",
-                        "frame": "progress"
+                        "frame": "cardjitsu/progress"
                     }
                 },
                 {
@@ -101,7 +51,7 @@
                     "scope": "CLASS",
                     "texture": {
                         "key": "ninjaprogress",
-                        "frame": "next/1"
+                        "frame": "cardjitsu/next/1"
                     },
                     "x": 436,
                     "y": 27,
@@ -115,7 +65,7 @@
                     "scope": "CLASS",
                     "texture": {
                         "key": "ninjaprogress",
-                        "frame": "belt/1"
+                        "frame": "cardjitsu/belt/1"
                     },
                     "x": -399,
                     "y": 66,
@@ -161,7 +111,7 @@
                     "scope": "CLASS",
                     "texture": {
                         "key": "ninjaprogress",
-                        "frame": "progress/1"
+                        "frame": "cardjitsu/progress/1"
                     },
                     "x": 46,
                     "y": 7,
@@ -200,7 +150,7 @@
                             "label": "senseiImage",
                             "texture": {
                                 "key": "ninjaprogress",
-                                "frame": "sensei"
+                                "frame": "cardjitsu/sensei"
                             },
                             "x": 116,
                             "originY": 0.5023255813953489
@@ -237,18 +187,18 @@
                             "label": "hideoutImage",
                             "texture": {
                                 "key": "ninjaprogress",
-                                "frame": "hideout"
+                                "frame": "cardjitsu/hideout"
                             }
                         },
                         {
                             "type": "Text",
                             "id": "7b63e695-ade2-4079-9399-8ac8fa14d8b7",
                             "label": "hideoutText",
-                            "x": 132,
+                            "x": 56,
                             "y": 10,
                             "originX": 0.5,
                             "originY": 0.5,
-                            "text": "Congratulations, ninja! You are a wise Card-Jitsu\nmaster and you now have access to the Ninja Hideout.",
+                            "text": "Continue your journey in the Ninja Hideout\nnext to the Dojo. Once inside, pick up the\nAmulet from the Martial Artorks catalog.",
                             "fixedWidth": 800,
                             "lineSpacing": 8,
                             "align": "center",

@@ -1,0 +1,323 @@
+{
+    "id": "da880c87-cb03-40f1-a37a-e05953dabc32",
+    "sceneType": "PREFAB",
+    "settings": {
+        "compilerInsertSpaces": true,
+        "javaScriptInitFieldsInConstructor": true,
+        "exportClass": true,
+        "autoImport": true,
+        "superClassName": "BaseContainer",
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "borderWidth": 1520,
+        "borderHeight": 960
+    },
+    "displayList": [
+        {
+            "type": "Container",
+            "id": "976b3d11-fc76-4f0b-a2b7-91e3ff2d8a55",
+            "label": "container_1",
+            "x": 760,
+            "y": 480,
+            "list": [
+                {
+                    "type": "Image",
+                    "id": "95a374c8-9367-47b9-87c3-14e25edf032f",
+                    "label": "bg",
+                    "texture": {
+                        "key": "ninjaprogress",
+                        "frame": "fire/progress"
+                    },
+                    "y": 15
+                },
+                {
+                    "type": "Container",
+                    "id": "b581c336-6e59-44aa-a125-4b7959f65fdc",
+                    "label": "intro",
+                    "scope": "CLASS",
+                    "x": -226,
+                    "y": 1,
+                    "list": [
+                        {
+                            "type": "Image",
+                            "id": "23052fbd-56bf-4af5-a10d-bffa353d0993",
+                            "label": "fsensei1",
+                            "texture": {
+                                "key": "ninjaprogress",
+                                "frame": "fire/sensei1"
+                            }
+                        },
+                        {
+                            "type": "Image",
+                            "id": "0628770f-1a1d-4512-8e98-3c02fde9cc36",
+                            "label": "tablet",
+                            "texture": {
+                                "key": "ninjaprogress",
+                                "frame": "fire/tablet"
+                            },
+                            "x": 470,
+                            "y": 2
+                        },
+                        {
+                            "type": "Text",
+                            "id": "5ad69f42-71cf-42b1-b8f5-eb88f0aad52d",
+                            "label": "introText",
+                            "x": 241,
+                            "y": 32,
+                            "originX": 0.5,
+                            "originY": 0.5,
+                            "text": "Become a Fire Ninja. Click the\nFire Tablet and continue your\njourney to the volcano.",
+                            "fixedWidth": 300,
+                            "fixedHeight": 80,
+                            "align": "center",
+                            "fontFamily": "Burbank Small",
+                            "fontSize": "20px",
+                            "color": "#451414"
+                        }
+                    ]
+                },
+                {
+                    "type": "Container",
+                    "id": "3cfc63ef-654b-4a76-bba8-3904c3b5ed6a",
+                    "label": "progress",
+                    "scope": "CLASS",
+                    "visible": false,
+                    "list": [
+                        {
+                            "type": "Image",
+                            "id": "021e106b-5e8a-48e5-a27b-2f99d103c4b8",
+                            "label": "ninjaBody",
+                            "scope": "CLASS",
+                            "texture": {
+                                "key": "ninjaprogress",
+                                "frame": "fire/ninja/body"
+                            },
+                            "x": -243,
+                            "y": -23
+                        },
+                        {
+                            "type": "Image",
+                            "id": "e3f4f933-7aea-4a3b-96bc-31cda8972727",
+                            "label": "ninja",
+                            "texture": {
+                                "key": "ninjaprogress",
+                                "frame": "fire/ninja/penguin"
+                            },
+                            "x": -243,
+                            "y": -14
+                        },
+                        {
+                            "type": "Text",
+                            "id": "f6ca91a5-a0ae-4862-999d-2961550ce5da",
+                            "label": "currentText",
+                            "x": -243,
+                            "y": 58,
+                            "originX": 0.5,
+                            "originY": 0.5,
+                            "text": "Current Item",
+                            "fixedWidth": 100,
+                            "fixedHeight": 20,
+                            "align": "center",
+                            "fontFamily": "Burbank Small",
+                            "fontSize": "14px",
+                            "fontStyle": "bold",
+                            "color": "#000"
+                        },
+                        {
+                            "type": "Text",
+                            "id": "8ead7f7c-d76a-45a2-a29e-884b040f6a29",
+                            "label": "nextText",
+                            "x": 239,
+                            "y": 58,
+                            "originX": 0.5,
+                            "originY": 0.5,
+                            "text": "Next Item",
+                            "fixedWidth": 100,
+                            "fixedHeight": 20,
+                            "align": "center",
+                            "fontFamily": "Burbank Small",
+                            "fontSize": "14px",
+                            "fontStyle": "bold",
+                            "color": "#000"
+                        },
+                        {
+                            "type": "Image",
+                            "id": "0833b25d-dec7-4039-843c-2823ba8bf2bc",
+                            "label": "nextItem",
+                            "scope": "CLASS",
+                            "texture": {
+                                "key": "ninjaprogress",
+                                "frame": "fire/next/1"
+                            },
+                            "x": 242,
+                            "y": 6
+                        },
+                        {
+                            "type": "Image",
+                            "id": "f4c13c81-8e95-49d1-9bb5-7c349d5308be",
+                            "label": "ninjaItem3",
+                            "scope": "CLASS",
+                            "texture": {
+                                "key": "ninjaprogress",
+                                "frame": "fire/ninja/item3"
+                            },
+                            "x": -235,
+                            "y": -50,
+                            "visible": false
+                        },
+                        {
+                            "type": "Image",
+                            "id": "71213f10-c3b3-49fb-b914-ad9f9a9dbbfb",
+                            "label": "ninjaItem1",
+                            "scope": "CLASS",
+                            "texture": {
+                                "key": "ninjaprogress",
+                                "frame": "fire/ninja/item1"
+                            },
+                            "x": -243,
+                            "y": 32,
+                            "visible": false
+                        },
+                        {
+                            "type": "Image",
+                            "id": "94168d40-9168-4083-aff4-ffe1df6a798c",
+                            "label": "ninjaItem2",
+                            "scope": "CLASS",
+                            "texture": {
+                                "key": "ninjaprogress",
+                                "frame": "fire/ninja/item2"
+                            },
+                            "x": -243,
+                            "y": -2,
+                            "visible": false
+                        },
+                        {
+                            "type": "Image",
+                            "id": "cc6dd5d4-ebc0-4e89-b343-9fae2a127ec6",
+                            "label": "bar",
+                            "texture": {
+                                "key": "ninjaprogress",
+                                "frame": "fire/progress/bar"
+                            },
+                            "x": 2,
+                            "y": 25
+                        },
+                        {
+                            "type": "Image",
+                            "id": "babb2782-3695-41c0-8cfc-d98c61b90db3",
+                            "label": "progressBar",
+                            "scope": "CLASS",
+                            "texture": {
+                                "key": "ninjaprogress",
+                                "frame": "fire/progress/1"
+                            },
+                            "x": 2,
+                            "y": 25
+                        }
+                    ]
+                },
+                {
+                    "type": "Container",
+                    "id": "80569fbc-9464-4e94-a2b9-11530d118a3b",
+                    "label": "challenge",
+                    "scope": "CLASS",
+                    "visible": false,
+                    "list": [
+                        {
+                            "type": "Image",
+                            "id": "bbcc232b-4c39-4fef-8da6-4ea63ed58c4d",
+                            "label": "sensei2",
+                            "texture": {
+                                "key": "ninjaprogress",
+                                "frame": "fire/sensei2"
+                            },
+                            "x": 238,
+                            "y": 9
+                        },
+                        {
+                            "type": "Image",
+                            "id": "1a01a19a-2b88-48e9-b313-6f4de5714402",
+                            "label": "fireNinja1",
+                            "texture": {
+                                "key": "ninjaprogress",
+                                "frame": "fire/ninja/complete1"
+                            },
+                            "x": -250,
+                            "y": -7
+                        },
+                        {
+                            "type": "Text",
+                            "id": "83605a9b-30da-4b1d-b1bb-5fbbffee8e00",
+                            "label": "challengeText",
+                            "x": -4,
+                            "y": 26,
+                            "originX": 0.5,
+                            "originY": 0.5,
+                            "text": "Well done! Challenge Sensei\nto become a Fire Ninja!",
+                            "fixedWidth": 300,
+                            "fixedHeight": 50,
+                            "align": "center",
+                            "fontFamily": "Burbank Small",
+                            "fontSize": "20px",
+                            "color": "#451414"
+                        }
+                    ]
+                },
+                {
+                    "type": "Container",
+                    "id": "560f0cf2-be85-4753-a419-fcb325f60bbf",
+                    "label": "congratulations",
+                    "scope": "CLASS",
+                    "visible": false,
+                    "list": [
+                        {
+                            "type": "Image",
+                            "id": "0829f2bb-0177-477e-b0a1-4da031766594",
+                            "label": "fireNinja2",
+                            "texture": {
+                                "key": "ninjaprogress",
+                                "frame": "fire/ninja/complete2"
+                            },
+                            "x": -229,
+                            "y": -1
+                        },
+                        {
+                            "type": "Text",
+                            "id": "46635790-78d5-4b95-9b33-1e2cb7ffbe2a",
+                            "label": "congratulationsText",
+                            "x": 79,
+                            "y": 22,
+                            "originX": 0.5,
+                            "originY": 0.5,
+                            "text": "Congratulations! You are now a Fire Ninja!\nYou have received the Fire Gem.",
+                            "fixedWidth": 400,
+                            "fixedHeight": 50,
+                            "fontFamily": "Burbank Small",
+                            "fontSize": "20px",
+                            "color": "#451414"
+                        }
+                    ]
+                },
+                {
+                    "type": "Image",
+                    "id": "2b3636e5-127d-43d3-b578-9288e2b706ce",
+                    "label": "title",
+                    "texture": {
+                        "key": "ninjaprogress",
+                        "frame": "fire/title"
+                    },
+                    "x": 27.5,
+                    "y": -36.5
+                }
+            ]
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 4
+    }
+}

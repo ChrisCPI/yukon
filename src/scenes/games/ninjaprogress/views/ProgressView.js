@@ -1,7 +1,7 @@
 /* START OF COMPILED CODE */
 
 import BaseContainer from "../../../base/BaseContainer";
-import Button from "../../../components/Button";
+import CardsButton from "../buttons/CardsButton";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
 
@@ -10,8 +10,8 @@ export default class ProgressView extends BaseContainer {
     constructor(scene, x, y) {
         super(scene, x ?? 760, y ?? 480);
 
-        /** @type {Phaser.GameObjects.Text} */
-        this.cardsNum;
+        /** @type {CardsButton} */
+        this.cardsButton;
         /** @type {Phaser.GameObjects.Image} */
         this.nextBelt;
         /** @type {Phaser.GameObjects.Image} */
@@ -31,39 +31,20 @@ export default class ProgressView extends BaseContainer {
 
 
         // cardsButton
-        const cardsButton = scene.add.image(0, 254, "ninjaprogress", "button");
-        cardsButton.setOrigin(0.5, 0.5060240963855421);
+        const cardsButton = new CardsButton(scene, 0, 254);
         this.add(cardsButton);
 
-        // cards
-        const cards = scene.add.image(68, 245, "ninjaprogress", "cards");
-        this.add(cards);
-
-        // cardsNum
-        const cardsNum = scene.add.text(64, 248, "", {});
-        cardsNum.setOrigin(0.5, 0.5);
-        cardsNum.text = "0";
-        cardsNum.setStyle({ "align": "center", "fixedWidth":100,"fontFamily": "Burbank Big Regular", "fontSize": "48px", "fontStyle": "bold", "stroke": "#000", "strokeThickness":8,"shadow.blur":2,"shadow.stroke":true,"shadow.fill":true});
-        this.add(cardsNum);
-
-        // cardsText
-        const cardsText = scene.add.text(-81, 254, "", {});
-        cardsText.setOrigin(0.5, 0.5);
-        cardsText.text = "VIEW YOUR\nCARDS";
-        cardsText.setStyle({ "align": "center", "color": "#736357", "fixedWidth":140,"fontFamily": "CCFaceFront", "fontSize": "20px", "fontStyle": "bold italic" });
-        this.add(cardsText);
-
         // progressBg
-        const progressBg = scene.add.image(0, 0, "ninjaprogress", "progress");
+        const progressBg = scene.add.image(0, 0, "ninjaprogress", "cardjitsu/progress");
         this.add(progressBg);
 
         // nextBelt
-        const nextBelt = scene.add.image(436, 27, "ninjaprogress", "next/1");
+        const nextBelt = scene.add.image(436, 27, "ninjaprogress", "cardjitsu/next/1");
         nextBelt.setOrigin(0.5042735042735043, 0.5052631578947369);
         this.add(nextBelt);
 
         // currentBelt
-        const currentBelt = scene.add.image(-399, 66, "ninjaprogress", "belt/1");
+        const currentBelt = scene.add.image(-399, 66, "ninjaprogress", "cardjitsu/belt/1");
         currentBelt.setOrigin(0.502262443438914, 0.5);
         this.add(currentBelt);
 
@@ -82,7 +63,7 @@ export default class ProgressView extends BaseContainer {
         this.add(currentText);
 
         // bar
-        const bar = scene.add.image(46, 7, "ninjaprogress", "progress/1");
+        const bar = scene.add.image(46, 7, "ninjaprogress", "cardjitsu/progress/1");
         bar.setOrigin(0.5008347245409015, 0.5);
         this.add(bar);
 
@@ -100,7 +81,7 @@ export default class ProgressView extends BaseContainer {
         this.add(sensei);
 
         // senseiImage
-        const senseiImage = scene.add.image(116, 0, "ninjaprogress", "sensei");
+        const senseiImage = scene.add.image(116, 0, "ninjaprogress", "cardjitsu/sensei");
         senseiImage.setOrigin(0.5, 0.5023255813953489);
         sensei.add(senseiImage);
 
@@ -118,23 +99,21 @@ export default class ProgressView extends BaseContainer {
         this.add(hideout);
 
         // hideoutImage
-        const hideoutImage = scene.add.image(0, 0, "ninjaprogress", "hideout");
+        const hideoutImage = scene.add.image(0, 0, "ninjaprogress", "cardjitsu/hideout");
         hideout.add(hideoutImage);
 
         // hideoutText
-        const hideoutText = scene.add.text(132, 10, "", {});
+        const hideoutText = scene.add.text(56, 10, "", {});
         hideoutText.setOrigin(0.5, 0.5);
-        hideoutText.text = "Congratulations, ninja! You are a wise Card-Jitsu\nmaster and you now have access to the Ninja Hideout.";
+        hideoutText.text = "Continue your journey in the Ninja Hideout\nnext to the Dojo. Once inside, pick up the\nAmulet from the Martial Artorks catalog.";
         hideoutText.setStyle({ "align": "center", "color": "#333", "fixedWidth":800,"fontFamily": "Burbank Small", "fontSize": "26px" });
         hideoutText.setLineSpacing(8);
         hideout.add(hideoutText);
 
-        // cardsButton (components)
-        const cardsButtonButton = new Button(cardsButton);
-        cardsButtonButton.spriteName = "button";
-        cardsButtonButton.callback = () => this.onButtonClick();
+        // cardsButton (prefab fields)
+        cardsButton.callback = () => this.onButtonClick();
 
-        this.cardsNum = cardsNum;
+        this.cardsButton = cardsButton;
         this.nextBelt = nextBelt;
         this.currentBelt = currentBelt;
         this.nextText = nextText;
@@ -169,23 +148,19 @@ export default class ProgressView extends BaseContainer {
 
         rank = Phaser.Math.Clamp(rank, 1, 9)
 
-        this.currentBelt.setFrame(`belt/${rank}`)
+        this.currentBelt.setFrame(`cardjitsu/belt/${rank}`)
     }
 
     setNextBelt(rank) {
         rank = Phaser.Math.Clamp(rank + 1, 1, 9)
 
-        this.nextBelt.setFrame(`next/${rank}`)
+        this.nextBelt.setFrame(`cardjitsu/next/${rank}`)
     }
 
     setProgress(progress) {
         progress = Phaser.Math.Clamp(progress, 1, 100)
 
-        this.bar.setFrame(`progress/${progress}`)
-    }
-
-    setCardsNum(num) {
-        this.cardsNum.text = num
+        this.bar.setFrame(`cardjitsu/progress/${progress}`)
     }
 
     setVisibleElements(rank) {
