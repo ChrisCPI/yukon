@@ -1,0 +1,1069 @@
+{
+    "id": "fc7e59be-e48b-49e8-a60f-1a736b2041cd",
+    "sceneType": "SCENE",
+    "settings": {
+        "compilerInsertSpaces": true,
+        "javaScriptInitFieldsInConstructor": true,
+        "exportClass": true,
+        "autoImport": true,
+        "superClassName": "RoomScene",
+        "preloadMethodName": "_preload",
+        "preloadPackFiles": [
+            "yukon/assets/media/rooms/dojohide/dojohide-pack.json"
+        ],
+        "createMethodName": "_create",
+        "sceneKey": "DojoHide",
+        "borderWidth": 1520,
+        "borderHeight": 960
+    },
+    "displayList": [
+        {
+            "type": "Image",
+            "id": "da4ea9df-b246-432f-9e9d-79b3d50fd804",
+            "label": "bg_water",
+            "texture": {
+                "key": "dojohide",
+                "frame": "bg/water"
+            },
+            "x": -17,
+            "y": 529,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Sprite",
+            "id": "541cc4ca-fd99-45e1-a651-2d7debfa5682",
+            "label": "bridgeWater",
+            "scope": "CLASS",
+            "texture": {
+                "key": "dojohide",
+                "frame": "bg/bridgeref0001"
+            },
+            "x": 57.5,
+            "y": 743,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "531a637c-f437-4d76-9513-eb0b153e5640",
+            "label": "bg",
+            "texture": {
+                "key": "dojohide",
+                "frame": "bg/bg"
+            },
+            "x": -22,
+            "y": -22,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "ed31219d-b647-4f3e-8e32-6b3b69fde183",
+            "label": "ref",
+            "texture": {
+                "key": "dojohide",
+                "frame": "ref"
+            },
+            "x": 760,
+            "y": 481,
+            "visible": false,
+            "alpha": 0.5,
+            "alphaTopLeft": 0.5,
+            "alphaTopRight": 0.5,
+            "alphaBottomLeft": 0.5,
+            "alphaBottomRight": 0.5
+        },
+        {
+            "type": "Image",
+            "id": "4f167148-9d35-46fd-8a30-fd708b33556d",
+            "label": "bg_path_floor",
+            "texture": {
+                "key": "dojohide",
+                "frame": "bg/path/floor"
+            },
+            "x": 461.5,
+            "y": 588,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "4fb7bf39-d6b2-4b15-8d28-87089af1a1bb",
+            "label": "bg_path_fire_off",
+            "texture": {
+                "key": "dojohide",
+                "frame": "bg/path/fire-off"
+            },
+            "x": 506,
+            "y": 660,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "15c864ac-d041-46f6-ab23-170cc78b97b9",
+            "label": "bg_path_water_off",
+            "texture": {
+                "key": "dojohide",
+                "frame": "bg/path/water-off"
+            },
+            "x": 666.5,
+            "y": 610.5,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "4974a983-bed0-45f8-923d-ac48d081567d",
+            "label": "bg_path_snow_off",
+            "texture": {
+                "key": "dojohide",
+                "frame": "bg/path/snow-off"
+            },
+            "x": 692,
+            "y": 701.5,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "182494b6-4528-4054-895d-9729ff725eaf",
+            "label": "door",
+            "components": [
+                "Button",
+                "MoveTo"
+            ],
+            "Button.spriteName": "door",
+            "Button.activeFrame": false,
+            "MoveTo.x": "380",
+            "MoveTo.y": "392",
+            "texture": {
+                "key": "dojohide",
+                "frame": "door"
+            },
+            "x": 313,
+            "y": 253,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "1c2af92a-7aff-49ed-b219-42064350443b",
+            "label": "back_lantern",
+            "texture": {
+                "key": "dojohide",
+                "frame": "back_lantern"
+            },
+            "x": 599,
+            "y": 410,
+            "originY": 0.8759461456914207
+        },
+        {
+            "type": "Image",
+            "id": "a0f0f744-9a2a-46be-8a98-a91df59dda85",
+            "label": "wood1",
+            "texture": {
+                "key": "dojohide",
+                "frame": "wood1"
+            },
+            "x": 39,
+            "y": 537,
+            "originX": 0.5106382978723404,
+            "originY": 0.8504672897196262
+        },
+        {
+            "type": "Image",
+            "id": "1b9fd8f0-8104-4eb8-92ac-fe842f11ba25",
+            "label": "wood2",
+            "texture": {
+                "key": "dojohide",
+                "frame": "wood2"
+            },
+            "x": 160,
+            "y": 461,
+            "originX": 0.509090909090909,
+            "originY": 0.8307692307692308
+        },
+        {
+            "type": "Image",
+            "id": "66776735-dda0-4c9b-b471-c5795d7273ed",
+            "label": "wood3",
+            "texture": {
+                "key": "dojohide",
+                "frame": "wood3"
+            },
+            "x": 279,
+            "y": 393,
+            "originX": 0.5121951219512195,
+            "originY": 0.8522727272727273
+        },
+        {
+            "type": "Image",
+            "id": "6ec8a2ef-664d-4cbd-bc0a-96c8b53f9c9f",
+            "label": "wood4",
+            "texture": {
+                "key": "dojohide",
+                "frame": "wood4"
+            },
+            "x": 471,
+            "y": 389,
+            "originX": 0.5106382978723404,
+            "originY": 0.8909090909090909
+        },
+        {
+            "type": "Image",
+            "id": "ca52a9b2-38b1-4464-ba1a-e28410a70f64",
+            "label": "wood5",
+            "texture": {
+                "key": "dojohide",
+                "frame": "wood5"
+            },
+            "x": 1048,
+            "y": 390,
+            "originX": 0.5106382978723404,
+            "originY": 0.8867924528301887
+        },
+        {
+            "type": "Image",
+            "id": "46074921-df94-468b-8d3e-ada7b7851979",
+            "label": "wood6",
+            "texture": {
+                "key": "dojohide",
+                "frame": "wood6"
+            },
+            "x": 1240,
+            "y": 395,
+            "originX": 0.5121951219512195,
+            "originY": 0.8402366863905325
+        },
+        {
+            "type": "Image",
+            "id": "8bf14786-ee42-4d8f-84e8-670ca912bc3c",
+            "label": "wood7",
+            "texture": {
+                "key": "dojohide",
+                "frame": "wood7"
+            },
+            "x": 1360,
+            "y": 464,
+            "originX": 0.509090909090909,
+            "originY": 0.8342245989304813
+        },
+        {
+            "type": "Image",
+            "id": "e5b7c0bc-1200-489a-b736-2327dadf3516",
+            "label": "wood8",
+            "texture": {
+                "key": "dojohide",
+                "frame": "wood8"
+            },
+            "x": 1482,
+            "y": 544,
+            "originX": 0.5106382978723404,
+            "originY": 0.8701923076923077
+        },
+        {
+            "type": "Image",
+            "id": "42f50dd0-4c35-41db-ba1c-e4fc0e7850f8",
+            "label": "screen",
+            "texture": {
+                "key": "dojohide",
+                "frame": "screen"
+            },
+            "x": 960,
+            "y": 409,
+            "originX": 0.5048543689320388,
+            "originY": 0.9047619047619048
+        },
+        {
+            "type": "Image",
+            "id": "75c3fab4-04fb-4591-a527-005cad75d48d",
+            "label": "foliage2",
+            "texture": {
+                "key": "dojohide",
+                "frame": "foliage2"
+            },
+            "x": 335,
+            "y": 463,
+            "originX": 0.5023255813953489
+        },
+        {
+            "type": "Image",
+            "id": "1a5feb24-bc51-44cd-88bb-ec68a2709218",
+            "label": "lantern1",
+            "texture": {
+                "key": "dojohide",
+                "frame": "lantern1"
+            },
+            "x": 313,
+            "y": 484,
+            "originY": 0.6964285714285714
+        },
+        {
+            "type": "Image",
+            "id": "d2b4fe43-cbd1-45b3-8b17-e9701e9cbcd6",
+            "label": "foliage3",
+            "texture": {
+                "key": "dojohide",
+                "frame": "foliage3"
+            },
+            "x": 480,
+            "y": 479,
+            "originX": 0.5028571428571429,
+            "originY": 0.8580645161290322
+        },
+        {
+            "type": "Container",
+            "id": "b1543770-e908-4424-925b-ea75a0fba7e8",
+            "label": "firePath",
+            "x": 213,
+            "y": 488,
+            "list": [
+                {
+                    "type": "Sprite",
+                    "id": "6d892146-6701-4afa-899f-6bd730d7e040",
+                    "label": "firePathBack",
+                    "scope": "CLASS",
+                    "texture": {
+                        "key": "dojohide",
+                        "frame": "pathFire/back0001"
+                    },
+                    "x": -232.5,
+                    "y": -232,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Image",
+                    "id": "c29e7524-bbba-498c-884a-a5da86d86a31",
+                    "label": "firePathStairs",
+                    "scope": "CLASS",
+                    "components": [
+                        "Button",
+                        "MoveTo"
+                    ],
+                    "Button.spriteName": "pathFire/stairs",
+                    "Button.hoverCallback": "() => this.pauseFirePath()",
+                    "Button.hoverOutCallback": "() => this.resumeFirePath()",
+                    "Button.activeFrame": false,
+                    "MoveTo.x": "290",
+                    "MoveTo.y": "630",
+                    "texture": {
+                        "key": "dojohide",
+                        "frame": "pathFire/stairs"
+                    },
+                    "x": -93,
+                    "y": -48,
+                    "originX": 0,
+                    "originY": 0,
+                    "visible": false
+                },
+                {
+                    "type": "Sprite",
+                    "id": "688d64cb-470e-4538-9b1b-84be1bb431f2",
+                    "label": "firePathDoor",
+                    "scope": "CLASS",
+                    "texture": {
+                        "key": "dojohide",
+                        "frame": "pathFire/door_open0001"
+                    },
+                    "x": 44,
+                    "y": -8,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Sprite",
+                    "id": "35b1157b-980f-4ba2-89c3-2c4b115cec0c",
+                    "label": "firePathFront",
+                    "scope": "CLASS",
+                    "texture": {
+                        "key": "dojohide",
+                        "frame": "pathFire/front0001"
+                    },
+                    "x": -232.5,
+                    "y": -307.5,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Image",
+                    "id": "554f4ea7-6236-4303-ab51-cd3debd04e60",
+                    "label": "firePathNote",
+                    "scope": "CLASS",
+                    "components": [
+                        "Button"
+                    ],
+                    "Button.spriteName": "pathFire/note",
+                    "Button.hoverCallback": "() => this.pauseFirePath()",
+                    "Button.hoverOutCallback": "() => this.resumeFirePath()",
+                    "Button.callback": "() => this.onFireNoteClick()",
+                    "Button.activeFrame": false,
+                    "texture": {
+                        "key": "dojohide",
+                        "frame": "pathFire/note"
+                    },
+                    "x": 60,
+                    "y": 7,
+                    "originX": 0,
+                    "originY": 0,
+                    "visible": false
+                }
+            ]
+        },
+        {
+            "type": "Image",
+            "id": "38624cbc-cc94-4486-a1d3-242b4ab76fbe",
+            "label": "foliage1",
+            "texture": {
+                "key": "dojohide",
+                "frame": "foliage1"
+            },
+            "x": 55,
+            "y": 753,
+            "originY": 0.367816091954023
+        },
+        {
+            "type": "Image",
+            "id": "5c6c36b1-c667-4d56-9e34-574a5b853af1",
+            "label": "foliage5",
+            "texture": {
+                "key": "dojohide",
+                "frame": "foliage5"
+            },
+            "x": 1195,
+            "y": 463,
+            "originX": 0.5019455252918288,
+            "originY": 0.5026737967914439
+        },
+        {
+            "type": "Image",
+            "id": "99c7036a-0c2a-4b86-a81d-e2fa0902a2c3",
+            "label": "foliage4",
+            "texture": {
+                "key": "dojohide",
+                "frame": "foliage4"
+            },
+            "x": 1034,
+            "y": 475,
+            "originX": 0.5029239766081871,
+            "originY": 0.8513513513513513
+        },
+        {
+            "type": "Image",
+            "id": "c78b2584-af85-4360-bae6-ee9406890aec",
+            "label": "rock",
+            "texture": {
+                "key": "dojohide",
+                "frame": "rock"
+            },
+            "x": 1062,
+            "y": 497
+        },
+        {
+            "type": "Image",
+            "id": "a7a855eb-d867-463d-9b17-07bbc913d656",
+            "label": "lantern2",
+            "texture": {
+                "key": "dojohide",
+                "frame": "lantern2"
+            },
+            "x": 1205,
+            "y": 483,
+            "originY": 0.6637931034482759
+        },
+        {
+            "type": "Image",
+            "id": "48440985-2062-4584-9872-3c187c0170e9",
+            "label": "foliage6",
+            "texture": {
+                "key": "dojohide",
+                "frame": "foliage6"
+            },
+            "x": 1271,
+            "y": 501,
+            "originY": 0.2636363636363636
+        },
+        {
+            "type": "Image",
+            "id": "764a2dc5-f5ab-487c-87fb-f526dee4da67",
+            "label": "foliage7",
+            "texture": {
+                "key": "dojohide",
+                "frame": "foliage7"
+            },
+            "x": 1475,
+            "y": 756,
+            "originY": 0.39574468085106385
+        },
+        {
+            "type": "Image",
+            "id": "7b95800f-a914-42d8-bce6-a977776ead8a",
+            "label": "foliage8",
+            "texture": {
+                "key": "dojohide",
+                "frame": "foliage8"
+            },
+            "x": 1491,
+            "y": 782,
+            "originX": 0.5048543689320388,
+            "originY": 0.33714285714285713
+        },
+        {
+            "type": "Sprite",
+            "id": "cc627c86-7a0a-497f-ac6d-744dd30831ea",
+            "label": "gong1",
+            "texture": {
+                "key": "dojohide",
+                "frame": "gong1/gong0001"
+            },
+            "x": 62,
+            "y": 161.5,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Sprite",
+            "id": "8beba7e8-0264-4e14-a9d2-cfeb7bf7f8df",
+            "label": "gong2",
+            "texture": {
+                "key": "dojohide",
+                "frame": "gong2/gong0001"
+            },
+            "x": 319,
+            "y": 98.5,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Sprite",
+            "id": "f444801f-6955-46b0-aec2-c86b045d43da",
+            "label": "gong3",
+            "texture": {
+                "key": "dojohide",
+                "frame": "gong3/gong0001"
+            },
+            "x": 1035.5,
+            "y": 60,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Sprite",
+            "id": "acb62fe8-d27e-4cf4-8232-318535c2fd04",
+            "label": "gong4",
+            "texture": {
+                "key": "dojohide",
+                "frame": "gong4/gong0001"
+            },
+            "x": 1279,
+            "y": -21.5,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "722eaa5f-5468-4a5e-b430-f858ef4e3b59",
+            "label": "store",
+            "texture": {
+                "key": "dojohide",
+                "frame": "store"
+            },
+            "x": 768,
+            "y": 425,
+            "originX": 0.5008912655971479,
+            "originY": 0.9314775160599572
+        },
+        {
+            "type": "Image",
+            "id": "766fd870-467d-4717-b28b-db042925d588",
+            "label": "catalog",
+            "scope": "CLASS",
+            "components": [
+                "Button"
+            ],
+            "Button.spriteName": "catalog",
+            "Button.callback": "() => this.onCatalogClick()",
+            "Button.activeFrame": false,
+            "Button.pixelPerfect": true,
+            "texture": {
+                "key": "dojohide",
+                "frame": "catalog"
+            },
+            "x": 1329.5,
+            "y": 687.5,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "87ef1fef-5622-4377-871f-f087925bdf08",
+            "label": "cards",
+            "scope": "CLASS",
+            "components": [
+                "Button"
+            ],
+            "Button.spriteName": "cards",
+            "Button.callback": "() => this.onCardsClick()",
+            "Button.activeFrame": false,
+            "texture": {
+                "key": "dojohide",
+                "frame": "cards"
+            },
+            "x": 1342.5,
+            "y": 818.5,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Container",
+            "id": "18e84cb2-f43a-4552-93df-37a260f1a2a7",
+            "label": "fireTablet",
+            "x": 423,
+            "y": 547,
+            "list": [
+                {
+                    "type": "Image",
+                    "id": "30e650bb-4141-4ed2-883a-0822536f6417",
+                    "label": "tableExtra1",
+                    "texture": {
+                        "key": "dojohide",
+                        "frame": "tabletFire/extra1"
+                    },
+                    "x": -53.5,
+                    "y": 3,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Container",
+                    "id": "94eb7bb0-c0af-4be9-92ff-61be3d4480e8",
+                    "label": "tablet",
+                    "scope": "CLASS",
+                    "x": 1,
+                    "y": -33,
+                    "list": [
+                        {
+                            "type": "Image",
+                            "id": "69e9d21b-c4a8-4b3e-9abb-9e38504ce390",
+                            "label": "tabletButton",
+                            "scope": "CLASS",
+                            "components": [
+                                "Button"
+                            ],
+                            "Button.spriteName": "tabletFire/button",
+                            "Button.hoverCallback": "() => this.onFireTabletOver()",
+                            "Button.hoverOutCallback": "() => this.onFireTabletOut()",
+                            "Button.callback": "() => this.onFireTabletClick()",
+                            "texture": {
+                                "key": "dojohide",
+                                "frame": "tabletFire/button"
+                            },
+                            "x": -51.5,
+                            "y": -79,
+                            "originX": 0,
+                            "originY": 0
+                        },
+                        {
+                            "type": "Sprite",
+                            "id": "1f60551c-203d-4ff4-9fc1-ed64746a8f18",
+                            "label": "tabletGlow",
+                            "scope": "CLASS",
+                            "components": [
+                                "Animation"
+                            ],
+                            "Animation.key": "tabletFire/glow",
+                            "Animation.end": 80,
+                            "texture": {
+                                "key": "dojohide",
+                                "frame": "tabletFire/glow0001"
+                            },
+                            "x": -25,
+                            "y": -59,
+                            "originX": 0,
+                            "originY": 0
+                        }
+                    ]
+                },
+                {
+                    "type": "Sprite",
+                    "id": "b29993b2-df5e-4d18-ba81-91865cff2618",
+                    "label": "fireParticle3",
+                    "texture": {
+                        "key": "dojohide",
+                        "frame": "tabletFire/particle0001"
+                    },
+                    "x": 27,
+                    "y": -146,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Sprite",
+                    "id": "803b2924-2218-44aa-8232-864ae231459b",
+                    "label": "fireParticle2",
+                    "texture": {
+                        "key": "dojohide",
+                        "frame": "tabletFire/particle0001"
+                    },
+                    "x": -2,
+                    "y": -146,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Sprite",
+                    "id": "3575cb7f-685e-41ec-b46a-6cdf2c44d4a0",
+                    "label": "fireParticle1",
+                    "texture": {
+                        "key": "dojohide",
+                        "frame": "tabletFire/particle0001"
+                    },
+                    "x": -42,
+                    "y": -146,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Sprite",
+                    "id": "423c7e8a-2c67-4503-99ff-c44866248418",
+                    "label": "fireParticle4",
+                    "texture": {
+                        "key": "dojohide",
+                        "frame": "tabletFire/particle0001"
+                    },
+                    "x": -22,
+                    "y": -146,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Sprite",
+                    "id": "ff196ad6-c3b9-4169-87d3-04d4d7a66242",
+                    "label": "fireParticle5",
+                    "texture": {
+                        "key": "dojohide",
+                        "frame": "tabletFire/particle0001"
+                    },
+                    "x": -12,
+                    "y": -146,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Sprite",
+                    "id": "69c4179f-231d-4e4e-a671-ee2d1b770926",
+                    "label": "fireParticle6",
+                    "texture": {
+                        "key": "dojohide",
+                        "frame": "tabletFire/particle0001"
+                    },
+                    "x": -31,
+                    "y": -146,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Sprite",
+                    "id": "9bc02a1a-2d8d-4dea-ae64-50da725df2f0",
+                    "label": "fireParticle7",
+                    "texture": {
+                        "key": "dojohide",
+                        "frame": "tabletFire/particle0001"
+                    },
+                    "x": 18,
+                    "y": -146,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Sprite",
+                    "id": "69c4aeee-3760-4fb3-bdc6-64e534761fff",
+                    "label": "fireParticle8",
+                    "texture": {
+                        "key": "dojohide",
+                        "frame": "tabletFire/particle0001"
+                    },
+                    "x": 37,
+                    "y": -146,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Sprite",
+                    "id": "7ced526f-6e6d-4d02-8e33-18283c9b0914",
+                    "label": "fireParticle9",
+                    "texture": {
+                        "key": "dojohide",
+                        "frame": "tabletFire/particle0001"
+                    },
+                    "x": 8,
+                    "y": -146,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Sprite",
+                    "id": "4023711f-7b55-4cd5-9de3-10da494a64ac",
+                    "label": "fireBeam",
+                    "scope": "CLASS",
+                    "texture": {
+                        "key": "dojohide",
+                        "frame": "tabletFire/beam0003"
+                    },
+                    "x": -47,
+                    "y": -198,
+                    "originX": 0,
+                    "originY": 0,
+                    "visible": false
+                },
+                {
+                    "type": "Image",
+                    "id": "40ebb9e7-fcf0-4499-8321-94e842aa98df",
+                    "label": "tabletExtra2",
+                    "texture": {
+                        "key": "dojohide",
+                        "frame": "tabletFire/extra2"
+                    },
+                    "x": 33,
+                    "y": 3,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Image",
+                    "id": "0b6ceed3-f4cc-4f1d-8b2e-fa988f910e41",
+                    "label": "tabletExtra3",
+                    "texture": {
+                        "key": "dojohide",
+                        "frame": "tabletFire/extra3"
+                    },
+                    "x": -59,
+                    "y": 18,
+                    "originX": 0,
+                    "originY": 0
+                }
+            ]
+        },
+        {
+            "type": "Image",
+            "id": "dfff527f-91c0-46dd-95fd-b5082659fb62",
+            "label": "decksteps",
+            "texture": {
+                "key": "dojohide",
+                "frame": "bg/decksteps0001"
+            },
+            "x": 605,
+            "y": 492.5,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "prefabId": "94b0f03b-fa00-4044-bb89-7a1f9de1d28a",
+            "id": "ac61c527-1b94-4d12-9f44-736fb773e2d9",
+            "unlock": [
+                "x",
+                "y",
+                "moveToY",
+                "moveToX"
+            ],
+            "label": "waddle203",
+            "scope": "CLASS",
+            "moveToX": 1150,
+            "moveToY": 770,
+            "x": 1179,
+            "y": 828
+        },
+        {
+            "prefabId": "c76c1e6f-41e2-4206-8755-56c8a12a0f3e",
+            "id": "9ea5827e-b405-4197-ba64-c5dfc214cb92",
+            "unlock": [
+                "x",
+                "y",
+                "moveToX",
+                "moveToY"
+            ],
+            "label": "waddle202",
+            "scope": "CLASS",
+            "moveToX": 350,
+            "moveToY": 770,
+            "x": 331,
+            "y": 827
+        },
+        {
+            "prefabId": "80563219-0641-4472-8aed-e0959810f53b",
+            "id": "95a62255-ea2a-4eda-858c-1616c08ed023",
+            "unlock": [
+                "x",
+                "y",
+                "moveToX",
+                "moveToY"
+            ],
+            "label": "waddle201",
+            "scope": "CLASS",
+            "moveToX": 1050,
+            "moveToY": 590,
+            "x": 1072,
+            "y": 577
+        },
+        {
+            "prefabId": "8ea08b13-08a9-4e03-8102-518098689859",
+            "id": "1d624844-f895-47e5-bcb1-6f9e49570041",
+            "unlock": [
+                "x",
+                "y",
+                "moveToX",
+                "moveToY"
+            ],
+            "label": "waddle200",
+            "scope": "CLASS",
+            "moveToX": 460,
+            "moveToY": 590,
+            "x": 450,
+            "y": 577
+        },
+        {
+            "type": "Rectangle",
+            "id": "1884a872-c0f9-42b2-aa2d-34ae96a56812",
+            "label": "gong1Zone",
+            "scope": "CLASS",
+            "components": [
+                "Zone"
+            ],
+            "Zone.callback": "() => this.hitGong(1)",
+            "x": 86,
+            "y": 180,
+            "originX": 0,
+            "originY": 0,
+            "alpha": 0.5,
+            "isFilled": true,
+            "fillColor": "#00ff00",
+            "width": 104,
+            "height": 116
+        },
+        {
+            "type": "Rectangle",
+            "id": "e4419783-4ed8-4cc6-8d6d-60f7b055703e",
+            "label": "gong2Zone",
+            "scope": "CLASS",
+            "components": [
+                "Zone"
+            ],
+            "Zone.callback": "() => this.hitGong(2)",
+            "x": 320,
+            "y": 106,
+            "originX": 0,
+            "originY": 0,
+            "alpha": 0.5,
+            "isFilled": true,
+            "fillColor": "#00ff00",
+            "width": 136,
+            "height": 132
+        },
+        {
+            "type": "Rectangle",
+            "id": "57ad42a1-719d-4d06-b56d-35dfc2fb933e",
+            "label": "gong3Zone",
+            "scope": "CLASS",
+            "components": [
+                "Zone"
+            ],
+            "Zone.callback": "() => this.hitGong(3)",
+            "x": 1050,
+            "y": 74,
+            "originX": 0,
+            "originY": 0,
+            "alpha": 0.5,
+            "isFilled": true,
+            "fillColor": "#00ff00",
+            "width": 170,
+            "height": 170
+        },
+        {
+            "type": "Rectangle",
+            "id": "55a8d86b-ada9-43ca-88a3-1dede1e1b006",
+            "label": "gong4Zone",
+            "scope": "CLASS",
+            "components": [
+                "Zone"
+            ],
+            "Zone.callback": "() => this.hitGong(4)",
+            "x": 1286,
+            "y": 46,
+            "originX": 0,
+            "originY": 0,
+            "alpha": 0.5,
+            "isFilled": true,
+            "fillColor": "#00ff00",
+            "width": 194,
+            "height": 260
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 4
+    },
+    "lists": [
+        {
+            "id": "ee2c4bae-e858-40d6-b40d-018478277174",
+            "label": "sort",
+            "objectIds": [
+                "1c2af92a-7aff-49ed-b219-42064350443b",
+                "c78b2584-af85-4360-bae6-ee9406890aec",
+                "18e84cb2-f43a-4552-93df-37a260f1a2a7",
+                "b1543770-e908-4424-925b-ea75a0fba7e8",
+                "1b9fd8f0-8104-4eb8-92ac-fe842f11ba25",
+                "a0f0f744-9a2a-46be-8a98-a91df59dda85",
+                "66776735-dda0-4c9b-b471-c5795d7273ed",
+                "6ec8a2ef-664d-4cbd-bc0a-96c8b53f9c9f",
+                "ca52a9b2-38b1-4464-ba1a-e28410a70f64",
+                "46074921-df94-468b-8d3e-ada7b7851979",
+                "e5b7c0bc-1200-489a-b736-2327dadf3516",
+                "8bf14786-ee42-4d8f-84e8-670ca912bc3c",
+                "a7a855eb-d867-463d-9b17-07bbc913d656",
+                "1a5feb24-bc51-44cd-88bb-ec68a2709218",
+                "38624cbc-cc94-4486-a1d3-242b4ab76fbe",
+                "75c3fab4-04fb-4591-a527-005cad75d48d",
+                "d2b4fe43-cbd1-45b3-8b17-e9701e9cbcd6",
+                "99c7036a-0c2a-4b86-a81d-e2fa0902a2c3",
+                "5c6c36b1-c667-4d56-9e34-574a5b853af1",
+                "48440985-2062-4584-9872-3c187c0170e9",
+                "764a2dc5-f5ab-487c-87fb-f526dee4da67",
+                "7b95800f-a914-42d8-bce6-a977776ead8a",
+                "722eaa5f-5468-4a5e-b430-f858ef4e3b59",
+                "42f50dd0-4c35-41db-ba1c-e4fc0e7850f8",
+                "1d624844-f895-47e5-bcb1-6f9e49570041",
+                "95a62255-ea2a-4eda-858c-1616c08ed023"
+            ]
+        },
+        {
+            "id": "7149eebd-71e1-4d98-abfb-8da3eabf0970",
+            "label": "gongs",
+            "objectIds": [
+                "cc627c86-7a0a-497f-ac6d-744dd30831ea",
+                "8beba7e8-0264-4e14-a9d2-cfeb7bf7f8df",
+                "f444801f-6955-46b0-aec2-c86b045d43da",
+                "acb62fe8-d27e-4cf4-8232-318535c2fd04"
+            ]
+        },
+        {
+            "id": "d74e2797-3fb2-43cf-8894-095523827952",
+            "label": "fireParticles",
+            "objectIds": [
+                "3575cb7f-685e-41ec-b46a-6cdf2c44d4a0",
+                "803b2924-2218-44aa-8232-864ae231459b",
+                "b29993b2-df5e-4d18-ba81-91865cff2618",
+                "423c7e8a-2c67-4503-99ff-c44866248418",
+                "ff196ad6-c3b9-4169-87d3-04d4d7a66242",
+                "69c4179f-231d-4e4e-a671-ee2d1b770926",
+                "9bc02a1a-2d8d-4dea-ae64-50da725df2f0",
+                "69c4aeee-3760-4fb3-bdc6-64e534761fff",
+                "7ced526f-6e6d-4d02-8e33-18283c9b0914"
+            ]
+        }
+    ]
+}

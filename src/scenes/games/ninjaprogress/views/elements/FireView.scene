@@ -42,7 +42,7 @@
                         {
                             "type": "Image",
                             "id": "23052fbd-56bf-4af5-a10d-bffa353d0993",
-                            "label": "fsensei1",
+                            "label": "sensei1",
                             "texture": {
                                 "key": "ninjaprogress",
                                 "frame": "fire/sensei1"

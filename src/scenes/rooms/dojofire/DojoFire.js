@@ -38,7 +38,7 @@ export default class DojoFire extends RoomScene {
         /* START-USER-CTR-CODE */
 
         this.roomTriggers = {
-            'dojohide': () => null,
+            'dojohide': () => this.triggerRoom(322, 360, 700),
             'sensei': () => this.triggerGame(953),
             'waddle300': () => this.triggerMat(300),
             'waddle301': () => this.triggerMat(301),

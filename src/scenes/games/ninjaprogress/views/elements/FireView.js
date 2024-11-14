@@ -39,9 +39,9 @@ export default class FireView extends BaseContainer {
         const intro = scene.add.container(-226, 1);
         this.add(intro);
 
-        // fsensei1
-        const fsensei1 = scene.add.image(0, 0, "ninjaprogress", "fire/sensei1");
-        intro.add(fsensei1);
+        // sensei1
+        const sensei1 = scene.add.image(0, 0, "ninjaprogress", "fire/sensei1");
+        intro.add(sensei1);
 
         // tablet
         const tablet = scene.add.image(470, 2, "ninjaprogress", "fire/tablet");

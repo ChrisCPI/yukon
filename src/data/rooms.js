@@ -89,6 +89,12 @@ const rooms = {
         x: 780,
         y: 790
     },
+    322: {
+        key: 'DojoHide',
+        scene: require('@rooms/dojohide/DojoHide').default,
+        x: 780,
+        y: 790
+    },
     400: {
         key: 'Beach',
         scene: require('@rooms/beach/Beach').default,
