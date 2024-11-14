@@ -713,7 +713,7 @@ export default class DojoHide extends RoomScene {
     }
 
     onFireNoteClick() {
-
+        this.interface.loadWidget('FirePathNote')
     }
 
     onCatalogClick() {
