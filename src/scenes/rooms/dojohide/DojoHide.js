@@ -84,7 +84,7 @@ export default class DojoHide extends RoomScene {
         this.roomTriggers = {
             'dojoext': () => this.triggerRoom(321, 260, 720),
             'dojofire': () => this.triggerDojoFire(),
-            'ninja': () => null,
+            'ninja': () => this.onCatalogClick(),
             'waddle200': () => this.triggerMat(200),
             'waddle201': () => this.triggerMat(201),
             'waddle202': () => this.triggerMat(202),
@@ -717,7 +717,7 @@ export default class DojoHide extends RoomScene {
     }
 
     onCatalogClick() {
-
+        this.interface.loadWidget('NinjaCatalog')
     }
 
     onCardsClick() {

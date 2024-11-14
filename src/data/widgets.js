@@ -4,6 +4,7 @@ const widgets = {
     'FurnitureCatalog': require('@scenes/interface/catalogs/furniture/FurnitureCatalog'),
     'GiveTour': require('@scenes/interface/books/give_tour/GiveTour'),
     'IglooCatalog': require('@scenes/interface/catalogs/igloo/IglooCatalog'),
+    'NinjaCatalog': require('@scenes/interface/catalogs/ninja/NinjaCatalog'),
     'PetsCatalog': require('@scenes/interface/catalogs/pets/PetsCatalog'),
 
     'AgentQuiz': require('@scenes/interface/quiz/agent/AgentQuiz'),
