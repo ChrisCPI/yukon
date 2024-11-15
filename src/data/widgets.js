@@ -18,6 +18,7 @@ const widgets = {
     'NinjaBelts': require('@scenes/interface/instructions/ninjabelts/NinjaBelts'),
     'NinjaInstructions': require('@scenes/interface/instructions/ninjainstructions/NinjaInstructions'),
     'NinjaProgress': require('@scenes/games/ninjaprogress/NinjaProgress'),
+    'SenseiNote': require('@scenes/interface/game/sensei_note/SenseiNote'),
     'Sensei': require('@scenes/games/sensei/widget/SenseiWidget'),
     'FireSensei': require('@scenes/games/firesensei/widget/FireSenseiWidget'),
     'TakeTour': require('@scenes/interface/game/take_tour/TakeTour'),

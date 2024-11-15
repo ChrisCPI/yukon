@@ -1,0 +1,79 @@
+{
+    "id": "8e4e68cd-b61f-441b-b500-892e81ddd948",
+    "sceneType": "PREFAB",
+    "settings": {
+        "compilerInsertSpaces": true,
+        "javaScriptInitFieldsInConstructor": true,
+        "exportClass": true,
+        "autoImport": true,
+        "superClassName": "BaseContainer",
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "borderWidth": 1520,
+        "borderHeight": 960
+    },
+    "displayList": [
+        {
+            "type": "Container",
+            "id": "3fde8cf5-4c94-4607-9e1f-a0b1578ae3df",
+            "label": "container_1",
+            "list": [
+                {
+                    "type": "Rectangle",
+                    "id": "48f883d6-b31b-469e-a636-bf9117f81523",
+                    "label": "block",
+                    "components": [
+                        "Interactive"
+                    ],
+                    "originX": 0,
+                    "originY": 0,
+                    "isFilled": true,
+                    "fillColor": "#000000",
+                    "fillAlpha": 0.2,
+                    "width": 1520,
+                    "height": 960
+                },
+                {
+                    "type": "Image",
+                    "id": "04e15d62-7b3e-4c47-b47e-df8315a8d20d",
+                    "label": "bg",
+                    "texture": {
+                        "key": "sensei_note",
+                        "frame": "bg"
+                    },
+                    "x": 352,
+                    "y": 159,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Image",
+                    "id": "a30b2bd5-3514-4d02-b6ce-86c059b44236",
+                    "label": "close",
+                    "components": [
+                        "Button"
+                    ],
+                    "Button.spriteName": "close",
+                    "Button.callback": "() => this.close()",
+                    "Button.pixelPerfect": true,
+                    "texture": {
+                        "key": "sensei_note",
+                        "frame": "close"
+                    },
+                    "x": 1117,
+                    "y": 173,
+                    "originX": 0,
+                    "originY": 0
+                }
+            ]
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 4
+    }
+}

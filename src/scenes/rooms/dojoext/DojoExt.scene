@@ -5,6 +5,7 @@
         "compilerInsertSpaces": true,
         "javaScriptInitFieldsInConstructor": true,
         "exportClass": true,
+        "autoImport": true,
         "superClassName": "RoomScene",
         "preloadMethodName": "_preload",
         "preloadPackFiles": [
@@ -18,92 +19,328 @@
     "displayList": [
         {
             "type": "Image",
-            "id": "7952af9d-43cb-4f95-884a-01505ec00ec9",
-            "label": "bg",
-            "components": [],
+            "id": "5379266f-cd9f-4fb5-b580-6f3e0efe91f6",
+            "label": "sky",
             "texture": {
                 "key": "dojoext",
-                "frame": "bg"
+                "frame": "bg/sky"
             },
-            "x": -15,
-            "y": -6,
+            "x": -12,
+            "y": -10,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Sprite",
+            "id": "8cb0cff2-86a6-4722-93c6-b782b1353b57",
+            "label": "smoke",
+            "components": [
+                "Animation"
+            ],
+            "Animation.key": "bg/smoke",
+            "Animation.end": 28,
+            "texture": {
+                "key": "dojoext",
+                "frame": "bg/smoke0001"
+            },
+            "x": 76,
+            "y": 178,
             "originX": 0,
             "originY": 0
         },
         {
             "type": "Image",
-            "id": "0b0f65f9-638b-4650-84a7-b74b3e6c2831",
-            "label": "trees",
-            "components": [],
+            "id": "c82734c7-e1b0-4911-9eeb-50bfe85da7ca",
+            "label": "volcano",
             "texture": {
                 "key": "dojoext",
-                "frame": "trees"
+                "frame": "bg/volcano"
             },
-            "x": 1364,
-            "y": 915,
-            "originX": 0.518840579710145,
-            "originY": 0.8611111111111112
+            "x": -12,
+            "y": 339,
+            "originX": 0,
+            "originY": 0
         },
         {
             "type": "Image",
-            "id": "649f80de-aa71-4ec2-9e69-71c0c6d6305e",
-            "label": "fence",
-            "components": [],
+            "id": "4d04545f-dec1-40b2-8c9e-4cacb3f93eab",
+            "label": "mountains2",
             "texture": {
                 "key": "dojoext",
-                "frame": "fence"
+                "frame": "bg/mountains2"
             },
-            "x": 170,
-            "y": 920,
-            "originX": 0.4491315136476427,
-            "originY": 0.773109243697479
+            "x": 956,
+            "y": 61,
+            "originX": 0,
+            "originY": 0
         },
         {
             "type": "Image",
-            "id": "aafc525d-0832-4870-a550-7e1579477332",
-            "label": "puffles",
-            "components": [],
+            "id": "6d06e968-838b-46a3-8410-dfd63cc3c577",
+            "label": "cliff",
             "texture": {
                 "key": "dojoext",
-                "frame": "puffles"
+                "frame": "bg/cliff"
             },
-            "x": 786,
-            "y": 823,
-            "originX": 0.49942196531791905,
-            "originY": 0.47202797202797203
+            "x": 156,
+            "y": 228,
+            "originX": 0,
+            "originY": 0
         },
         {
             "type": "Image",
-            "id": "62861faa-03f5-4327-848a-b027fa8e15b1",
-            "label": "dojo_door",
+            "id": "4f73e5c4-c394-4cf9-97a4-f7d3c2570b81",
+            "label": "waterfall_center",
+            "texture": {
+                "key": "dojoext",
+                "frame": "bg/waterfall/center"
+            },
+            "x": 279,
+            "y": 254,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Sprite",
+            "id": "a613c25a-0508-4cad-89b1-05208b26b4fd",
+            "label": "waterfall_side",
+            "components": [
+                "Animation"
+            ],
+            "Animation.key": "bg/waterfall/side",
+            "Animation.end": 12,
+            "texture": {
+                "key": "dojoext",
+                "frame": "bg/waterfall/side0001"
+            },
+            "x": 258,
+            "y": 254,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Sprite",
+            "id": "696a91c3-6467-4a07-b416-2511adb07c2d",
+            "label": "bg_waterfall_particles0001",
+            "components": [
+                "Animation"
+            ],
+            "Animation.key": "bg/waterfall/particles",
+            "Animation.end": 30,
+            "texture": {
+                "key": "dojoext",
+                "frame": "bg/waterfall/particles0001"
+            },
+            "x": 273,
+            "y": 258,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Sprite",
+            "id": "2b012cd6-4e45-4cc7-88b0-c1d285e43b16",
+            "label": "waterfall_top",
+            "components": [
+                "Animation"
+            ],
+            "Animation.key": "bg/waterfall/top",
+            "Animation.end": 12,
+            "texture": {
+                "key": "dojoext",
+                "frame": "bg/waterfall/top0001"
+            },
+            "x": 267,
+            "y": 258,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Sprite",
+            "id": "043a065d-2754-4a87-acf0-de43362d84ab",
+            "label": "waterfall_middle",
+            "components": [
+                "Animation"
+            ],
+            "Animation.key": "bg/waterfall/middle",
+            "Animation.end": 12,
+            "texture": {
+                "key": "dojoext",
+                "frame": "bg/waterfall/middle0001"
+            },
+            "x": 268,
+            "y": 336,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Sprite",
+            "id": "3bd29770-2baa-4856-94bc-755ab50f372a",
+            "label": "waterfall_gradient",
+            "components": [
+                "Animation"
+            ],
+            "Animation.key": "bg/waterfall/gradient",
+            "Animation.end": 10,
+            "texture": {
+                "key": "dojoext",
+                "frame": "bg/waterfall/gradient0001"
+            },
+            "x": 182,
+            "y": 390,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "5300a6a7-ac1b-40af-83ba-52cc16b9ee05",
+            "label": "mountains1",
+            "texture": {
+                "key": "dojoext",
+                "frame": "bg/mountains1"
+            },
+            "x": -12,
+            "y": 107,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "6332c342-6ed1-44da-bba7-014b6b67152e",
+            "label": "gradient",
+            "texture": {
+                "key": "dojoext",
+                "frame": "bg/gradient"
+            },
+            "x": -8,
+            "y": 32,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "c3b78049-49f9-4162-a45a-6e7b6f9ec077",
+            "label": "hideout",
+            "texture": {
+                "key": "dojoext",
+                "frame": "bg/hideout"
+            },
+            "x": -15,
+            "y": 416,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "ef7d26b2-cd57-4e89-9ffa-195a6e7bf5fa",
+            "label": "secretDoor",
+            "scope": "CLASS",
             "components": [
                 "Button",
                 "MoveTo"
             ],
-            "Button.spriteName": "dojo_door",
+            "Button.spriteName": "secret/door",
+            "Button.hoverCallback": "() => this.onSecretDoorOver()",
+            "Button.hoverOutCallback": "() => this.onSecretDoorOut()",
             "Button.activeFrame": false,
-            "MoveTo.x": 780,
-            "MoveTo.y": 610,
+            "MoveTo.x": "280",
+            "MoveTo.y": "680",
             "texture": {
                 "key": "dojoext",
-                "frame": "dojo_door"
+                "frame": "secret/door"
             },
-            "x": 682,
-            "y": 425,
+            "x": 242,
+            "y": 567,
+            "originX": 0,
+            "originY": 0,
+            "visible": false
+        },
+        {
+            "type": "Image",
+            "id": "dbc644bb-e35b-4825-8841-7678f91eeb0a",
+            "label": "secretDoorLocked",
+            "scope": "CLASS",
+            "components": [
+                "MoveTo",
+                "SimpleButton"
+            ],
+            "MoveTo.x": "280",
+            "MoveTo.y": "680",
+            "SimpleButton.hoverCallback": "() => this.onSecretDoorOver()",
+            "SimpleButton.hoverOutCallback": "() => this.onSecretDoorOut()",
+            "texture": {
+                "key": "dojoext",
+                "frame": "secret/door"
+            },
+            "x": 242,
+            "y": 567,
             "originX": 0,
             "originY": 0
         },
         {
             "type": "Image",
-            "id": "766aeda6-ec13-432e-9022-62e1fed978bc",
-            "label": "ninja_door_locked",
-            "components": [],
+            "id": "c782c2f9-b4bd-48f0-a8a2-ae699c8c6a04",
+            "label": "secretNote",
+            "scope": "CLASS",
+            "components": [
+                "Button"
+            ],
+            "Button.spriteName": "secret/note",
+            "Button.callback": "() => this.onNoteClick()",
+            "Button.activeFrame": false,
             "texture": {
                 "key": "dojoext",
-                "frame": "ninja_door_locked0001"
+                "frame": "secret/note"
             },
-            "x": 221,
-            "y": 562,
+            "x": 254,
+            "y": 591,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Sprite",
+            "id": "707299c7-f534-4b1a-a602-0d6f66a0f96f",
+            "label": "stone",
+            "scope": "CLASS",
+            "texture": {
+                "key": "dojoext",
+                "frame": "secret/stone0001"
+            },
+            "x": 224,
+            "y": 559,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "fdc35513-447b-4a56-a763-13b5f653f531",
+            "label": "dojo",
+            "texture": {
+                "key": "dojoext",
+                "frame": "bg/dojo"
+            },
+            "x": 296,
+            "y": -10,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "3115211a-c6ba-4fd5-b427-0572d5e446ce",
+            "label": "door",
+            "components": [
+                "Button",
+                "MoveTo"
+            ],
+            "Button.spriteName": "door",
+            "Button.activeFrame": false,
+            "MoveTo.x": "780",
+            "MoveTo.y": "600",
+            "texture": {
+                "key": "dojoext",
+                "frame": "door"
+            },
+            "x": 683,
+            "y": 418,
             "originX": 0,
             "originY": 0
         },
@@ -111,29 +348,93 @@
             "type": "Image",
             "id": "7f02aced-c71f-4a6b-9ead-a23366ca6b9b",
             "label": "door_top",
-            "components": [],
             "texture": {
                 "key": "dojoext",
                 "frame": "door_top"
             },
-            "x": 689,
-            "y": 430,
+            "x": 690,
+            "y": 426,
             "originX": 0,
             "originY": 0
         },
         {
             "type": "Image",
-            "id": "8feb5ece-be73-4b2e-a4a4-a92b7c4c7904",
-            "label": "tree",
-            "components": [],
+            "id": "041f53e8-0f05-4c69-9e85-54db7ad19bec",
+            "label": "fg_right",
             "texture": {
                 "key": "dojoext",
-                "frame": "tree"
+                "frame": "fg_right"
             },
-            "x": 311,
-            "y": 577,
+            "x": 1358,
+            "y": 908,
+            "originX": 0.5014492753623189,
+            "originY": 0.8541666666666666
+        },
+        {
+            "type": "Image",
+            "id": "fb8e6c2c-38b7-4664-b631-5e08578db924",
+            "label": "fg_left",
+            "texture": {
+                "key": "dojoext",
+                "frame": "fg_left"
+            },
+            "x": 192,
+            "y": 907,
+            "originX": 0.5012406947890818,
+            "originY": 0.7310924369747899
+        },
+        {
+            "type": "Image",
+            "id": "eba2611d-7682-4bb9-83a9-46df77c546b1",
+            "label": "stairs",
+            "texture": {
+                "key": "dojoext",
+                "frame": "stairs"
+            },
+            "x": 788,
+            "y": 814,
+            "originX": 0.500578034682081,
+            "originY": 0.44755244755244755
+        },
+        {
+            "type": "Image",
+            "id": "a7439e4a-2b7e-442d-af6a-8fef5d649cac",
+            "label": "cards",
+            "scope": "CLASS",
+            "components": [
+                "Button"
+            ],
+            "Button.spriteName": "cards",
+            "Button.callback": "() => this.onCardsClick()",
+            "Button.activeFrame": false,
+            "texture": {
+                "key": "dojoext",
+                "frame": "cards"
+            },
+            "x": 1342,
+            "y": 819,
             "originX": 0,
-            "originY": 0
+            "originY": 0,
+            "visible": false
+        },
+        {
+            "type": "Rectangle",
+            "id": "84c14560-b7b0-497b-b89f-6121a1141671",
+            "label": "secretZone",
+            "scope": "CLASS",
+            "components": [
+                "Zone"
+            ],
+            "Zone.hoverCallback": "() => this.onSecretZoneOver()",
+            "x": 222,
+            "y": 560,
+            "originX": 0,
+            "originY": 0,
+            "alpha": 0.5,
+            "isFilled": true,
+            "fillColor": "#00ff00",
+            "width": 117,
+            "height": 128
         }
     ],
     "plainObjects": [],
@@ -141,16 +442,16 @@
         "app": "Phaser Editor 2D - Scene Editor",
         "url": "https://phasereditor2d.com",
         "contentType": "phasereditor2d.core.scene.SceneContentType",
-        "version": 3
+        "version": 4
     },
     "lists": [
         {
             "id": "09507045-c43d-47ba-bb5e-e528ddec4255",
             "label": "sort",
             "objectIds": [
-                "aafc525d-0832-4870-a550-7e1579477332",
-                "649f80de-aa71-4ec2-9e69-71c0c6d6305e",
-                "0b0f65f9-638b-4650-84a7-b74b3e6c2831"
+                "041f53e8-0f05-4c69-9e85-54db7ad19bec",
+                "fb8e6c2c-38b7-4664-b631-5e08578db924",
+                "eba2611d-7682-4bb9-83a9-46df77c546b1"
             ]
         }
     ]
