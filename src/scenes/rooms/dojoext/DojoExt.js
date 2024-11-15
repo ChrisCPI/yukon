@@ -78,9 +78,9 @@ export default class DojoExt extends RoomScene {
         const waterfall_side = this.add.sprite(258, 254, "dojoext", "bg/waterfall/side0001");
         waterfall_side.setOrigin(0, 0);
 
-        // bg_waterfall_particles0001
-        const bg_waterfall_particles0001 = this.add.sprite(273, 258, "dojoext", "bg/waterfall/particles0001");
-        bg_waterfall_particles0001.setOrigin(0, 0);
+        // waterfall_particles
+        const waterfall_particles = this.add.sprite(273, 258, "dojoext", "bg/waterfall/particles0001");
+        waterfall_particles.setOrigin(0, 0);
 
         // waterfall_top
         const waterfall_top = this.add.sprite(267, 258, "dojoext", "bg/waterfall/top0001");
@@ -172,10 +172,10 @@ export default class DojoExt extends RoomScene {
         waterfall_sideAnimation.key = "bg/waterfall/side";
         waterfall_sideAnimation.end = 12;
 
-        // bg_waterfall_particles0001 (components)
-        const bg_waterfall_particles0001Animation = new Animation(bg_waterfall_particles0001);
-        bg_waterfall_particles0001Animation.key = "bg/waterfall/particles";
-        bg_waterfall_particles0001Animation.end = 30;
+        // waterfall_particles (components)
+        const waterfall_particlesAnimation = new Animation(waterfall_particles);
+        waterfall_particlesAnimation.key = "bg/waterfall/particles";
+        waterfall_particlesAnimation.end = 30;
 
         // waterfall_top (components)
         const waterfall_topAnimation = new Animation(waterfall_top);

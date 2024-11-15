@@ -121,7 +121,7 @@
         {
             "type": "Sprite",
             "id": "696a91c3-6467-4a07-b416-2511adb07c2d",
-            "label": "bg_waterfall_particles0001",
+            "label": "waterfall_particles",
             "components": [
                 "Animation"
             ],

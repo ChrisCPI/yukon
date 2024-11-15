@@ -31,7 +31,7 @@ export default class DojoFire extends RoomScene {
         this.waddle303;
         /** @type {Phaser.GameObjects.Image} */
         this.cards;
-        /** @type {Array<Phaser.GameObjects.Image|Phaser.GameObjects.Sprite|Phaser.GameObjects.Container>} */
+        /** @type {Array<Phaser.GameObjects.Container|Phaser.GameObjects.Image|Phaser.GameObjects.Sprite>} */
         this.sort;
 
 
@@ -63,60 +63,73 @@ export default class DojoFire extends RoomScene {
     _create() {
 
         // bg_distant
-        this.add.image(760, 366, "dojofire", "bg/distant");
+        const bg_distant = this.add.image(-22, -20, "dojofire", "bg/distant");
+        bg_distant.setOrigin(0, 0);
 
         // rectangle
-        const rectangle = this.add.rectangle(760, 670, 1129, 422);
+        const rectangle = this.add.rectangle(196, 459, 1129, 422);
+        rectangle.setOrigin(0, 0);
         rectangle.isFilled = true;
         rectangle.fillColor = 12139776;
 
         // bgFlame1
-        const bgFlame1 = this.add.sprite(133, 262, "dojofire", "bg/flame_10001");
+        const bgFlame1 = this.add.sprite(31, 66, "dojofire", "bg/flame_10001");
+        bgFlame1.setOrigin(0, 0);
 
         // bgFlame2
-        const bgFlame2 = this.add.sprite(1394, 258, "dojofire", "bg/flame_20001");
+        const bgFlame2 = this.add.sprite(1291, 61, "dojofire", "bg/flame_20001");
+        bgFlame2.setOrigin(0, 0);
 
         // volcano
-        this.add.image(762, 508, "dojofire", "bg/volcano");
+        const volcano = this.add.image(-20, 36, "dojofire", "bg/volcano");
+        volcano.setOrigin(0, 0);
 
         // sensei
         const sensei = this.add.sprite(636, 57, "dojofire", "sensei/sensei0001");
         sensei.setOrigin(0, 0);
 
         // flowers
-        this.add.image(907, 222, "dojofire", "flowers");
+        const flowers = this.add.image(868, 175, "dojofire", "flowers");
+        flowers.setOrigin(0, 0);
 
         // cauldronBack
-        const cauldronBack = this.add.image(580.5, 224.5, "dojofire", "cauldron/back");
+        const cauldronBack = this.add.image(581, 224, "dojofire", "cauldron/back");
         cauldronBack.setOrigin(0, 0);
 
         // cauldronOpening
-        const cauldronOpening = this.add.sprite(616, 237, "dojofire", "cauldron/opening0001");
+        const cauldronOpening = this.add.sprite(596, 230, "dojofire", "cauldron/opening0001");
+        cauldronOpening.setOrigin(0, 0);
 
         // cauldronSmoke
-        const cauldronSmoke = this.add.sprite(616, 185, "dojofire", "cauldron/glow0001");
+        const cauldronSmoke = this.add.sprite(599, 121, "dojofire", "cauldron/glow0001");
+        cauldronSmoke.setOrigin(0, 0);
 
         // cauldronParticles
-        const cauldronParticles = this.add.sprite(614, 228, "dojofire", "cauldron/particles0001");
+        const cauldronParticles = this.add.sprite(599, 206, "dojofire", "cauldron/particles0001");
+        cauldronParticles.setOrigin(0, 0);
 
         // cauldronFront
-        const cauldronFront = this.add.image(587.5, 235, "dojofire", "cauldron/front");
+        const cauldronFront = this.add.image(588, 235, "dojofire", "cauldron/front");
         cauldronFront.setOrigin(0, 0);
 
         // zone
-        const zone = this.add.rectangle(758, 177, 240, 240);
+        const zone = this.add.rectangle(638, 57, 240, 240);
+        zone.setOrigin(0, 0);
         zone.alpha = 0.5;
         zone.isFilled = true;
         zone.fillColor = 65280;
 
         // legendPoster
-        const legendPoster = this.add.image(365, 363, "dojofire", "bg/poster_1");
+        const legendPoster = this.add.image(277, 278, "dojofire", "bg/poster_1");
+        legendPoster.setOrigin(0, 0);
 
         // instructionsPoster
-        const instructionsPoster = this.add.image(1152, 368, "dojofire", "bg/poster_2");
+        const instructionsPoster = this.add.image(1064, 282, "dojofire", "bg/poster_2");
+        instructionsPoster.setOrigin(0, 0);
 
         // pipe
-        this.add.image(1154, 354, "dojofire", "bg/pipe");
+        const pipe = this.add.image(1008, 236, "dojofire", "bg/pipe");
+        pipe.setOrigin(0, 0);
 
         // waddle300
         const waddle300 = new Waddle300(this, 475, 526);
@@ -135,71 +148,76 @@ export default class DojoFire extends RoomScene {
         this.add.existing(waddle303);
 
         // stairs
-        const stairs = this.add.image(740, 334.6515315859377, "dojofire", "stairs");
-        stairs.setOrigin(0.5, 0.20289433981862204);
+        const stairs = this.add.image(741, 335, "dojofire", "stairs");
+        stairs.setOrigin(0.5009174311926605, 0.20512820512820512);
 
         // hot_sauce
-        const hot_sauce = this.add.image(225.5, 543.5, "dojofire", "hot_sauce");
-        hot_sauce.setOrigin(0.5, 0.07962776335292525);
+        const hot_sauce = this.add.image(226, 544, "dojofire", "hot_sauce");
+        hot_sauce.setOrigin(0.5084745762711864, 0.08695652173913043);
 
         // flame1
-        const flame1 = this.add.sprite(280, 532.0264281813274, "dojofire", "flame/flame_10001");
-        flame1.setOrigin(0.5, 0.7722114254506196);
+        const flame1 = this.add.sprite(280, 533, "dojofire", "flame/flame_10001");
+        flame1.setOrigin(0.5, 0.776);
 
         // flame2
-        const flame2 = this.add.sprite(564, 449.45225548006766, "dojofire", "flame/flame_20001");
-        flame2.setOrigin(0.5, 0.7756180438405413);
+        const flame2 = this.add.sprite(564, 450, "dojofire", "flame/flame_20001");
+        flame2.setOrigin(0.5, 0.776);
 
         // flame3
-        const flame3 = this.add.sprite(955.5, 449.57471232980333, "dojofire", "flame/flame_30001");
-        flame3.setOrigin(0.5, 0.7725976986384266);
+        const flame3 = this.add.sprite(955, 450, "dojofire", "flame/flame_30001");
+        flame3.setOrigin(0.5, 0.776);
 
         // flame4
         const flame4 = this.add.sprite(1239, 534, "dojofire", "flame/flame_40001");
-        flame4.setOrigin(0.5, 0.7725878820393173);
+        flame4.setOrigin(0.5, 0.776);
 
         // flame5
         const flame5 = this.add.sprite(254, 755, "dojofire", "flame/flame_20001");
-        flame5.setOrigin(0.5, 0.7756180438405413);
+        flame5.setOrigin(0.5, 0.776);
 
         // flame6
         const flame6 = this.add.sprite(540, 847, "dojofire", "flame/flame_30001");
-        flame6.setOrigin(0.5, 0.7725976986384266);
+        flame6.setOrigin(0.5, 0.776);
         flame6.flipX = true;
 
         // flame7
         const flame7 = this.add.sprite(963, 852, "dojofire", "flame/flame_40001");
-        flame7.setOrigin(0.5, 0.7725878820393173);
+        flame7.setOrigin(0.5, 0.776);
 
         // flame8
         const flame8 = this.add.sprite(1271, 750, "dojofire", "flame/flame_10001");
-        flame8.setOrigin(0.5, 0.7722114254506196);
+        flame8.setOrigin(0.5, 0.776);
         flame8.flipX = true;
 
         // foreground
         const foreground = this.add.container(0, 960);
 
         // fgBack
-        const fgBack = this.add.image(762, -228, "dojofire", "fg/back");
+        const fgBack = this.add.image(-20, -476, "dojofire", "fg/back");
+        fgBack.setOrigin(0, 0);
         foreground.add(fgBack);
 
         // lavaLeft
-        const lavaLeft = this.add.sprite(139, -85, "dojofire", "fg/lava_left0001");
+        const lavaLeft = this.add.sprite(-20, -190, "dojofire", "fg/lava_left0001");
+        lavaLeft.setOrigin(0, 0);
         foreground.add(lavaLeft);
 
         // lavaRight
-        const lavaRight = this.add.sprite(1381, -85, "dojofire", "fg/lava_right0001");
+        const lavaRight = this.add.sprite(1222, -190, "dojofire", "fg/lava_right0001");
+        lavaRight.setOrigin(0, 0);
         foreground.add(lavaRight);
 
         // fgFront
-        const fgFront = this.add.image(760, -92, "dojofire", "fg/front");
+        const fgFront = this.add.image(-20, -204, "dojofire", "fg/front");
+        fgFront.setOrigin(0, 0);
         foreground.add(fgFront);
 
         // cards
-        const cards = this.add.image(1421, 875, "dojofire", "cards_button");
+        const cards = this.add.image(1344, 819, "dojofire", "cards_button");
+        cards.setOrigin(0, 0);
 
         // lists
-        const sort = [hot_sauce, flame1, flame2, stairs, flame3, flame4, flame5, flame6, flame7, flame8, foreground];
+        const sort = [foreground, stairs, hot_sauce, flame8, flame7, flame6, flame5, flame4, flame3, flame2, flame1];
 
         // bgFlame1 (components)
         const bgFlame1Animation = new Animation(bgFlame1);
