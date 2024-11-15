@@ -59,23 +59,6 @@
         },
         {
             "type": "Image",
-            "id": "ed31219d-b647-4f3e-8e32-6b3b69fde183",
-            "label": "ref",
-            "texture": {
-                "key": "dojohide",
-                "frame": "ref"
-            },
-            "x": 760,
-            "y": 481,
-            "visible": false,
-            "alpha": 0.5,
-            "alphaTopLeft": 0.5,
-            "alphaTopRight": 0.5,
-            "alphaBottomLeft": 0.5,
-            "alphaBottomRight": 0.5
-        },
-        {
-            "type": "Image",
             "id": "4f167148-9d35-46fd-8a30-fd708b33556d",
             "label": "bg_path_floor",
             "texture": {

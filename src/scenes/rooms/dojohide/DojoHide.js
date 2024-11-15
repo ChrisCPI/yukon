@@ -119,15 +119,6 @@ export default class DojoHide extends RoomScene {
         const bg = this.add.image(-22, -22, "dojohide", "bg/bg");
         bg.setOrigin(0, 0);
 
-        // ref
-        const ref = this.add.image(760, 481, "dojohide", "ref");
-        ref.visible = false;
-        ref.alpha = 0.5;
-        ref.alphaTopLeft = 0.5;
-        ref.alphaTopRight = 0.5;
-        ref.alphaBottomLeft = 0.5;
-        ref.alphaBottomRight = 0.5;
-
         // bg_path_floor
         const bg_path_floor = this.add.image(461.5, 588, "dojohide", "bg/path/floor");
         bg_path_floor.setOrigin(0, 0);
@@ -546,6 +537,10 @@ export default class DojoHide extends RoomScene {
         return this.world.client.inventory.neck.includes(3032)
     }
 
+    get fireDoorFrame() {
+        return parseInt(this.firePathDoor.frame.name.slice(-4))
+    }
+
     create() {
         super.create()
 
@@ -658,9 +653,7 @@ export default class DojoHide extends RoomScene {
     onFireTabletClick() {
         this.resetTabletGlowPosition()
 
-        const frame = parseInt(this.firePathDoor.frame.name.slice(-4))
-
-        if (this.firePathDoor.anims.isPlaying && frame < 127) return
+        if (this.firePathDoor.anims.isPlaying && this.fireDoorFrame < 127) return
 
         this.firePathBack.play('dojohide/firePathBack')
         this.firePathFront.play('dojohide/firePathFront')
@@ -669,19 +662,39 @@ export default class DojoHide extends RoomScene {
         this.firePathDoor.play(this.userHasAmulet ? fireDoorOpen : fireDoorClosed)
     }
 
-    checkFireDoor(anim, frame) {
+    checkFireDoor(anim) {
+        const frame = this.fireDoorFrame
         if (anim.key == fireDoorClosed) {
-            if (frame.index === 25) {
+            if (frame === 25) {
                 this.firePathNote.visible = true
-            } else if (frame.index === 115) {
+            } else if (frame === 115) {
                 this.firePathNote.visible = false
             }
         } else if (anim.key == fireDoorOpen) {
-            if (frame.index === 22) {
+            if (frame === 22) {
                 this.firePathStairs.visible = true
-            } else if (frame.index === 115) {
+            } else if (frame === 115) {
                 this.firePathStairs.visible = false
             }
+        }
+
+        // Sound effects
+        let sound = null
+
+        if (frame === 2) {
+            sound = 'bridgeOpen'
+        } else if (frame === 4 || frame === 8) {
+            sound = 'stoneMove'
+        } else if (frame === 14 || frame === 120) {
+            sound = 'pathOpen'
+        } else if (frame === 17 || frame === 124) {
+            sound = 'splash'
+        } else if ((frame === 28 || frame === 108) && anim.key == fireDoorOpen) {
+            sound = 'tabletRise'
+        }
+
+        if (sound !== null) {
+            this.soundManager.play(`dojohide/${sound}`)
         }
     }
 
