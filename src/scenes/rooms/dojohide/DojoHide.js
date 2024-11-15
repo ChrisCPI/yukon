@@ -612,9 +612,11 @@ export default class DojoHide extends RoomScene {
         this.cards.depth = 1000
     }
 
-    onSnowballComplete(x, y) {
+    onSnowballComplete(ball) {
         for (let bounds of this.gongBounds) {
-            if (bounds.contains(x, y)) {
+            if (bounds.contains(ball.x, ball.y)) {
+                this.hideBall(ball)
+
                 this.hitGong(this.gongBounds.indexOf(bounds) + 1)
             }
         }

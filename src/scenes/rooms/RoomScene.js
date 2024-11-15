@@ -154,8 +154,13 @@ export default class RoomScene extends BaseScene {
         this.interface.main.waddle.updateWaddle(waddle, seat, username)
     }
 
-    onSnowballComplete(x, y) {
+    onSnowballComplete(ball) {
         // To be overridden in derived class
+    }
+
+    hideBall(ball) {
+        ball.visible = false
+        ball.shadow.visible = false
     }
 
     stop() {

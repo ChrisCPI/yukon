@@ -12,7 +12,7 @@ export default class SnowballFactory {
         this.maxHeight = 425
         this.minHeight = 350
 
-        world.events.on('snowballcomplete', (x, y) => world.room.onSnowballComplete(x, y))
+        world.events.on('snowballcomplete', (ball) => world.room.onSnowballComplete(ball))
     }
 
     throwBall(id, x, y) {
@@ -105,7 +105,7 @@ export default class SnowballFactory {
 
         if (ball.active) {
             ball.setTexture('main', 'snowball/ground')
-            this.world.events.emit('snowballcomplete', ball.x, ball.y)
+            this.world.events.emit('snowballcomplete', ball)
         }
     }
 

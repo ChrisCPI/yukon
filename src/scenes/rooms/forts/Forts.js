@@ -191,8 +191,10 @@ export default class Forts extends RoomScene {
         })
     }
 
-    onSnowballComplete(x, y) {
-        if (this.bounds.contains(x, y)) {
+    onSnowballComplete(ball) {
+        if (this.bounds.contains(ball.x, ball.y)) {
+            this.hideBall(ball)
+
             this.tower.__Animation.play()
         }
     }
