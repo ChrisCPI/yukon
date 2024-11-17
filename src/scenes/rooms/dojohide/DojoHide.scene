@@ -39,7 +39,7 @@
                 "key": "dojohide",
                 "frame": "bg/bridgeref0001"
             },
-            "x": 57.5,
+            "x": 57,
             "y": 743,
             "originX": 0,
             "originY": 0
@@ -91,8 +91,8 @@
                 "key": "dojohide",
                 "frame": "bg/path/water-off"
             },
-            "x": 666.5,
-            "y": 610.5,
+            "x": 666,
+            "y": 610,
             "originX": 0,
             "originY": 0
         },
@@ -105,7 +105,7 @@
                 "frame": "bg/path/snow-off"
             },
             "x": 692,
-            "y": 701.5,
+            "y": 701,
             "originX": 0,
             "originY": 0
         },
@@ -312,7 +312,7 @@
                         "key": "dojohide",
                         "frame": "pathFire/back0001"
                     },
-                    "x": -232.5,
+                    "x": -232,
                     "y": -232,
                     "originX": 0,
                     "originY": 0
@@ -332,6 +332,8 @@
                     "Button.activeFrame": false,
                     "MoveTo.x": "290",
                     "MoveTo.y": "630",
+                    "hitArea.shape": "POLYGON",
+                    "hitArea.points": "3.701179911498187 49.02808586190798 227.61577391636774 1.5944647019978788 230.0362246492652 149.24690417582644 94.38602987564835 314.00804002271263 3.6247176389649667 314.00804002271263",
                     "texture": {
                         "key": "dojohide",
                         "frame": "pathFire/stairs"
@@ -365,8 +367,8 @@
                         "key": "dojohide",
                         "frame": "pathFire/front0001"
                     },
-                    "x": -232.5,
-                    "y": -307.5,
+                    "x": -232,
+                    "y": -307,
                     "originX": 0,
                     "originY": 0
                 },
@@ -383,6 +385,8 @@
                     "Button.hoverOutCallback": "() => this.resumeFirePath()",
                     "Button.callback": "() => this.onFireNoteClick()",
                     "Button.activeFrame": false,
+                    "hitArea.shape": "POLYGON",
+                    "hitArea.points": "1.635780211375561 36.95258684911926 40.14860965760295 2.799700359068538 42.32858113569131 139.4112463192714 0.9091230520127738 190.27724747466607",
                     "texture": {
                         "key": "dojohide",
                         "frame": "pathFire/note"
@@ -502,7 +506,7 @@
                 "frame": "gong1/gong0001"
             },
             "x": 62,
-            "y": 161.5,
+            "y": 162,
             "originX": 0,
             "originY": 0
         },
@@ -515,7 +519,7 @@
                 "frame": "gong2/gong0001"
             },
             "x": 319,
-            "y": 98.5,
+            "y": 99,
             "originX": 0,
             "originY": 0
         },
@@ -527,7 +531,7 @@
                 "key": "dojohide",
                 "frame": "gong3/gong0001"
             },
-            "x": 1035.5,
+            "x": 1036,
             "y": 60,
             "originX": 0,
             "originY": 0
@@ -541,7 +545,7 @@
                 "frame": "gong4/gong0001"
             },
             "x": 1279,
-            "y": -21.5,
+            "y": -21,
             "originX": 0,
             "originY": 0
         },
@@ -559,47 +563,6 @@
             "originY": 0.9314775160599572
         },
         {
-            "type": "Image",
-            "id": "766fd870-467d-4717-b28b-db042925d588",
-            "label": "catalog",
-            "scope": "CLASS",
-            "components": [
-                "Button"
-            ],
-            "Button.spriteName": "catalog",
-            "Button.callback": "() => this.onCatalogClick()",
-            "Button.activeFrame": false,
-            "Button.pixelPerfect": true,
-            "texture": {
-                "key": "dojohide",
-                "frame": "catalog"
-            },
-            "x": 1329.5,
-            "y": 687.5,
-            "originX": 0,
-            "originY": 0
-        },
-        {
-            "type": "Image",
-            "id": "87ef1fef-5622-4377-871f-f087925bdf08",
-            "label": "cards",
-            "scope": "CLASS",
-            "components": [
-                "Button"
-            ],
-            "Button.spriteName": "cards",
-            "Button.callback": "() => this.onCardsClick()",
-            "Button.activeFrame": false,
-            "texture": {
-                "key": "dojohide",
-                "frame": "cards"
-            },
-            "x": 1342.5,
-            "y": 818.5,
-            "originX": 0,
-            "originY": 0
-        },
-        {
             "type": "Container",
             "id": "18e84cb2-f43a-4552-93df-37a260f1a2a7",
             "label": "fireTablet",
@@ -614,7 +577,7 @@
                         "key": "dojohide",
                         "frame": "tabletFire/extra1"
                     },
-                    "x": -53.5,
+                    "x": -54,
                     "y": 3,
                     "originX": 0,
                     "originY": 0
@@ -643,7 +606,7 @@
                                 "key": "dojohide",
                                 "frame": "tabletFire/button"
                             },
-                            "x": -51.5,
+                            "x": -51,
                             "y": -79,
                             "originX": 0,
                             "originY": 0
@@ -838,7 +801,7 @@
                 "frame": "bg/decksteps0001"
             },
             "x": 605,
-            "y": 492.5,
+            "y": 493,
             "originX": 0,
             "originY": 0
         },
@@ -905,6 +868,47 @@
             "moveToY": 590,
             "x": 450,
             "y": 577
+        },
+        {
+            "type": "Image",
+            "id": "766fd870-467d-4717-b28b-db042925d588",
+            "label": "catalog",
+            "scope": "CLASS",
+            "components": [
+                "Button"
+            ],
+            "Button.spriteName": "catalog",
+            "Button.callback": "() => this.onCatalogClick()",
+            "Button.activeFrame": false,
+            "Button.pixelPerfect": true,
+            "texture": {
+                "key": "dojohide",
+                "frame": "catalog"
+            },
+            "x": 1330,
+            "y": 688,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "87ef1fef-5622-4377-871f-f087925bdf08",
+            "label": "cards",
+            "scope": "CLASS",
+            "components": [
+                "Button"
+            ],
+            "Button.spriteName": "cards",
+            "Button.callback": "() => this.onCardsClick()",
+            "Button.activeFrame": false,
+            "texture": {
+                "key": "dojohide",
+                "frame": "cards"
+            },
+            "x": 1342,
+            "y": 819,
+            "originX": 0,
+            "originY": 0
         },
         {
             "type": "Rectangle",

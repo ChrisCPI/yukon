@@ -44,10 +44,6 @@ export default class DojoHide extends RoomScene {
         /** @type {Phaser.GameObjects.Image} */
         this.firePathNote;
         /** @type {Phaser.GameObjects.Image} */
-        this.catalog;
-        /** @type {Phaser.GameObjects.Image} */
-        this.cards;
-        /** @type {Phaser.GameObjects.Image} */
         this.tabletButton;
         /** @type {Phaser.GameObjects.Sprite} */
         this.tabletGlow;
@@ -63,6 +59,10 @@ export default class DojoHide extends RoomScene {
         this.waddle201;
         /** @type {Waddle200} */
         this.waddle200;
+        /** @type {Phaser.GameObjects.Image} */
+        this.catalog;
+        /** @type {Phaser.GameObjects.Image} */
+        this.cards;
         /** @type {Phaser.GameObjects.Rectangle} */
         this.gong1Zone;
         /** @type {Phaser.GameObjects.Rectangle} */
@@ -112,7 +112,7 @@ export default class DojoHide extends RoomScene {
         bg_water.setOrigin(0, 0);
 
         // bridgeWater
-        const bridgeWater = this.add.sprite(57.5, 743, "dojohide", "bg/bridgeref0001");
+        const bridgeWater = this.add.sprite(57, 743, "dojohide", "bg/bridgeref0001");
         bridgeWater.setOrigin(0, 0);
 
         // bg
@@ -128,11 +128,11 @@ export default class DojoHide extends RoomScene {
         bg_path_fire_off.setOrigin(0, 0);
 
         // bg_path_water_off
-        const bg_path_water_off = this.add.image(666.5, 610.5, "dojohide", "bg/path/water-off");
+        const bg_path_water_off = this.add.image(666, 610, "dojohide", "bg/path/water-off");
         bg_path_water_off.setOrigin(0, 0);
 
         // bg_path_snow_off
-        const bg_path_snow_off = this.add.image(692, 701.5, "dojohide", "bg/path/snow-off");
+        const bg_path_snow_off = this.add.image(692, 701, "dojohide", "bg/path/snow-off");
         bg_path_snow_off.setOrigin(0, 0);
 
         // door
@@ -195,12 +195,13 @@ export default class DojoHide extends RoomScene {
         const firePath = this.add.container(213, 488);
 
         // firePathBack
-        const firePathBack = this.add.sprite(-232.5, -232, "dojohide", "pathFire/back0001");
+        const firePathBack = this.add.sprite(-232, -232, "dojohide", "pathFire/back0001");
         firePathBack.setOrigin(0, 0);
         firePath.add(firePathBack);
 
         // firePathStairs
         const firePathStairs = this.add.image(-93, -48, "dojohide", "pathFire/stairs");
+        firePathStairs.setInteractive(new Phaser.Geom.Polygon("3.701179911498187 49.02808586190798 227.61577391636774 1.5944647019978788 230.0362246492652 149.24690417582644 94.38602987564835 314.00804002271263 3.6247176389649667 314.00804002271263"), Phaser.Geom.Polygon.Contains);
         firePathStairs.setOrigin(0, 0);
         firePathStairs.visible = false;
         firePath.add(firePathStairs);
@@ -211,12 +212,13 @@ export default class DojoHide extends RoomScene {
         firePath.add(firePathDoor);
 
         // firePathFront
-        const firePathFront = this.add.sprite(-232.5, -307.5, "dojohide", "pathFire/front0001");
+        const firePathFront = this.add.sprite(-232, -307, "dojohide", "pathFire/front0001");
         firePathFront.setOrigin(0, 0);
         firePath.add(firePathFront);
 
         // firePathNote
         const firePathNote = this.add.image(60, 7, "dojohide", "pathFire/note");
+        firePathNote.setInteractive(new Phaser.Geom.Polygon("1.635780211375561 36.95258684911926 40.14860965760295 2.799700359068538 42.32858113569131 139.4112463192714 0.9091230520127738 190.27724747466607"), Phaser.Geom.Polygon.Contains);
         firePathNote.setOrigin(0, 0);
         firePathNote.visible = false;
         firePath.add(firePathNote);
@@ -253,38 +255,30 @@ export default class DojoHide extends RoomScene {
         foliage8.setOrigin(0.5048543689320388, 0.33714285714285713);
 
         // gong1
-        const gong1 = this.add.sprite(62, 161.5, "dojohide", "gong1/gong0001");
+        const gong1 = this.add.sprite(62, 162, "dojohide", "gong1/gong0001");
         gong1.setOrigin(0, 0);
 
         // gong2
-        const gong2 = this.add.sprite(319, 98.5, "dojohide", "gong2/gong0001");
+        const gong2 = this.add.sprite(319, 99, "dojohide", "gong2/gong0001");
         gong2.setOrigin(0, 0);
 
         // gong3
-        const gong3 = this.add.sprite(1035.5, 60, "dojohide", "gong3/gong0001");
+        const gong3 = this.add.sprite(1036, 60, "dojohide", "gong3/gong0001");
         gong3.setOrigin(0, 0);
 
         // gong4
-        const gong4 = this.add.sprite(1279, -21.5, "dojohide", "gong4/gong0001");
+        const gong4 = this.add.sprite(1279, -21, "dojohide", "gong4/gong0001");
         gong4.setOrigin(0, 0);
 
         // store
         const store = this.add.image(768, 425, "dojohide", "store");
         store.setOrigin(0.5008912655971479, 0.9314775160599572);
 
-        // catalog
-        const catalog = this.add.image(1329.5, 687.5, "dojohide", "catalog");
-        catalog.setOrigin(0, 0);
-
-        // cards
-        const cards = this.add.image(1342.5, 818.5, "dojohide", "cards");
-        cards.setOrigin(0, 0);
-
         // fireTablet
         const fireTablet = this.add.container(423, 547);
 
         // tableExtra1
-        const tableExtra1 = this.add.image(-53.5, 3, "dojohide", "tabletFire/extra1");
+        const tableExtra1 = this.add.image(-54, 3, "dojohide", "tabletFire/extra1");
         tableExtra1.setOrigin(0, 0);
         fireTablet.add(tableExtra1);
 
@@ -293,7 +287,7 @@ export default class DojoHide extends RoomScene {
         fireTablet.add(tablet);
 
         // tabletButton
-        const tabletButton = this.add.image(-51.5, -79, "dojohide", "tabletFire/button");
+        const tabletButton = this.add.image(-51, -79, "dojohide", "tabletFire/button");
         tabletButton.setOrigin(0, 0);
         tablet.add(tabletButton);
 
@@ -364,7 +358,7 @@ export default class DojoHide extends RoomScene {
         fireTablet.add(tabletExtra3);
 
         // decksteps
-        const decksteps = this.add.image(605, 492.5, "dojohide", "bg/decksteps0001");
+        const decksteps = this.add.image(605, 493, "dojohide", "bg/decksteps0001");
         decksteps.setOrigin(0, 0);
 
         // waddle203
@@ -382,6 +376,14 @@ export default class DojoHide extends RoomScene {
         // waddle200
         const waddle200 = new Waddle200(this, 450, 577);
         this.add.existing(waddle200);
+
+        // catalog
+        const catalog = this.add.image(1330, 688, "dojohide", "catalog");
+        catalog.setOrigin(0, 0);
+
+        // cards
+        const cards = this.add.image(1342, 819, "dojohide", "cards");
+        cards.setOrigin(0, 0);
 
         // gong1Zone
         const gong1Zone = this.add.rectangle(86, 180, 104, 116);
@@ -442,19 +444,6 @@ export default class DojoHide extends RoomScene {
         firePathNoteButton.callback = () => this.onFireNoteClick();
         firePathNoteButton.activeFrame = false;
 
-        // catalog (components)
-        const catalogButton = new Button(catalog);
-        catalogButton.spriteName = "catalog";
-        catalogButton.callback = () => this.onCatalogClick();
-        catalogButton.activeFrame = false;
-        catalogButton.pixelPerfect = true;
-
-        // cards (components)
-        const cardsButton = new Button(cards);
-        cardsButton.spriteName = "cards";
-        cardsButton.callback = () => this.onCardsClick();
-        cardsButton.activeFrame = false;
-
         // tabletButton (components)
         const tabletButtonButton = new Button(tabletButton);
         tabletButtonButton.spriteName = "tabletFire/button";
@@ -483,6 +472,19 @@ export default class DojoHide extends RoomScene {
         waddle200.moveToX = 460;
         waddle200.moveToY = 590;
 
+        // catalog (components)
+        const catalogButton = new Button(catalog);
+        catalogButton.spriteName = "catalog";
+        catalogButton.callback = () => this.onCatalogClick();
+        catalogButton.activeFrame = false;
+        catalogButton.pixelPerfect = true;
+
+        // cards (components)
+        const cardsButton = new Button(cards);
+        cardsButton.spriteName = "cards";
+        cardsButton.callback = () => this.onCardsClick();
+        cardsButton.activeFrame = false;
+
         // gong1Zone (components)
         const gong1ZoneZone = new Zone(gong1Zone);
         gong1ZoneZone.callback = () => this.hitGong(1);
@@ -505,8 +507,6 @@ export default class DojoHide extends RoomScene {
         this.firePathDoor = firePathDoor;
         this.firePathFront = firePathFront;
         this.firePathNote = firePathNote;
-        this.catalog = catalog;
-        this.cards = cards;
         this.tabletButton = tabletButton;
         this.tabletGlow = tabletGlow;
         this.tablet = tablet;
@@ -515,6 +515,8 @@ export default class DojoHide extends RoomScene {
         this.waddle202 = waddle202;
         this.waddle201 = waddle201;
         this.waddle200 = waddle200;
+        this.catalog = catalog;
+        this.cards = cards;
         this.gong1Zone = gong1Zone;
         this.gong2Zone = gong2Zone;
         this.gong3Zone = gong3Zone;
