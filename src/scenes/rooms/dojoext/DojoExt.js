@@ -4,7 +4,6 @@ import RoomScene from "../RoomScene";
 import Animation from "../../components/Animation";
 import Button from "../../components/Button";
 import MoveTo from "../../components/MoveTo";
-import SimpleButton from "../../components/SimpleButton";
 import Zone from "../../components/Zone";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
@@ -16,8 +15,6 @@ export default class DojoExt extends RoomScene {
 
         /** @type {Phaser.GameObjects.Image} */
         this.secretDoor;
-        /** @type {Phaser.GameObjects.Image} */
-        this.secretDoorLocked;
         /** @type {Phaser.GameObjects.Image} */
         this.secretNote;
         /** @type {Phaser.GameObjects.Sprite} */
@@ -109,11 +106,6 @@ export default class DojoExt extends RoomScene {
         // secretDoor
         const secretDoor = this.add.image(242, 567, "dojoext", "secret/door");
         secretDoor.setOrigin(0, 0);
-        secretDoor.visible = false;
-
-        // secretDoorLocked
-        const secretDoorLocked = this.add.image(242, 567, "dojoext", "secret/door");
-        secretDoorLocked.setOrigin(0, 0);
 
         // secretNote
         const secretNote = this.add.image(254, 591, "dojoext", "secret/note");
@@ -202,14 +194,6 @@ export default class DojoExt extends RoomScene {
         secretDoorMoveTo.x = 280;
         secretDoorMoveTo.y = 680;
 
-        // secretDoorLocked (components)
-        const secretDoorLockedMoveTo = new MoveTo(secretDoorLocked);
-        secretDoorLockedMoveTo.x = 280;
-        secretDoorLockedMoveTo.y = 680;
-        const secretDoorLockedSimpleButton = new SimpleButton(secretDoorLocked);
-        secretDoorLockedSimpleButton.hoverCallback = () => this.onSecretDoorOver();
-        secretDoorLockedSimpleButton.hoverOutCallback = () => this.onSecretDoorOut();
-
         // secretNote (components)
         const secretNoteButton = new Button(secretNote);
         secretNoteButton.spriteName = "secret/note";
@@ -235,7 +219,6 @@ export default class DojoExt extends RoomScene {
         secretZoneZone.hoverCallback = () => this.onSecretZoneOver();
 
         this.secretDoor = secretDoor;
-        this.secretDoorLocked = secretDoorLocked;
         this.secretNote = secretNote;
         this.stone = stone;
         this.cards = cards;
@@ -263,14 +246,20 @@ export default class DojoExt extends RoomScene {
     create() {
         super.create()
 
-        this.secretDoor.visible = this.userIsNinja
-        this.secretDoorLocked.visible = !this.userIsNinja
         this.secretNote.visible = !this.userIsNinja
 
         this.cards.visible = this.userHasDeck
         this.cards.depth = 1000
 
         this.stone.on('animationupdate', this.checkStone, this)
+    }
+
+    update() {
+        const frame = 'secret/door'
+
+        if (!this.userIsNinja && this.secretDoor.frame.name !== frame) {
+            this.secretDoor.setFrame(frame)
+        }
     }
 
     onSecretZoneOver() {

@@ -251,29 +251,6 @@
             "x": 242,
             "y": 567,
             "originX": 0,
-            "originY": 0,
-            "visible": false
-        },
-        {
-            "type": "Image",
-            "id": "dbc644bb-e35b-4825-8841-7678f91eeb0a",
-            "label": "secretDoorLocked",
-            "scope": "CLASS",
-            "components": [
-                "MoveTo",
-                "SimpleButton"
-            ],
-            "MoveTo.x": "280",
-            "MoveTo.y": "680",
-            "SimpleButton.hoverCallback": "() => this.onSecretDoorOver()",
-            "SimpleButton.hoverOutCallback": "() => this.onSecretDoorOut()",
-            "texture": {
-                "key": "dojoext",
-                "frame": "secret/door"
-            },
-            "x": 242,
-            "y": 567,
-            "originX": 0,
             "originY": 0
         },
         {
