@@ -2,6 +2,7 @@
 
 import GameScene from "../GameScene";
 import FireSenseiWidget from "./widget/FireSenseiWidget";
+import SimpleButton from "../../components/SimpleButton";
 import Zone from "../../components/Zone";
 import FireSenseiMenu from "./menu/FireSenseiMenu";
 import FireSenseiMatch from "./match/FireSenseiMatch";
@@ -54,7 +55,8 @@ export default class FireSensei extends GameScene {
         this.add.existing(widget);
 
         // gi
-        const gi = this.add.polygon(313, 621, "-105.99 289.29 -246 271.73 -257.39 217.33 -264.89 216.51 -277.95 142.69 -274.75 91.51 -289.62 75.53 -284.84 3.62 -269.11 -84.71 -241.84 -161.77 -277.12 -181.53 -277.12 -189.05 -269.12 -207.4 -248.89 -233.27 -229.61 -253.96 -197.62 -275.6 -152 -297.24 -110.5 -297.64 -82.21 -289.45 -52.06 -271.96 -14.84 -241.44 29.93 -199.55 106.46 -214.93 126.43 -223.22 143.01 -240.17 146.03 -265.8 184.46 -248.46 208.95 -228.49 226.61 -207.12 237.91 -187.03 209.77 -158.09 229.3 -112.23 260.66 -28.38 280.54 73.12 268.22 91.29 267.67 121.98 248.75 142.89 244.12 209.07 205.24 235.21 156.31 258 83.53 280.77 14.05 290.66");
+        const gi = this.add.polygon(313, 621, "0 0");
+        gi.setInteractive(new Phaser.Geom.Polygon("-105.99 289.29 -246 271.73 -257.39 217.33 -264.89 216.51 -277.95 142.69 -274.75 91.51 -289.62 75.53 -284.84 3.62 -269.11 -84.71 -241.84 -161.77 -277.12 -181.53 -277.12 -189.05 -269.12 -207.4 -248.89 -233.27 -229.61 -253.96 -197.62 -275.6 -152 -297.24 -110.5 -297.64 -82.21 -289.45 -52.06 -271.96 -14.84 -241.44 29.93 -199.55 106.46 -214.93 126.43 -223.22 143.01 -240.17 146.03 -265.8 184.46 -248.46 208.95 -228.49 226.61 -207.12 237.91 -187.03 209.77 -158.09 229.3 -112.23 260.66 -28.38 280.54 73.12 268.22 91.29 267.67 121.98 248.75 142.89 244.12 209.07 205.24 235.21 156.31 258 83.53 280.77 14.05 290.66"), Phaser.Geom.Polygon.Contains);
         gi.setOrigin(0, 0);
         gi.alpha = 0.5;
         gi.fillColor = 65280;
@@ -93,6 +95,12 @@ export default class FireSensei extends GameScene {
 
         // x
         this.add.image(1474, 41, "main", "grey-x");
+
+        // gi (components)
+        const giSimpleButton = new SimpleButton(gi);
+        giSimpleButton.hoverCallback = () => this.onGiOver();
+        giSimpleButton.hoverOutCallback = () => this.onGiOut();
+        giSimpleButton.callback = () => this.onGiClick();
 
         // volcano1 (components)
         const volcano1Zone = new Zone(volcano1);
@@ -135,17 +143,6 @@ export default class FireSensei extends GameScene {
         super.create()
 
         this.match.close()
-
-        this.gi.isButton = true
-        this.gi.setInteractive({
-            cursor: 'pointer',
-            hitArea: new Phaser.Geom.Polygon(this.gi.geom.points),
-            hitAreaCallback: Phaser.Geom.Polygon.Contains
-        })
-
-        this.gi.on('pointerover', () => this.onGiOver())
-        this.gi.on('pointerout', () => this.onGiOut())
-        this.gi.on('pointerup', (pointer) => this.onGiClick(pointer))
 
         this.widget.addBackgroundEvent('pointerover', this.onBackgroundOver, this)
 
@@ -285,11 +282,7 @@ export default class FireSensei extends GameScene {
         this.widget.setGiOut()
     }
 
-    onGiClick(pointer) {
-        if (pointer.button != 0) {
-            return
-        }
-
+    onGiClick() {
         if (!this.menu.isStartMenuActive) {
             return
         }
