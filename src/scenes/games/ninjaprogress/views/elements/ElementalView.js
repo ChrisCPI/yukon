@@ -29,9 +29,9 @@ export default class ElementalView extends BaseContainer {
         this.add(amulet);
 
         // fireGem
-        fireGem.visible = false;
         const fireGem = scene.add.image(315, 29, "ninjaprogress", "amulet/fire");
         fireGem.setOrigin(0.5054945054945055, 0.5);
+        fireGem.visible = false;
         this.add(fireGem);
 
         // fire

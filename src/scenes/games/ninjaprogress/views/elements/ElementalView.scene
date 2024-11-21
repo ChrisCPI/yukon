@@ -58,7 +58,8 @@
                     },
                     "x": 315,
                     "y": 29,
-                    "originX": 0.5054945054945055
+                    "originX": 0.5054945054945055,
+                    "visible": false
                 },
                 {
                     "prefabId": "da880c87-cb03-40f1-a37a-e05953dabc32",
