@@ -41,23 +41,27 @@
                     "list": [
                         {
                             "type": "Image",
-                            "id": "23052fbd-56bf-4af5-a10d-bffa353d0993",
+                            "id": "22cd176b-aa1b-4815-8783-195ac55eb256",
                             "label": "sensei1",
                             "texture": {
                                 "key": "ninjaprogress",
                                 "frame": "fire/sensei1"
-                            }
+                            },
+                            "x": 1,
+                            "originX": 0.5027932960893855,
+                            "originY": 0.5037037037037037
                         },
                         {
                             "type": "Image",
-                            "id": "0628770f-1a1d-4512-8e98-3c02fde9cc36",
+                            "id": "3ece1386-e2a5-4a8b-8740-3694be7d0803",
                             "label": "tablet",
                             "texture": {
                                 "key": "ninjaprogress",
                                 "frame": "fire/tablet"
                             },
                             "x": 470,
-                            "y": 2
+                            "y": 2,
+                            "originX": 0.5050505050505051
                         },
                         {
                             "type": "Text",
@@ -86,7 +90,7 @@
                     "list": [
                         {
                             "type": "Image",
-                            "id": "021e106b-5e8a-48e5-a27b-2f99d103c4b8",
+                            "id": "549699d7-efa5-4e4e-8144-8a01273b4ef2",
                             "label": "ninjaBody",
                             "scope": "CLASS",
                             "texture": {
@@ -94,18 +98,19 @@
                                 "frame": "fire/ninja/body"
                             },
                             "x": -243,
-                            "y": -23
+                            "y": -22
                         },
                         {
                             "type": "Image",
-                            "id": "e3f4f933-7aea-4a3b-96bc-31cda8972727",
+                            "id": "a29f2926-050a-4965-953b-c3c78d8b336b",
                             "label": "ninja",
                             "texture": {
                                 "key": "ninjaprogress",
                                 "frame": "fire/ninja/penguin"
                             },
                             "x": -243,
-                            "y": -14
+                            "y": -13,
+                            "originY": 0.5042735042735043
                         },
                         {
                             "type": "Text",
@@ -143,7 +148,7 @@
                         },
                         {
                             "type": "Image",
-                            "id": "0833b25d-dec7-4039-843c-2823ba8bf2bc",
+                            "id": "903460e5-9f6c-4181-b439-33c82af811bf",
                             "label": "nextItem",
                             "scope": "CLASS",
                             "texture": {
@@ -151,11 +156,12 @@
                                 "frame": "fire/next/1"
                             },
                             "x": 242,
-                            "y": 6
+                            "y": 6,
+                            "originX": 0.5052631578947369
                         },
                         {
                             "type": "Image",
-                            "id": "f4c13c81-8e95-49d1-9bb5-7c349d5308be",
+                            "id": "5e436e51-f057-4906-943a-a76363a2ae12",
                             "label": "ninjaItem3",
                             "scope": "CLASS",
                             "texture": {
@@ -163,25 +169,29 @@
                                 "frame": "fire/ninja/item3"
                             },
                             "x": -235,
-                            "y": -50,
+                            "y": -49,
+                            "originX": 0.5076923076923077,
+                            "originY": 0.5087719298245614,
                             "visible": false
                         },
                         {
                             "type": "Image",
-                            "id": "71213f10-c3b3-49fb-b914-ad9f9a9dbbfb",
+                            "id": "0db7c921-3780-466b-aa33-de3045d59804",
                             "label": "ninjaItem1",
                             "scope": "CLASS",
                             "texture": {
                                 "key": "ninjaprogress",
                                 "frame": "fire/ninja/item1"
                             },
-                            "x": -243,
-                            "y": 32,
+                            "x": -242,
+                            "y": 33,
+                            "originX": 0.5063291139240507,
+                            "originY": 0.5238095238095238,
                             "visible": false
                         },
                         {
                             "type": "Image",
-                            "id": "94168d40-9168-4083-aff4-ffe1df6a798c",
+                            "id": "2b0c255c-57ae-434f-a424-a3757ccc40f2",
                             "label": "ninjaItem2",
                             "scope": "CLASS",
                             "texture": {
@@ -189,31 +199,35 @@
                                 "frame": "fire/ninja/item2"
                             },
                             "x": -243,
-                            "y": -2,
+                            "y": -1,
+                            "originX": 0.5048543689320388,
+                            "originY": 0.5064935064935064,
                             "visible": false
                         },
                         {
                             "type": "Image",
-                            "id": "cc6dd5d4-ebc0-4e89-b343-9fae2a127ec6",
+                            "id": "c0bff306-1d23-41bd-bccb-474e978a0118",
                             "label": "bar",
                             "texture": {
                                 "key": "ninjaprogress",
                                 "frame": "fire/progress/bar"
                             },
-                            "x": 2,
-                            "y": 25
+                            "x": 3,
+                            "y": 25,
+                            "originY": 0.5151515151515151
                         },
                         {
                             "type": "Image",
-                            "id": "babb2782-3695-41c0-8cfc-d98c61b90db3",
+                            "id": "aaccd83a-34d0-4edf-902e-fef918a31694",
                             "label": "progressBar",
                             "scope": "CLASS",
                             "texture": {
                                 "key": "ninjaprogress",
                                 "frame": "fire/progress/1"
                             },
-                            "x": 2,
-                            "y": 25
+                            "x": 3,
+                            "y": 25,
+                            "originX": 0.5015384615384615
                         }
                     ]
                 },
@@ -226,25 +240,27 @@
                     "list": [
                         {
                             "type": "Image",
-                            "id": "bbcc232b-4c39-4fef-8da6-4ea63ed58c4d",
+                            "id": "c06941b0-7d45-4446-81fb-053b03fb3c8c",
                             "label": "sensei2",
                             "texture": {
                                 "key": "ninjaprogress",
                                 "frame": "fire/sensei2"
                             },
                             "x": 238,
-                            "y": 9
+                            "y": 10,
+                            "originY": 0.5042016806722689
                         },
                         {
                             "type": "Image",
-                            "id": "1a01a19a-2b88-48e9-b313-6f4de5714402",
+                            "id": "cfb5c3a0-56f2-49db-96b9-a27e7db5e5cf",
                             "label": "fireNinja1",
                             "texture": {
                                 "key": "ninjaprogress",
                                 "frame": "fire/ninja/complete1"
                             },
                             "x": -250,
-                            "y": -7
+                            "y": -6,
+                            "originY": 0.5034013605442177
                         },
                         {
                             "type": "Text",
@@ -273,14 +289,14 @@
                     "list": [
                         {
                             "type": "Image",
-                            "id": "0829f2bb-0177-477e-b0a1-4da031766594",
+                            "id": "1b8b3ba5-917d-4c53-819e-a0a48d7b5dea",
                             "label": "fireNinja2",
                             "texture": {
                                 "key": "ninjaprogress",
                                 "frame": "fire/ninja/complete2"
                             },
                             "x": -229,
-                            "y": -1
+                            "originY": 0.5036496350364964
                         },
                         {
                             "type": "Text",
@@ -301,14 +317,16 @@
                 },
                 {
                     "type": "Image",
-                    "id": "2b3636e5-127d-43d3-b578-9288e2b706ce",
+                    "id": "7b219f55-f2f5-4208-aaed-bc5e4adc34c1",
                     "label": "title",
                     "texture": {
                         "key": "ninjaprogress",
                         "frame": "fire/title"
                     },
-                    "x": 27.5,
-                    "y": -36.5
+                    "x": 28,
+                    "y": -36,
+                    "originX": 0.5028901734104047,
+                    "originY": 0.5045045045045045
                 }
             ]
         }

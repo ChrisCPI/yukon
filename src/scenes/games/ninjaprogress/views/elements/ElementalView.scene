@@ -37,27 +37,28 @@
                 },
                 {
                     "type": "Image",
-                    "id": "4841dd5e-65c7-4468-940b-f80a42470507",
+                    "id": "bb646bed-dedd-4790-90a9-368ccaf59900",
                     "label": "amulet",
                     "texture": {
                         "key": "ninjaprogress",
                         "frame": "amulet/amulet"
                     },
-                    "x": 373,
-                    "y": -29
+                    "x": 374,
+                    "y": -29,
+                    "originX": 0.5021834061135371
                 },
                 {
                     "type": "Image",
-                    "id": "45f206ed-a8a1-4d44-92c9-7c58d7937c33",
+                    "id": "f87f327a-a75c-42f2-b78f-2dffb1b8b849",
                     "label": "fireGem",
                     "scope": "CLASS",
                     "texture": {
                         "key": "ninjaprogress",
                         "frame": "amulet/fire"
                     },
-                    "x": 314,
+                    "x": 315,
                     "y": 29,
-                    "visible": false
+                    "originX": 0.5054945054945055
                 },
                 {
                     "prefabId": "da880c87-cb03-40f1-a37a-e05953dabc32",

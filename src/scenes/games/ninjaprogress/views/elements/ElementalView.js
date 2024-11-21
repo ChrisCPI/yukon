@@ -24,12 +24,14 @@ export default class ElementalView extends BaseContainer {
         this.add(cardsButton);
 
         // amulet
-        const amulet = scene.add.image(373, -29, "ninjaprogress", "amulet/amulet");
+        const amulet = scene.add.image(374, -29, "ninjaprogress", "amulet/amulet");
+        amulet.setOrigin(0.5021834061135371, 0.5);
         this.add(amulet);
 
         // fireGem
-        const fireGem = scene.add.image(314, 29, "ninjaprogress", "amulet/fire");
         fireGem.visible = false;
+        const fireGem = scene.add.image(315, 29, "ninjaprogress", "amulet/fire");
+        fireGem.setOrigin(0.5054945054945055, 0.5);
         this.add(fireGem);
 
         // fire

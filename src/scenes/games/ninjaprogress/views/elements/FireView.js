@@ -40,11 +40,13 @@ export default class FireView extends BaseContainer {
         this.add(intro);
 
         // sensei1
-        const sensei1 = scene.add.image(0, 0, "ninjaprogress", "fire/sensei1");
+        const sensei1 = scene.add.image(1, 0, "ninjaprogress", "fire/sensei1");
+        sensei1.setOrigin(0.5027932960893855, 0.5037037037037037);
         intro.add(sensei1);
 
         // tablet
         const tablet = scene.add.image(470, 2, "ninjaprogress", "fire/tablet");
+        tablet.setOrigin(0.5050505050505051, 0.5);
         intro.add(tablet);
 
         // introText
@@ -60,11 +62,12 @@ export default class FireView extends BaseContainer {
         this.add(progress);
 
         // ninjaBody
-        const ninjaBody = scene.add.image(-243, -23, "ninjaprogress", "fire/ninja/body");
+        const ninjaBody = scene.add.image(-243, -22, "ninjaprogress", "fire/ninja/body");
         progress.add(ninjaBody);
 
         // ninja
-        const ninja = scene.add.image(-243, -14, "ninjaprogress", "fire/ninja/penguin");
+        const ninja = scene.add.image(-243, -13, "ninjaprogress", "fire/ninja/penguin");
+        ninja.setOrigin(0.5, 0.5042735042735043);
         progress.add(ninja);
 
         // currentText
@@ -83,29 +86,35 @@ export default class FireView extends BaseContainer {
 
         // nextItem
         const nextItem = scene.add.image(242, 6, "ninjaprogress", "fire/next/1");
+        nextItem.setOrigin(0.5052631578947369, 0.5);
         progress.add(nextItem);
 
         // ninjaItem3
-        const ninjaItem3 = scene.add.image(-235, -50, "ninjaprogress", "fire/ninja/item3");
+        const ninjaItem3 = scene.add.image(-235, -49, "ninjaprogress", "fire/ninja/item3");
+        ninjaItem3.setOrigin(0.5076923076923077, 0.5087719298245614);
         ninjaItem3.visible = false;
         progress.add(ninjaItem3);
 
         // ninjaItem1
-        const ninjaItem1 = scene.add.image(-243, 32, "ninjaprogress", "fire/ninja/item1");
+        const ninjaItem1 = scene.add.image(-242, 33, "ninjaprogress", "fire/ninja/item1");
+        ninjaItem1.setOrigin(0.5063291139240507, 0.5238095238095238);
         ninjaItem1.visible = false;
         progress.add(ninjaItem1);
 
         // ninjaItem2
-        const ninjaItem2 = scene.add.image(-243, -2, "ninjaprogress", "fire/ninja/item2");
+        const ninjaItem2 = scene.add.image(-243, -1, "ninjaprogress", "fire/ninja/item2");
+        ninjaItem2.setOrigin(0.5048543689320388, 0.5064935064935064);
         ninjaItem2.visible = false;
         progress.add(ninjaItem2);
 
         // bar
-        const bar = scene.add.image(2, 25, "ninjaprogress", "fire/progress/bar");
+        const bar = scene.add.image(3, 25, "ninjaprogress", "fire/progress/bar");
+        bar.setOrigin(0.5, 0.5151515151515151);
         progress.add(bar);
 
         // progressBar
-        const progressBar = scene.add.image(2, 25, "ninjaprogress", "fire/progress/1");
+        const progressBar = scene.add.image(3, 25, "ninjaprogress", "fire/progress/1");
+        progressBar.setOrigin(0.5015384615384615, 0.5);
         progress.add(progressBar);
 
         // challenge
@@ -114,11 +123,13 @@ export default class FireView extends BaseContainer {
         this.add(challenge);
 
         // sensei2
-        const sensei2 = scene.add.image(238, 9, "ninjaprogress", "fire/sensei2");
+        const sensei2 = scene.add.image(238, 10, "ninjaprogress", "fire/sensei2");
+        sensei2.setOrigin(0.5, 0.5042016806722689);
         challenge.add(sensei2);
 
         // fireNinja1
-        const fireNinja1 = scene.add.image(-250, -7, "ninjaprogress", "fire/ninja/complete1");
+        const fireNinja1 = scene.add.image(-250, -6, "ninjaprogress", "fire/ninja/complete1");
+        fireNinja1.setOrigin(0.5, 0.5034013605442177);
         challenge.add(fireNinja1);
 
         // challengeText
@@ -134,7 +145,8 @@ export default class FireView extends BaseContainer {
         this.add(congratulations);
 
         // fireNinja2
-        const fireNinja2 = scene.add.image(-229, -1, "ninjaprogress", "fire/ninja/complete2");
+        const fireNinja2 = scene.add.image(-229, 0, "ninjaprogress", "fire/ninja/complete2");
+        fireNinja2.setOrigin(0.5, 0.5036496350364964);
         congratulations.add(fireNinja2);
 
         // congratulationsText
@@ -145,7 +157,8 @@ export default class FireView extends BaseContainer {
         congratulations.add(congratulationsText);
 
         // title
-        const title = scene.add.image(27.5, -36.5, "ninjaprogress", "fire/title");
+        const title = scene.add.image(28, -36, "ninjaprogress", "fire/title");
+        title.setOrigin(0.5028901734104047, 0.5045045045045045);
         this.add(title);
 
         this.intro = intro;
@@ -167,7 +180,9 @@ export default class FireView extends BaseContainer {
     /* START-USER-CODE */
 
     show(rank, progress) {
-        this.setRank(rank, progress)
+        this.setVisibleElements(rank, progress)
+
+        this.setRank(rank)
         this.setProgress(progress)
 
         const color = this.world.getColor(this.world.client.penguin.items.flat.color)
@@ -176,8 +191,7 @@ export default class FireView extends BaseContainer {
         super.show()
     }
 
-    setRank(rank, progress) {
-        this.setVisibleElements(rank, progress)
+    setRank(rank) {
         this.setCurrentItems(rank)
         this.setNextItem(rank)
     }
